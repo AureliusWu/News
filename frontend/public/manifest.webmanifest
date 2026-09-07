@@ -1,0 +1,21 @@
+{
+  "name": "Global News",
+  "short_name": "Global News",
+  "start_url": "/",
+  "display": "standalone",
+  "theme_color": "#0b1220",
+  "background_color": "#f7fafc",
+  "description": "Global News skeleton PWA",
+  "icons": [
+    {
+      "src": "/icons/icon-192.png",
+      "type": "image/png",
+      "sizes": "192x192"
+    },
+    {
+      "src": "/icons/icon-512.png",
+      "type": "image/png",
+      "sizes": "512x512"
+    }
+  ]
+}

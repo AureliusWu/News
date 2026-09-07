@@ -1,0 +1,6 @@
+world:
+  - name: Example World Feed
+    type: rss
+    url: https://example.com/world.rss
+    country: WORLD
+    language: en
