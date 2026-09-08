@@ -87,3 +87,13 @@ See `.env.example`.
 ## License
 
 MIT License.
+## GitHub Pages 部署（前端）
+
+- 自动部署工作流：`.github/workflows/deploy-gh-pages.yml`
+- 触发方式：向 `main` 分支推送后自动构建并发布。
+- 部署地址：`https://AureliusWu.github.io/News/`（仓库名为 `News` 时）
+- 若你需要自定义 API 地址，可在仓库设置里新增变量：`VITE_API_BASE_URL`
+
+### 手动触发
+
+- 在 GitHub 仓库页面执行 Actions -> `Deploy Frontend to GitHub Pages` -> `Run workflow`。
