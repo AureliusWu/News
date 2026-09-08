@@ -45,6 +45,7 @@ jobs:
           else
             BASE_PATH="/$REPO_NAME/"
           fi
+          export BASE_PATH
 
           if [[ -z "$VITE_API_BASE_URL" ]]; then
             export VITE_API_BASE_URL="http://localhost:8000"
