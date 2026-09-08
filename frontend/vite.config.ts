@@ -2,7 +2,10 @@ import {defineConfig} from "vite";
 import vue from "@vitejs/plugin-vue";
 import {VitePWA} from "vite-plugin-pwa";
 
+const basePath = process.env.BASE_PATH || "/";
+
 export default defineConfig({
+  base: basePath,
   plugins: [
     vue(),
     VitePWA({
@@ -15,8 +18,8 @@ export default defineConfig({
         theme_color: "#0b1220",
         background_color: "#f7fafc",
         display: "standalone",
-        start_url: "/",
-        scope: "/",
+        start_url: `${basePath}`,
+        scope: `${basePath}`,
         icons: [
           {
             src: "/icons/icon-192.png",

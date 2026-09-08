@@ -1,4 +1,9 @@
-const API_BASE_URL = import.meta.env.VITE_API_BASE_URL ?? "http://localhost:8000";
+const configuredApiBaseUrl = import.meta.env.VITE_API_BASE_URL?.trim();
+const API_BASE_URL = configuredApiBaseUrl
+  ? configuredApiBaseUrl
+  : typeof window !== "undefined" && window.location.protocol === "https:"
+    ? window.location.origin
+    : "http://localhost:8000";
 
 export interface HealthInfo {
   status: string;
@@ -10,7 +15,8 @@ export interface HealthInfo {
 }
 
 export async function getHealth(): Promise<HealthInfo> {
-  const res = await fetch(`${API_BASE_URL}/api/v1/health`);
+  const base = API_BASE_URL.replace(/\/$/, "");
+  const res = await fetch(`${base}/api/v1/health`);
   if (!res.ok) {
     throw new Error(`Health check failed: ${res.status}`);
   }

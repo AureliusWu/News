@@ -12,7 +12,13 @@ const routes: RouteRecordRaw[] = [
     path: "/about",
     name: "about",
     component: AboutView
+  },
+  {
+    path: "/:pathMatch(.*)*",
+    redirect: "/"
   }
 ];
 
 export default routes;
+
+export const routerHistory = createWebHistory(import.meta.env.BASE_URL);
