@@ -3,6 +3,7 @@ import vue from "@vitejs/plugin-vue";
 import {VitePWA} from "vite-plugin-pwa";
 
 const basePath = process.env.BASE_PATH || "/";
+const normalizedBasePath = basePath.endsWith("/") ? basePath : `${basePath}/`;
 
 export default defineConfig({
   base: basePath,
@@ -18,17 +19,17 @@ export default defineConfig({
         theme_color: "#0b1220",
         background_color: "#f7fafc",
         display: "standalone",
-        start_url: `${basePath}`,
-        scope: `${basePath}`,
+        start_url: `${normalizedBasePath}`,
+        scope: `${normalizedBasePath}`,
         icons: [
           {
-            src: "/icons/icon-192.png",
+            src: `${normalizedBasePath}icons/icon-192.png`,
             sizes: "192x192",
             type: "image/png",
             purpose: "any"
           },
           {
-            src: "/icons/icon-512.png",
+            src: `${normalizedBasePath}icons/icon-512.png`,
             sizes: "512x512",
             type: "image/png",
             purpose: "any"
@@ -36,7 +37,7 @@ export default defineConfig({
         ]
       },
       workbox: {
-        navigateFallback: "/index.html",
+        navigateFallback: `${normalizedBasePath}index.html`,
         runtimeCaching: [
           {
             urlPattern: /^https:\/\/.*\/api\/v1\/.+$/i,

@@ -1,9 +1,9 @@
 const configuredApiBaseUrl = import.meta.env.VITE_API_BASE_URL?.trim();
-const API_BASE_URL = configuredApiBaseUrl
-  ? configuredApiBaseUrl
-  : typeof window !== "undefined" && window.location.protocol === "https:"
-    ? window.location.origin
-    : "http://localhost:8000";
+const isHttps = typeof window !== "undefined" && window.location.protocol === "https:";
+const isLocalDefault = configuredApiBaseUrl?.startsWith("http://localhost") || configuredApiBaseUrl?.startsWith("http://127.");
+const API_BASE_URL = isHttps && isLocalDefault
+  ? window.location.origin
+  : configuredApiBaseUrl || (isHttps ? window.location.origin : "http://localhost:8000");
 
 export interface HealthInfo {
   status: string;
