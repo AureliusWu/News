@@ -1,12 +1,12 @@
 FROM node:22-alpine AS build
 WORKDIR /app
 
-COPY package.json package-lock.json* ./
+COPY frontend/package.json frontend/package-lock.json* ./
 RUN npm install
 
-COPY index.html tsconfig.json tsconfig.app.json tsconfig.node.json vite.config.ts tailwind.config.ts postcss.config.cjs ./
-COPY src ./src
-COPY public ./public
+COPY frontend/index.html frontend/tsconfig.json frontend/tsconfig.app.json frontend/tsconfig.node.json frontend/vite.config.ts frontend/tailwind.config.ts frontend/postcss.config.cjs ./
+COPY frontend/src ./src
+COPY frontend/public ./public
 RUN npm run build
 
 FROM nginx:1.27-alpine

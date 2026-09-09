@@ -9,6 +9,8 @@ services:
       POSTGRES_PASSWORD: ${POSTGRES_PASSWORD}
     volumes:
       - pgdata:/var/lib/postgresql/data
+    ports:
+      - "127.0.0.1:5432:5432"
     healthcheck:
       test: ["CMD-SHELL", "pg_isready -U ${POSTGRES_USER} -d ${POSTGRES_DB}"]
       interval: 10s
@@ -19,6 +21,8 @@ services:
     build:
       context: ./backend
     env_file: .env
+    environment:
+      DATABASE_MODE: docker
     depends_on:
       postgres:
         condition: service_healthy
@@ -26,14 +30,15 @@ services:
       - "8000:8000"
     command: uvicorn app.main:app --host ${BACKEND_HOST} --port ${BACKEND_PORT}
     healthcheck:
-      test: ["CMD-SHELL", "python -c 'import urllib.request,sys; import urllib.error; urllib.request.urlopen(\"http://localhost:8000/health\")'" ]
+      test: ["CMD-SHELL", "python -c \"import urllib.request,sys; urllib.request.urlopen('http://127.0.0.1:8000/ready')\""]
       interval: 10s
       retries: 5
       timeout: 5s
 
   frontend:
     build:
-      context: ./frontend
+      context: .
+      dockerfile: frontend/Dockerfile
     depends_on:
       backend:
         condition: service_healthy

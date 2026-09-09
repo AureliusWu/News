@@ -1,6 +1,6 @@
 # Global News
 
-Global News is a V0.1.1 verification-ready skeleton for a global real-time news aggregator PWA.
+Global News is a V0.1.2 runtime recovery version for a global real-time news aggregator PWA.
 
 ## Product snapshot
 
@@ -75,8 +75,12 @@ See `.env.example`.
 ## Roadmap
 
 - V0.1.1 Verification / Stabilization
-  - 版本目标：本地验收完成（后端健康检查、前后端测试、PWA 构建与本机联调）。  
-  - 当前状态：已完成关键命令复现，环境阻断项见 `docs/V0.1.1_VERIFICATION.md`。
+  - 版本目标：本地验收完成（后端健康检查、前后端测试、PWA 构建与本机联调）。
+  - 当前状态：已完成关键命令复现，环境阻断项见 `V0.1.1_VERIFICATION.md`。
+
+- V0.1.2 Recovery & Recovery Verification
+  - 版本目标：完成 Docker、PostgreSQL、Alembic 与 /ready 健康链路恢复验收。
+  - 当前状态：本轮修复完成，等待并保留关键验收结果与交付记录。
 
 - V0.2: integrate Miniflux/RSSHub and real feed sync worker.
 - V0.3: region/category/search capabilities.

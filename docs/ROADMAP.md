@@ -1,8 +1,8 @@
 # Global News Roadmap
 
-- V0.1.1 Verification
-  - 目标：完成 V0.1 骨架的真实运行验收，补齐修复项并输出验收文档。
-  - 当前状态：核心验收完成；PostgreSQL 与容器验证受 Docker 环境缺失阻断。
+- V0.1.2 Recovery / Verification
+  - 目标：完成 Docker/数据库/Alembic/同源 API 与健康检查可复现验收。
+  - 当前状态：本地配置、容器链路与 Smoke 复验进行中；待 Docker 健康链路与数据库链路最终结果确认。
 - V0.1 Skeleton
   - Frontend/Backend/PWA/Postgres 骨架
   - 健康检查与基础文档

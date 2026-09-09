@@ -1,13 +1,38 @@
 const configuredApiBaseUrl = import.meta.env.VITE_API_BASE_URL?.trim();
-const isLocalhost = typeof window !== "undefined" &&
-  (/^localhost$/i.test(window.location.hostname) || /^127\./.test(window.location.hostname));
-const isLocalDefault = configuredApiBaseUrl?.startsWith("http://localhost") || configuredApiBaseUrl?.startsWith("http://127.");
-const hasValidConfiguredApiBaseUrl = Boolean(configuredApiBaseUrl) && !(isLocalDefault && !isLocalhost);
-const API_BASE_URL = hasValidConfiguredApiBaseUrl
-  ? configuredApiBaseUrl
-  : isLocalhost
-    ? "http://localhost:8000"
-    : null;
+const spaBasePath = (import.meta.env.BASE_URL || "/").trim();
+const HEALTH_ROUTE = "api/v1/health";
+
+function normalizeBase(base: string): string {
+  const trimmed = base.trim();
+  if (!trimmed) {
+    return "/";
+  }
+
+  if (trimmed.startsWith("http://") || trimmed.startsWith("https://")) {
+    return trimmed.replace(/\/+$/, "");
+  }
+
+  if (trimmed.startsWith("/")) {
+    return trimmed === "/" ? "/" : trimmed.replace(/\/+$/, "");
+  }
+
+  return `/${trimmed.replace(/\/+$/, "")}`;
+}
+
+function joinPath(base: string, path: string): string {
+  if (base === "/") {
+    return `/${path}`;
+  }
+
+  return `${base}/${path}`;
+}
+
+export function resolveHealthEndpoint(): string {
+  const base = normalizeBase(configuredApiBaseUrl || spaBasePath);
+  return joinPath(base, HEALTH_ROUTE);
+}
+
+const API_ENDPOINT = resolveHealthEndpoint();
 
 export interface HealthInfo {
   status: string;
@@ -19,14 +44,7 @@ export interface HealthInfo {
 }
 
 export async function getHealth(): Promise<HealthInfo> {
-  if (!API_BASE_URL) {
-    throw new Error(
-      "Backend API base URL is not configured. Set VITE_API_BASE_URL to your backend endpoint."
-    );
-  }
-
-  const base = API_BASE_URL.replace(/\/$/, "");
-  const res = await fetch(`${base}/api/v1/health`);
+  const res = await fetch(API_ENDPOINT);
   if (!res.ok) {
     throw new Error(`Health check failed: ${res.status}`);
   }
