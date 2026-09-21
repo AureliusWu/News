@@ -1,4 +1,6 @@
 import './snapshot.css';
+import {ui} from '../locales/zh-CN';
+import {formatDateTime} from '../utils/time';
 
 type Source = {
   id: number; slug: string; name: string; publisher: string; homepage: string;
@@ -148,7 +150,7 @@ export function createSnapshotFetch(nativeFetch: typeof fetch, options: Options)
           }
         } catch { /* Expired or invalid cached data is not displayed. */ }
         if (!fallback) {
-          options.onState?.({ error: 'News snapshot unavailable. Please retry when online.' });
+          options.onState?.({ error: ui.snapshot.unavailable });
           throw error;
         }
         memory = { snapshot: fallback, cached: true, checkedAt: now() };
@@ -175,9 +177,9 @@ export function installSnapshotTransport(basePath: string): void {
   const banner = document.createElement('aside');
   banner.className = 'snapshot-banner'; banner.setAttribute('role', 'status'); banner.setAttribute('aria-live', 'polite');
   const status = document.createElement('span');
-  status.textContent = 'Snapshot edition: loading published news. No live backend is used.';
+  status.textContent = ui.snapshot.loading;
   const refresh = document.createElement('button');
-  refresh.type = 'button'; refresh.textContent = 'Refresh snapshot';
+  refresh.type = 'button'; refresh.textContent = ui.snapshot.refresh;
   refresh.addEventListener('click', () => window.location.reload());
   banner.append(status, refresh); document.body.insertBefore(banner, document.getElementById('app'));
   let last: Loaded | { error: string } | undefined;
@@ -187,7 +189,10 @@ export function installSnapshotTransport(basePath: string): void {
     const { snapshot, cached } = last;
     const stale = cached || Date.now() - Date.parse(snapshot.generated_at) > 2 * 3600000;
     banner.dataset.stale = String(stale);
-    status.textContent = `${cached ? 'Offline/cached snapshot' : stale ? 'Delayed snapshot' : 'Snapshot edition'} | Updated ${new Date(snapshot.generated_at).toLocaleString()} | ${snapshot.health.healthy}/${snapshot.health.configured} sources | Scheduled about every 30 min, not live; delays possible.`;
+    status.textContent = ui.snapshot.summary(
+      cached ? ui.snapshot.cached : stale ? ui.snapshot.delayed : ui.snapshot.normal,
+      formatDateTime(snapshot.generated_at), snapshot.health.healthy, snapshot.health.configured
+    );
   };
   let storage: CacheStorage | undefined;
   try { storage = window.caches; } catch { /* Private browsing can deny storage. */ }

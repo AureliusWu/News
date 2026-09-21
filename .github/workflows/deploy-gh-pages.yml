@@ -91,6 +91,7 @@ jobs:
           NODE
           fi
           npm run build -- --base "$BASE_PATH"
+          node ../scripts/verify-pwa-build.mjs dist "$BASE_PATH"
           cp dist/index.html dist/404.html
       - name: Upload source-health evidence
         if: always() && env.PAGES_DATA_MODE == 'snapshot'

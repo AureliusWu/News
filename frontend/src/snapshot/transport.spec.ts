@@ -71,7 +71,9 @@ describe('snapshot transport isolation', () => {
     expect(response.headers.get('X-Cache-Stale')).toBe('true'); expect(onState.mock.calls[0][0].cached).toBe(true);
   });
   it('does not fabricate empty news when offline without a cache', async () => {
-    const adapted = createSnapshotFetch(vi.fn(async () => { throw new Error('offline'); }), options);
+    const onState = vi.fn();
+    const adapted = createSnapshotFetch(vi.fn(async () => { throw new Error('offline'); }), { ...options, onState });
     await expect(adapted('/api/v1/news')).rejects.toThrow('offline');
+    expect(onState).toHaveBeenCalledWith({ error: '新闻快照暂不可用，请检查网络或稍后重试。' });
   });
 });

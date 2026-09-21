@@ -11,17 +11,18 @@ export default defineConfig({
       registerType: "autoUpdate",
       includeAssets: ["favicon.svg", "robots.txt"],
       manifest: {
-        name: "Global News", short_name: "Global News",
-        description: "Recent reporting from publishers around the world.",
+        name: "全球新闻 | Global News", short_name: "全球新闻", lang: "zh-CN",
+        description: "汇集全球媒体报道，保留原文与来源，支持地区、语言和关键词筛选。",
         theme_color: "#143443", background_color: "#f4f8fb",
-        display: "standalone", start_url: basePath, scope: basePath,
+        display: "standalone", start_url: "./", scope: "./",
         icons: [
-          {src: basePath + "icons/icon-192.png", sizes: "192x192", type: "image/png", purpose: "any"},
-          {src: basePath + "icons/icon-512.png", sizes: "512x512", type: "image/png", purpose: "any"}
+          {src: "icons/icon-192.png", sizes: "192x192", type: "image/png", purpose: "any"},
+          {src: "icons/icon-512.png", sizes: "512x512", type: "image/png", purpose: "any"}
         ]
       },
       workbox: {
-        navigateFallback: basePath + "index.html",
+        // Resolve against the service worker URL, including a CLI --base override.
+        navigateFallback: "index.html",
         navigateFallbackDenylist: [/\/api\//],
         cleanupOutdatedCaches: true,
         runtimeCaching: [

@@ -1,6 +1,7 @@
 import {onBeforeUnmount, reactive, ref, watch} from "vue";
 import {getNews} from "../api/client";
 import type {NewsArticle, NewsFilters} from "../types/news";
+import {ui} from "../locales/zh-CN";
 
 export function useNews() {
   const filters = reactive<NewsFilters>({region: "", category: "", language: "", source: "", q: ""});
@@ -37,7 +38,7 @@ export function useNews() {
       hasMore.value = result.page.has_more;
       stale.value = result.stale;
     } catch {
-      if (current === generation) error.value = "News could not be loaded. Please try again.";
+      if (current === generation) error.value = ui.errors.loadNews;
     } finally {
       if (current === generation) loading.value = false;
     }

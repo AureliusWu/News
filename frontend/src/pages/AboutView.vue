@@ -1,11 +1,19 @@
+<script setup lang="ts">
+import {ui} from "../locales/zh-CN";
+const snapshotMode = import.meta.env.VITE_NEWS_MODE === "snapshot";
+</script>
+
 <template>
   <section class="about-page">
-    <p class="eyebrow">Global News / V0.2.0</p>
-    <h1>A wider view of the world.</h1>
-    <p>Read recent reporting from international publishers in one chronological feed. Browse by region, topic, language or source, then follow a headline to its original publisher.</p>
-    <h2>From the source</h2>
-    <p>Stories come from publishers' RSS feeds. Headlines, publication times and short excerpts are shown with attribution. Excerpts are feed text, not AI-generated summaries. All reporting and images belong to their respective publishers.</p>
-    <h2>When you're offline</h2>
-    <p>Recently visited news can remain available with an offline notice. Cached stories may be out of date. Reading a publisher's full article requires a connection and may require a subscription.</p>
+    <p class="eyebrow">{{ ui.brand.full }} / V0.2.0</p>
+    <h1>{{ ui.about.title }}</h1>
+    <p>{{ ui.about.introduction }}</p>
+    <h2>{{ ui.about.sourcesTitle }}</h2>
+    <p>{{ ui.about.sources }}</p>
+    <h2>{{ ui.about.updatesTitle }}</h2>
+    <p>{{ snapshotMode ? ui.about.snapshotUpdates : ui.about.apiUpdates }}</p>
+    <p>{{ ui.about.timestamps }}</p>
+    <h2>{{ ui.about.offlineTitle }}</h2>
+    <p>{{ ui.about.offline }}</p>
   </section>
 </template>

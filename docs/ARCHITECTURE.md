@@ -64,3 +64,15 @@ identity and exclusive lifecycle locking were added. The expanded stop/recovery
 fault-injection batch was blocked before execution, so complete lifecycle
 acceptance remains open. The native service topology and storage isolation did
 not change. Current evidence is in V0.2_HANDOFF.md.
+
+### V0.2 UI localization: Simplified Chinese
+
+The user-approved UI defaults to zh-CN without a language switch or new dependency.
+Shared copy and display-label mappings live in `frontend/src/locales/zh-CN.ts`.
+Only presentation is localized: publisher names, article titles/excerpts, API
+paths, source IDs, filter values, and original timestamp fields stay unchanged.
+Complete timestamps use the browser's local timezone and show the timezone.
+Snapshot banners distinguish generation time, cached content, delayed updates,
+and healthy/configured source counts. About text reflects the selected API or
+snapshot build mode. No backend, collection, cache policy, or deployment change
+is implied. See `UI_ZH_CN.md` for scope and pending acceptance work.
