@@ -1,0 +1,12 @@
+.snapshot-banner {
+  display: flex; align-items: center; justify-content: space-between; gap: 12px;
+  padding: 12px max(16px, calc((100vw - 1200px) / 2));
+  background: #e8f0ed; color: #23493c; border-bottom: 1px solid #c8d9d1;
+  font-size: 12px; line-height: 1.6; overflow-wrap: anywhere;
+}
+.snapshot-banner[data-stale='true'] { background: #fff0cd; color: #70491c; border-color: #e8d09e; }
+.snapshot-banner button {
+  flex-shrink: 0; color: inherit; background: transparent; border: 1px solid currentColor;
+  border-radius: 5px; padding: 6px 10px; font: inherit; cursor: pointer;
+}
+@media (max-width: 600px) { .snapshot-banner { align-items: flex-start; flex-direction: column; } }

@@ -34,6 +34,15 @@ not the historical verification results of previous versions.
 
 ### 2026-09-21 acceptance and publication boundary
 
+Subsequent user approval adds a free publication mode: GitHub Actions fetches
+configured official feeds and builds gated JSON, served with Vue on Pages.
+`PAGES_DATA_MODE=snapshot` selects a same-origin read-only transport installed
+before Vue mounts; native/API mode is unchanged. No always-on public backend
+or database is claimed. Search/pagination operate on the bounded snapshot.
+`PAGES_DEPLOY_ENABLED` still gates deployment; failed cloud collection keeps
+the previous published version. `FREE_PAGES_DEPLOYMENT.md` supersedes the
+public-backend prerequisite for this explicitly approved snapshot mode only.
+
 The native topology is unchanged. The isolated-fixture proxy regression now has
 16/16 passing lifecycle assertions, including Stop/Start and fault recovery;
 the earlier blocked-batch note is historical. Seven native services, backend
