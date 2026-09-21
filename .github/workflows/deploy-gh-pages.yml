@@ -38,6 +38,7 @@ jobs:
       - name: Build frontend
         env:
           VITE_API_BASE_URL: ${{ vars.VITE_API_BASE_URL }}
+          PAGES_DEPLOY_ENABLED: ${{ vars.PAGES_DEPLOY_ENABLED }}
         run: |
           REPO_NAME="${GITHUB_REPOSITORY#*/}"
           if [[ "$REPO_NAME" == *.github.io ]]; then
@@ -47,10 +48,21 @@ jobs:
           fi
           export BASE_PATH
 
-          if [[ -z "$VITE_API_BASE_URL" ]]; then
-            echo "Missing required repository variable VITE_API_BASE_URL."
-            echo "Please set it to your actual backend base URL, e.g. https://api.example.com"
-            exit 1
+          if [[ "$PAGES_DEPLOY_ENABLED" != "true" ]]; then
+            echo "Pages publication is paused; build only." >> "$GITHUB_STEP_SUMMARY"
+            export VITE_API_BASE_URL=""
+          else
+            node --input-type=module <<'NODE'
+          import { isIP } from 'node:net';
+          const api = new URL(process.env.VITE_API_BASE_URL || '');
+          const host = api.hostname.replace(/^\[|\]$/g, '').toLowerCase();
+          const local = isIP(host) !== 0 || !host.includes('.') ||
+            /(^|\.)(localhost|local|internal|invalid|test|example)$/.test(host) ||
+            /(^|\.)example\.(com|net|org)$/.test(host);
+          if (api.protocol !== 'https:' || local || api.username || api.password || api.search || api.hash) {
+            throw new Error('Pages requires a public HTTPS backend hostname without credentials, query or fragment.');
+          }
+          NODE
           fi
 
           npm run build -- --base "$BASE_PATH"
@@ -63,6 +75,7 @@ jobs:
 
   deploy:
     needs: build
+    if: ${{ vars.PAGES_DEPLOY_ENABLED == 'true' }}
     runs-on: ubuntu-latest
     environment:
       name: github-pages

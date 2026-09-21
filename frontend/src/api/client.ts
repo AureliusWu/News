@@ -1,53 +1,45 @@
-const configuredApiBaseUrl = import.meta.env.VITE_API_BASE_URL?.trim();
-const spaBasePath = (import.meta.env.BASE_URL || "/").trim();
-const HEALTH_ROUTE = "api/v1/health";
+import type {NewsFilters, NewsMeta, NewsPage, NewsSource} from "../types/news";
 
-function normalizeBase(base: string): string {
-  const trimmed = base.trim();
-  if (!trimmed) {
-    return "/";
-  }
-
-  if (trimmed.startsWith("http://") || trimmed.startsWith("https://")) {
-    return trimmed.replace(/\/+$/, "");
-  }
-
-  if (trimmed.startsWith("/")) {
-    return trimmed === "/" ? "/" : trimmed.replace(/\/+$/, "");
-  }
-
-  return `/${trimmed.replace(/\/+$/, "")}`;
+const configuredBase = (import.meta.env.VITE_API_BASE_URL || "").trim().replace(/\/+$/, "");
+export function resolveApiEndpoint(path: string): string {
+  // BASE_URL locates static assets. API origin is a separate deployment setting.
+  return configuredBase + "/api/v1/" + path.replace(/^\/+/, "");
 }
-
-function joinPath(base: string, path: string): string {
-  if (base === "/") {
-    return `/${path}`;
-  }
-
-  return `${base}/${path}`;
-}
-
-export function resolveHealthEndpoint(): string {
-  const base = normalizeBase(configuredApiBaseUrl || spaBasePath);
-  return joinPath(base, HEALTH_ROUTE);
-}
-
-const API_ENDPOINT = resolveHealthEndpoint();
+export const resolveHealthEndpoint = () => resolveApiEndpoint("health");
 
 export interface HealthInfo {
-  status: string;
-  app_name: string;
-  app_version: string;
-  environment: string;
-  database_connected: boolean;
-  checked_at: string;
+  status: string; app_name: string; app_version: string; environment: string;
+  database_connected: boolean; checked_at: string;
 }
 
+async function request(path: string, signal?: AbortSignal): Promise<Response> {
+  const response = await fetch(resolveApiEndpoint(path), {
+    signal: signal ? AbortSignal.any([signal, AbortSignal.timeout(12000)]) : AbortSignal.timeout(12000),
+    headers: {Accept: "application/json"}
+  });
+  if (!response.ok) throw new Error("News service returned HTTP " + response.status);
+  if (!response.headers.get("content-type")?.includes("application/json")) throw new Error("News service returned an invalid response");
+  return response;
+}
 export async function getHealth(): Promise<HealthInfo> {
-  const res = await fetch(API_ENDPOINT);
-  if (!res.ok) {
-    throw new Error(`Health check failed: ${res.status}`);
-  }
-
-  return res.json();
+  return (await request("health")).json();
+}
+export async function getMeta(): Promise<NewsMeta> {
+  return (await request("meta")).json();
+}
+export async function getSources(): Promise<NewsSource[]> {
+  return (await request("sources")).json();
+}
+export async function getNews(filters: NewsFilters, cursor: string | null, signal?: AbortSignal) {
+  const params = new URLSearchParams({limit: "30"});
+  for (const [key, value] of Object.entries(filters)) if (value.trim()) params.set(key, value.trim());
+  if (cursor) params.set("cursor", cursor);
+  const response = await request("news?" + params.toString(), signal);
+  const page = await response.json() as NewsPage;
+  if (!Array.isArray(page.items) || typeof page.has_more !== "boolean" ||
+      (page.has_more && typeof page.next_cursor !== "string")) throw new Error("Invalid news page");
+  const generated = response.headers.get("x-news-generated-at");
+  const stale = response.headers.get("x-news-cache") === "hit" ||
+    (generated !== null && Date.now() - Date.parse(generated) > 120000);
+  return {page, stale};
 }

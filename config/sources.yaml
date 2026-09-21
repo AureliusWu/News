@@ -1,6 +1,495 @@
-world:
-  - name: Example World Feed
-    type: rss
-    url: https://example.com/world.rss
-    country: WORLD
-    language: en
+version: 1
+sources:
+  - id: "bbc-world"
+    name: "BBC World"
+    publisher: "BBC"
+    homepage: "https://www.bbc.com/news"
+    country: "GB"
+    region: "world"
+    language: "en"
+    category: "world"
+    feed_url: "https://feeds.bbci.co.uk/news/world/rss.xml"
+    source_type: "official_rss"
+    enabled: true
+    priority: 10
+
+  - id: "bbc-africa"
+    name: "BBC Africa"
+    publisher: "BBC"
+    homepage: "https://www.bbc.com/news"
+    country: "GB"
+    region: "africa"
+    language: "en"
+    category: "world"
+    feed_url: "https://feeds.bbci.co.uk/news/world/africa/rss.xml"
+    source_type: "official_rss"
+    enabled: true
+    priority: 11
+
+  - id: "bbc-asia"
+    name: "BBC Asia"
+    publisher: "BBC"
+    homepage: "https://www.bbc.com/news"
+    country: "GB"
+    region: "asia"
+    language: "en"
+    category: "world"
+    feed_url: "https://feeds.bbci.co.uk/news/world/asia/rss.xml"
+    source_type: "official_rss"
+    enabled: true
+    priority: 12
+
+  - id: "bbc-europe"
+    name: "BBC Europe"
+    publisher: "BBC"
+    homepage: "https://www.bbc.com/news"
+    country: "GB"
+    region: "europe"
+    language: "en"
+    category: "world"
+    feed_url: "https://feeds.bbci.co.uk/news/world/europe/rss.xml"
+    source_type: "official_rss"
+    enabled: true
+    priority: 13
+
+  - id: "bbc-middle-east"
+    name: "BBC Middle East"
+    publisher: "BBC"
+    homepage: "https://www.bbc.com/news"
+    country: "GB"
+    region: "middle-east"
+    language: "en"
+    category: "world"
+    feed_url: "https://feeds.bbci.co.uk/news/world/middle_east/rss.xml"
+    source_type: "official_rss"
+    enabled: true
+    priority: 14
+
+  - id: "bbc-business"
+    name: "BBC Business"
+    publisher: "BBC"
+    homepage: "https://www.bbc.com/news"
+    country: "GB"
+    region: "world"
+    language: "en"
+    category: "business"
+    feed_url: "https://feeds.bbci.co.uk/news/business/rss.xml"
+    source_type: "official_rss"
+    enabled: true
+    priority: 15
+
+  - id: "bbc-technology"
+    name: "BBC Technology"
+    publisher: "BBC"
+    homepage: "https://www.bbc.com/news"
+    country: "GB"
+    region: "world"
+    language: "en"
+    category: "technology"
+    feed_url: "https://feeds.bbci.co.uk/news/technology/rss.xml"
+    source_type: "official_rss"
+    enabled: true
+    priority: 16
+
+  - id: "bbc-science"
+    name: "BBC Science"
+    publisher: "BBC"
+    homepage: "https://www.bbc.com/news"
+    country: "GB"
+    region: "world"
+    language: "en"
+    category: "science"
+    feed_url: "https://feeds.bbci.co.uk/news/science_and_environment/rss.xml"
+    source_type: "official_rss"
+    enabled: true
+    priority: 17
+
+  - id: "guardian-world"
+    name: "The Guardian World"
+    publisher: "The Guardian"
+    homepage: "https://www.theguardian.com"
+    country: "GB"
+    region: "world"
+    language: "en"
+    category: "world"
+    feed_url: "https://www.theguardian.com/world/rss"
+    source_type: "official_rss"
+    enabled: true
+    priority: 18
+
+  - id: "guardian-business"
+    name: "The Guardian Business"
+    publisher: "The Guardian"
+    homepage: "https://www.theguardian.com"
+    country: "GB"
+    region: "world"
+    language: "en"
+    category: "business"
+    feed_url: "https://www.theguardian.com/business/rss"
+    source_type: "official_rss"
+    enabled: true
+    priority: 19
+
+  - id: "guardian-science"
+    name: "The Guardian Science"
+    publisher: "The Guardian"
+    homepage: "https://www.theguardian.com"
+    country: "GB"
+    region: "world"
+    language: "en"
+    category: "science"
+    feed_url: "https://www.theguardian.com/science/rss"
+    source_type: "official_rss"
+    enabled: true
+    priority: 20
+
+  - id: "dw-world"
+    name: "DW World"
+    publisher: "Deutsche Welle"
+    homepage: "https://www.dw.com"
+    country: "DE"
+    region: "europe"
+    language: "en"
+    category: "world"
+    feed_url: "https://rss.dw.com/rdf/rss-en-world"
+    source_type: "official_rss"
+    enabled: true
+    priority: 21
+
+  - id: "france24-world"
+    name: "France 24 World"
+    publisher: "France 24"
+    homepage: "https://www.france24.com/en/"
+    country: "FR"
+    region: "world"
+    language: "en"
+    category: "world"
+    feed_url: "https://www.france24.com/en/rss"
+    source_type: "official_rss"
+    enabled: true
+    priority: 22
+
+  - id: "france24-africa"
+    name: "France 24 Africa"
+    publisher: "France 24"
+    homepage: "https://www.france24.com/en/"
+    country: "FR"
+    region: "africa"
+    language: "en"
+    category: "world"
+    feed_url: "https://www.france24.com/en/africa/rss"
+    source_type: "official_rss"
+    enabled: true
+    priority: 23
+
+  - id: "euronews"
+    name: "Euronews"
+    publisher: "Euronews"
+    homepage: "https://www.euronews.com"
+    country: "FR"
+    region: "europe"
+    language: "en"
+    category: "world"
+    feed_url: "https://www.euronews.com/rss?level=theme&name=news"
+    source_type: "official_rss"
+    enabled: true
+    priority: 24
+
+  - id: "npr-world"
+    name: "NPR World"
+    publisher: "NPR"
+    homepage: "https://www.npr.org"
+    country: "US"
+    region: "us"
+    language: "en"
+    category: "world"
+    feed_url: "https://feeds.npr.org/1004/rss.xml"
+    source_type: "official_rss"
+    enabled: true
+    priority: 25
+
+  - id: "pbs-headlines"
+    name: "PBS NewsHour"
+    publisher: "PBS"
+    homepage: "https://www.pbs.org/newshour/"
+    country: "US"
+    region: "us"
+    language: "en"
+    category: "world"
+    feed_url: "https://www.pbs.org/newshour/feeds/rss/headlines"
+    source_type: "official_rss"
+    enabled: true
+    priority: 26
+
+  - id: "cbc-world"
+    name: "CBC World"
+    publisher: "CBC"
+    homepage: "https://www.cbc.ca/news"
+    country: "CA"
+    region: "americas"
+    language: "en"
+    category: "world"
+    feed_url: "https://www.cbc.ca/webfeed/rss/rss-world"
+    source_type: "official_rss"
+    enabled: true
+    priority: 27
+
+  - id: "nhk-japan"
+    name: "NHK News"
+    publisher: "NHK"
+    homepage: "https://news.web.nhk/"
+    country: "JP"
+    region: "japan"
+    language: "ja"
+    category: "world"
+    feed_url: "https://news.web.nhk/n-data/conf/na/rss/cat0.xml"
+    source_type: "official_rss"
+    enabled: true
+    priority: 28
+
+  - id: "japan-times"
+    name: "The Japan Times"
+    publisher: "The Japan Times"
+    homepage: "https://www.japantimes.co.jp"
+    country: "JP"
+    region: "japan"
+    language: "en"
+    category: "world"
+    feed_url: "https://www.japantimes.co.jp/feed/"
+    source_type: "official_rss"
+    enabled: true
+    priority: 29
+
+  - id: "cna-asia"
+    name: "CNA Asia"
+    publisher: "CNA"
+    homepage: "https://www.channelnewsasia.com"
+    country: "SG"
+    region: "asia"
+    language: "en"
+    category: "world"
+    feed_url: "https://www.channelnewsasia.com/api/v1/rss-outbound-feed?_format=xml&category=6511"
+    source_type: "official_rss"
+    enabled: true
+    priority: 30
+
+  - id: "aljazeera"
+    name: "Al Jazeera"
+    publisher: "Al Jazeera"
+    homepage: "https://www.aljazeera.com"
+    country: "QA"
+    region: "middle-east"
+    language: "en"
+    category: "world"
+    feed_url: "https://www.aljazeera.com/xml/rss/all.xml"
+    source_type: "official_rss"
+    enabled: true
+    priority: 31
+
+  - id: "abc-australia"
+    name: "ABC Australia"
+    publisher: "ABC Australia"
+    homepage: "https://www.abc.net.au/news"
+    country: "AU"
+    region: "oceania"
+    language: "en"
+    category: "world"
+    feed_url: "https://www.abc.net.au/news/feed/51120/rss.xml"
+    source_type: "official_rss"
+    enabled: true
+    priority: 32
+
+  - id: "rnz-world"
+    name: "RNZ World"
+    publisher: "RNZ"
+    homepage: "https://www.rnz.co.nz"
+    country: "NZ"
+    region: "oceania"
+    language: "en"
+    category: "world"
+    feed_url: "https://www.rnz.co.nz/rss/world.xml"
+    source_type: "official_rss"
+    enabled: true
+    priority: 33
+
+  - id: "ars-technica"
+    name: "Ars Technica"
+    publisher: "Ars Technica"
+    homepage: "https://arstechnica.com"
+    country: "US"
+    region: "us"
+    language: "en"
+    category: "technology"
+    feed_url: "https://feeds.arstechnica.com/arstechnica/index"
+    source_type: "official_rss"
+    enabled: true
+    priority: 34
+
+  - id: "the-verge"
+    name: "The Verge"
+    publisher: "The Verge"
+    homepage: "https://www.theverge.com"
+    country: "US"
+    region: "us"
+    language: "en"
+    category: "technology"
+    feed_url: "https://www.theverge.com/rss/index.xml"
+    source_type: "official_rss"
+    enabled: true
+    priority: 35
+
+  - id: "wired"
+    name: "WIRED"
+    publisher: "WIRED"
+    homepage: "https://www.wired.com"
+    country: "US"
+    region: "us"
+    language: "en"
+    category: "technology"
+    feed_url: "https://www.wired.com/feed/rss"
+    source_type: "official_rss"
+    enabled: true
+    priority: 36
+
+  - id: "nasa"
+    name: "NASA News"
+    publisher: "NASA"
+    homepage: "https://www.nasa.gov"
+    country: "US"
+    region: "world"
+    language: "en"
+    category: "science"
+    feed_url: "https://www.nasa.gov/feed/"
+    source_type: "official_rss"
+    enabled: true
+    priority: 37
+
+  - id: "nature"
+    name: "Nature News"
+    publisher: "Nature"
+    homepage: "https://www.nature.com"
+    country: "GB"
+    region: "world"
+    language: "en"
+    category: "science"
+    feed_url: "https://www.nature.com/nature.rss"
+    source_type: "official_rss"
+    enabled: true
+    priority: 38
+
+  - id: "sciencedaily"
+    name: "ScienceDaily"
+    publisher: "ScienceDaily"
+    homepage: "https://www.sciencedaily.com"
+    country: "US"
+    region: "world"
+    language: "en"
+    category: "science"
+    feed_url: "https://www.sciencedaily.com/rss/all.xml"
+    source_type: "official_rss"
+    enabled: true
+    priority: 39
+
+  - id: "china-daily"
+    name: "China Daily China"
+    publisher: "China Daily"
+    homepage: "https://www.chinadaily.com.cn"
+    country: "CN"
+    region: "china"
+    language: "en"
+    category: "world"
+    feed_url: "https://www.chinadaily.com.cn/rss/china_rss.xml"
+    source_type: "official_rss"
+    enabled: true
+    priority: 40
+
+  - id: "rthk-china"
+    name: "RTHK Greater China"
+    publisher: "RTHK"
+    homepage: "https://news.rthk.hk"
+    country: "HK"
+    region: "china"
+    language: "zh"
+    category: "world"
+    feed_url: "https://rthk.hk/rthk/news/rss/c_expressnews_greaterchina.xml"
+    source_type: "official_rss"
+    enabled: true
+    priority: 41
+
+  - id: "scmp-china"
+    name: "SCMP China"
+    publisher: "South China Morning Post"
+    homepage: "https://www.scmp.com"
+    country: "HK"
+    region: "china"
+    language: "en"
+    category: "world"
+    feed_url: "https://www.scmp.com/rss/4/feed"
+    source_type: "official_rss"
+    enabled: true
+    priority: 42
+
+  - id: "lemonde"
+    name: "Le Monde"
+    publisher: "Le Monde"
+    homepage: "https://www.lemonde.fr"
+    country: "FR"
+    region: "europe"
+    language: "fr"
+    category: "world"
+    feed_url: "https://www.lemonde.fr/rss/une.xml"
+    source_type: "official_rss"
+    enabled: true
+    priority: 43
+
+  - id: "conversation-africa"
+    name: "The Conversation Africa"
+    publisher: "The Conversation"
+    homepage: "https://theconversation.com/africa"
+    country: "ZA"
+    region: "africa"
+    language: "en"
+    category: "world"
+    feed_url: "https://theconversation.com/africa/articles.atom"
+    source_type: "official_rss"
+    enabled: true
+    priority: 44
+
+  - id: "un-news"
+    name: "UN News"
+    publisher: "United Nations"
+    homepage: "https://news.un.org"
+    country: "UN"
+    region: "world"
+    language: "en"
+    category: "world"
+    feed_url: "https://news.un.org/feed/subscribe/en/news/all/rss.xml"
+    source_type: "official_rss"
+    enabled: true
+    priority: 45
+
+  - id: "dw-german"
+    name: "DW German"
+    publisher: "Deutsche Welle"
+    homepage: "https://www.dw.com"
+    country: "DE"
+    region: "europe"
+    language: "de"
+    category: "world"
+    feed_url: "https://rss.dw.com/rdf/rss-de-all"
+    source_type: "official_rss"
+    enabled: true
+    priority: 46
+
+  - id: "nyt-world"
+    name: "New York Times World"
+    publisher: "The New York Times"
+    homepage: "https://www.nytimes.com"
+    country: "US"
+    region: "world"
+    language: "en"
+    category: "world"
+    feed_url: "https://rss.nytimes.com/services/xml/rss/nyt/World.xml"
+    source_type: "official_rss"
+    enabled: true
+    priority: 47

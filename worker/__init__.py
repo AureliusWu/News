@@ -1,0 +1,1 @@
+"""Real-news synchronization commands."""

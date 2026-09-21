@@ -1,49 +1,155 @@
+x-app-env: &app-env
+  APP_VERSION: "0.2.0"
+  DATABASE_MODE: docker
+  DATABASE_URL: ""
+  DATABASE_URL_DOCKER: ""
+  POSTGRES_HOST: postgres
+  POSTGRES_DB: ${POSTGRES_DB:-global_news}
+  POSTGRES_USER: ${POSTGRES_USER:-global_news}
+  POSTGRES_PASSWORD: ${POSTGRES_PASSWORD:?Run scripts/Initialize-Environment.ps1}
+  CORS_ALLOWED_ORIGINS: ${CORS_ALLOWED_ORIGINS:-http://localhost:8080,http://127.0.0.1:8080}
+  MINIFLUX_URL: http://miniflux:8080
+  MINIFLUX_ADMIN_USERNAME: ${MINIFLUX_ADMIN_USERNAME:-admin}
+  MINIFLUX_ADMIN_PASSWORD: ${MINIFLUX_ADMIN_PASSWORD:?Run scripts/Initialize-Environment.ps1}
+  RSSHUB_URL: http://rsshub:1200
+  SOURCE_REGISTRY_PATH: /app/config/sources.yaml
+  NEWS_SYNC_INTERVAL_SECONDS: ${NEWS_SYNC_INTERVAL_SECONDS:-60}
+  NEWS_INITIAL_LOOKBACK_DAYS: ${NEWS_INITIAL_LOOKBACK_DAYS:-5}
+  NEWS_INITIAL_FULL_REFRESH: ${NEWS_INITIAL_FULL_REFRESH:-false}
 services:
   postgres:
     image: postgres:16
     restart: unless-stopped
-    env_file: .env
     environment:
-      POSTGRES_DB: ${POSTGRES_DB}
-      POSTGRES_USER: ${POSTGRES_USER}
-      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD}
+      POSTGRES_DB: ${POSTGRES_DB:-global_news}
+      POSTGRES_USER: ${POSTGRES_USER:-global_news}
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD:?Required}
     volumes:
       - pgdata:/var/lib/postgresql/data
     ports:
       - "127.0.0.1:5432:5432"
     healthcheck:
-      test: ["CMD-SHELL", "pg_isready -U ${POSTGRES_USER} -d ${POSTGRES_DB}"]
+      test: ["CMD-SHELL", "pg_isready -U $$POSTGRES_USER -d $$POSTGRES_DB"]
       interval: 10s
       retries: 5
       timeout: 5s
-
   backend:
+    image: global-news-app:0.2.0
     build:
-      context: ./backend
-    env_file: .env
-    environment:
-      DATABASE_MODE: docker
+      context: .
+      dockerfile: backend/Dockerfile
+    restart: unless-stopped
+    environment: *app-env
     depends_on:
       postgres:
         condition: service_healthy
     ports:
-      - "8000:8000"
-    command: uvicorn app.main:app --host ${BACKEND_HOST} --port ${BACKEND_PORT}
+      - "127.0.0.1:8000:8000"
+    command: ["sh", "-c", "alembic upgrade head && exec uvicorn app.main:app --host 0.0.0.0 --port 8000"]
     healthcheck:
-      test: ["CMD-SHELL", "python -c \"import urllib.request,sys; urllib.request.urlopen('http://127.0.0.1:8000/ready')\""]
+      test: ["CMD", "python", "-c", "import urllib.request; urllib.request.urlopen('http://127.0.0.1:8000/ready', timeout=4)"]
       interval: 10s
-      retries: 5
+      retries: 6
       timeout: 5s
-
+      start_period: 20s
   frontend:
     build:
       context: .
       dockerfile: frontend/Dockerfile
+    restart: unless-stopped
     depends_on:
       backend:
         condition: service_healthy
     ports:
       - "8080:80"
-
+    healthcheck:
+      test: ["CMD", "wget", "-q", "-O", "/dev/null", "http://127.0.0.1/"]
+      interval: 10s
+      retries: 5
+      timeout: 5s
+  miniflux-db:
+    image: postgres:16
+    restart: unless-stopped
+    environment:
+      POSTGRES_DB: miniflux
+      POSTGRES_USER: miniflux
+      POSTGRES_PASSWORD: ${MINIFLUX_DB_PASSWORD:?Run scripts/Initialize-Environment.ps1}
+    volumes:
+      - miniflux_pgdata:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U miniflux -d miniflux"]
+      interval: 10s
+      retries: 5
+      timeout: 5s
+  miniflux:
+    image: miniflux/miniflux:2.3.3
+    restart: unless-stopped
+    depends_on:
+      miniflux-db:
+        condition: service_healthy
+    environment:
+      DATABASE_URL: postgres://miniflux:${MINIFLUX_DB_PASSWORD}@miniflux-db/miniflux?sslmode=disable
+      RUN_MIGRATIONS: "1"
+      CREATE_ADMIN: "1"
+      ADMIN_USERNAME: ${MINIFLUX_ADMIN_USERNAME:-admin}
+      ADMIN_PASSWORD: ${MINIFLUX_ADMIN_PASSWORD}
+      POLLING_SCHEDULER: entry_frequency
+      POLLING_FREQUENCY: "1"
+      SCHEDULER_ENTRY_FREQUENCY_MIN_INTERVAL: "5"
+      SCHEDULER_ENTRY_FREQUENCY_MAX_INTERVAL: "60"
+      BATCH_SIZE: "10"
+      WORKER_POOL_SIZE: "4"
+      HTTP_CLIENT_TIMEOUT: "15"
+      POLLING_PARSING_ERROR_LIMIT: "0"
+      CLEANUP_ARCHIVE_READ_DAYS: "30"
+      CLEANUP_ARCHIVE_UNREAD_DAYS: "30"
+    ports:
+      - "127.0.0.1:8081:8080"
+    healthcheck:
+      test: ["CMD", "/usr/bin/miniflux", "-healthcheck", "auto"]
+      interval: 10s
+      retries: 6
+      timeout: 5s
+      start_period: 20s
+  rsshub:
+    image: diygod/rsshub@sha256:ef15cd1ce4fe50a38282358f9a51f7122bc4f635cd45e9d2440bf5b4b64199f8
+    restart: unless-stopped
+    environment:
+      NODE_ENV: production
+      CACHE_TYPE: memory
+      CACHE_EXPIRE: "600"
+      REQUEST_TIMEOUT: "15000"
+    ports:
+      - "127.0.0.1:1200:1200"
+    healthcheck:
+      test: ["CMD", "node", "-e", "fetch('http://127.0.0.1:1200/healthz').then(r=>process.exit(r.ok?0:1)).catch(()=>process.exit(1))"]
+      interval: 15s
+      retries: 5
+      timeout: 5s
+      start_period: 30s
+  worker:
+    image: global-news-app:0.2.0
+    build:
+      context: .
+      dockerfile: backend/Dockerfile
+    restart: unless-stopped
+    init: true
+    environment: *app-env
+    command: ["python", "-m", "worker.sync_feeds"]
+    depends_on:
+      backend:
+        condition: service_healthy
+      miniflux:
+        condition: service_healthy
+    volumes:
+      - ./config:/app/config:ro
+    stop_grace_period: 30s
+    healthcheck:
+      test: ["CMD", "python", "-c", "import os,time; assert time.time()-os.path.getmtime('/tmp/news-worker-heartbeat') < 90"]
+      interval: 20s
+      retries: 3
+      timeout: 5s
+      start_period: 30s
 volumes:
   pgdata:
+  miniflux_pgdata:
