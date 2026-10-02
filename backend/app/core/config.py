@@ -7,7 +7,7 @@ from pydantic_settings import BaseSettings, SettingsConfigDict
 class Settings(BaseSettings):
     app_env: str = "development"
     app_name: str = "Global News"
-    app_version: str = "0.2.0"
+    app_version: str = "0.9.0-alpha.1"
     app_base_path: str = ""
     postgres_db: str = "global_news"
     postgres_user: str = "global_news"
@@ -27,6 +27,7 @@ class Settings(BaseSettings):
     news_sync_interval_seconds: int = Field(60, ge=30)
     news_initial_lookback_days: int = Field(5, ge=1, le=30)
     news_initial_full_refresh: bool = False
+    native_event_store_path: str | None = None
     news_page_size: int = Field(100, ge=1, le=1000)
     model_config = SettingsConfigDict(env_file=".env", env_file_encoding="utf-8", extra="ignore")
 

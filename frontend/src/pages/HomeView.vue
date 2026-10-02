@@ -1,4 +1,6 @@
 <script setup lang="ts">
+import ReadingToolbar from '../components/ReadingToolbar.vue';
+import {watch as watchReaderQuery} from 'vue';
 import {computed, onBeforeUnmount, onMounted, ref} from "vue";
 import NewsCard from "../components/NewsCard.vue";
 import {useNews} from "../composables/useNews";
@@ -57,9 +59,11 @@ onBeforeUnmount(() => {
   window.removeEventListener("offline", updateConnection);
   document.removeEventListener("visibilitychange", refreshOnFocus);
 });
+watchReaderQuery(() => filters.q, value => { query.value = value; }, {immediate: true});
 </script>
 
 <template>
+  <ReadingToolbar :filters="filters" />
   <section class="timeline" :aria-label="ui.home.timeline">
     <div class="timeline-heading">
       <div><p class="eyebrow">{{ ui.home.eyebrow }}</p><h1>{{ ui.home.title }}</h1></div>

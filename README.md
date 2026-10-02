@@ -1,3 +1,5 @@
+> 当前状态（2026-09-30）：公开站点采用 GitHub Pages + Actions 快照模式，不依赖 Docker 或公网实时 API。当前正在执行 [V1.0 升级计划](docs/V1.0_PLAN.md)，M1 阅读核心回归已通过，本地 M2 候选为 0.4.0-alpha.1，事件人工评估尚未通过，未发布 V1.0。最新进度见 [交接](docs/V1.0_HANDOFF.md)。下文旧版本、部署和验收记录保留为历史材料；当前操作以新计划、契约和运维文档为准。
+
 # Global News
 
 Global News is a V0.1.2 runtime recovery version for a global real-time news aggregator PWA.

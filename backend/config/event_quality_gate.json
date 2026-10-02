@@ -1,0 +1,27 @@
+{
+  "schema_version": 1,
+  "decision_date": "2026-10-01",
+  "approved_by": "user",
+  "evaluation_origin": "ai",
+  "independent_gold": false,
+  "untouched_holdout": false,
+  "matcher_version": "title-summary-v4",
+  "acceptance_status": "ai-evaluation-accepted-with-limitations",
+  "sample_pairs": 240,
+  "scored_pairs": 238,
+  "uncertain_pairs": 2,
+  "true_positive": 15,
+  "false_positive": 0,
+  "false_negative": 15,
+  "true_negative": 208,
+  "precision": 1.0,
+  "recall": 0.5,
+  "frozen_labels_sha256": "3245565e55f999ff2adc43646f3871633e3f2a370b0f6f47e547ea58a9045bc0",
+  "limitations": [
+    "AI labels are not independent human gold labels.",
+    "This sample was reused after tuning and is now a development regression set.",
+    "Precision is measured on only 15 predicted-positive pairs.",
+    "The sample is not representative of the complete news population."
+  ],
+  "formal_release": false
+}

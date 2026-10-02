@@ -1,5 +1,14 @@
 # V0.1 Dependency Research
 
+## V1.0 development additions (2026-09-30)
+
+| Dependency | License | Scope | Reason |
+| --- | --- | --- | --- |
+| @types/node 22.20.4 | MIT | Development only | Supply Node 22 types already required by tsconfig and CI runtime. |
+| vue-tsc 3.3.11 | MIT | Development only | Check Vue templates and component props together with TypeScript; Vite transpilation does not perform this check. |
+
+License and versions checked using the npm registry. Neither adds a production service or paid dependency.
+
 ## Core Dependency Decisions
 
 | Project | GitHub | License | Use in this project | Dependency type | Why |

@@ -1,4 +1,5 @@
 <script setup lang="ts">
+import ReadingActions from './ReadingActions.vue';
 import {ref, watch} from "vue";
 import type {NewsArticle} from "../types/news";
 import {formatDateTime, formatRelativeTime} from "../utils/time";
@@ -25,6 +26,7 @@ watch(() => props.article.image_url, () => { imageFailed.value = false; });
       <p v-if="article.summary" class="news-summary" :lang="article.language">{{ article.summary }}</p>
       <a class="original-link" :href="article.url" target="_blank" rel="noopener noreferrer"
          :aria-label="ui.article.originalLabel(article.title)">{{ ui.article.original }} <span aria-hidden="true">&#8599;</span></a>
+      <ReadingActions :article="article" />
     </div>
     <img v-if="article.image_url && !imageFailed" class="news-image" :src="article.image_url" alt=""
          width="168" height="112" loading="lazy" decoding="async" referrerpolicy="no-referrer"

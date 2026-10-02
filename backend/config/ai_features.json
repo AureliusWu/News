@@ -1,0 +1,14 @@
+{
+  "schema_version": 1,
+  "scope": "content-generation",
+  "enabled": false,
+  "translation_enabled": false,
+  "summary_enabled": false,
+  "disabled_reason": "no-verified-free-quota",
+  "max_cost_usd": 0,
+  "max_requests_per_day": 0,
+  "max_cache_entries": 0,
+  "source_citations_required": true,
+  "original_switch_required": true,
+  "external_content_is_untrusted": true
+}

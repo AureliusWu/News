@@ -1,17 +1,12 @@
 import './snapshot.css';
 import {ui} from '../locales/zh-CN';
 import {formatDateTime} from '../utils/time';
+import type {NewsArticle, NewsSource} from '../types/news';
 
-type Source = {
-  id: number; slug: string; name: string; publisher: string; homepage: string;
-  country: string; region: string; language: string; category: string;
-  source_type: string; health_status: string; enabled: boolean;
-};
-type Article = {
-  id: number; title: string; summary: string; url: string; image_url: string | null;
-  source: Source; region: string; language: string; category: string; published_at: string;
-};
+type Source = NewsSource;
+type Article = NewsArticle;
 export type Snapshot = {
+  snapshot_id?: string; events_file?: string; source_health_file?: string;
   schema_version: number; generated_at: string; content_sha256: string;
   articles: Article[]; sources: Source[];
   meta: {
@@ -53,7 +48,7 @@ export function validateSnapshot(value: unknown, now = Date.now()): Snapshot {
     const published = Date.parse(article.published_at);
     if (!Number.isSafeInteger(article.id) || ids.has(article.id) || urls.has(article.url) ||
         typeof article.title !== 'string' || !article.title.trim() ||
-        typeof article.summary !== 'string' || !validUrl(article.url) ||
+        (article.summary !== null && typeof article.summary !== 'string') || !validUrl(article.url) ||
         (article.image_url !== null && !validUrl(article.image_url)) ||
         !slugs.has(article.source?.slug) || !Number.isFinite(published) ||
         published > now + 3600000) throw new Error('News snapshot contains invalid articles.');
@@ -75,6 +70,7 @@ const decodeCursor = (value: string) => {
 };
 
 export function querySnapshot(snapshot: Snapshot, endpoint: string, params: URLSearchParams, cached = false): Response {
+  if (endpoint === 'snapshot') return json(snapshot, 200, cached);
   if (endpoint === 'meta') return json(snapshot.meta, 200, cached);
   if (endpoint === 'sources') return json(snapshot.sources, 200, cached);
   if (endpoint === 'health') return json({
@@ -92,7 +88,7 @@ export function querySnapshot(snapshot: Snapshot, endpoint: string, params: URLS
     (!filters[1] || article.category === filters[1]) &&
     (!filters[2] || article.language === filters[2]) &&
     (!filters[3] || article.source.slug === filters[3] || String(article.source.id) === filters[3]) &&
-    (!q || `${article.title} ${article.summary}`.toLocaleLowerCase().includes(q)));
+    (!q || `${article.title} ${article.summary || ''}`.toLocaleLowerCase().includes(q)));
   let offset = 0;
   if (params.has('cursor')) {
     try {
@@ -169,11 +165,13 @@ export function createSnapshotFetch(nativeFetch: typeof fetch, options: Options)
     const signal = init?.signal || request?.signal;
     if (signal?.aborted) throw new DOMException('Aborted', 'AbortError');
     const loaded = await abortable(load(), signal);
-    return querySnapshot(loaded.snapshot, url.pathname.slice(prefix.length).replace(/\/$/, ''), url.searchParams, loaded.cached);
+    const response = querySnapshot(loaded.snapshot, url.pathname.slice(prefix.length).replace(/\/$/, ''), url.searchParams, loaded.cached);
+    response.headers.set('X-News-Generated-At', loaded.snapshot.generated_at);
+    return response;
   };
 }
 
-export function installSnapshotTransport(basePath: string): void {
+export function installSnapshotTransport(basePath: string, installGlobalFetch = true): typeof fetch {
   const banner = document.createElement('aside');
   banner.className = 'snapshot-banner'; banner.setAttribute('role', 'status'); banner.setAttribute('aria-live', 'polite');
   const status = document.createElement('span');
@@ -196,8 +194,10 @@ export function installSnapshotTransport(basePath: string): void {
   };
   let storage: CacheStorage | undefined;
   try { storage = window.caches; } catch { /* Private browsing can deny storage. */ }
-  window.fetch = createSnapshotFetch(window.fetch.bind(window), {
+  const scopedFetch = createSnapshotFetch(window.fetch.bind(window), {
     origin: window.location.origin, basePath, storage, onState: value => { last = value; paint(); },
   });
   window.setInterval(paint, 60000);
+  if (installGlobalFetch) window.fetch = scopedFetch;
+  return scopedFetch;
 }

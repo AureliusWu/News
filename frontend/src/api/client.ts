@@ -1,4 +1,5 @@
 import type {NewsFilters, NewsMeta, NewsPage, NewsSource} from "../types/news";
+import {getProvider} from "./providers";
 
 const configuredBase = (import.meta.env.VITE_API_BASE_URL || "").trim().replace(/\/+$/, "");
 export function resolveApiEndpoint(path: string): string {
@@ -13,13 +14,7 @@ export interface HealthInfo {
 }
 
 async function request(path: string, signal?: AbortSignal): Promise<Response> {
-  const response = await fetch(resolveApiEndpoint(path), {
-    signal: signal ? AbortSignal.any([signal, AbortSignal.timeout(12000)]) : AbortSignal.timeout(12000),
-    headers: {Accept: "application/json"}
-  });
-  if (!response.ok) throw new Error("News service returned HTTP " + response.status);
-  if (!response.headers.get("content-type")?.includes("application/json")) throw new Error("News service returned an invalid response");
-  return response;
+  return getProvider().request(path, signal);
 }
 export async function getHealth(): Promise<HealthInfo> {
   return (await request("health")).json();
@@ -39,7 +34,7 @@ export async function getNews(filters: NewsFilters, cursor: string | null, signa
   if (!Array.isArray(page.items) || typeof page.has_more !== "boolean" ||
       (page.has_more && typeof page.next_cursor !== "string")) throw new Error("Invalid news page");
   const generated = response.headers.get("x-news-generated-at");
-  const stale = response.headers.get("x-news-cache") === "hit" ||
-    (generated !== null && Date.now() - Date.parse(generated) > 120000);
+  const stale = response.headers.get("x-news-cache") === "hit" || response.headers.get("x-cache-stale") === "true" ||
+    (generated !== null && Date.now() - Date.parse(generated) > (getProvider().mode === "snapshot" ? 2 * 3600000 : 120000));
   return {page, stale};
 }

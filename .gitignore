@@ -12,3 +12,6 @@ artifacts/
 frontend/dist/
 frontend/node_modules/
 frontend/public/data/
+
+# Generated per build
+frontend/public/release.json

@@ -1,6 +1,7 @@
 <script setup lang="ts">
 import {RouterLink, RouterView} from "vue-router";
 import {ui} from "./locales/zh-CN";
+import packageInfo from "../package.json";
 </script>
 <template>
   <div class="app-shell">
@@ -10,6 +11,6 @@ import {ui} from "./locales/zh-CN";
       <div class="header-links"><span class="edition">{{ ui.navigation.edition }}</span><RouterLink to="/about">{{ ui.navigation.about }}</RouterLink></div>
     </nav></header>
     <main id="main-content" class="main-content"><RouterView /></main>
-    <footer class="site-footer">{{ ui.brand.full }} <span>V0.2.0</span> <span>{{ ui.navigation.copyright }}</span></footer>
+    <footer class="site-footer">{{ ui.brand.full }} <span>V{{ packageInfo.version }}</span> <span>{{ ui.navigation.copyright }}</span></footer>
   </div>
 </template>

@@ -1,8 +1,2 @@
-import { installSnapshotTransport } from './snapshot/transport';
-
-// Install only the explicitly selected publication adapter before Vue mounts.
-// Native/API mode continues using the original client and backend unchanged.
-if (import.meta.env.VITE_NEWS_MODE === 'snapshot') {
-  installSnapshotTransport(import.meta.env.BASE_URL);
-}
+// The client selects an explicit provider; global fetch remains available for assets.
 void import('./main');

@@ -1,0 +1,10 @@
+{
+  "schema_version": 1,
+  "method_version": "recent-publisher-activity-v1",
+  "policy_version": "2026-10-01-v1",
+  "window_hours": 6,
+  "per_publisher_cap": 2,
+  "max_promotion_age_hours": 2,
+  "weights": {"activity": 40, "diversity": 40, "recency": 20},
+  "rules": []
+}

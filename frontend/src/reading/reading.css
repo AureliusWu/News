@@ -1,0 +1,24 @@
+.reading-toolbar,.reading-page{--reader-border:rgba(90,105,110,.3);color:inherit}
+.reading-toolbar{border:1px solid var(--reader-border);padding:16px 20px;margin:0 0 24px;border-radius:8px;background:linear-gradient(110deg,rgba(120,140,130,.06),transparent)}
+.reading-row,.reading-actions{display:flex;align-items:center;gap:12px;flex-wrap:wrap}
+.reading-actions{grid-column:1/-1;padding-top:12px;font-size:.85rem}
+.reading-toolbar button,.reading-page button,.reading-actions button,.reading-toolbar select,.reading-page select,.reading-page input[type=search]{font:inherit;color:inherit;background:transparent;border:1px solid var(--reader-border);border-radius:4px;padding:8px 12px;min-height:44px}
+.reading-actions button[aria-pressed=true]{border-color:currentColor;font-weight:700;text-decoration:underline;text-underline-offset:4px}
+.reading-toolbar a,.reading-page a{text-underline-offset:4px;overflow-wrap:anywhere}
+.reading-toolbar details{margin-top:12px;font-size:.875rem}
+.reading-toolbar summary{cursor:pointer;min-height:32px}
+.reading-toolbar p,.reading-page p{line-height:1.7;overflow-wrap:anywhere}
+.reading-toolbar button:disabled{opacity:.5;cursor:not-allowed}
+.reading-page{max-width:960px;margin:0 auto;padding:24px 0}
+.reading-page h1{margin:20px 0 12px}
+.reading-page h2{font-size:1.2rem;line-height:1.5;margin:8px 0}
+.reading-bookmark{padding:24px 0;border-bottom:1px solid var(--reader-border)}
+.reading-import{display:flex;gap:8px;align-items:center;flex-wrap:wrap;max-width:100%}
+.reading-import input{max-width:100%;font:inherit}
+.reading-source-list{list-style:none;padding:0}
+.reading-source-list li{border-bottom:1px solid var(--reader-border);padding:16px 0}
+html[data-reading-font=large] .news-card h2,html[data-reading-font=large] .reading-bookmark h2{font-size:1.4rem}
+html[data-reading-font=large] .news-card p,html[data-reading-font=large] .reading-bookmark p{font-size:1.1rem}
+html[data-reading-font=larger] .news-card h2,html[data-reading-font=larger] .reading-bookmark h2{font-size:1.6rem}
+html[data-reading-font=larger] .news-card p,html[data-reading-font=larger] .reading-bookmark p{font-size:1.25rem}
+@media(max-width:600px){.reading-toolbar{padding:16px}.reading-row{align-items:flex-start}.reading-page{padding:8px 0}.reading-row input[type=search]{width:100%;min-width:0}.reading-toolbar details p{font-size:.875rem}}

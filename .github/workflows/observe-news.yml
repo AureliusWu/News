@@ -1,0 +1,52 @@
+name: Independent News Freshness Observer
+
+on:
+  workflow_dispatch:
+  schedule:
+    - cron: '8,38 * * * *'
+
+permissions:
+  contents: read
+  actions: read
+
+concurrency:
+  group: news-independent-observer
+  cancel-in-progress: false
+
+jobs:
+  observe:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 5
+    env:
+      GH_TOKEN: ${{ github.token }}
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - name: Restore the last completed observer history, including failed samples
+        run: |
+          mkdir -p artifacts/v1-cloud-observer/incoming
+          run_id=$(gh api "repos/$GITHUB_REPOSITORY/actions/workflows/observe-news.yml/runs?status=completed&branch=main&per_page=5" --jq '.workflow_runs[0].id // empty')
+          if [[ -n "$run_id" ]]; then
+            gh run download "$run_id" --repo "$GITHUB_REPOSITORY" --name news-independent-observations --dir artifacts/v1-cloud-observer
+          fi
+      - name: Directly observe public HTML, snapshot, report and release metadata
+        continue-on-error: true
+        run: node scripts/observe-public.mjs artifacts/v1-cloud-observer/incoming
+      - name: Evaluate real candidate-bound seven-day coverage
+        if: always()
+        run: |
+          node scripts/freshness-gate.mjs --input artifacts/v1-cloud-observer/incoming --history artifacts/v1-cloud-observer/history.json --output artifacts/v1-cloud-observer/report.json --expected-version 0.9.0-alpha.1 --collect-only
+          echo 'Independent HTTP evidence; green job status is not a seven-day gate pass.' >> "$GITHUB_STEP_SUMMARY"
+          cat artifacts/v1-cloud-observer/report.json >> "$GITHUB_STEP_SUMMARY"
+      - name: Save bounded independent history
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: news-independent-observations
+          path: |
+            artifacts/v1-cloud-observer/history.json
+            artifacts/v1-cloud-observer/report.json
+          retention-days: 8
+          if-no-files-found: error

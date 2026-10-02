@@ -11,6 +11,7 @@ import json
 from pathlib import Path
 import re
 import time
+import sys
 from urllib.parse import parse_qsl, urlencode, urljoin, urlsplit, urlunsplit
 
 import feedparser
@@ -19,6 +20,8 @@ from bs4 import BeautifulSoup
 import yaml
 
 UTC = timezone.utc
+sys.path.insert(0, str(Path(__file__).resolve().parents[2] / 'backend'))
+from app.services.event_index import build_event_index, publisher_identity, validate_registry
 MAX_FEED_BYTES = 4 * 1024 * 1024
 TRACKING = {'fbclid', 'gclid', 'mc_cid', 'mc_eid', 'at_medium', 'at_campaign', 'traffic_source'}
 
@@ -62,6 +65,7 @@ def public_source(raw: dict, number: int) -> dict:
         'country': str(raw.get('country') or ''),
         'source_type': str(raw.get('type') or raw.get('source_type') or 'official_rss'),
         'health_status': 'unknown', 'enabled': raw.get('enabled', True) is not False,
+        'publisher_id': publisher_identity(str(raw['publisher'])),
     }
 
 
@@ -214,6 +218,7 @@ def main() -> int:
     parser.add_argument('--sources', default='config/sources.yaml')
     parser.add_argument('--output', default='frontend/public/data')
     parser.add_argument('--report', default='artifacts/pages-source-health.json')
+    parser.add_argument('--state', default='artifacts/event-registry.json')
     args = parser.parse_args()
     raw = yaml.safe_load(Path(args.sources).read_text(encoding='utf-8'))
     definitions = raw['sources'] if isinstance(raw, dict) else raw
@@ -231,6 +236,17 @@ def main() -> int:
     if not report['summary']['gate_pass']:
         print('Publication blocked: retain the previous successfully deployed snapshot.')
         return 1
+    state_path = Path(args.state)
+    previous = validate_registry(json.loads(state_path.read_text(encoding='utf-8'))) if state_path.exists() else None
+    event_index, registry = build_event_index(snapshot['articles'], snapshot['generated_at'], previous)
+    snapshot['content_sha256'] = hashlib.sha256(json.dumps({'articles': snapshot['articles'], 'sources': snapshot['sources']}, sort_keys=True, ensure_ascii=False).encode()).hexdigest()
+    snapshot_id = hashlib.sha256((snapshot['generated_at'] + snapshot['content_sha256']).encode()).hexdigest()[:24]
+    snapshot.update(snapshot_id=snapshot_id, events_file=f'events.{snapshot_id}.json', source_health_file=f'source-health.{snapshot_id}.json')
+    snapshot['meta']['version'] = '0.4.0-alpha.1'
+    event_index.update(snapshot_id=snapshot_id, content_sha256=snapshot['content_sha256'])
+    report['snapshot_id'] = snapshot_id
+    registry['snapshot_id'] = snapshot_id
+    report_path.write_text(json.dumps(report, ensure_ascii=False, indent=2) + '\n', encoding='utf-8')
     payload = json.dumps(snapshot, ensure_ascii=False, separators=(',', ':')).encode('utf-8')
     if len(payload) > 8 * 1024 * 1024:
         raise ValueError('Snapshot exceeds the 8 MiB publication budget')
@@ -239,6 +255,23 @@ def main() -> int:
     temporary = output / 'news.json.tmp'
     temporary.write_bytes(payload)
     temporary.replace(output / 'news.json')
+    (output / f'news.{snapshot_id}.json').write_bytes(payload)
+    (output / snapshot['events_file']).write_text(json.dumps(event_index, ensure_ascii=False, separators=(',', ':')), encoding='utf-8')
+    (output / snapshot['source_health_file']).write_text(json.dumps(report, ensure_ascii=False, separators=(',', ':')), encoding='utf-8')
+    registry_payload = json.dumps(registry, ensure_ascii=False, separators=(',', ':'))
+    if len(registry_payload.encode()) > 4 * 1024 * 1024:
+        raise ValueError('Event registry exceeds 4 MiB; retain the last published generation.')
+    state_path.parent.mkdir(parents=True, exist_ok=True)
+    state_path.write_text(registry_payload, encoding='utf-8')
+    (output / 'event-registry.json').write_text(registry_payload, encoding='utf-8')
+    manifest_path = output / 'generations.json'
+    manifest = json.loads(manifest_path.read_text(encoding='utf-8')) if manifest_path.exists() else {'schema_version': 1, 'generations': []}
+    manifest['generations'] = [snapshot_id] + [g for g in manifest['generations'] if g != snapshot_id][:2]
+    manifest_path.write_text(json.dumps(manifest), encoding='utf-8')
+    for candidate in output.glob('*.json'):
+        match = re.fullmatch(r'(?:news|events|source-health)\.([a-f0-9]{24})\.json', candidate.name)
+        if match and match[1] not in manifest['generations']:
+            candidate.unlink()
     (output / 'source-health.json').write_text(json.dumps(report, ensure_ascii=False, indent=2) + '\n', encoding='utf-8')
     print(f'Published candidate: {len(snapshot["articles"])} articles, {len(payload)} bytes; no full article bodies stored.')
     return 0
