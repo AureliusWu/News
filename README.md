@@ -1,22 +1,25 @@
-> 当前状态（2026-09-30）：公开站点采用 GitHub Pages + Actions 快照模式，不依赖 Docker 或公网实时 API。当前正在执行 [V1.0 升级计划](docs/V1.0_PLAN.md)，M1 阅读核心回归已通过，本地 M2 候选为 0.4.0-alpha.1，事件人工评估尚未通过，未发布 V1.0。最新进度见 [交接](docs/V1.0_HANDOFF.md)。下文旧版本、部署和验收记录保留为历史材料；当前操作以新计划、契约和运维文档为准。
+> 当前状态（2026-10-03）：公开站点采用 GitHub Pages + Actions 定时快照模式，当前候选版本为 `0.9.0-alpha.1`，已部署用于 V1.0 的 M5 观察与验收。事件、趋势、地区/来源筛选和搜索已进入候选；V1.0.0 **尚未正式发布**，七天独立新鲜度观察、完整回滚/前滚、真实设备/PWA 升级与性能门禁仍需关闭。最新事实与恢复顺序以 [V1.0 交接](docs/V1.0_HANDOFF.md) 和 M5 文档为准；下文较早版本记录仅作历史参考。
 
 # Global News
 
-Global News is a V0.1.2 runtime recovery version for a global real-time news aggregator PWA.
+Global News 是一个移动端优先的全球新闻聚合 PWA。当前公开形态以静态应用包 + 定时新闻快照运行，不依赖公网常驻实时 API。
 
 ## Product snapshot
 
-- App name: Global News
-- Mobile-first timeline shell
-- Backend health status integration
-- PostgreSQL and deployment bootstrapping
+- 当前候选：`0.9.0-alpha.1`，非正式 V1.0。
+- 地区、来源筛选与关键词搜索。
+- 新闻事件聚合、事件详情与报道时间线。
+- 趋势/热度能力进入 V1.0 候选。
+- GitHub Actions 定时生成并发布新闻快照。
+- 独立 freshness observer 记录线上数据新鲜度，不以工作流成功代替数据新鲜度。
+- PWA 支持与 GitHub Pages 部署。
 
 ## Tech stack
 
 - Frontend: Vue 3 + TypeScript + Vite + Pinia + Vue Router + Tailwind CSS + vite-plugin-pwa
 - Backend: FastAPI + Pydantic + SQLAlchemy + Alembic + httpx + pytest
-- Database: PostgreSQL
-- Infrastructure: Docker + Docker Compose
+- Database: PostgreSQL / SQLite verification paths
+- Infrastructure: GitHub Pages + Actions snapshots；Docker / Compose 保留用于本地与历史后端路径
 
 ## Quick Start
 
@@ -74,31 +77,22 @@ npm test
 
 See `.env.example`.
 
-## Roadmap
+## V1.0 status
 
-- V0.1.1 Verification / Stabilization
-  - 版本目标：本地验收完成（后端健康检查、前后端测试、PWA 构建与本机联调）。
-  - 当前状态：已完成关键命令复现，环境阻断项见 `V0.1.1_VERIFICATION.md`。
+当前以 `docs/V1.0_HANDOFF.md` 为事实入口。0.9 候选已经进入公开观察阶段，但 V1.0.0 标签和正式发布必须等待剩余 M5 门禁完成。
 
-- V0.1.2 Recovery & Recovery Verification
-  - 版本目标：完成 Docker、PostgreSQL、Alembic 与 /ready 健康链路恢复验收。
-  - 当前状态：本轮修复完成，等待并保留关键验收结果与交付记录。
-
-- V0.2: integrate Miniflux/RSSHub and real feed sync worker.
-- V0.3: region/category/search capabilities.
-- V0.4: story clustering.
-- V0.5: breaking/trending logic.
-- V1.0: AI summary and translation.
+早期 V0.1.x–V0.5 路线、Docker/PostgreSQL 恢复过程和旧验收记录保留在仓库文档中，不再作为当前版本状态来源。
 
 ## License
 
 MIT License.
+
 ## GitHub Pages 部署（前端）
 
 - 自动部署工作流：`.github/workflows/deploy-gh-pages.yml`
-- 触发方式：向 `main` 分支推送后自动构建并发布。
-- 部署地址：`https://AureliusWu.github.io/News/`（仓库名为 `News` 时）
-- 若你需要自定义 API 地址，可在仓库设置里新增变量：`VITE_API_BASE_URL`
+- `main` 推送及计划任务均可驱动候选/快照发布；具体触发和复用逻辑以工作流文件为准。
+- 部署地址：`https://AureliusWu.github.io/News/`
+- 若需要自定义 API 地址，可在仓库设置里配置 `VITE_API_BASE_URL`。
 
 ### 手动触发
 
