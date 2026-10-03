@@ -2,6 +2,7 @@ import test from 'node:test';
 import assert from 'node:assert/strict';
 import {readAiPolicy, validateAiPolicy} from './ai-feature-policy.mjs';
 import {evaluateFreshness, compactObservation} from './freshness-gate.mjs';
+import {isSnapshotPair} from './snapshot-pair.mjs';
 
 const now = Date.parse('2026-10-08T16:00:00Z');
 const slot = 1800000;
@@ -56,4 +57,42 @@ test('compaction retains timestamps and failures, not action success statistics'
   const row=observation(now); row.workflow_history=[{conclusion:'success'}]; row.transport_error='synthetic';
   const compact=compactObservation(row); assert.equal(compact.observed_at,row.observed_at);
   assert.equal(compact.transport_error,'synthetic'); assert.equal(compact.workflow_history,undefined);
+});
+
+const currentNews = {generated_at:'2026-10-03T00:00:00Z',snapshot_id:'synthetic-current-id',content_sha256:'snapshot-only'};
+const currentHealth = {checked_at:currentNews.generated_at,snapshot_id:currentNews.snapshot_id};
+test('current reports bind by snapshot_id and checked_at without snapshot-only fields',()=>{
+  assert.equal(isSnapshotPair(currentNews,currentHealth),true);
+});
+test('legacy reports retain the timestamp binding',()=>{
+  assert.equal(isSnapshotPair({generated_at:currentNews.generated_at},{checked_at:currentNews.generated_at}),true);
+});
+test('equal IDs cannot hide a different check timestamp',()=>{
+  assert.equal(isSnapshotPair(currentNews,{...currentHealth,checked_at:'2026-10-02T00:00:00Z'}),false);
+});
+test('equal timestamps cannot hide a missing or wrong current ID',()=>{
+  for (const snapshot_id of [undefined,null,'','wrong'])
+    assert.equal(isSnapshotPair(currentNews,{...currentHealth,snapshot_id}),false);
+});
+test('current reports without checked_at fail closed',()=>{
+  assert.equal(isSnapshotPair(currentNews,{snapshot_id:currentNews.snapshot_id,generated_at:currentNews.generated_at}),false);
+});
+test('invalid dates, IDs and non-object inputs fail closed',()=>{
+  for (const snapshot_id of ['',0,{},[]])
+    assert.equal(isSnapshotPair({...currentNews,snapshot_id},{...currentHealth,snapshot_id}),false);
+  assert.equal(isSnapshotPair({generated_at:'invalid'},{checked_at:'invalid'}),false);
+  for (const value of [null,undefined,[],1]) {
+    assert.equal(isSnapshotPair(value,currentHealth),false);
+    assert.equal(isSnapshotPair(currentNews,value),false);
+  }
+});
+test('a current report cannot be paired with an unidentified legacy snapshot',()=>{
+  assert.equal(isSnapshotPair({generated_at:currentNews.generated_at},currentHealth),false);
+});
+test('correction never erases a historic failed sample or contradictory retry',()=>{
+  const rows=week(); const bad=structuredClone(rows[10]); bad.source_health.same_generation=false;
+  rows.push(bad);
+  const report=evaluateFreshness(rows,options);
+  assert.equal(report.failed_slots,1);
+  assert.equal(compactObservation(bad).source_health.same_generation,false);
 });

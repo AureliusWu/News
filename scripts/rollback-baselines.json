@@ -1,0 +1,39 @@
+{
+  "v0.2-20261001": {
+    "schema_version": 1,
+    "archive_sha256": "025a69bf916dcfbdc0bd7cfd8dae28e15b6065699d0196f85e0ad84422ff2e7b",
+    "version": "0.2.0",
+    "generated_at": "2026-10-01T23:26:49.756239Z",
+    "snapshot_id": null,
+    "articles": 791,
+    "file_sha256": {
+      "404.html": "4958dd34632e491e5afee24f80381c864dbf2720c5a341731d369e73498ebe71",
+      "assets/index-B4ExFm1u.css": "d084ce090348423d820235761427d1a67cdd7744aa464a726be8e1232a81df9c",
+      "assets/index-Bm6ANz1W.js": "0a04c7092ef59b594be9c069eb3872d1183fdaddff92092d04f8fcf308cf1265",
+      "assets/main-CyVdBw_V.css": "106e031c6fc80830efb25cf60ac16a397714bb0c4b2971c681cb18724aea3cc8",
+      "assets/main-sH38r3Ds.js": "877ef01fa53ae7243c66effcf2ec3eafb7af99d05ad9dbd98afe1367c7c8a6a7",
+      "data/news.json": "9dda285ade9c189e36f9bf2bf101749736e37d1e38cc41bc47f6e994ff17372c",
+      "data/source-health.json": "7f39cd526081f05a33afa607dcfd74618b13348775af1904e0cda750a10c8883",
+      "favicon.ico": "01ba4719c80b6fe911b091a7c05124b64eeece964e09c058ef8f9805daca546b",
+      "favicon.svg": "69b473db79a2035e1ba5c92e88aaa05a360233f1d6f2b6b804a2181b1d3bd67e",
+      "icons/icon-192.png": "14f075ad3cbbc0c2452df2013ccecbd4c1cdd6875dfed4d06f18b36c201a04c2",
+      "icons/icon-512.png": "14f075ad3cbbc0c2452df2013ccecbd4c1cdd6875dfed4d06f18b36c201a04c2",
+      "index.html": "4958dd34632e491e5afee24f80381c864dbf2720c5a341731d369e73498ebe71",
+      "manifest.webmanifest": "1f9e4a8a9ed38aa89af9fa3ad922ce4665c7f37e846891f168a5cfa2dd5bc925",
+      "placeholder.html": "5df00d2ec638ba2e3140022f2c5cbe97fb57212a3b90b8b76fb82a7307cb37b8",
+      "registerSW.js": "210066bb21533cffe41b4bbc6243bcf34aacf80dc61ac80e8be69bbfc6c6c91d",
+      "robots.txt": "e5c4b84484ee4216e9373be99380320c25dd94805f99f0a805846f087636553f",
+      "sw.js": "82605e21aacedffc21333fa007148be391ca9fbaed5847eebbf450277ae3ba0e",
+      "workbox-5b7feed3.js": "2a8acb8ad315d92d38794dbf1ad3d8dfbe5a10ff796ed85ae29fb4ab395af05e"
+    },
+    "recollection_performed": false,
+    "timestamps_rewritten": false,
+    "source_run_id": 36940805726,
+    "source_revision": "85acd6b8b441ae9147d37cbb041d1e0824a00ebf",
+    "source_artifact_id": 11199563440,
+    "original_archive_sha256": "35db3d1d20fd6b19e3bc339b9e84bd6fc0cfd34bed98ede68cf92a2023c5c043",
+    "release_tag": "news-pages-rollback-v0.2-20261001",
+    "asset_name": "news-pages-v0.2-original-files.zip",
+    "capsule_repacked": true
+  }
+}

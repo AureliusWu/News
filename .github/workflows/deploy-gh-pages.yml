@@ -121,13 +121,13 @@ jobs:
         with:
           name: snapshot-source-health
           path: artifacts/pages-source-health.json
-          retention-days: 1
+          retention-days: 8
           if-no-files-found: ignore
       - name: Upload Pages artifact
         uses: actions/upload-pages-artifact@v3
         with:
           path: frontend/dist
-          retention-days: 1
+          retention-days: 8
 
   deploy:
     needs: build

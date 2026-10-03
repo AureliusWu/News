@@ -1,6 +1,7 @@
 import {mkdirSync, writeFileSync} from "node:fs";
 import {execFileSync} from "node:child_process";
 import {resolve} from "node:path";
+import {isSnapshotPair} from "./snapshot-pair.mjs";
 
 const base = new URL("https://aureliuswu.github.io/News/");
 const observedAt = new Date();
@@ -27,9 +28,8 @@ try {
     age_hours:Number.isFinite(age)?age:null,freshness_2h_pass:Number.isFinite(age)&&age>=-5/60&&age<=2,
     collector_gate_pass:data.health?.gate_pass===true};
   observation.source_health = {checked_at:sourceHealth.checked_at,generated_at:sourceHealth.generated_at,
-    same_generation:data.snapshot_id
-      ? ["snapshot_id","generated_at","content_sha256"].every(key=>sourceHealth[key]===data[key])
-      : sourceHealth.checked_at===data.generated_at,
+    snapshot_id:sourceHealth.snapshot_id,
+    same_generation:isSnapshotPair(data, sourceHealth),
     summary:sourceHealth.summary??sourceHealth.health};
   const releaseResponse = await get("release.json",true);
   const release = releaseResponse.status===200 ? JSON.parse(releaseResponse.body) : null;

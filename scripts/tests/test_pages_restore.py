@@ -1,4 +1,5 @@
 import importlib.util
+import hashlib
 import io
 import json
 from pathlib import Path
@@ -29,6 +30,17 @@ def archive(extra=None):
     with zipfile.ZipFile(payload, 'w') as output:
         output.writestr('artifact.tar', tar.getvalue())
     return payload.getvalue(), files
+
+
+def current_archive(health=None):
+    generated = '2026-10-03T00:00:00Z'
+    news = {'generated_at': generated, 'snapshot_id': 'synthetic-current-id',
+            'content_sha256': 'snapshot-only', 'articles': [{'id': 1}], 'meta': {'version': '0.4.0-alpha.1'}}
+    if health is None:
+        health = {'checked_at': generated, 'snapshot_id': news['snapshot_id']}
+    return archive({'data/news.json': json.dumps(news).encode(),
+                    'data/source-health.json': json.dumps(health).encode(),
+                    'release.json': b'{"version":"0.9.0-alpha.1"}'})
 
 
 class PagesRestoreTests(unittest.TestCase):
@@ -87,6 +99,74 @@ class PagesRestoreTests(unittest.TestCase):
         for key, value in [('head_branch', 'untrusted'), ('conclusion', 'failure'), ('path', '.github/workflows/other.yml')]:
             with self.assertRaises(ValueError):
                 restore.validate_run({**run, key: value})
+
+    def test_current_pair_restored_verbatim_without_snapshot_only_report_fields(self):
+        payload, files = current_archive()
+        report = restore.unpack_pages(payload, self.output, self.workspace)
+        self.assertEqual(report['version'], '0.9.0-alpha.1')
+        self.assertEqual(report['snapshot_id'], 'synthetic-current-id')
+        for name, data in files.items():
+            self.assertEqual((self.output / name).read_bytes(), data)
+
+    def test_current_wrong_id_rejected(self):
+        payload, _ = current_archive({'checked_at': '2026-10-03T00:00:00Z', 'snapshot_id': 'wrong'})
+        with self.assertRaises(ValueError):
+            restore.unpack_pages(payload, self.output, self.workspace)
+
+    def test_current_wrong_check_timestamp_rejected(self):
+        payload, _ = current_archive({'checked_at': '2026-10-02T00:00:00Z', 'snapshot_id': 'synthetic-current-id'})
+        with self.assertRaises(ValueError):
+            restore.unpack_pages(payload, self.output, self.workspace)
+
+    def test_current_missing_id_rejected(self):
+        payload, _ = current_archive({'checked_at': '2026-10-03T00:00:00Z'})
+        with self.assertRaises(ValueError):
+            restore.unpack_pages(payload, self.output, self.workspace)
+
+    def test_current_missing_check_timestamp_rejected(self):
+        payload, _ = current_archive({'generated_at': '2026-10-03T00:00:00Z', 'snapshot_id': 'synthetic-current-id'})
+        with self.assertRaises(ValueError):
+            restore.unpack_pages(payload, self.output, self.workspace)
+
+    def test_malformed_and_cross_schema_pairs_fail_closed(self):
+        for snapshot_id in ('', 0, {}, []):
+            news = {'generated_at': '2026-10-03T00:00:00Z', 'snapshot_id': snapshot_id}
+            self.assertFalse(restore.paired_snapshot(news, {'checked_at': news['generated_at'], 'snapshot_id': snapshot_id}))
+        self.assertFalse(restore.paired_snapshot({'generated_at': 'invalid'}, {'checked_at': 'invalid'}))
+        self.assertFalse(restore.paired_snapshot({'generated_at': '2026-10-03T00:00:00Z'},
+                         {'checked_at': '2026-10-03T00:00:00Z', 'snapshot_id': 'unmatched'}))
+
+    def frozen(self, payload, files):
+        return {'archive_sha256': hashlib.sha256(payload).hexdigest(), 'version': '0.2.0',
+                'generated_at': '2026-10-01T00:00:00Z', 'snapshot_id': None, 'articles': 1,
+                'file_sha256': {name: hashlib.sha256(data).hexdigest() for name, data in files.items()}}
+
+    def test_frozen_capsule_restores_only_exact_original_files(self):
+        payload, files = archive()
+        pin = self.frozen(payload, files)
+        report = restore.unpack_pages(payload, self.output, self.workspace, pin)
+        self.assertEqual(report['file_sha256'], pin['file_sha256'])
+        self.assertFalse(report['timestamps_rewritten'])
+
+    def test_frozen_wrong_archive_rejected_before_extraction(self):
+        payload, files = archive()
+        pin = {**self.frozen(payload, files), 'archive_sha256': '0' * 64}
+        with self.assertRaises(ValueError):
+            restore.unpack_pages(payload, self.output, self.workspace, pin)
+        self.assertFalse(self.output.exists())
+
+    def test_frozen_changed_file_receipt_rejected(self):
+        payload, files = archive()
+        pin = self.frozen(payload, files)
+        pin['file_sha256']['index.html'] = '0' * 64
+        with self.assertRaises(ValueError):
+            restore.unpack_pages(payload, self.output, self.workspace, pin)
+
+    def test_frozen_changed_generation_rejected(self):
+        payload, files = archive()
+        pin = {**self.frozen(payload, files), 'generated_at': '2026-10-02T00:00:00Z'}
+        with self.assertRaises(ValueError):
+            restore.unpack_pages(payload, self.output, self.workspace, pin)
 
 
 if __name__ == '__main__':
