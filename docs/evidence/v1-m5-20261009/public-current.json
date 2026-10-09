@@ -1,0 +1,89 @@
+{
+  "schema_version": 1,
+  "observed_at": "2026-10-09T14:36:58.013Z",
+  "base_url": "https://aureliuswu.github.io/News/",
+  "html": {
+    "status": 200,
+    "language_zh_cn": true
+  },
+  "snapshot": {
+    "status": 200,
+    "generated_at": "2026-10-09T13:25:55.403871Z",
+    "collector_gate_pass": true,
+    "snapshot_id": "1a44196a505e32bd1ec79d38",
+    "content_sha256": "286ec989fab60b23d7e28125c2f472abbeb9e595a38ad089e7f99f5f030f9a17",
+    "article_count": 771
+  },
+  "source_health": {
+    "status": 200,
+    "same_generation": true,
+    "snapshot_id": "1a44196a505e32bd1ec79d38",
+    "checked_at": "2026-10-09T13:25:55.403871Z",
+    "summary": {
+      "configured": 38,
+      "healthy": 32,
+      "failed": 6,
+      "publishers": 22,
+      "regions": [
+        "africa",
+        "asia",
+        "china",
+        "europe",
+        "japan",
+        "middle-east",
+        "oceania",
+        "us",
+        "world"
+      ],
+      "languages": [
+        "en",
+        "fr",
+        "ja",
+        "zh"
+      ],
+      "article_count": 771,
+      "latest_publication": "2026-10-09T13:19:54Z",
+      "gate_pass": true
+    }
+  },
+  "release": {
+    "version": "0.9.0-alpha.1",
+    "source_revision": "1592e7919f9c132d891a9bd0fae87a8c9569baec",
+    "formal_release": false
+  },
+  "transport_error": null,
+  "age_hours": 1.1840583333333334,
+  "freshness_within_two_hours": true,
+  "requests": [
+    {
+      "file": "index.html",
+      "status": 200,
+      "bytes": 537,
+      "elapsed_ms": 571,
+      "sha256": "328c65f6659b04680843b814d652f6fa9ee7367c231936abc4ad37c300843f6c"
+    },
+    {
+      "file": "data/news.json",
+      "status": 200,
+      "bytes": 785416,
+      "elapsed_ms": 4718,
+      "sha256": "301f773c1d29818adc0fb37d2490892496446fd0370c7c6976248a2af59082da"
+    },
+    {
+      "file": "data/source-health.json",
+      "status": 200,
+      "bytes": 14573,
+      "elapsed_ms": 441,
+      "sha256": "6ef10514c0f07e7ee66c5b340aaf2aa4fbe8d4f5ce2fef438d1da4f3a95f50fc"
+    },
+    {
+      "file": "release.json",
+      "status": 200,
+      "bytes": 947,
+      "elapsed_ms": 549,
+      "sha256": "6a10ca042af7dad1c169acfd651a6d21fe7721ae8174ee00fb8de1711453ffb9"
+    }
+  ],
+  "scope": "Direct HTTP availability and snapshot freshness, not physical-device, PWA or performance acceptance",
+  "formal_release": false
+}

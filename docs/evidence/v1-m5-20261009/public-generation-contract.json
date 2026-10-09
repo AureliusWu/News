@@ -1,0 +1,153 @@
+{
+  "schema_version": 1,
+  "observed_at": "2026-10-09T14:34:54.708Z",
+  "base_url": "https://aureliuswu.github.io/News/",
+  "scope": "public-static-generation-contracts",
+  "requests": [
+    {
+      "file": "release.json",
+      "status": 200,
+      "bytes": 947,
+      "elapsed_ms": 860,
+      "sha256": "6a10ca042af7dad1c169acfd651a6d21fe7721ae8174ee00fb8de1711453ffb9"
+    },
+    {
+      "file": "data/news.json",
+      "status": 200,
+      "bytes": 785416,
+      "elapsed_ms": 5252,
+      "sha256": "301f773c1d29818adc0fb37d2490892496446fd0370c7c6976248a2af59082da"
+    },
+    {
+      "file": "data/generations.json",
+      "status": 200,
+      "bytes": 122,
+      "elapsed_ms": 349,
+      "sha256": "680f6a18f5a1b1ec78aeb5b4f1e276e78b1644f182aec54f8b7043896253354e"
+    },
+    {
+      "file": "data/news.1a44196a505e32bd1ec79d38.json",
+      "status": 200,
+      "bytes": 785416,
+      "elapsed_ms": 3295,
+      "sha256": "301f773c1d29818adc0fb37d2490892496446fd0370c7c6976248a2af59082da"
+    },
+    {
+      "file": "data/source-health.1a44196a505e32bd1ec79d38.json",
+      "status": 200,
+      "bytes": 10617,
+      "elapsed_ms": 549,
+      "sha256": "e8c64425c2a4ba7a70574a0d2b165ab00611cdf4032a530c278078ae7f07ad82"
+    },
+    {
+      "file": "data/events.1a44196a505e32bd1ec79d38.json",
+      "status": 200,
+      "bytes": 289800,
+      "elapsed_ms": 2713,
+      "sha256": "8ea2c7cbbe31e3f7d373b95a0d7477743e45b90ba423ceb39f9f074b83506504"
+    },
+    {
+      "file": "data/news.a6b8b9255bb5a5f0ffa15986.json",
+      "status": 200,
+      "bytes": 793356,
+      "elapsed_ms": 7803,
+      "sha256": "1de17ceb66f2f186c388efaf3302112ece1186f5bee7648bbf89f808a75a1c80"
+    },
+    {
+      "file": "data/source-health.a6b8b9255bb5a5f0ffa15986.json",
+      "status": 200,
+      "bytes": 10617,
+      "elapsed_ms": 373,
+      "sha256": "1d5cd25404aee3e92c8d069e41912523ec93cd571ed3f3c539a50e21927e9e14"
+    },
+    {
+      "file": "data/events.a6b8b9255bb5a5f0ffa15986.json",
+      "status": 200,
+      "bytes": 294995,
+      "elapsed_ms": 2980,
+      "sha256": "68fe4a3f7da158e70d7de79b8dd9afe75ba9e6a3c760c7cc9a4a183bf461b644"
+    },
+    {
+      "file": "data/news.7387e13b0ff82b073214ba74.json",
+      "status": 200,
+      "bytes": 792242,
+      "elapsed_ms": 6292,
+      "sha256": "cb888aa13b3b9a326a656ce1d91864b7db6a4fc97ba95faf7f1077fa74ec9ffe"
+    },
+    {
+      "file": "data/source-health.7387e13b0ff82b073214ba74.json",
+      "status": 200,
+      "bytes": 10618,
+      "elapsed_ms": 504,
+      "sha256": "bb3300f869647bf912062239958acbf6dbdd78f9d96f161b7fd0eb0213506814"
+    },
+    {
+      "file": "data/events.7387e13b0ff82b073214ba74.json",
+      "status": 200,
+      "bytes": 293964,
+      "elapsed_ms": 2640,
+      "sha256": "9714fc36fc7fd7ac70be8c1fc45314a2caf4e3d9e9af5aa11b0422d75a910c42"
+    },
+    {
+      "file": "data/event-registry.json",
+      "status": 200,
+      "bytes": 3220653,
+      "elapsed_ms": 34940,
+      "sha256": "365bfac82797ab748cf3de33c0a25dfa1ed18f7c9fc068fb740b0ad13373196c"
+    }
+  ],
+  "generations": [
+    {
+      "snapshot_id": "1a44196a505e32bd1ec79d38",
+      "generated_at": "2026-10-09T13:25:55.403871Z",
+      "articles": 771,
+      "events": 748,
+      "assigned": 771,
+      "publisher_count": 22,
+      "aliases": 0,
+      "pair_and_membership_pass": true
+    },
+    {
+      "snapshot_id": "a6b8b9255bb5a5f0ffa15986",
+      "generated_at": "2026-10-09T06:14:26.853204Z",
+      "articles": 782,
+      "events": 763,
+      "assigned": 782,
+      "publisher_count": 22,
+      "aliases": 0,
+      "pair_and_membership_pass": true
+    },
+    {
+      "snapshot_id": "7387e13b0ff82b073214ba74",
+      "generated_at": "2026-10-08T23:58:34.397347Z",
+      "articles": 780,
+      "events": 760,
+      "assigned": 780,
+      "publisher_count": 22,
+      "aliases": 0,
+      "pair_and_membership_pass": true
+    }
+  ],
+  "continuity": [
+    {
+      "previous_snapshot_id": "a6b8b9255bb5a5f0ffa15986",
+      "current_snapshot_id": "1a44196a505e32bd1ec79d38",
+      "shared_articles": 554,
+      "reviewed_alias_resolutions": 0,
+      "stable_assignments_pass": true
+    },
+    {
+      "previous_snapshot_id": "7387e13b0ff82b073214ba74",
+      "current_snapshot_id": "1a44196a505e32bd1ec79d38",
+      "shared_articles": 461,
+      "reviewed_alias_resolutions": 0,
+      "stable_assignments_pass": true
+    }
+  ],
+  "data_contract_pass": true,
+  "formal_release": false,
+  "application_release": {
+    "version": "0.9.0-alpha.1",
+    "source_revision": "1592e7919f9c132d891a9bd0fae87a8c9569baec"
+  }
+}
