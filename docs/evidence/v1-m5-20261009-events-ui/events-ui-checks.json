@@ -1,0 +1,89 @@
+{
+  "schema_version": 1,
+  "observed_at": "2026-10-09T14:54:49.499Z",
+  "scope": "Codex in-app browser public event list, multi-publisher filter and one detail route; not cross-browser, physical-device, PWA or performance acceptance",
+  "snapshot_id": "1a44196a505e32bd1ec79d38",
+  "event_id": "e_7532f5f3af59f624f909c405",
+  "checks": {
+    "multi_filter_checked": true,
+    "multi_filter_count": true,
+    "all_seventeen_cards_are_multi_publisher": true,
+    "detail_three_articles_three_publishers": true,
+    "timeline_visible": true,
+    "three_original_urls_visible": true,
+    "evaluation_limitation_visible": true,
+    "syndication_independence_warning_visible": true
+  },
+  "filtered_card_counts": [
+    {
+      "articles": 3,
+      "publishers": 2
+    },
+    {
+      "articles": 2,
+      "publishers": 2
+    },
+    {
+      "articles": 2,
+      "publishers": 2
+    },
+    {
+      "articles": 3,
+      "publishers": 3
+    },
+    {
+      "articles": 2,
+      "publishers": 2
+    },
+    {
+      "articles": 2,
+      "publishers": 2
+    },
+    {
+      "articles": 3,
+      "publishers": 3
+    },
+    {
+      "articles": 2,
+      "publishers": 2
+    },
+    {
+      "articles": 2,
+      "publishers": 2
+    },
+    {
+      "articles": 2,
+      "publishers": 2
+    },
+    {
+      "articles": 2,
+      "publishers": 2
+    },
+    {
+      "articles": 2,
+      "publishers": 2
+    },
+    {
+      "articles": 2,
+      "publishers": 2
+    },
+    {
+      "articles": 2,
+      "publishers": 2
+    },
+    {
+      "articles": 2,
+      "publishers": 2
+    },
+    {
+      "articles": 2,
+      "publishers": 2
+    },
+    {
+      "articles": 2,
+      "publishers": 2
+    }
+  ],
+  "formal_release": false,
+  "scoped_ui_pass": true
+}

@@ -1,0 +1,16 @@
+{
+  "schema_version": 1,
+  "observed_at": "2026-10-09T14:58:36.655Z",
+  "scope": "Public event detail browser reload and render, not offline or installed PWA acceptance",
+  "public_url": "https://aureliuswu.github.io/News/events/e_7532f5f3af59f624f909c405",
+  "action": "tab.reload()",
+  "checks": {
+    "detail_heading_after_reload": true,
+    "event_title_after_reload": true,
+    "three_articles_three_publishers_after_reload": true,
+    "timeline_after_reload": true,
+    "candidate_version_after_reload": true
+  },
+  "formal_release": false,
+  "scoped_reload_pass": true
+}

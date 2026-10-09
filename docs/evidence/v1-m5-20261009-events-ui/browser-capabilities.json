@@ -1,0 +1,20 @@
+{
+  "schema_version": 1,
+  "recorded_at": "2026-10-09T15:01:13.0501520Z",
+  "source": "Actual newsTab.capabilities.list() result in this goal turn",
+  "browser": "Codex In-app Browser",
+  "tab_id": "2",
+  "capabilities": [
+    {
+      "description": "List assets already observed in the current page state and bundle selected assets into a temporary local artifact.",
+      "id": "pageAssets"
+    },
+    {
+      "description": "Fetch page-defined WebMCP tools bound to the current document, then call them through the returned object.",
+      "id": "webmcp"
+    }
+  ],
+  "offline_capability_present": false,
+  "offline_or_installed_pwa_acceptance_performed": false,
+  "formal_release": false
+}
