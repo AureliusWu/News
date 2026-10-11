@@ -1,0 +1,26 @@
+[
+  {
+    "id": 38104232879,
+    "status": "completed",
+    "conclusion": "success",
+    "created_at": "2026-10-11T02:09:32Z",
+    "event": "schedule",
+    "head_sha": "2ce6e7fff98e489fc42136b0ecffa67a6eb33d31"
+  },
+  {
+    "id": 38095242928,
+    "status": "completed",
+    "conclusion": "success",
+    "created_at": "2026-10-10T23:30:09Z",
+    "event": "schedule",
+    "head_sha": "2ce6e7fff98e489fc42136b0ecffa67a6eb33d31"
+  },
+  {
+    "id": 38082094125,
+    "status": "completed",
+    "conclusion": "success",
+    "created_at": "2026-10-10T20:01:23Z",
+    "event": "schedule",
+    "head_sha": "2ce6e7fff98e489fc42136b0ecffa67a6eb33d31"
+  }
+]
