@@ -1,0 +1,1479 @@
+{
+  "schema_version": 1,
+  "observations": [
+    {
+      "schema_version": 1,
+      "observed_at": "2026-09-30T06:55:48.065Z",
+      "base_url": "https://aureliuswu.github.io/News/",
+      "html": {
+        "status": 200,
+        "language_zh_cn": true
+      },
+      "snapshot": {
+        "status": 200,
+        "generated_at": "2026-09-30T02:27:53.114178Z",
+        "collector_gate_pass": true
+      },
+      "source_health": {
+        "same_generation": true
+      },
+      "release": {
+        "version": null,
+        "source_revision": null
+      },
+      "transport_error": null
+    },
+    {
+      "schema_version": 1,
+      "observed_at": "2026-10-01T16:00:30.315Z",
+      "base_url": "https://aureliuswu.github.io/News/",
+      "html": {
+        "status": 200,
+        "language_zh_cn": true
+      },
+      "snapshot": {
+        "status": 200,
+        "generated_at": "2026-10-01T14:05:33.504683Z",
+        "collector_gate_pass": true
+      },
+      "source_health": {
+        "same_generation": true
+      },
+      "release": {
+        "version": null,
+        "source_revision": null
+      },
+      "transport_error": null
+    },
+    {
+      "schema_version": 1,
+      "observed_at": "2026-10-02T02:15:39.556Z",
+      "base_url": "https://aureliuswu.github.io/News/",
+      "html": {
+        "status": 200,
+        "language_zh_cn": true
+      },
+      "snapshot": {
+        "status": 200,
+        "generated_at": "2026-10-02T02:11:39.926443Z",
+        "collector_gate_pass": true
+      },
+      "source_health": {
+        "same_generation": false
+      },
+      "release": {
+        "version": "0.9.0-alpha.1",
+        "source_revision": "4978a84f0621109be496c3797caa4d4916164e52"
+      },
+      "transport_error": null
+    },
+    {
+      "schema_version": 1,
+      "observed_at": "2026-10-02T02:35:10.672Z",
+      "base_url": "https://aureliuswu.github.io/News/",
+      "html": {
+        "status": 200,
+        "language_zh_cn": true
+      },
+      "snapshot": {
+        "status": 200,
+        "generated_at": "2026-10-02T02:11:39.926443Z",
+        "collector_gate_pass": true
+      },
+      "source_health": {
+        "same_generation": false
+      },
+      "release": {
+        "version": "0.9.0-alpha.1",
+        "source_revision": "4978a84f0621109be496c3797caa4d4916164e52"
+      },
+      "transport_error": null
+    },
+    {
+      "schema_version": 1,
+      "observed_at": "2026-10-02T02:39:05.125Z",
+      "base_url": "https://aureliuswu.github.io/News/",
+      "html": {
+        "status": 200,
+        "language_zh_cn": true
+      },
+      "snapshot": {
+        "status": 200,
+        "generated_at": "2026-10-02T02:36:10.667663Z",
+        "collector_gate_pass": true
+      },
+      "source_health": {
+        "same_generation": false
+      },
+      "release": {
+        "version": "0.9.0-alpha.1",
+        "source_revision": "4978a84f0621109be496c3797caa4d4916164e52"
+      },
+      "transport_error": null
+    },
+    {
+      "schema_version": 1,
+      "observed_at": "2026-10-02T08:58:52.215Z",
+      "base_url": "https://aureliuswu.github.io/News/",
+      "html": {
+        "status": 200,
+        "language_zh_cn": true
+      },
+      "snapshot": {
+        "status": 200,
+        "generated_at": "2026-10-02T02:36:10.667663Z",
+        "collector_gate_pass": true
+      },
+      "source_health": {
+        "same_generation": false
+      },
+      "release": {
+        "version": "0.9.0-alpha.1",
+        "source_revision": "4978a84f0621109be496c3797caa4d4916164e52"
+      },
+      "transport_error": null
+    },
+    {
+      "schema_version": 1,
+      "observed_at": "2026-10-02T15:44:44.041Z",
+      "base_url": "https://aureliuswu.github.io/News/",
+      "html": {
+        "status": 200,
+        "language_zh_cn": true
+      },
+      "snapshot": {
+        "status": 200,
+        "generated_at": "2026-10-02T09:02:27.787487Z",
+        "collector_gate_pass": true
+      },
+      "source_health": {
+        "same_generation": false
+      },
+      "release": {
+        "version": "0.9.0-alpha.1",
+        "source_revision": "4978a84f0621109be496c3797caa4d4916164e52"
+      },
+      "transport_error": null
+    },
+    {
+      "schema_version": 1,
+      "observed_at": "2026-10-02T20:40:33.665Z",
+      "base_url": "https://aureliuswu.github.io/News/",
+      "html": {
+        "status": 200,
+        "language_zh_cn": true
+      },
+      "snapshot": {
+        "status": 200,
+        "generated_at": "2026-10-02T15:51:40.138129Z",
+        "collector_gate_pass": true
+      },
+      "source_health": {
+        "same_generation": false
+      },
+      "release": {
+        "version": "0.9.0-alpha.1",
+        "source_revision": "4978a84f0621109be496c3797caa4d4916164e52"
+      },
+      "transport_error": null
+    },
+    {
+      "schema_version": 1,
+      "observed_at": "2026-10-03T00:26:08.540Z",
+      "base_url": "https://aureliuswu.github.io/News/",
+      "html": {
+        "status": 200,
+        "language_zh_cn": true
+      },
+      "snapshot": {
+        "status": 200,
+        "generated_at": "2026-10-03T00:01:55.557098Z",
+        "collector_gate_pass": true
+      },
+      "source_health": {
+        "same_generation": false
+      },
+      "release": {
+        "version": "0.9.0-alpha.1",
+        "source_revision": "4978a84f0621109be496c3797caa4d4916164e52"
+      },
+      "transport_error": null
+    },
+    {
+      "schema_version": 1,
+      "observed_at": "2026-10-03T00:26:08.54Z",
+      "base_url": "https://aureliuswu.github.io/News/",
+      "html": {
+        "status": 200,
+        "language_zh_cn": true
+      },
+      "snapshot": {
+        "status": 200,
+        "generated_at": "2026-10-03T00:01:55.557098Z",
+        "collector_gate_pass": true
+      },
+      "source_health": {
+        "same_generation": false
+      },
+      "release": {
+        "version": "0.9.0-alpha.1",
+        "source_revision": "4978a84f0621109be496c3797caa4d4916164e52"
+      },
+      "transport_error": null
+    },
+    {
+      "schema_version": 1,
+      "observed_at": "2026-10-03T04:31:53.307Z",
+      "base_url": "https://aureliuswu.github.io/News/",
+      "html": {
+        "status": 200,
+        "language_zh_cn": true
+      },
+      "snapshot": {
+        "status": 200,
+        "generated_at": "2026-10-03T02:01:38.207882Z",
+        "collector_gate_pass": true
+      },
+      "source_health": {
+        "same_generation": true
+      },
+      "release": {
+        "version": "0.9.0-alpha.1",
+        "source_revision": "3cd438990517a21855a554cbf59b701d57cd81db"
+      },
+      "transport_error": null
+    },
+    {
+      "schema_version": 1,
+      "observed_at": "2026-10-03T04:40:00.481Z",
+      "base_url": "https://aureliuswu.github.io/News/",
+      "html": {
+        "status": 200,
+        "language_zh_cn": true
+      },
+      "snapshot": {
+        "status": 200,
+        "generated_at": "2026-10-03T04:31:57.132448Z",
+        "collector_gate_pass": true
+      },
+      "source_health": {
+        "same_generation": true
+      },
+      "release": {
+        "version": "0.9.0-alpha.1",
+        "source_revision": "1592e7919f9c132d891a9bd0fae87a8c9569baec"
+      },
+      "transport_error": null
+    },
+    {
+      "schema_version": 1,
+      "observed_at": "2026-10-03T04:55:28.863Z",
+      "base_url": "https://aureliuswu.github.io/News/",
+      "html": {
+        "status": 200,
+        "language_zh_cn": true
+      },
+      "snapshot": {
+        "status": 200,
+        "generated_at": "2026-10-03T04:31:57.132448Z",
+        "collector_gate_pass": true
+      },
+      "source_health": {
+        "same_generation": true
+      },
+      "release": {
+        "version": "0.9.0-alpha.1",
+        "source_revision": "1592e7919f9c132d891a9bd0fae87a8c9569baec"
+      },
+      "transport_error": null
+    },
+    {
+      "schema_version": 1,
+      "observed_at": "2026-10-03T05:03:42.317Z",
+      "base_url": "https://aureliuswu.github.io/News/",
+      "html": {
+        "status": 200,
+        "language_zh_cn": true
+      },
+      "snapshot": {
+        "status": 200,
+        "generated_at": "2026-10-03T04:31:57.132448Z",
+        "collector_gate_pass": true
+      },
+      "source_health": {
+        "same_generation": true
+      },
+      "release": {
+        "version": "0.9.0-alpha.1",
+        "source_revision": "1592e7919f9c132d891a9bd0fae87a8c9569baec"
+      },
+      "transport_error": null
+    },
+    {
+      "schema_version": 1,
+      "observed_at": "2026-10-03T05:42:31.534Z",
+      "base_url": "https://aureliuswu.github.io/News/",
+      "html": {
+        "status": 200,
+        "language_zh_cn": true
+      },
+      "snapshot": {
+        "status": 200,
+        "generated_at": "2026-10-03T05:23:32.363189Z",
+        "collector_gate_pass": true
+      },
+      "source_health": {
+        "same_generation": true
+      },
+      "release": {
+        "version": "0.9.0-alpha.1",
+        "source_revision": "1592e7919f9c132d891a9bd0fae87a8c9569baec"
+      },
+      "transport_error": null
+    },
+    {
+      "schema_version": 1,
+      "observed_at": "2026-10-03T11:34:35.135Z",
+      "base_url": "https://aureliuswu.github.io/News/",
+      "html": {
+        "status": 200,
+        "language_zh_cn": true
+      },
+      "snapshot": {
+        "status": 200,
+        "generated_at": "2026-10-03T10:40:02.428315Z",
+        "collector_gate_pass": true
+      },
+      "source_health": {
+        "same_generation": true
+      },
+      "release": {
+        "version": "0.9.0-alpha.1",
+        "source_revision": "1592e7919f9c132d891a9bd0fae87a8c9569baec"
+      },
+      "transport_error": null
+    },
+    {
+      "schema_version": 1,
+      "observed_at": "2026-10-03T15:14:19.758Z",
+      "base_url": "https://aureliuswu.github.io/News/",
+      "html": {
+        "status": 200,
+        "language_zh_cn": true
+      },
+      "snapshot": {
+        "status": 200,
+        "generated_at": "2026-10-03T14:56:49.348388Z",
+        "collector_gate_pass": true
+      },
+      "source_health": {
+        "same_generation": true
+      },
+      "release": {
+        "version": "0.9.0-alpha.1",
+        "source_revision": "1592e7919f9c132d891a9bd0fae87a8c9569baec"
+      },
+      "transport_error": null
+    },
+    {
+      "schema_version": 1,
+      "observed_at": "2026-10-03T18:49:15.801Z",
+      "base_url": "https://aureliuswu.github.io/News/",
+      "html": {
+        "status": 200,
+        "language_zh_cn": true
+      },
+      "snapshot": {
+        "status": 200,
+        "generated_at": "2026-10-03T18:42:12.102062Z",
+        "collector_gate_pass": true
+      },
+      "source_health": {
+        "same_generation": true
+      },
+      "release": {
+        "version": "0.9.0-alpha.1",
+        "source_revision": "1592e7919f9c132d891a9bd0fae87a8c9569baec"
+      },
+      "transport_error": null
+    },
+    {
+      "schema_version": 1,
+      "observed_at": "2026-10-03T22:07:31.190Z",
+      "base_url": "https://aureliuswu.github.io/News/",
+      "html": {
+        "status": 200,
+        "language_zh_cn": true
+      },
+      "snapshot": {
+        "status": 200,
+        "generated_at": "2026-10-03T21:48:47.822523Z",
+        "collector_gate_pass": true
+      },
+      "source_health": {
+        "same_generation": true
+      },
+      "release": {
+        "version": "0.9.0-alpha.1",
+        "source_revision": "1592e7919f9c132d891a9bd0fae87a8c9569baec"
+      },
+      "transport_error": null
+    },
+    {
+      "schema_version": 1,
+      "observed_at": "2026-10-03T22:07:31.19Z",
+      "base_url": "https://aureliuswu.github.io/News/",
+      "html": {
+        "status": 200,
+        "language_zh_cn": true
+      },
+      "snapshot": {
+        "status": 200,
+        "generated_at": "2026-10-03T21:48:47.822523Z",
+        "collector_gate_pass": true
+      },
+      "source_health": {
+        "same_generation": true
+      },
+      "release": {
+        "version": "0.9.0-alpha.1",
+        "source_revision": "1592e7919f9c132d891a9bd0fae87a8c9569baec"
+      },
+      "transport_error": null
+    },
+    {
+      "schema_version": 1,
+      "observed_at": "2026-10-04T00:37:11.524Z",
+      "base_url": "https://aureliuswu.github.io/News/",
+      "html": {
+        "status": 200,
+        "language_zh_cn": true
+      },
+      "snapshot": {
+        "status": 200,
+        "generated_at": "2026-10-03T21:48:47.822523Z",
+        "collector_gate_pass": true
+      },
+      "source_health": {
+        "same_generation": true
+      },
+      "release": {
+        "version": "0.9.0-alpha.1",
+        "source_revision": "1592e7919f9c132d891a9bd0fae87a8c9569baec"
+      },
+      "transport_error": null
+    },
+    {
+      "schema_version": 1,
+      "observed_at": "2026-10-04T06:20:44.837Z",
+      "base_url": "https://aureliuswu.github.io/News/",
+      "html": {
+        "status": 200,
+        "language_zh_cn": true
+      },
+      "snapshot": {
+        "status": 200,
+        "generated_at": "2026-10-04T00:41:21.034281Z",
+        "collector_gate_pass": true
+      },
+      "source_health": {
+        "same_generation": true
+      },
+      "release": {
+        "version": "0.9.0-alpha.1",
+        "source_revision": "1592e7919f9c132d891a9bd0fae87a8c9569baec"
+      },
+      "transport_error": null
+    },
+    {
+      "schema_version": 1,
+      "observed_at": "2026-10-04T12:50:03.952Z",
+      "base_url": "https://aureliuswu.github.io/News/",
+      "html": {
+        "status": 200,
+        "language_zh_cn": true
+      },
+      "snapshot": {
+        "status": 200,
+        "generated_at": "2026-10-04T06:24:20.038283Z",
+        "collector_gate_pass": true
+      },
+      "source_health": {
+        "same_generation": true
+      },
+      "release": {
+        "version": "0.9.0-alpha.1",
+        "source_revision": "1592e7919f9c132d891a9bd0fae87a8c9569baec"
+      },
+      "transport_error": null
+    },
+    {
+      "schema_version": 1,
+      "observed_at": "2026-10-04T17:32:52.445Z",
+      "base_url": "https://aureliuswu.github.io/News/",
+      "html": {
+        "status": 200,
+        "language_zh_cn": true
+      },
+      "snapshot": {
+        "status": 200,
+        "generated_at": "2026-10-04T12:52:47.749773Z",
+        "collector_gate_pass": true
+      },
+      "source_health": {
+        "same_generation": true
+      },
+      "release": {
+        "version": "0.9.0-alpha.1",
+        "source_revision": "1592e7919f9c132d891a9bd0fae87a8c9569baec"
+      },
+      "transport_error": null
+    },
+    {
+      "schema_version": 1,
+      "observed_at": "2026-10-04T20:23:42.108Z",
+      "base_url": "https://aureliuswu.github.io/News/",
+      "html": {
+        "status": 200,
+        "language_zh_cn": true
+      },
+      "snapshot": {
+        "status": 200,
+        "generated_at": "2026-10-04T17:36:59.576022Z",
+        "collector_gate_pass": true
+      },
+      "source_health": {
+        "same_generation": true
+      },
+      "release": {
+        "version": "0.9.0-alpha.1",
+        "source_revision": "1592e7919f9c132d891a9bd0fae87a8c9569baec"
+      },
+      "transport_error": null
+    },
+    {
+      "schema_version": 1,
+      "observed_at": "2026-10-04T23:34:39.077Z",
+      "base_url": "https://aureliuswu.github.io/News/",
+      "html": {
+        "status": 200,
+        "language_zh_cn": true
+      },
+      "snapshot": {
+        "status": 200,
+        "generated_at": "2026-10-04T20:28:57.229668Z",
+        "collector_gate_pass": true
+      },
+      "source_health": {
+        "same_generation": true
+      },
+      "release": {
+        "version": "0.9.0-alpha.1",
+        "source_revision": "1592e7919f9c132d891a9bd0fae87a8c9569baec"
+      },
+      "transport_error": null
+    },
+    {
+      "schema_version": 1,
+      "observed_at": "2026-10-05T02:23:16.060Z",
+      "base_url": "https://aureliuswu.github.io/News/",
+      "html": {
+        "status": 200,
+        "language_zh_cn": true
+      },
+      "snapshot": {
+        "status": 200,
+        "generated_at": "2026-10-04T23:37:14.028943Z",
+        "collector_gate_pass": true
+      },
+      "source_health": {
+        "same_generation": true
+      },
+      "release": {
+        "version": "0.9.0-alpha.1",
+        "source_revision": "1592e7919f9c132d891a9bd0fae87a8c9569baec"
+      },
+      "transport_error": null
+    },
+    {
+      "schema_version": 1,
+      "observed_at": "2026-10-05T02:23:16.06Z",
+      "base_url": "https://aureliuswu.github.io/News/",
+      "html": {
+        "status": 200,
+        "language_zh_cn": true
+      },
+      "snapshot": {
+        "status": 200,
+        "generated_at": "2026-10-04T23:37:14.028943Z",
+        "collector_gate_pass": true
+      },
+      "source_health": {
+        "same_generation": true
+      },
+      "release": {
+        "version": "0.9.0-alpha.1",
+        "source_revision": "1592e7919f9c132d891a9bd0fae87a8c9569baec"
+      },
+      "transport_error": null
+    },
+    {
+      "schema_version": 1,
+      "observed_at": "2026-10-05T09:35:12.005Z",
+      "base_url": "https://aureliuswu.github.io/News/",
+      "html": {
+        "status": 200,
+        "language_zh_cn": true
+      },
+      "snapshot": {
+        "status": 200,
+        "generated_at": "2026-10-05T02:25:45.267558Z",
+        "collector_gate_pass": true
+      },
+      "source_health": {
+        "same_generation": true
+      },
+      "release": {
+        "version": "0.9.0-alpha.1",
+        "source_revision": "1592e7919f9c132d891a9bd0fae87a8c9569baec"
+      },
+      "transport_error": null
+    },
+    {
+      "schema_version": 1,
+      "observed_at": "2026-10-05T18:49:41.429Z",
+      "base_url": "https://aureliuswu.github.io/News/",
+      "html": {
+        "status": 200,
+        "language_zh_cn": true
+      },
+      "snapshot": {
+        "status": 200,
+        "generated_at": "2026-10-05T09:38:00.381972Z",
+        "collector_gate_pass": true
+      },
+      "source_health": {
+        "same_generation": true
+      },
+      "release": {
+        "version": "0.9.0-alpha.1",
+        "source_revision": "1592e7919f9c132d891a9bd0fae87a8c9569baec"
+      },
+      "transport_error": null
+    },
+    {
+      "schema_version": 1,
+      "observed_at": "2026-10-06T00:46:03.841Z",
+      "base_url": "https://aureliuswu.github.io/News/",
+      "html": {
+        "status": 200,
+        "language_zh_cn": true
+      },
+      "snapshot": {
+        "status": 200,
+        "generated_at": "2026-10-05T18:51:33.750003Z",
+        "collector_gate_pass": true
+      },
+      "source_health": {
+        "same_generation": true
+      },
+      "release": {
+        "version": "0.9.0-alpha.1",
+        "source_revision": "1592e7919f9c132d891a9bd0fae87a8c9569baec"
+      },
+      "transport_error": null
+    },
+    {
+      "schema_version": 1,
+      "observed_at": "2026-10-06T07:30:20.798Z",
+      "base_url": "https://aureliuswu.github.io/News/",
+      "html": {
+        "status": 200,
+        "language_zh_cn": true
+      },
+      "snapshot": {
+        "status": 200,
+        "generated_at": "2026-10-06T00:50:53.340134Z",
+        "collector_gate_pass": true
+      },
+      "source_health": {
+        "same_generation": true
+      },
+      "release": {
+        "version": "0.9.0-alpha.1",
+        "source_revision": "1592e7919f9c132d891a9bd0fae87a8c9569baec"
+      },
+      "transport_error": null
+    },
+    {
+      "schema_version": 1,
+      "observed_at": "2026-10-06T14:27:09.259Z",
+      "base_url": "https://aureliuswu.github.io/News/",
+      "html": {
+        "status": 200,
+        "language_zh_cn": true
+      },
+      "snapshot": {
+        "status": 200,
+        "generated_at": "2026-10-06T07:36:50.313386Z",
+        "collector_gate_pass": true
+      },
+      "source_health": {
+        "same_generation": true
+      },
+      "release": {
+        "version": "0.9.0-alpha.1",
+        "source_revision": "1592e7919f9c132d891a9bd0fae87a8c9569baec"
+      },
+      "transport_error": null
+    },
+    {
+      "schema_version": 1,
+      "observed_at": "2026-10-06T19:48:00.906Z",
+      "base_url": "https://aureliuswu.github.io/News/",
+      "html": {
+        "status": 200,
+        "language_zh_cn": true
+      },
+      "snapshot": {
+        "status": 200,
+        "generated_at": "2026-10-06T14:29:51.474970Z",
+        "collector_gate_pass": true
+      },
+      "source_health": {
+        "same_generation": true
+      },
+      "release": {
+        "version": "0.9.0-alpha.1",
+        "source_revision": "1592e7919f9c132d891a9bd0fae87a8c9569baec"
+      },
+      "transport_error": null
+    },
+    {
+      "schema_version": 1,
+      "observed_at": "2026-10-06T23:45:56.947Z",
+      "base_url": "https://aureliuswu.github.io/News/",
+      "html": {
+        "status": 200,
+        "language_zh_cn": true
+      },
+      "snapshot": {
+        "status": 200,
+        "generated_at": "2026-10-06T19:52:07.250790Z",
+        "collector_gate_pass": true
+      },
+      "source_health": {
+        "same_generation": true
+      },
+      "release": {
+        "version": "0.9.0-alpha.1",
+        "source_revision": "1592e7919f9c132d891a9bd0fae87a8c9569baec"
+      },
+      "transport_error": null
+    },
+    {
+      "schema_version": 1,
+      "observed_at": "2026-10-07T05:49:56.993Z",
+      "base_url": "https://aureliuswu.github.io/News/",
+      "html": {
+        "status": 200,
+        "language_zh_cn": true
+      },
+      "snapshot": {
+        "status": 200,
+        "generated_at": "2026-10-06T23:51:32.197690Z",
+        "collector_gate_pass": true
+      },
+      "source_health": {
+        "same_generation": true
+      },
+      "release": {
+        "version": "0.9.0-alpha.1",
+        "source_revision": "1592e7919f9c132d891a9bd0fae87a8c9569baec"
+      },
+      "transport_error": null
+    },
+    {
+      "schema_version": 1,
+      "observed_at": "2026-10-07T13:13:59.994Z",
+      "base_url": "https://aureliuswu.github.io/News/",
+      "html": {
+        "status": 200,
+        "language_zh_cn": true
+      },
+      "snapshot": {
+        "status": 200,
+        "generated_at": "2026-10-07T06:05:27.343062Z",
+        "collector_gate_pass": true
+      },
+      "source_health": {
+        "same_generation": true
+      },
+      "release": {
+        "version": "0.9.0-alpha.1",
+        "source_revision": "1592e7919f9c132d891a9bd0fae87a8c9569baec"
+      },
+      "transport_error": null
+    },
+    {
+      "schema_version": 1,
+      "observed_at": "2026-10-07T19:30:37.553Z",
+      "base_url": "https://aureliuswu.github.io/News/",
+      "html": {
+        "status": 200,
+        "language_zh_cn": true
+      },
+      "snapshot": {
+        "status": 200,
+        "generated_at": "2026-10-07T13:30:13.326372Z",
+        "collector_gate_pass": true
+      },
+      "source_health": {
+        "same_generation": true
+      },
+      "release": {
+        "version": "0.9.0-alpha.1",
+        "source_revision": "1592e7919f9c132d891a9bd0fae87a8c9569baec"
+      },
+      "transport_error": null
+    },
+    {
+      "schema_version": 1,
+      "observed_at": "2026-10-07T23:47:19.145Z",
+      "base_url": "https://aureliuswu.github.io/News/",
+      "html": {
+        "status": 200,
+        "language_zh_cn": true
+      },
+      "snapshot": {
+        "status": 200,
+        "generated_at": "2026-10-07T19:33:45.681020Z",
+        "collector_gate_pass": true
+      },
+      "source_health": {
+        "same_generation": true
+      },
+      "release": {
+        "version": "0.9.0-alpha.1",
+        "source_revision": "1592e7919f9c132d891a9bd0fae87a8c9569baec"
+      },
+      "transport_error": null
+    },
+    {
+      "schema_version": 1,
+      "observed_at": "2026-10-08T05:55:00.282Z",
+      "base_url": "https://aureliuswu.github.io/News/",
+      "html": {
+        "status": 200,
+        "language_zh_cn": true
+      },
+      "snapshot": {
+        "status": 200,
+        "generated_at": "2026-10-07T23:51:55.853384Z",
+        "collector_gate_pass": true
+      },
+      "source_health": {
+        "same_generation": true
+      },
+      "release": {
+        "version": "0.9.0-alpha.1",
+        "source_revision": "1592e7919f9c132d891a9bd0fae87a8c9569baec"
+      },
+      "transport_error": null
+    },
+    {
+      "schema_version": 1,
+      "observed_at": "2026-10-08T13:20:36.499Z",
+      "base_url": "https://aureliuswu.github.io/News/",
+      "html": {
+        "status": 200,
+        "language_zh_cn": true
+      },
+      "snapshot": {
+        "status": 200,
+        "generated_at": "2026-10-08T06:10:56.600413Z",
+        "collector_gate_pass": true
+      },
+      "source_health": {
+        "same_generation": true
+      },
+      "release": {
+        "version": "0.9.0-alpha.1",
+        "source_revision": "1592e7919f9c132d891a9bd0fae87a8c9569baec"
+      },
+      "transport_error": null
+    },
+    {
+      "schema_version": 1,
+      "observed_at": "2026-10-08T19:25:24.930Z",
+      "base_url": "https://aureliuswu.github.io/News/",
+      "html": {
+        "status": 200,
+        "language_zh_cn": true
+      },
+      "snapshot": {
+        "status": 200,
+        "generated_at": "2026-10-08T13:36:33.100045Z",
+        "collector_gate_pass": true
+      },
+      "source_health": {
+        "same_generation": true
+      },
+      "release": {
+        "version": "0.9.0-alpha.1",
+        "source_revision": "1592e7919f9c132d891a9bd0fae87a8c9569baec"
+      },
+      "transport_error": null
+    },
+    {
+      "schema_version": 1,
+      "observed_at": "2026-10-08T19:25:24.93Z",
+      "base_url": "https://aureliuswu.github.io/News/",
+      "html": {
+        "status": 200,
+        "language_zh_cn": true
+      },
+      "snapshot": {
+        "status": 200,
+        "generated_at": "2026-10-08T13:36:33.100045Z",
+        "collector_gate_pass": true
+      },
+      "source_health": {
+        "same_generation": true
+      },
+      "release": {
+        "version": "0.9.0-alpha.1",
+        "source_revision": "1592e7919f9c132d891a9bd0fae87a8c9569baec"
+      },
+      "transport_error": null
+    },
+    {
+      "schema_version": 1,
+      "observed_at": "2026-10-08T23:56:12.715Z",
+      "base_url": "https://aureliuswu.github.io/News/",
+      "html": {
+        "status": 200,
+        "language_zh_cn": true
+      },
+      "snapshot": {
+        "status": 200,
+        "generated_at": "2026-10-08T19:30:14.276527Z",
+        "collector_gate_pass": true
+      },
+      "source_health": {
+        "same_generation": true
+      },
+      "release": {
+        "version": "0.9.0-alpha.1",
+        "source_revision": "1592e7919f9c132d891a9bd0fae87a8c9569baec"
+      },
+      "transport_error": null
+    },
+    {
+      "schema_version": 1,
+      "observed_at": "2026-10-09T06:01:10.560Z",
+      "base_url": "https://aureliuswu.github.io/News/",
+      "html": {
+        "status": 200,
+        "language_zh_cn": true
+      },
+      "snapshot": {
+        "status": 200,
+        "generated_at": "2026-10-08T23:58:34.397347Z",
+        "collector_gate_pass": true
+      },
+      "source_health": {
+        "same_generation": true
+      },
+      "release": {
+        "version": "0.9.0-alpha.1",
+        "source_revision": "1592e7919f9c132d891a9bd0fae87a8c9569baec"
+      },
+      "transport_error": null
+    },
+    {
+      "schema_version": 1,
+      "observed_at": "2026-10-09T06:01:10.56Z",
+      "base_url": "https://aureliuswu.github.io/News/",
+      "html": {
+        "status": 200,
+        "language_zh_cn": true
+      },
+      "snapshot": {
+        "status": 200,
+        "generated_at": "2026-10-08T23:58:34.397347Z",
+        "collector_gate_pass": true
+      },
+      "source_health": {
+        "same_generation": true
+      },
+      "release": {
+        "version": "0.9.0-alpha.1",
+        "source_revision": "1592e7919f9c132d891a9bd0fae87a8c9569baec"
+      },
+      "transport_error": null
+    },
+    {
+      "schema_version": 1,
+      "observed_at": "2026-10-09T11:59:45.453Z",
+      "base_url": "https://aureliuswu.github.io/News/",
+      "html": {
+        "status": 200,
+        "language_zh_cn": true
+      },
+      "snapshot": {
+        "status": 200,
+        "generated_at": "2026-10-09T06:14:26.853204Z",
+        "collector_gate_pass": true
+      },
+      "source_health": {
+        "same_generation": true
+      },
+      "release": {
+        "version": "0.9.0-alpha.1",
+        "source_revision": "1592e7919f9c132d891a9bd0fae87a8c9569baec"
+      },
+      "transport_error": null
+    },
+    {
+      "schema_version": 1,
+      "observed_at": "2026-10-09T13:09:02.368Z",
+      "base_url": "https://aureliuswu.github.io/News/",
+      "html": {
+        "status": 200,
+        "language_zh_cn": true
+      },
+      "snapshot": {
+        "status": 200,
+        "generated_at": "2026-10-09T06:14:26.853204Z",
+        "collector_gate_pass": true
+      },
+      "source_health": {
+        "same_generation": true
+      },
+      "release": {
+        "version": "0.9.0-alpha.1",
+        "source_revision": "1592e7919f9c132d891a9bd0fae87a8c9569baec"
+      },
+      "transport_error": null
+    },
+    {
+      "schema_version": 1,
+      "observed_at": "2026-10-09T14:36:58.013Z",
+      "base_url": "https://aureliuswu.github.io/News/",
+      "html": {
+        "status": 200,
+        "language_zh_cn": true
+      },
+      "snapshot": {
+        "status": 200,
+        "generated_at": "2026-10-09T13:25:55.403871Z",
+        "collector_gate_pass": true
+      },
+      "source_health": {
+        "same_generation": true
+      },
+      "release": {
+        "version": "0.9.0-alpha.1",
+        "source_revision": "1592e7919f9c132d891a9bd0fae87a8c9569baec"
+      },
+      "transport_error": null
+    },
+    {
+      "schema_version": 1,
+      "observed_at": "2026-10-09T18:58:29.224Z",
+      "base_url": "https://aureliuswu.github.io/News/",
+      "html": {
+        "status": 200,
+        "language_zh_cn": true
+      },
+      "snapshot": {
+        "status": 200,
+        "generated_at": "2026-10-09T13:25:55.403871Z",
+        "collector_gate_pass": true
+      },
+      "source_health": {
+        "same_generation": true
+      },
+      "release": {
+        "version": "0.9.0-alpha.1",
+        "source_revision": "1592e7919f9c132d891a9bd0fae87a8c9569baec"
+      },
+      "transport_error": null
+    },
+    {
+      "schema_version": 1,
+      "observed_at": "2026-10-09T23:12:23.956Z",
+      "base_url": "https://aureliuswu.github.io/News/",
+      "html": {
+        "status": 200,
+        "language_zh_cn": true
+      },
+      "snapshot": {
+        "status": 200,
+        "generated_at": "2026-10-09T19:01:58.353473Z",
+        "collector_gate_pass": true
+      },
+      "source_health": {
+        "same_generation": true
+      },
+      "release": {
+        "version": "0.9.0-alpha.1",
+        "source_revision": "1592e7919f9c132d891a9bd0fae87a8c9569baec"
+      },
+      "transport_error": null
+    },
+    {
+      "schema_version": 1,
+      "observed_at": "2026-10-10T02:43:11.424Z",
+      "base_url": "https://aureliuswu.github.io/News/",
+      "html": {
+        "status": 200,
+        "language_zh_cn": true
+      },
+      "snapshot": {
+        "status": 200,
+        "generated_at": "2026-10-09T23:18:18.053121Z",
+        "collector_gate_pass": true
+      },
+      "source_health": {
+        "same_generation": true
+      },
+      "release": {
+        "version": "0.9.0-alpha.1",
+        "source_revision": "1592e7919f9c132d891a9bd0fae87a8c9569baec"
+      },
+      "transport_error": null
+    },
+    {
+      "schema_version": 1,
+      "observed_at": "2026-10-10T09:44:32.654Z",
+      "base_url": "https://aureliuswu.github.io/News/",
+      "html": {
+        "status": 200,
+        "language_zh_cn": true
+      },
+      "snapshot": {
+        "status": 200,
+        "generated_at": "2026-10-10T02:48:17.605282Z",
+        "collector_gate_pass": true
+      },
+      "source_health": {
+        "same_generation": true
+      },
+      "release": {
+        "version": "0.9.0-alpha.1",
+        "source_revision": "1592e7919f9c132d891a9bd0fae87a8c9569baec"
+      },
+      "transport_error": null
+    },
+    {
+      "schema_version": 1,
+      "observed_at": "2026-10-10T15:51:06.681Z",
+      "base_url": "https://aureliuswu.github.io/News/",
+      "html": {
+        "status": 200,
+        "language_zh_cn": true
+      },
+      "snapshot": {
+        "status": 200,
+        "generated_at": "2026-10-10T09:55:04.842196Z",
+        "collector_gate_pass": true
+      },
+      "source_health": {
+        "same_generation": true
+      },
+      "release": {
+        "version": "0.9.0-alpha.1",
+        "source_revision": "1592e7919f9c132d891a9bd0fae87a8c9569baec"
+      },
+      "transport_error": null
+    },
+    {
+      "schema_version": 1,
+      "observed_at": "2026-10-10T20:01:31.427Z",
+      "base_url": "https://aureliuswu.github.io/News/",
+      "html": {
+        "status": 200,
+        "language_zh_cn": true
+      },
+      "snapshot": {
+        "status": 200,
+        "generated_at": "2026-10-10T15:53:29.078875Z",
+        "collector_gate_pass": true
+      },
+      "source_health": {
+        "same_generation": true
+      },
+      "release": {
+        "version": "0.9.0-alpha.1",
+        "source_revision": "1592e7919f9c132d891a9bd0fae87a8c9569baec"
+      },
+      "transport_error": null
+    },
+    {
+      "schema_version": 1,
+      "observed_at": "2026-10-10T23:30:16.409Z",
+      "base_url": "https://aureliuswu.github.io/News/",
+      "html": {
+        "status": 200,
+        "language_zh_cn": true
+      },
+      "snapshot": {
+        "status": 200,
+        "generated_at": "2026-10-10T20:06:10.474021Z",
+        "collector_gate_pass": true
+      },
+      "source_health": {
+        "same_generation": true
+      },
+      "release": {
+        "version": "0.9.0-alpha.1",
+        "source_revision": "1592e7919f9c132d891a9bd0fae87a8c9569baec"
+      },
+      "transport_error": null
+    },
+    {
+      "schema_version": 1,
+      "observed_at": "2026-10-11T02:09:40.989Z",
+      "base_url": "https://aureliuswu.github.io/News/",
+      "html": {
+        "status": 200,
+        "language_zh_cn": true
+      },
+      "snapshot": {
+        "status": 200,
+        "generated_at": "2026-10-10T23:36:04.322814Z",
+        "collector_gate_pass": true
+      },
+      "source_health": {
+        "same_generation": true
+      },
+      "release": {
+        "version": "0.9.0-alpha.1",
+        "source_revision": "1592e7919f9c132d891a9bd0fae87a8c9569baec"
+      },
+      "transport_error": null
+    },
+    {
+      "schema_version": 1,
+      "observed_at": "2026-10-11T09:17:11.280Z",
+      "base_url": "https://aureliuswu.github.io/News/",
+      "html": {
+        "status": 200,
+        "language_zh_cn": true
+      },
+      "snapshot": {
+        "status": 200,
+        "generated_at": "2026-10-11T09:00:44.139648Z",
+        "collector_gate_pass": true
+      },
+      "source_health": {
+        "same_generation": true
+      },
+      "release": {
+        "version": "0.9.0-alpha.1",
+        "source_revision": "1592e7919f9c132d891a9bd0fae87a8c9569baec"
+      },
+      "transport_error": null
+    },
+    {
+      "schema_version": 1,
+      "observed_at": "2026-10-11T15:56:50.375Z",
+      "base_url": "https://aureliuswu.github.io/News/",
+      "html": {
+        "status": 200,
+        "language_zh_cn": true
+      },
+      "snapshot": {
+        "status": 200,
+        "generated_at": "2026-10-11T15:45:30.709746Z",
+        "collector_gate_pass": true
+      },
+      "source_health": {
+        "same_generation": true
+      },
+      "release": {
+        "version": "0.9.0-alpha.1",
+        "source_revision": "1592e7919f9c132d891a9bd0fae87a8c9569baec"
+      },
+      "transport_error": null
+    },
+    {
+      "schema_version": 1,
+      "observed_at": "2026-10-11T20:12:40.046Z",
+      "base_url": "https://aureliuswu.github.io/News/",
+      "html": {
+        "status": 200,
+        "language_zh_cn": true
+      },
+      "snapshot": {
+        "status": 200,
+        "generated_at": "2026-10-11T19:45:34.558936Z",
+        "collector_gate_pass": true
+      },
+      "source_health": {
+        "same_generation": true
+      },
+      "release": {
+        "version": "0.9.0-alpha.1",
+        "source_revision": "1592e7919f9c132d891a9bd0fae87a8c9569baec"
+      },
+      "transport_error": null
+    },
+    {
+      "schema_version": 1,
+      "observed_at": "2026-10-11T23:57:44.417Z",
+      "base_url": "https://aureliuswu.github.io/News/",
+      "html": {
+        "status": 200,
+        "language_zh_cn": true
+      },
+      "snapshot": {
+        "status": 200,
+        "generated_at": "2026-10-11T23:13:44.981173Z",
+        "collector_gate_pass": true
+      },
+      "source_health": {
+        "same_generation": true
+      },
+      "release": {
+        "version": "0.9.0-alpha.1",
+        "source_revision": "1592e7919f9c132d891a9bd0fae87a8c9569baec"
+      },
+      "transport_error": null
+    },
+    {
+      "schema_version": 1,
+      "observed_at": "2026-10-12T05:48:44.195Z",
+      "base_url": "https://aureliuswu.github.io/News/",
+      "html": {
+        "status": 200,
+        "language_zh_cn": true
+      },
+      "snapshot": {
+        "status": 200,
+        "generated_at": "2026-10-12T02:27:58.193058Z",
+        "collector_gate_pass": true
+      },
+      "source_health": {
+        "same_generation": true
+      },
+      "release": {
+        "version": "0.9.0-alpha.1",
+        "source_revision": "1592e7919f9c132d891a9bd0fae87a8c9569baec"
+      },
+      "transport_error": null
+    },
+    {
+      "schema_version": 1,
+      "observed_at": "2026-10-12T15:13:55.982Z",
+      "base_url": "https://aureliuswu.github.io/News/",
+      "html": {
+        "status": 200,
+        "language_zh_cn": true
+      },
+      "snapshot": {
+        "status": 200,
+        "generated_at": "2026-10-12T09:48:33.651765Z",
+        "collector_gate_pass": true
+      },
+      "source_health": {
+        "same_generation": true
+      },
+      "release": {
+        "version": "0.9.0-alpha.1",
+        "source_revision": "1592e7919f9c132d891a9bd0fae87a8c9569baec"
+      },
+      "transport_error": null
+    },
+    {
+      "schema_version": 1,
+      "observed_at": "2026-10-12T22:35:19.934Z",
+      "base_url": "https://aureliuswu.github.io/News/",
+      "html": {
+        "status": 200,
+        "language_zh_cn": true
+      },
+      "snapshot": {
+        "status": 200,
+        "generated_at": "2026-10-12T19:49:56.956437Z",
+        "collector_gate_pass": true
+      },
+      "source_health": {
+        "same_generation": true
+      },
+      "release": {
+        "version": "0.9.0-alpha.1",
+        "source_revision": "1592e7919f9c132d891a9bd0fae87a8c9569baec"
+      },
+      "transport_error": null
+    },
+    {
+      "schema_version": 1,
+      "observed_at": "2026-10-13T03:10:36.516Z",
+      "base_url": "https://aureliuswu.github.io/News/",
+      "html": {
+        "status": 200,
+        "language_zh_cn": true
+      },
+      "snapshot": {
+        "status": 200,
+        "generated_at": "2026-10-13T02:03:11.237810Z",
+        "collector_gate_pass": true
+      },
+      "source_health": {
+        "same_generation": true
+      },
+      "release": {
+        "version": "0.9.0-alpha.1",
+        "source_revision": "1592e7919f9c132d891a9bd0fae87a8c9569baec"
+      },
+      "transport_error": null
+    },
+    {
+      "schema_version": 1,
+      "observed_at": "2026-10-13T11:03:20.398Z",
+      "base_url": "https://aureliuswu.github.io/News/",
+      "html": {
+        "status": 200,
+        "language_zh_cn": true
+      },
+      "snapshot": {
+        "status": 200,
+        "generated_at": "2026-10-13T09:28:48.338547Z",
+        "collector_gate_pass": true
+      },
+      "source_health": {
+        "same_generation": true
+      },
+      "release": {
+        "version": "0.9.0-alpha.1",
+        "source_revision": "1592e7919f9c132d891a9bd0fae87a8c9569baec"
+      },
+      "transport_error": null
+    },
+    {
+      "schema_version": 1,
+      "observed_at": "2026-10-13T15:18:42.229Z",
+      "base_url": "https://aureliuswu.github.io/News/",
+      "html": {
+        "status": 200,
+        "language_zh_cn": true
+      },
+      "snapshot": {
+        "status": 200,
+        "generated_at": "2026-10-13T09:28:48.338547Z",
+        "collector_gate_pass": true
+      },
+      "source_health": {
+        "same_generation": true
+      },
+      "release": {
+        "version": "0.9.0-alpha.1",
+        "source_revision": "1592e7919f9c132d891a9bd0fae87a8c9569baec"
+      },
+      "transport_error": null
+    }
+  ]
+}

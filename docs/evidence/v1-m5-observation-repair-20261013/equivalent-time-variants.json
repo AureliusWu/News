@@ -1,0 +1,291 @@
+{
+  "schema_version": 1,
+  "comparison_only": true,
+  "stored_timestamps_not_rewritten": true,
+  "variant_groups": [
+    {
+      "observed_at": "2026-10-06T19:48:00.906Z",
+      "selected_source": "artifacts/v1-m5-final-review-20261009/cloud-history/history.json",
+      "selected_generated_at": "2026-10-06T14:29:51.474970Z",
+      "variants": [
+        {
+          "row": {
+            "schema_version": 1,
+            "observed_at": "2026-10-06T19:48:00.906Z",
+            "base_url": "https://aureliuswu.github.io/News/",
+            "html": {
+              "status": 200,
+              "language_zh_cn": true
+            },
+            "snapshot": {
+              "status": 200,
+              "generated_at": "2026-10-06T14:29:51.474970Z",
+              "collector_gate_pass": true
+            },
+            "source_health": {
+              "same_generation": true
+            },
+            "release": {
+              "version": "0.9.0-alpha.1",
+              "source_revision": "1592e7919f9c132d891a9bd0fae87a8c9569baec"
+            },
+            "transport_error": null
+          },
+          "canonical_sha256": "30b78da9776b7e73a1aec281693178e4377c3e15913ee43a0664cfef93bcc8a4",
+          "sources": [
+            "artifacts/v1-m5-final-review-20261009/cloud-history/history.json",
+            "artifacts/v1-m5-final-review-20261009/combined-history.json",
+            "artifacts/v1-m5-observation-repair-20261013/cloud-38387560382/history.json",
+            "artifacts/v1-m5-performance-20261011/cloud-history-38104232879/history.json",
+            "artifacts/v1-m5-refresh-20261009/cloud-history/history.json",
+            "artifacts/v1-m5-refresh-20261009/combined-history.json",
+            "docs/evidence/v1-m5-20261009/cloud-history.json",
+            "docs/evidence/v1-m5-20261009/known-history-before-latest-merge.json",
+            "docs/evidence/v1-m5-performance-20261011/cloud-history.json"
+          ]
+        },
+        {
+          "row": {
+            "schema_version": 1,
+            "observed_at": "2026-10-06T19:48:00.906Z",
+            "base_url": "https://aureliuswu.github.io/News/",
+            "html": {
+              "status": 200,
+              "language_zh_cn": true
+            },
+            "snapshot": {
+              "status": 200,
+              "generated_at": "2026-10-06T14:29:51.47497Z",
+              "collector_gate_pass": true
+            },
+            "source_health": {
+              "same_generation": true
+            },
+            "release": {
+              "version": "0.9.0-alpha.1",
+              "source_revision": "1592e7919f9c132d891a9bd0fae87a8c9569baec"
+            },
+            "transport_error": null
+          },
+          "canonical_sha256": "431e1059180800c2cda33cdd02cdf1f0843baf9f9a8ff486387565425a22ba36",
+          "sources": [
+            "artifacts/v1-m5-final-review-20261009/incoming/cloud-025.json"
+          ]
+        }
+      ]
+    },
+    {
+      "observed_at": "2026-10-06T23:45:56.947Z",
+      "selected_source": "artifacts/v1-m5-final-review-20261009/cloud-history/history.json",
+      "selected_generated_at": "2026-10-06T19:52:07.250790Z",
+      "variants": [
+        {
+          "row": {
+            "schema_version": 1,
+            "observed_at": "2026-10-06T23:45:56.947Z",
+            "base_url": "https://aureliuswu.github.io/News/",
+            "html": {
+              "status": 200,
+              "language_zh_cn": true
+            },
+            "snapshot": {
+              "status": 200,
+              "generated_at": "2026-10-06T19:52:07.250790Z",
+              "collector_gate_pass": true
+            },
+            "source_health": {
+              "same_generation": true
+            },
+            "release": {
+              "version": "0.9.0-alpha.1",
+              "source_revision": "1592e7919f9c132d891a9bd0fae87a8c9569baec"
+            },
+            "transport_error": null
+          },
+          "canonical_sha256": "dc0179213eac66f51f991e68e5a91e9e8754ee3e877bab5dea111de1ac301e6e",
+          "sources": [
+            "artifacts/v1-m5-final-review-20261009/cloud-history/history.json",
+            "artifacts/v1-m5-final-review-20261009/combined-history.json",
+            "artifacts/v1-m5-observation-repair-20261013/cloud-38387560382/history.json",
+            "artifacts/v1-m5-performance-20261011/cloud-history-38104232879/history.json",
+            "artifacts/v1-m5-refresh-20261009/cloud-history/history.json",
+            "artifacts/v1-m5-refresh-20261009/combined-history.json",
+            "docs/evidence/v1-m5-20261009/cloud-history.json",
+            "docs/evidence/v1-m5-20261009/known-history-before-latest-merge.json",
+            "docs/evidence/v1-m5-performance-20261011/cloud-history.json"
+          ]
+        },
+        {
+          "row": {
+            "schema_version": 1,
+            "observed_at": "2026-10-06T23:45:56.947Z",
+            "base_url": "https://aureliuswu.github.io/News/",
+            "html": {
+              "status": 200,
+              "language_zh_cn": true
+            },
+            "snapshot": {
+              "status": 200,
+              "generated_at": "2026-10-06T19:52:07.25079Z",
+              "collector_gate_pass": true
+            },
+            "source_health": {
+              "same_generation": true
+            },
+            "release": {
+              "version": "0.9.0-alpha.1",
+              "source_revision": "1592e7919f9c132d891a9bd0fae87a8c9569baec"
+            },
+            "transport_error": null
+          },
+          "canonical_sha256": "9b8f71eab005b3e632ba0a284c573ba4005129e6140b0cb3ca8f52a1e2069361",
+          "sources": [
+            "artifacts/v1-m5-final-review-20261009/incoming/cloud-026.json"
+          ]
+        }
+      ]
+    },
+    {
+      "observed_at": "2026-10-07T05:49:56.993Z",
+      "selected_source": "artifacts/v1-m5-final-review-20261009/cloud-history/history.json",
+      "selected_generated_at": "2026-10-06T23:51:32.197690Z",
+      "variants": [
+        {
+          "row": {
+            "schema_version": 1,
+            "observed_at": "2026-10-07T05:49:56.993Z",
+            "base_url": "https://aureliuswu.github.io/News/",
+            "html": {
+              "status": 200,
+              "language_zh_cn": true
+            },
+            "snapshot": {
+              "status": 200,
+              "generated_at": "2026-10-06T23:51:32.197690Z",
+              "collector_gate_pass": true
+            },
+            "source_health": {
+              "same_generation": true
+            },
+            "release": {
+              "version": "0.9.0-alpha.1",
+              "source_revision": "1592e7919f9c132d891a9bd0fae87a8c9569baec"
+            },
+            "transport_error": null
+          },
+          "canonical_sha256": "ee081fd69b8fe3f542c0e7f4b2306251d62bb43f5c2a237219bab4ef5a726919",
+          "sources": [
+            "artifacts/v1-m5-final-review-20261009/cloud-history/history.json",
+            "artifacts/v1-m5-final-review-20261009/combined-history.json",
+            "artifacts/v1-m5-observation-repair-20261013/cloud-38387560382/history.json",
+            "artifacts/v1-m5-performance-20261011/cloud-history-38104232879/history.json",
+            "artifacts/v1-m5-refresh-20261009/cloud-history/history.json",
+            "artifacts/v1-m5-refresh-20261009/combined-history.json",
+            "docs/evidence/v1-m5-20261009/cloud-history.json",
+            "docs/evidence/v1-m5-20261009/known-history-before-latest-merge.json",
+            "docs/evidence/v1-m5-performance-20261011/cloud-history.json"
+          ]
+        },
+        {
+          "row": {
+            "schema_version": 1,
+            "observed_at": "2026-10-07T05:49:56.993Z",
+            "base_url": "https://aureliuswu.github.io/News/",
+            "html": {
+              "status": 200,
+              "language_zh_cn": true
+            },
+            "snapshot": {
+              "status": 200,
+              "generated_at": "2026-10-06T23:51:32.19769Z",
+              "collector_gate_pass": true
+            },
+            "source_health": {
+              "same_generation": true
+            },
+            "release": {
+              "version": "0.9.0-alpha.1",
+              "source_revision": "1592e7919f9c132d891a9bd0fae87a8c9569baec"
+            },
+            "transport_error": null
+          },
+          "canonical_sha256": "a98ebcf3a0667e6234c3dd5269e622a4d03abe8920f08a1437a58bb2ceeb42e7",
+          "sources": [
+            "artifacts/v1-m5-final-review-20261009/incoming/cloud-027.json"
+          ]
+        }
+      ]
+    },
+    {
+      "observed_at": "2026-10-07T23:47:19.145Z",
+      "selected_source": "artifacts/v1-m5-final-review-20261009/cloud-history/history.json",
+      "selected_generated_at": "2026-10-07T19:33:45.681020Z",
+      "variants": [
+        {
+          "row": {
+            "schema_version": 1,
+            "observed_at": "2026-10-07T23:47:19.145Z",
+            "base_url": "https://aureliuswu.github.io/News/",
+            "html": {
+              "status": 200,
+              "language_zh_cn": true
+            },
+            "snapshot": {
+              "status": 200,
+              "generated_at": "2026-10-07T19:33:45.681020Z",
+              "collector_gate_pass": true
+            },
+            "source_health": {
+              "same_generation": true
+            },
+            "release": {
+              "version": "0.9.0-alpha.1",
+              "source_revision": "1592e7919f9c132d891a9bd0fae87a8c9569baec"
+            },
+            "transport_error": null
+          },
+          "canonical_sha256": "64ec4e3e5b6f8a3de84ef8ec442818193c05e2c73c90fabb2c09a5cd95cd7eeb",
+          "sources": [
+            "artifacts/v1-m5-final-review-20261009/cloud-history/history.json",
+            "artifacts/v1-m5-final-review-20261009/combined-history.json",
+            "artifacts/v1-m5-observation-repair-20261013/cloud-38387560382/history.json",
+            "artifacts/v1-m5-performance-20261011/cloud-history-38104232879/history.json",
+            "artifacts/v1-m5-refresh-20261009/cloud-history/history.json",
+            "artifacts/v1-m5-refresh-20261009/combined-history.json",
+            "docs/evidence/v1-m5-20261009/cloud-history.json",
+            "docs/evidence/v1-m5-20261009/known-history-before-latest-merge.json",
+            "docs/evidence/v1-m5-performance-20261011/cloud-history.json"
+          ]
+        },
+        {
+          "row": {
+            "schema_version": 1,
+            "observed_at": "2026-10-07T23:47:19.145Z",
+            "base_url": "https://aureliuswu.github.io/News/",
+            "html": {
+              "status": 200,
+              "language_zh_cn": true
+            },
+            "snapshot": {
+              "status": 200,
+              "generated_at": "2026-10-07T19:33:45.68102Z",
+              "collector_gate_pass": true
+            },
+            "source_health": {
+              "same_generation": true
+            },
+            "release": {
+              "version": "0.9.0-alpha.1",
+              "source_revision": "1592e7919f9c132d891a9bd0fae87a8c9569baec"
+            },
+            "transport_error": null
+          },
+          "canonical_sha256": "2177baa4b199804e67bae4ae3055ec9f54bc1cbdfb536df734ad5f82f0bb16a1",
+          "sources": [
+            "artifacts/v1-m5-final-review-20261009/incoming/cloud-030.json"
+          ]
+        }
+      ]
+    }
+  ]
+}

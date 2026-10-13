@@ -1,0 +1,40 @@
+{
+  "schema_version": 1,
+  "verified_at": "2026-10-13T15:37:49.4632662+00:00",
+  "frontend_tests": {
+    "tests": 123,
+    "files": 9,
+    "status": "PASS"
+  },
+  "typecheck": "PASS",
+  "builds": {
+    "pages": "PASS",
+    "root": "PASS"
+  },
+  "pwa_static": [
+    {
+      "base": "/News/",
+      "result": "PASS",
+      "browserIcon": "/News/favicon.svg",
+      "precachedAssets": 15
+    },
+    {
+      "base": "/",
+      "result": "PASS",
+      "browserIcon": "/favicon.svg",
+      "precachedAssets": 15
+    }
+  ],
+  "negative_cases": "BLOCKED_BY_EXECUTION_POLICY_NOT_EXECUTED",
+  "isolated_http_smoke": "BLOCKED_BY_EXECUTION_POLICY_NOT_EXECUTED",
+  "owned_service_started": false,
+  "browser_lifecycle_offline_gate": "NOT_VERIFIED",
+  "physical_device_gate": "NOT_VERIFIED",
+  "formal_performance_gate": "NOT_PASSED",
+  "backend_tests_this_round": "NOT_RUN_FRONTEND_ONLY_CHANGE",
+  "formal_release": false,
+  "warnings": [
+    "Isolated outDir is outside frontend project; Vite deliberately did not empty it",
+    "Complete fault-injection/start-stop/HTTP command rejected before process creation; no PASS claimed"
+  ]
+}

@@ -1,0 +1,22 @@
+{
+  "schema_version": 1,
+  "evaluated_at": "2026-10-13T11:03:23.228Z",
+  "window_start": "2026-10-06T11:00:00.000Z",
+  "window_end": "2026-10-13T11:00:00.000Z",
+  "expected_version": "0.9.0-alpha.1",
+  "interval_minutes": 30,
+  "expected_slots": 336,
+  "observed_slots": 29,
+  "passing_slots": 5,
+  "failed_slots": 24,
+  "missing_slots": 307,
+  "passing_fraction": 0.01488095238095238,
+  "observation_span_hours": 184.2274913888889,
+  "minimum_span_hours": 168,
+  "required_fraction": 0.95,
+  "status": "FAIL",
+  "gate_pass": false,
+  "candidate_version_bound": true,
+  "formal_release": false,
+  "caveat": "Direct HTTP observations only. Missing slots count as failures; Actions run success rates are not freshness evidence."
+}

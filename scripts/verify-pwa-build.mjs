@@ -9,6 +9,14 @@ assert(base.startsWith('/') && base.endsWith('/') && !base.startsWith('//'), 'Ex
 const site = new URL(base, 'https://pwa-build.invalid');
 const manifestUrl = new URL('manifest.webmanifest', site);
 const workerUrl = new URL('sw.js', site);
+const index = readFileSync(resolve(directory, 'index.html'), 'utf8');
+const browserIconTag = index.match(/<link\b[^>]*\brel\s*=\s*(['"])icon\1[^>]*>/i);
+assert(browserIconTag, 'Expected an explicit browser icon; do not fall back to the origin root');
+const browserIconHref = browserIconTag[0].match(/\bhref\s*=\s*(['"])(.*?)\1/i);
+assert(browserIconHref, 'Expected a browser icon URL');
+const browserIconUrl = new URL(browserIconHref[2], site);
+assert.equal(browserIconUrl.href, new URL('favicon.svg', site).href, 'Browser icon must use the deployed base');
+assert(existsSync(resolve(directory, 'favicon.svg')), 'Browser icon artifact must exist');
 const manifest = JSON.parse(readFileSync(resolve(directory, 'manifest.webmanifest'), 'utf8'));
 assert.equal(manifest.lang, 'zh-CN', 'Manifest language');
 assert.equal(new URL(manifest.start_url, manifestUrl).href, site.href, 'Installed app start URL');
@@ -51,7 +59,9 @@ runInNewContext(readFileSync(resolve(directory, 'sw.js'), 'utf8'), {
   define, self: {define, skipWaiting() {}}, URL, Headers, Response
 }, {timeout: 1000});
 assert.deepEqual(fallbacks, [new URL('index.html', site).href], 'Navigation fallback must use the deployed index');
+assert(precached.has(browserIconUrl.href), 'Browser icon must be precached');
 console.log(JSON.stringify({result: 'PASS', base, manifestLanguage: manifest.lang,
+  browserIcon: browserIconUrl.pathname,
   startUrl: new URL(manifest.start_url, manifestUrl).pathname,
   scope: new URL(manifest.scope, manifestUrl).pathname,
   navigationFallback: new URL(fallbacks[0]).pathname, precachedAssets: precached.size}));

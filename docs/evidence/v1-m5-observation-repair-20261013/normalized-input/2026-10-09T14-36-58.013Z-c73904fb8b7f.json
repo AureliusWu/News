@@ -1,0 +1,55 @@
+{
+  "schema_version": 1,
+  "observed_at": "2026-10-09T14:36:58.013Z",
+  "base_url": "https://aureliuswu.github.io/News/",
+  "html": {
+    "status": 200,
+    "language_zh_cn": true
+  },
+  "snapshot": {
+    "status": 200,
+    "generated_at": "2026-10-09T13:25:55.403871Z",
+    "collector_gate_pass": true,
+    "snapshot_id": "1a44196a505e32bd1ec79d38",
+    "content_sha256": "286ec989fab60b23d7e28125c2f472abbeb9e595a38ad089e7f99f5f030f9a17",
+    "article_count": 771
+  },
+  "source_health": {
+    "status": 200,
+    "same_generation": true,
+    "snapshot_id": "1a44196a505e32bd1ec79d38",
+    "checked_at": "2026-10-09T13:25:55.403871Z",
+    "summary": {
+      "configured": 38,
+      "healthy": 32,
+      "failed": 6,
+      "publishers": 22,
+      "regions": [
+        "africa",
+        "asia",
+        "china",
+        "europe",
+        "japan",
+        "middle-east",
+        "oceania",
+        "us",
+        "world"
+      ],
+      "languages": [
+        "en",
+        "fr",
+        "ja",
+        "zh"
+      ],
+      "article_count": 771,
+      "latest_publication": "2026-10-09T13:19:54Z",
+      "gate_pass": true
+    }
+  },
+  "release": {
+    "version": "0.9.0-alpha.1",
+    "source_revision": "1592e7919f9c132d891a9bd0fae87a8c9569baec",
+    "formal_release": false
+  },
+  "transport_error": null
+}

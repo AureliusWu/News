@@ -1,0 +1,76 @@
+{
+  "schema_version": 1,
+  "observed_at": "2026-10-03T05:03:42.317Z",
+  "base_url": "https://aureliuswu.github.io/News/",
+  "acceptance": {
+    "seven_day_gate": "NOT_EVALUATED",
+    "browser_gate": "NOT_EVALUATED",
+    "physical_device_gate": "NOT_EVALUATED"
+  },
+  "html": {
+    "status": 200,
+    "elapsed_ms": 586,
+    "language_zh_cn": true,
+    "scripts": [
+      "assets/index-DN9d9IEh.js"
+    ]
+  },
+  "snapshot": {
+    "status": 200,
+    "elapsed_ms": 303,
+    "bytes": 808051,
+    "generated_at": "2026-10-03T04:31:57.132448Z",
+    "snapshot_id": "b0be6631afaa720d4eb77f1d",
+    "version": "0.4.0-alpha.1",
+    "content_sha256": "4045b0ed105df51e3acc4b9f352537bf704d772c1afdbf6f52364faacbcd5a43",
+    "article_count": 796,
+    "age_hours": 0.5292180555555556,
+    "freshness_2h_pass": true,
+    "collector_gate_pass": true
+  },
+  "source_health": {
+    "checked_at": "2026-10-03T04:31:57.132448Z",
+    "snapshot_id": "b0be6631afaa720d4eb77f1d",
+    "same_generation": true,
+    "summary": {
+      "configured": 38,
+      "healthy": 32,
+      "failed": 6,
+      "publishers": 22,
+      "regions": [
+        "africa",
+        "asia",
+        "china",
+        "europe",
+        "japan",
+        "middle-east",
+        "oceania",
+        "us",
+        "world"
+      ],
+      "languages": [
+        "en",
+        "fr",
+        "ja",
+        "zh"
+      ],
+      "article_count": 796,
+      "latest_publication": "2026-10-03T04:27:38Z",
+      "gate_pass": true
+    }
+  },
+  "release": {
+    "status": 200,
+    "version": "0.9.0-alpha.1",
+    "source_revision": "1592e7919f9c132d891a9bd0fae87a8c9569baec",
+    "formal_release": false
+  },
+  "scheduling": {
+    "run_count_7d": 0,
+    "intervals_hours": [],
+    "max_interval_hours": null,
+    "caveat": "Run intervals are not independent snapshot-age observations and do not establish seven-day freshness.",
+    "error": "Command failed: gh run list --repo AureliusWu/News --workflow deploy-gh-pages.yml --limit 100 --json databaseId,conclusion,event,createdAt,updatedAt,headSha\nGet \"https://api.github.com/repos/AureliusWu/News/actions/workflows/deploy-gh-pages.yml\": EOF\n"
+  },
+  "workflow_history": []
+}

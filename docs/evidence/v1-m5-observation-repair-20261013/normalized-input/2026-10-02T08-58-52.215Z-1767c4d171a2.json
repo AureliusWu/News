@@ -1,0 +1,22 @@
+{
+  "schema_version": 1,
+  "observed_at": "2026-10-02T08:58:52.215Z",
+  "base_url": "https://aureliuswu.github.io/News/",
+  "html": {
+    "status": 200,
+    "language_zh_cn": true
+  },
+  "snapshot": {
+    "status": 200,
+    "generated_at": "2026-10-02T02:36:10.667663Z",
+    "collector_gate_pass": true
+  },
+  "source_health": {
+    "same_generation": false
+  },
+  "release": {
+    "version": "0.9.0-alpha.1",
+    "source_revision": "4978a84f0621109be496c3797caa4d4916164e52"
+  },
+  "transport_error": null
+}

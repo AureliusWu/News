@@ -1,0 +1,8 @@
+{
+  "schema_version": 1,
+  "status": "BLOCKED_BY_EXECUTION_POLICY",
+  "command_started": false,
+  "owned_service_started": false,
+  "http_checks_executed": false,
+  "formal_release": false
+}
