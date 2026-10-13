@@ -5,12 +5,8 @@
   "source_documents": 71,
   "source_observation_documents": 65,
   "total_source_rows": 422,
-  "duplicate_rows": 355,
-  "unique_archived_rows": 67,
   "normalized_input_files": 67,
   "repaired_misnamed_source_files": 37,
-  "retained_eight_day_rows": 38,
-  "older_archived_rows": 29,
   "equivalent_time_text_groups": 4,
   "source_timestamps_unchanged": true,
   "predicate_decisions_unchanged": true,
@@ -1637,5 +1633,15 @@
         "artifacts/v1-m5-observation-repair-20261013/incoming/2026-10-13T15-18-42.229Z.json"
       ]
     }
-  ]
+  ],
+  "archived_time_text_records": 67,
+  "unique_utc_instants": 62,
+  "duplicate_time_text_source_rows": 355,
+  "duplicate_utc_instant_source_rows": 360,
+  "retained_eight_day_time_text_records": 38,
+  "retained_eight_day_unique_instants": 36,
+  "older_archived_time_text_records": 29,
+  "older_archived_unique_instants": 26,
+  "count_corrected_at": "2026-10-13T15:45:03.684Z",
+  "count_correction_proof": "count-correction-proof.json"
 }

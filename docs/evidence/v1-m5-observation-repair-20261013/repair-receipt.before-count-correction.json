@@ -1,0 +1,1641 @@
+{
+  "schema_version": 1,
+  "repaired_at": "2026-10-13T15:26:04.458Z",
+  "human_approved": true,
+  "source_documents": 71,
+  "source_observation_documents": 65,
+  "total_source_rows": 422,
+  "duplicate_rows": 355,
+  "unique_archived_rows": 67,
+  "normalized_input_files": 67,
+  "repaired_misnamed_source_files": 37,
+  "retained_eight_day_rows": 38,
+  "older_archived_rows": 29,
+  "equivalent_time_text_groups": 4,
+  "source_timestamps_unchanged": true,
+  "predicate_decisions_unchanged": true,
+  "original_files_not_modified": true,
+  "all_eligible_rows_ingested": true,
+  "original_failed_bucket_preserved": {
+    "schema_version": 1,
+    "evaluated_at": "2026-10-03T05:00:00.000Z",
+    "window_start": "2026-09-26T05:00:00.000Z",
+    "window_end": "2026-10-03T05:00:00.000Z",
+    "expected_version": "0.9.0-alpha.1",
+    "interval_minutes": 30,
+    "expected_slots": 336,
+    "observed_slots": 1,
+    "passing_slots": 0,
+    "failed_slots": 1,
+    "missing_slots": 335,
+    "passing_fraction": 0,
+    "observation_span_hours": 0.39321,
+    "minimum_span_hours": 168,
+    "required_fraction": 0.95,
+    "status": "WARMING_UP",
+    "gate_pass": false,
+    "candidate_version_bound": true,
+    "formal_release": false,
+    "caveat": "Direct HTTP observations only. Missing slots count as failures; Actions run success rates are not freshness evidence."
+  },
+  "gate_exit_code": 1,
+  "formal_release": false,
+  "cloudflare": "DEFERRED_BY_USER",
+  "initial_attempts": [
+    "Stopped before input writes: count-summary observations=2 is not raw history",
+    "Stopped before input writes: same UTC instant used different fractional trailing-zero text; all variants now archived and gate-equivalence tested"
+  ],
+  "sources": [
+    {
+      "path": "artifacts/v1-m5-candidate-20261001/observer-first-cloud/history.json",
+      "sha256": "1a86ab5f959b1242503129fa554e50aad3278086fee62b250abeb07f6afb01de",
+      "bytes": 454,
+      "observation_rows": 1,
+      "kind": "history"
+    },
+    {
+      "path": "artifacts/v1-m5-candidate-20261001/observer-history-persistence.json",
+      "sha256": "f7bdf9e3ea43806eb958b7cab6759b232400bf9606ff58c4c7c9b54a2d084e64",
+      "bytes": 1131,
+      "observation_rows": 0,
+      "kind": "verified-count-summary-not-raw-observations"
+    },
+    {
+      "path": "artifacts/v1-m5-candidate-20261001/observer-second-cloud/history.json",
+      "sha256": "22149e2ecc524e70eb44c96adb8ade34672acc8e850891df39f1077f425fd872",
+      "bytes": 870,
+      "observation_rows": 2,
+      "kind": "history"
+    },
+    {
+      "path": "artifacts/v1-m5-closure-20261003/observer-after/history.json",
+      "sha256": "bc6d254d1f2c233b3e62bdbf1b7212cc4ac0d03f72ce624d3b6df688b61da0e3",
+      "bytes": 2949,
+      "observation_rows": 7,
+      "kind": "history"
+    },
+    {
+      "path": "artifacts/v1-m5-closure-20261003/observer-before/history.json",
+      "sha256": "7fa2a593a55af9475ee0d49b59e2e6309217c69fac354d85e71001844579e7b3",
+      "bytes": 2534,
+      "observation_rows": 6,
+      "kind": "history"
+    },
+    {
+      "path": "artifacts/v1-m5-closure-20261003/observer-local-history.json",
+      "sha256": "241ea107e711088ac32d3cc7eb86d1fe33f596e561f7c3ff2a0d4bea49943911",
+      "bytes": 2949,
+      "observation_rows": 7,
+      "kind": "history"
+    },
+    {
+      "path": "artifacts/v1-m5-contract-20261003/cloud-only-history.json",
+      "sha256": "bc6d254d1f2c233b3e62bdbf1b7212cc4ac0d03f72ce624d3b6df688b61da0e3",
+      "bytes": 2949,
+      "observation_rows": 7,
+      "kind": "history"
+    },
+    {
+      "path": "artifacts/v1-m5-contract-20261003/combined-history.json",
+      "sha256": "26a7096338acf0acf72ad7d6d0c67bc59b46369f1da1db976d337e70ae66be70",
+      "bytes": 4194,
+      "observation_rows": 10,
+      "kind": "history"
+    },
+    {
+      "path": "artifacts/v1-m5-final-review-20261009/cloud-history/history.json",
+      "sha256": "3160f0e887ccbf4823d814d1a2e1a62f47590588c332c83ac98c525a0e60aec2",
+      "bytes": 14984,
+      "observation_rows": 36,
+      "kind": "history"
+    },
+    {
+      "path": "artifacts/v1-m5-final-review-20261009/combined-history.json",
+      "sha256": "2c75a6151883ac29955568d4ab72d9457ae8bc79681232278e725e3161137dd3",
+      "bytes": 16229,
+      "observation_rows": 39,
+      "kind": "history"
+    },
+    {
+      "path": "artifacts/v1-m5-final-review-20261009/incoming/2026-10-03T04-31-53.307Z.json",
+      "sha256": "8355f83d608086d7c88d1aba696695d8204c0a34af6496bfed4c9e69b833e524",
+      "bytes": 21936,
+      "observation_rows": 1,
+      "kind": "standalone"
+    },
+    {
+      "path": "artifacts/v1-m5-final-review-20261009/incoming/2026-10-03T04-55-28.863Z.json",
+      "sha256": "49a3bc27262150c0ab762ae415f3c4db0617c830dcc1d376ba054428aad00471",
+      "bytes": 21933,
+      "observation_rows": 1,
+      "kind": "standalone"
+    },
+    {
+      "path": "artifacts/v1-m5-final-review-20261009/incoming/2026-10-03T05-03-42.317Z.json",
+      "sha256": "3050ab0df7ccb513e1e1da002788ee0c594842b0742179bc81cd8c78e3ae1dd9",
+      "bytes": 2163,
+      "observation_rows": 1,
+      "kind": "standalone"
+    },
+    {
+      "path": "artifacts/v1-m5-final-review-20261009/incoming/cloud-001.json",
+      "sha256": "103bb25c654b423dfb8777299b1072c1b704a1c88c372372f91a74a1c7ac90d9",
+      "bytes": 530,
+      "observation_rows": 1,
+      "kind": "standalone"
+    },
+    {
+      "path": "artifacts/v1-m5-final-review-20261009/incoming/cloud-002.json",
+      "sha256": "3b7e6fd009e38b0d65e44964a6737d8cc36a42d91eac83573faf2a809d412cea",
+      "bytes": 530,
+      "observation_rows": 1,
+      "kind": "standalone"
+    },
+    {
+      "path": "artifacts/v1-m5-final-review-20261009/incoming/cloud-003.json",
+      "sha256": "54d57bf29ab20e257fc692a2670ba698465be805c7cb0f3fb015417ac817e99b",
+      "bytes": 530,
+      "observation_rows": 1,
+      "kind": "standalone"
+    },
+    {
+      "path": "artifacts/v1-m5-final-review-20261009/incoming/cloud-004.json",
+      "sha256": "780560a83fa40f1e6d8ef88c869095217906c08475e6188ed140bff809c63a6c",
+      "bytes": 530,
+      "observation_rows": 1,
+      "kind": "standalone"
+    },
+    {
+      "path": "artifacts/v1-m5-final-review-20261009/incoming/cloud-005.json",
+      "sha256": "cbf9ed13db7176e965598d4d254db1ef53b201ed07d410fd393ec6ac155cb454",
+      "bytes": 530,
+      "observation_rows": 1,
+      "kind": "standalone"
+    },
+    {
+      "path": "artifacts/v1-m5-final-review-20261009/incoming/cloud-006.json",
+      "sha256": "aba9d57451344444fd83f7892d949bb7025956f3635a6c64e712caf74c45f795",
+      "bytes": 529,
+      "observation_rows": 1,
+      "kind": "standalone"
+    },
+    {
+      "path": "artifacts/v1-m5-final-review-20261009/incoming/cloud-007.json",
+      "sha256": "965c00625cd745294548b56c68807fd1f0f85a7dd36525c66f95067519461b6e",
+      "bytes": 529,
+      "observation_rows": 1,
+      "kind": "standalone"
+    },
+    {
+      "path": "artifacts/v1-m5-final-review-20261009/incoming/cloud-008.json",
+      "sha256": "3ca14c8b0e0878bc2dc1c84dea97d5ae99939d11ea26b79a959f633ca9e42ecf",
+      "bytes": 529,
+      "observation_rows": 1,
+      "kind": "standalone"
+    },
+    {
+      "path": "artifacts/v1-m5-final-review-20261009/incoming/cloud-009.json",
+      "sha256": "f8298d42f4df67e7400ca77ee18510fb21edb586fa4df73a809520222ae55dbe",
+      "bytes": 529,
+      "observation_rows": 1,
+      "kind": "standalone"
+    },
+    {
+      "path": "artifacts/v1-m5-final-review-20261009/incoming/cloud-010.json",
+      "sha256": "e4e1f83c0cf8cfca4cb3956933786c28a1c6aff1f033475a04bf184b3c58430f",
+      "bytes": 529,
+      "observation_rows": 1,
+      "kind": "standalone"
+    },
+    {
+      "path": "artifacts/v1-m5-final-review-20261009/incoming/cloud-011.json",
+      "sha256": "0ad66d2c5a10a0393d0cf55e4bd3fee7f64cad5661c6cacd602711138347e0d9",
+      "bytes": 529,
+      "observation_rows": 1,
+      "kind": "standalone"
+    },
+    {
+      "path": "artifacts/v1-m5-final-review-20261009/incoming/cloud-012.json",
+      "sha256": "fef926b7f2073898283f9a4a265ede9e2709b6b803f0f77944a19f60a3e9a1ae",
+      "bytes": 528,
+      "observation_rows": 1,
+      "kind": "standalone"
+    },
+    {
+      "path": "artifacts/v1-m5-final-review-20261009/incoming/cloud-013.json",
+      "sha256": "0cd323c55a86f0880896e346a503ad754c5541471c31b8111ff6d5b1a880e0ce",
+      "bytes": 529,
+      "observation_rows": 1,
+      "kind": "standalone"
+    },
+    {
+      "path": "artifacts/v1-m5-final-review-20261009/incoming/cloud-014.json",
+      "sha256": "b118d267cb23705deae2ae592b19d71eacc6883eb0a692afa57e68c1c0b189f0",
+      "bytes": 529,
+      "observation_rows": 1,
+      "kind": "standalone"
+    },
+    {
+      "path": "artifacts/v1-m5-final-review-20261009/incoming/cloud-015.json",
+      "sha256": "d1303a086bc3f6d8b5cf1b18d1e3abecf5d177575b24c57c15b63e9963140f52",
+      "bytes": 529,
+      "observation_rows": 1,
+      "kind": "standalone"
+    },
+    {
+      "path": "artifacts/v1-m5-final-review-20261009/incoming/cloud-016.json",
+      "sha256": "1abe8295dacc89066245e4efaf83132cfd2b04b6eb8636ebc932177739b6910c",
+      "bytes": 529,
+      "observation_rows": 1,
+      "kind": "standalone"
+    },
+    {
+      "path": "artifacts/v1-m5-final-review-20261009/incoming/cloud-017.json",
+      "sha256": "c3aad7c60c55889d2c4a4a0f8e634cc43a164ada0e497de3a205c7203b8dde87",
+      "bytes": 529,
+      "observation_rows": 1,
+      "kind": "standalone"
+    },
+    {
+      "path": "artifacts/v1-m5-final-review-20261009/incoming/cloud-018.json",
+      "sha256": "2834a1a0d8777a3eb11eacc9fd35085a44d9da84a665318d22d7607e093ecfdb",
+      "bytes": 529,
+      "observation_rows": 1,
+      "kind": "standalone"
+    },
+    {
+      "path": "artifacts/v1-m5-final-review-20261009/incoming/cloud-019.json",
+      "sha256": "391131569969351599826f97c7287075ac95fd57959e3f697b90ea6c01ee4075",
+      "bytes": 528,
+      "observation_rows": 1,
+      "kind": "standalone"
+    },
+    {
+      "path": "artifacts/v1-m5-final-review-20261009/incoming/cloud-020.json",
+      "sha256": "1ae8e20657f4616569408619786827597be8e47a8d2817404c807ea0f79d23c2",
+      "bytes": 529,
+      "observation_rows": 1,
+      "kind": "standalone"
+    },
+    {
+      "path": "artifacts/v1-m5-final-review-20261009/incoming/cloud-021.json",
+      "sha256": "ca124da11f4936d4acacc3504b0d1dda2dab966473634614a96646218f92086e",
+      "bytes": 529,
+      "observation_rows": 1,
+      "kind": "standalone"
+    },
+    {
+      "path": "artifacts/v1-m5-final-review-20261009/incoming/cloud-022.json",
+      "sha256": "a9086ad6d854a0c3f05d360ee22c4de12a4e392e97bdbf5a68a999f5088f466e",
+      "bytes": 529,
+      "observation_rows": 1,
+      "kind": "standalone"
+    },
+    {
+      "path": "artifacts/v1-m5-final-review-20261009/incoming/cloud-023.json",
+      "sha256": "e0715ded59561912ddb845c3b88a4638fc2d45bb355f3dbdf2778580922c0152",
+      "bytes": 529,
+      "observation_rows": 1,
+      "kind": "standalone"
+    },
+    {
+      "path": "artifacts/v1-m5-final-review-20261009/incoming/cloud-024.json",
+      "sha256": "816091d614c81b02b132b199af91c69ba02c109fdad50e43123e8e3efb8673cd",
+      "bytes": 529,
+      "observation_rows": 1,
+      "kind": "standalone"
+    },
+    {
+      "path": "artifacts/v1-m5-final-review-20261009/incoming/cloud-025.json",
+      "sha256": "f6c498c50df550d10f783b0bb9a877c9ecec2600294f83f5197ddb0e714b68e6",
+      "bytes": 528,
+      "observation_rows": 1,
+      "kind": "standalone"
+    },
+    {
+      "path": "artifacts/v1-m5-final-review-20261009/incoming/cloud-026.json",
+      "sha256": "eced2d419edefbadc8f1dc07afca0d5a0685d766517b3ee107adaf8a9e53528f",
+      "bytes": 528,
+      "observation_rows": 1,
+      "kind": "standalone"
+    },
+    {
+      "path": "artifacts/v1-m5-final-review-20261009/incoming/cloud-027.json",
+      "sha256": "6661d3fafa6336de4635200b3d07a0577754be70740f57c17a68f95a9ef079db",
+      "bytes": 528,
+      "observation_rows": 1,
+      "kind": "standalone"
+    },
+    {
+      "path": "artifacts/v1-m5-final-review-20261009/incoming/cloud-028.json",
+      "sha256": "7198f21d89d6c66a224ed84be8fe8512b34bd30bd6b2cd64d88f6407eeeb9d00",
+      "bytes": 529,
+      "observation_rows": 1,
+      "kind": "standalone"
+    },
+    {
+      "path": "artifacts/v1-m5-final-review-20261009/incoming/cloud-029.json",
+      "sha256": "81c0031554a409634946cda52d3d0c4ea763a030c6e1dc727350afe83ec9aeab",
+      "bytes": 529,
+      "observation_rows": 1,
+      "kind": "standalone"
+    },
+    {
+      "path": "artifacts/v1-m5-final-review-20261009/incoming/cloud-030.json",
+      "sha256": "7537be821eefaa3e99be9c8999acd1d474b355840a19f3de5d6294269bb5635f",
+      "bytes": 528,
+      "observation_rows": 1,
+      "kind": "standalone"
+    },
+    {
+      "path": "artifacts/v1-m5-final-review-20261009/incoming/cloud-031.json",
+      "sha256": "f1a6d553a98fb88cb3f4ba81e0742d09d34612108c4aa9240cfe4a5474c9796b",
+      "bytes": 529,
+      "observation_rows": 1,
+      "kind": "standalone"
+    },
+    {
+      "path": "artifacts/v1-m5-final-review-20261009/incoming/cloud-032.json",
+      "sha256": "676503f9f3cbacd25661c0618c757369c63196de887f258fa2826da646f438c4",
+      "bytes": 529,
+      "observation_rows": 1,
+      "kind": "standalone"
+    },
+    {
+      "path": "artifacts/v1-m5-final-review-20261009/incoming/cloud-033.json",
+      "sha256": "7cb04e4ca6f124e3f8d170c759bdd343a8a1e90950468518d47171f982309c33",
+      "bytes": 528,
+      "observation_rows": 1,
+      "kind": "standalone"
+    },
+    {
+      "path": "artifacts/v1-m5-final-review-20261009/incoming/cloud-034.json",
+      "sha256": "64f889a422829eec0e7c488a8310c0f8c9366567231999186135af54e58607bc",
+      "bytes": 529,
+      "observation_rows": 1,
+      "kind": "standalone"
+    },
+    {
+      "path": "artifacts/v1-m5-final-review-20261009/incoming/cloud-035.json",
+      "sha256": "3af72551e6e3a6f6ffdb76a6b5c3682217ab99b01558c621991ed0e7c2a33ba6",
+      "bytes": 528,
+      "observation_rows": 1,
+      "kind": "standalone"
+    },
+    {
+      "path": "artifacts/v1-m5-final-review-20261009/incoming/cloud-036.json",
+      "sha256": "468b63f0567f16f5a9241679b09a621705e368f7ec326d2ec0b6adad05dc3f6f",
+      "bytes": 529,
+      "observation_rows": 1,
+      "kind": "standalone"
+    },
+    {
+      "path": "artifacts/v1-m5-final-review-20261009/incoming/local-current.json",
+      "sha256": "3563d11bd97b75231b8246a6fa8e4689e3715e5b75028c583cf795abfd1ca3db",
+      "bytes": 1302,
+      "observation_rows": 1,
+      "kind": "standalone"
+    },
+    {
+      "path": "artifacts/v1-m5-final-review-20261009/observer-artifacts.json",
+      "sha256": "de6653fe97628edcfa6b314a735325a7b5a09b5d35f3cb71bcdcc5ba4595711d",
+      "bytes": 719,
+      "observation_rows": 0,
+      "kind": "non-observation-document"
+    },
+    {
+      "path": "artifacts/v1-m5-observation-repair-20261013/cloud-38387560382/history.json",
+      "sha256": "aea999068b12e35a08790c399658c5bdc62bc8861499abb5170b6a7e8d96c060",
+      "bytes": 13733,
+      "observation_rows": 33,
+      "kind": "history"
+    },
+    {
+      "path": "artifacts/v1-m5-observation-repair-20261013/incoming/2026-10-13T15-18-42.229Z.json",
+      "sha256": "c33dfe9b3273e0ddc4545d6cfcfa318a0fae469a178701c11357883d80ea8896",
+      "bytes": 27615,
+      "observation_rows": 1,
+      "kind": "standalone"
+    },
+    {
+      "path": "artifacts/v1-m5-observation-repair-20261013/latest-observer-receipt.json",
+      "sha256": "f46ef64aecbf35d8b552a68b518698c301b51fb216aa7eac16d67aeb343c4a8c",
+      "bytes": 393,
+      "observation_rows": 0,
+      "kind": "non-observation-document"
+    },
+    {
+      "path": "artifacts/v1-m5-performance-20261011/cloud-history-38104232879/history.json",
+      "sha256": "70750a8e5345d598fe188b829d3560128eea52bbe5ce08944a158b04012ffcb1",
+      "bytes": 15808,
+      "observation_rows": 38,
+      "kind": "history"
+    },
+    {
+      "path": "artifacts/v1-m5-performance-20261011/observer-runs.json",
+      "sha256": "f4077216e4e315c94c3154a694535f657268561e3a70919a08d19e160dd9132e",
+      "bytes": 671,
+      "observation_rows": 0,
+      "kind": "non-observation-document"
+    },
+    {
+      "path": "artifacts/v1-m5-refresh-20261009/cloud-history/history.json",
+      "sha256": "cbeb69e9b87fc88b35f308430e81ee6319e4f83d745040e32f9433f222f48b52",
+      "bytes": 14569,
+      "observation_rows": 35,
+      "kind": "history"
+    },
+    {
+      "path": "artifacts/v1-m5-refresh-20261009/combined-history.json",
+      "sha256": "2c75a6151883ac29955568d4ab72d9457ae8bc79681232278e725e3161137dd3",
+      "bytes": 16229,
+      "observation_rows": 39,
+      "kind": "history"
+    },
+    {
+      "path": "artifacts/v1-m5-refresh-20261009/incoming/2026-10-03T04-31-53.307Z.json",
+      "sha256": "8355f83d608086d7c88d1aba696695d8204c0a34af6496bfed4c9e69b833e524",
+      "bytes": 21936,
+      "observation_rows": 1,
+      "kind": "standalone"
+    },
+    {
+      "path": "artifacts/v1-m5-refresh-20261009/incoming/2026-10-03T04-55-28.863Z.json",
+      "sha256": "49a3bc27262150c0ab762ae415f3c4db0617c830dcc1d376ba054428aad00471",
+      "bytes": 21933,
+      "observation_rows": 1,
+      "kind": "standalone"
+    },
+    {
+      "path": "artifacts/v1-m5-refresh-20261009/incoming/2026-10-03T05-03-42.317Z.json",
+      "sha256": "3050ab0df7ccb513e1e1da002788ee0c594842b0742179bc81cd8c78e3ae1dd9",
+      "bytes": 2163,
+      "observation_rows": 1,
+      "kind": "standalone"
+    },
+    {
+      "path": "artifacts/v1-m5-refresh-20261009/incoming/2026-10-09T11-59-45.453Z.json",
+      "sha256": "b7eccf9a8d70d054508b4a18b293409b55041e882ce44146801d98980b5c8008",
+      "bytes": 27621,
+      "observation_rows": 1,
+      "kind": "standalone"
+    },
+    {
+      "path": "artifacts/v1-observations/2026-09-30T06-55-48.065Z.json",
+      "sha256": "c7852638ada7921176009cde91b6bae5d4b5363fd6601cceacc1c6f11a15cac8",
+      "bytes": 17516,
+      "observation_rows": 1,
+      "kind": "standalone"
+    },
+    {
+      "path": "artifacts/v1-observations/2026-10-01T16-00-30.315Z.json",
+      "sha256": "65bfebd76ca93340ba7694825463bcb96969555885bbec58533d810ee7640307",
+      "bytes": 19369,
+      "observation_rows": 1,
+      "kind": "standalone"
+    },
+    {
+      "path": "artifacts/v1-observations/2026-10-02T02-15-39.556Z.json",
+      "sha256": "e13fb4dd67828865c3fd4b8dc2f0ddb7509add005493229a53128dede919a5d4",
+      "bytes": 20195,
+      "observation_rows": 1,
+      "kind": "standalone"
+    },
+    {
+      "path": "docs/evidence/v1-m5-20261009/cloud-history.json",
+      "sha256": "3160f0e887ccbf4823d814d1a2e1a62f47590588c332c83ac98c525a0e60aec2",
+      "bytes": 14984,
+      "observation_rows": 36,
+      "kind": "history"
+    },
+    {
+      "path": "docs/evidence/v1-m5-20261009/known-history-before-latest-merge.json",
+      "sha256": "2c75a6151883ac29955568d4ab72d9457ae8bc79681232278e725e3161137dd3",
+      "bytes": 16229,
+      "observation_rows": 39,
+      "kind": "history"
+    },
+    {
+      "path": "docs/evidence/v1-m5-20261009/latest-local-observation.json",
+      "sha256": "3563d11bd97b75231b8246a6fa8e4689e3715e5b75028c583cf795abfd1ca3db",
+      "bytes": 1302,
+      "observation_rows": 1,
+      "kind": "standalone"
+    },
+    {
+      "path": "docs/evidence/v1-m5-20261009/observer-artifacts.json",
+      "sha256": "de6653fe97628edcfa6b314a735325a7b5a09b5d35f3cb71bcdcc5ba4595711d",
+      "bytes": 719,
+      "observation_rows": 0,
+      "kind": "non-observation-document"
+    },
+    {
+      "path": "docs/evidence/v1-m5-performance-20261011/cloud-history.json",
+      "sha256": "70750a8e5345d598fe188b829d3560128eea52bbe5ce08944a158b04012ffcb1",
+      "bytes": 15808,
+      "observation_rows": 38,
+      "kind": "history"
+    },
+    {
+      "path": "docs/evidence/v1-m5-performance-20261011/observer-runs.json",
+      "sha256": "f4077216e4e315c94c3154a694535f657268561e3a70919a08d19e160dd9132e",
+      "bytes": 671,
+      "observation_rows": 0,
+      "kind": "non-observation-document"
+    }
+  ],
+  "mappings": [
+    {
+      "observed_at": "2026-09-30T06:55:48.065Z",
+      "input_file": "2026-09-30T06-55-48.065Z-483bc529d05e.json",
+      "canonical_sha256": "483bc529d05ea64a5fef7636fe68c536ae1eb386411858d49c2228d3fb6be5a0",
+      "input_sha256": "c7852638ada7921176009cde91b6bae5d4b5363fd6601cceacc1c6f11a15cac8",
+      "standalone_bytes_preserved": true,
+      "selected_source": "artifacts/v1-observations/2026-09-30T06-55-48.065Z.json",
+      "sources": [
+        "artifacts/v1-observations/2026-09-30T06-55-48.065Z.json"
+      ]
+    },
+    {
+      "observed_at": "2026-10-01T16:00:30.315Z",
+      "input_file": "2026-10-01T16-00-30.315Z-f19932b81b85.json",
+      "canonical_sha256": "f19932b81b857f3a2b63bb8e630d93782ffa392eea8dde330f126c0b3006c3ac",
+      "input_sha256": "65bfebd76ca93340ba7694825463bcb96969555885bbec58533d810ee7640307",
+      "standalone_bytes_preserved": true,
+      "selected_source": "artifacts/v1-observations/2026-10-01T16-00-30.315Z.json",
+      "sources": [
+        "artifacts/v1-observations/2026-10-01T16-00-30.315Z.json"
+      ]
+    },
+    {
+      "observed_at": "2026-10-02T02:15:39.556Z",
+      "input_file": "2026-10-02T02-15-39.556Z-8e99e80f122c.json",
+      "canonical_sha256": "8e99e80f122c2204339751ffd37422af4e13f7e7f0ca26f29e9ac377d5a941fb",
+      "input_sha256": "e13fb4dd67828865c3fd4b8dc2f0ddb7509add005493229a53128dede919a5d4",
+      "standalone_bytes_preserved": true,
+      "selected_source": "artifacts/v1-observations/2026-10-02T02-15-39.556Z.json",
+      "sources": [
+        "artifacts/v1-observations/2026-10-02T02-15-39.556Z.json"
+      ]
+    },
+    {
+      "observed_at": "2026-10-02T02:35:10.672Z",
+      "input_file": "2026-10-02T02-35-10.672Z-205ac329586c.json",
+      "canonical_sha256": "205ac329586cf3597d97904e3ad9c5c15e8754fe2bc860d5f3dfcbacd4c119db",
+      "input_sha256": "1aeb530512d2305b86fc598e4d9170f9e79f943129412c69d563f261824c2239",
+      "standalone_bytes_preserved": false,
+      "selected_source": "artifacts/v1-m5-candidate-20261001/observer-first-cloud/history.json",
+      "sources": [
+        "artifacts/v1-m5-candidate-20261001/observer-first-cloud/history.json",
+        "artifacts/v1-m5-candidate-20261001/observer-second-cloud/history.json",
+        "artifacts/v1-m5-closure-20261003/observer-after/history.json",
+        "artifacts/v1-m5-closure-20261003/observer-before/history.json",
+        "artifacts/v1-m5-closure-20261003/observer-local-history.json",
+        "artifacts/v1-m5-contract-20261003/cloud-only-history.json",
+        "artifacts/v1-m5-contract-20261003/combined-history.json",
+        "artifacts/v1-m5-final-review-20261009/cloud-history/history.json",
+        "artifacts/v1-m5-final-review-20261009/combined-history.json",
+        "artifacts/v1-m5-final-review-20261009/incoming/cloud-001.json",
+        "artifacts/v1-m5-refresh-20261009/cloud-history/history.json",
+        "artifacts/v1-m5-refresh-20261009/combined-history.json",
+        "docs/evidence/v1-m5-20261009/cloud-history.json",
+        "docs/evidence/v1-m5-20261009/known-history-before-latest-merge.json"
+      ]
+    },
+    {
+      "observed_at": "2026-10-02T02:39:05.125Z",
+      "input_file": "2026-10-02T02-39-05.125Z-d5789b701a53.json",
+      "canonical_sha256": "d5789b701a530247a374c514807f4460ef5ac942578c4087cecf3ad383bff995",
+      "input_sha256": "52996120aa112f3fef527aae84071399abd7d27450415dce9850aa806dafd0d5",
+      "standalone_bytes_preserved": false,
+      "selected_source": "artifacts/v1-m5-candidate-20261001/observer-second-cloud/history.json",
+      "sources": [
+        "artifacts/v1-m5-candidate-20261001/observer-second-cloud/history.json",
+        "artifacts/v1-m5-closure-20261003/observer-after/history.json",
+        "artifacts/v1-m5-closure-20261003/observer-before/history.json",
+        "artifacts/v1-m5-closure-20261003/observer-local-history.json",
+        "artifacts/v1-m5-contract-20261003/cloud-only-history.json",
+        "artifacts/v1-m5-contract-20261003/combined-history.json",
+        "artifacts/v1-m5-final-review-20261009/cloud-history/history.json",
+        "artifacts/v1-m5-final-review-20261009/combined-history.json",
+        "artifacts/v1-m5-final-review-20261009/incoming/cloud-002.json",
+        "artifacts/v1-m5-refresh-20261009/cloud-history/history.json",
+        "artifacts/v1-m5-refresh-20261009/combined-history.json",
+        "docs/evidence/v1-m5-20261009/cloud-history.json",
+        "docs/evidence/v1-m5-20261009/known-history-before-latest-merge.json"
+      ]
+    },
+    {
+      "observed_at": "2026-10-02T08:58:52.215Z",
+      "input_file": "2026-10-02T08-58-52.215Z-1767c4d171a2.json",
+      "canonical_sha256": "1767c4d171a200abb88ea969508f72498bfe8fd7a3d3696781bc143ec47c2908",
+      "input_sha256": "3ec0e2d15e67e06519eb3c39dfa5f410e6d989cc52244b82279f93a754d1d943",
+      "standalone_bytes_preserved": false,
+      "selected_source": "artifacts/v1-m5-closure-20261003/observer-after/history.json",
+      "sources": [
+        "artifacts/v1-m5-closure-20261003/observer-after/history.json",
+        "artifacts/v1-m5-closure-20261003/observer-before/history.json",
+        "artifacts/v1-m5-closure-20261003/observer-local-history.json",
+        "artifacts/v1-m5-contract-20261003/cloud-only-history.json",
+        "artifacts/v1-m5-contract-20261003/combined-history.json",
+        "artifacts/v1-m5-final-review-20261009/cloud-history/history.json",
+        "artifacts/v1-m5-final-review-20261009/combined-history.json",
+        "artifacts/v1-m5-final-review-20261009/incoming/cloud-003.json",
+        "artifacts/v1-m5-refresh-20261009/cloud-history/history.json",
+        "artifacts/v1-m5-refresh-20261009/combined-history.json",
+        "docs/evidence/v1-m5-20261009/cloud-history.json",
+        "docs/evidence/v1-m5-20261009/known-history-before-latest-merge.json"
+      ]
+    },
+    {
+      "observed_at": "2026-10-02T15:44:44.041Z",
+      "input_file": "2026-10-02T15-44-44.041Z-d2ff759fb0d9.json",
+      "canonical_sha256": "d2ff759fb0d9241a2658251a91d1b38c6c362aaed67f81c49edc3c8487269d3a",
+      "input_sha256": "650947f10062df4ab4b6f66926b65092caebea4af756bccb3f6c486ac9495326",
+      "standalone_bytes_preserved": false,
+      "selected_source": "artifacts/v1-m5-closure-20261003/observer-after/history.json",
+      "sources": [
+        "artifacts/v1-m5-closure-20261003/observer-after/history.json",
+        "artifacts/v1-m5-closure-20261003/observer-before/history.json",
+        "artifacts/v1-m5-closure-20261003/observer-local-history.json",
+        "artifacts/v1-m5-contract-20261003/cloud-only-history.json",
+        "artifacts/v1-m5-contract-20261003/combined-history.json",
+        "artifacts/v1-m5-final-review-20261009/cloud-history/history.json",
+        "artifacts/v1-m5-final-review-20261009/combined-history.json",
+        "artifacts/v1-m5-final-review-20261009/incoming/cloud-004.json",
+        "artifacts/v1-m5-refresh-20261009/cloud-history/history.json",
+        "artifacts/v1-m5-refresh-20261009/combined-history.json",
+        "docs/evidence/v1-m5-20261009/cloud-history.json",
+        "docs/evidence/v1-m5-20261009/known-history-before-latest-merge.json"
+      ]
+    },
+    {
+      "observed_at": "2026-10-02T20:40:33.665Z",
+      "input_file": "2026-10-02T20-40-33.665Z-2eac9c79e17a.json",
+      "canonical_sha256": "2eac9c79e17afe70931ec965ebc312e77549f5546213d1921e338e27ec4395d7",
+      "input_sha256": "d68dad9327bfcd2165ede6fe6543ce8e2b76f1213d57730573f4a556932e37e3",
+      "standalone_bytes_preserved": false,
+      "selected_source": "artifacts/v1-m5-closure-20261003/observer-after/history.json",
+      "sources": [
+        "artifacts/v1-m5-closure-20261003/observer-after/history.json",
+        "artifacts/v1-m5-closure-20261003/observer-before/history.json",
+        "artifacts/v1-m5-closure-20261003/observer-local-history.json",
+        "artifacts/v1-m5-contract-20261003/cloud-only-history.json",
+        "artifacts/v1-m5-contract-20261003/combined-history.json",
+        "artifacts/v1-m5-final-review-20261009/cloud-history/history.json",
+        "artifacts/v1-m5-final-review-20261009/combined-history.json",
+        "artifacts/v1-m5-final-review-20261009/incoming/cloud-005.json",
+        "artifacts/v1-m5-refresh-20261009/cloud-history/history.json",
+        "artifacts/v1-m5-refresh-20261009/combined-history.json",
+        "docs/evidence/v1-m5-20261009/cloud-history.json",
+        "docs/evidence/v1-m5-20261009/known-history-before-latest-merge.json"
+      ]
+    },
+    {
+      "observed_at": "2026-10-03T00:26:08.540Z",
+      "input_file": "2026-10-03T00-26-08.540Z-ec2c4e467ed5.json",
+      "canonical_sha256": "ec2c4e467ed5e06f8dc834140883888003c0e77894c4cdef93b6843fc132daaf",
+      "input_sha256": "5bea7721dcf3dd5b37b2781abd5b4b9d04a8d5c45804142699dd85810495a4c5",
+      "standalone_bytes_preserved": false,
+      "selected_source": "artifacts/v1-m5-closure-20261003/observer-after/history.json",
+      "sources": [
+        "artifacts/v1-m5-closure-20261003/observer-after/history.json",
+        "artifacts/v1-m5-closure-20261003/observer-before/history.json",
+        "artifacts/v1-m5-closure-20261003/observer-local-history.json",
+        "artifacts/v1-m5-contract-20261003/cloud-only-history.json",
+        "artifacts/v1-m5-contract-20261003/combined-history.json",
+        "artifacts/v1-m5-final-review-20261009/cloud-history/history.json",
+        "artifacts/v1-m5-final-review-20261009/combined-history.json",
+        "artifacts/v1-m5-refresh-20261009/cloud-history/history.json",
+        "artifacts/v1-m5-refresh-20261009/combined-history.json",
+        "docs/evidence/v1-m5-20261009/cloud-history.json",
+        "docs/evidence/v1-m5-20261009/known-history-before-latest-merge.json"
+      ]
+    },
+    {
+      "observed_at": "2026-10-03T00:26:08.54Z",
+      "input_file": "2026-10-03T00-26-08.540Z-d39fe6663ca7.json",
+      "canonical_sha256": "d39fe6663ca7ff70b365212b0f636b5ca59c4d78de68bfccdf68e01f6a144ad6",
+      "input_sha256": "aba9d57451344444fd83f7892d949bb7025956f3635a6c64e712caf74c45f795",
+      "standalone_bytes_preserved": true,
+      "selected_source": "artifacts/v1-m5-final-review-20261009/incoming/cloud-006.json",
+      "sources": [
+        "artifacts/v1-m5-final-review-20261009/incoming/cloud-006.json"
+      ]
+    },
+    {
+      "observed_at": "2026-10-03T04:31:53.307Z",
+      "input_file": "2026-10-03T04-31-53.307Z-c94554bab20d.json",
+      "canonical_sha256": "c94554bab20d7371d8c72bd45a79e3dd7bdeaf2391563e8c2c7c9de6855faee3",
+      "input_sha256": "8355f83d608086d7c88d1aba696695d8204c0a34af6496bfed4c9e69b833e524",
+      "standalone_bytes_preserved": true,
+      "selected_source": "artifacts/v1-m5-final-review-20261009/incoming/2026-10-03T04-31-53.307Z.json",
+      "sources": [
+        "artifacts/v1-m5-closure-20261003/observer-local-history.json",
+        "artifacts/v1-m5-contract-20261003/combined-history.json",
+        "artifacts/v1-m5-final-review-20261009/combined-history.json",
+        "artifacts/v1-m5-final-review-20261009/incoming/2026-10-03T04-31-53.307Z.json",
+        "artifacts/v1-m5-refresh-20261009/combined-history.json",
+        "artifacts/v1-m5-refresh-20261009/incoming/2026-10-03T04-31-53.307Z.json",
+        "docs/evidence/v1-m5-20261009/known-history-before-latest-merge.json"
+      ]
+    },
+    {
+      "observed_at": "2026-10-03T04:40:00.481Z",
+      "input_file": "2026-10-03T04-40-00.481Z-67de65b7c055.json",
+      "canonical_sha256": "67de65b7c0557285a1cc7934e3e16658fb29fa02818043029f6ae6c98bb268a0",
+      "input_sha256": "6275457e229fa19ad89f069e3e58a3497b2bd9cacda64f6f85db5fdd51ab1d1c",
+      "standalone_bytes_preserved": false,
+      "selected_source": "artifacts/v1-m5-closure-20261003/observer-after/history.json",
+      "sources": [
+        "artifacts/v1-m5-closure-20261003/observer-after/history.json",
+        "artifacts/v1-m5-contract-20261003/cloud-only-history.json",
+        "artifacts/v1-m5-contract-20261003/combined-history.json",
+        "artifacts/v1-m5-final-review-20261009/cloud-history/history.json",
+        "artifacts/v1-m5-final-review-20261009/combined-history.json",
+        "artifacts/v1-m5-final-review-20261009/incoming/cloud-007.json",
+        "artifacts/v1-m5-performance-20261011/cloud-history-38104232879/history.json",
+        "artifacts/v1-m5-refresh-20261009/cloud-history/history.json",
+        "artifacts/v1-m5-refresh-20261009/combined-history.json",
+        "docs/evidence/v1-m5-20261009/cloud-history.json",
+        "docs/evidence/v1-m5-20261009/known-history-before-latest-merge.json",
+        "docs/evidence/v1-m5-performance-20261011/cloud-history.json"
+      ]
+    },
+    {
+      "observed_at": "2026-10-03T04:55:28.863Z",
+      "input_file": "2026-10-03T04-55-28.863Z-6d160d1556e3.json",
+      "canonical_sha256": "6d160d1556e354dde046fe6c89fb18900a28839fa6f6703b65638bfd7cd280f1",
+      "input_sha256": "49a3bc27262150c0ab762ae415f3c4db0617c830dcc1d376ba054428aad00471",
+      "standalone_bytes_preserved": true,
+      "selected_source": "artifacts/v1-m5-final-review-20261009/incoming/2026-10-03T04-55-28.863Z.json",
+      "sources": [
+        "artifacts/v1-m5-contract-20261003/combined-history.json",
+        "artifacts/v1-m5-final-review-20261009/combined-history.json",
+        "artifacts/v1-m5-final-review-20261009/incoming/2026-10-03T04-55-28.863Z.json",
+        "artifacts/v1-m5-refresh-20261009/combined-history.json",
+        "artifacts/v1-m5-refresh-20261009/incoming/2026-10-03T04-55-28.863Z.json",
+        "docs/evidence/v1-m5-20261009/known-history-before-latest-merge.json"
+      ]
+    },
+    {
+      "observed_at": "2026-10-03T05:03:42.317Z",
+      "input_file": "2026-10-03T05-03-42.317Z-e33290197357.json",
+      "canonical_sha256": "e33290197357b69a4c46a5def4125f809f76768618fa334376bf514adf5bee6f",
+      "input_sha256": "3050ab0df7ccb513e1e1da002788ee0c594842b0742179bc81cd8c78e3ae1dd9",
+      "standalone_bytes_preserved": true,
+      "selected_source": "artifacts/v1-m5-final-review-20261009/incoming/2026-10-03T05-03-42.317Z.json",
+      "sources": [
+        "artifacts/v1-m5-contract-20261003/combined-history.json",
+        "artifacts/v1-m5-final-review-20261009/combined-history.json",
+        "artifacts/v1-m5-final-review-20261009/incoming/2026-10-03T05-03-42.317Z.json",
+        "artifacts/v1-m5-refresh-20261009/combined-history.json",
+        "artifacts/v1-m5-refresh-20261009/incoming/2026-10-03T05-03-42.317Z.json",
+        "docs/evidence/v1-m5-20261009/known-history-before-latest-merge.json"
+      ]
+    },
+    {
+      "observed_at": "2026-10-03T05:42:31.534Z",
+      "input_file": "2026-10-03T05-42-31.534Z-5e928a8a11b8.json",
+      "canonical_sha256": "5e928a8a11b89e1747afc9548759b5e7572ce65f331e803b95a52cdc76420130",
+      "input_sha256": "cc334c65f733b6007fa80caea98cb81e940f693b3d90788e8e540c51afe7f0d8",
+      "standalone_bytes_preserved": false,
+      "selected_source": "artifacts/v1-m5-final-review-20261009/cloud-history/history.json",
+      "sources": [
+        "artifacts/v1-m5-final-review-20261009/cloud-history/history.json",
+        "artifacts/v1-m5-final-review-20261009/combined-history.json",
+        "artifacts/v1-m5-final-review-20261009/incoming/cloud-008.json",
+        "artifacts/v1-m5-performance-20261011/cloud-history-38104232879/history.json",
+        "artifacts/v1-m5-refresh-20261009/cloud-history/history.json",
+        "artifacts/v1-m5-refresh-20261009/combined-history.json",
+        "docs/evidence/v1-m5-20261009/cloud-history.json",
+        "docs/evidence/v1-m5-20261009/known-history-before-latest-merge.json",
+        "docs/evidence/v1-m5-performance-20261011/cloud-history.json"
+      ]
+    },
+    {
+      "observed_at": "2026-10-03T11:34:35.135Z",
+      "input_file": "2026-10-03T11-34-35.135Z-6eb28e9fc08b.json",
+      "canonical_sha256": "6eb28e9fc08be14134be48bf070e169bbcc9c71a521a8bae3a783fc283f87d55",
+      "input_sha256": "8354f0bba5ff100bc518b66f3ddff40e86948bf55d3144239045f5ca129738c4",
+      "standalone_bytes_preserved": false,
+      "selected_source": "artifacts/v1-m5-final-review-20261009/cloud-history/history.json",
+      "sources": [
+        "artifacts/v1-m5-final-review-20261009/cloud-history/history.json",
+        "artifacts/v1-m5-final-review-20261009/combined-history.json",
+        "artifacts/v1-m5-final-review-20261009/incoming/cloud-009.json",
+        "artifacts/v1-m5-performance-20261011/cloud-history-38104232879/history.json",
+        "artifacts/v1-m5-refresh-20261009/cloud-history/history.json",
+        "artifacts/v1-m5-refresh-20261009/combined-history.json",
+        "docs/evidence/v1-m5-20261009/cloud-history.json",
+        "docs/evidence/v1-m5-20261009/known-history-before-latest-merge.json",
+        "docs/evidence/v1-m5-performance-20261011/cloud-history.json"
+      ]
+    },
+    {
+      "observed_at": "2026-10-03T15:14:19.758Z",
+      "input_file": "2026-10-03T15-14-19.758Z-1dd0f57c216a.json",
+      "canonical_sha256": "1dd0f57c216abd415761465dea991021667f2e4571e455a43899450dadcd18bf",
+      "input_sha256": "2beca04c14cb327c6784e2e12f47e1286fe46b45ef1e1d322548a8bab2b89ec0",
+      "standalone_bytes_preserved": false,
+      "selected_source": "artifacts/v1-m5-final-review-20261009/cloud-history/history.json",
+      "sources": [
+        "artifacts/v1-m5-final-review-20261009/cloud-history/history.json",
+        "artifacts/v1-m5-final-review-20261009/combined-history.json",
+        "artifacts/v1-m5-final-review-20261009/incoming/cloud-010.json",
+        "artifacts/v1-m5-performance-20261011/cloud-history-38104232879/history.json",
+        "artifacts/v1-m5-refresh-20261009/cloud-history/history.json",
+        "artifacts/v1-m5-refresh-20261009/combined-history.json",
+        "docs/evidence/v1-m5-20261009/cloud-history.json",
+        "docs/evidence/v1-m5-20261009/known-history-before-latest-merge.json",
+        "docs/evidence/v1-m5-performance-20261011/cloud-history.json"
+      ]
+    },
+    {
+      "observed_at": "2026-10-03T18:49:15.801Z",
+      "input_file": "2026-10-03T18-49-15.801Z-5a8dc3a03f35.json",
+      "canonical_sha256": "5a8dc3a03f35bb64246e56a5516bf588809f8f23340b97ce6dd1bfed16b64d95",
+      "input_sha256": "952a70928c8648e5fdc3126a756a626a66dc122609eedd4aeef0e5fa3f204a19",
+      "standalone_bytes_preserved": false,
+      "selected_source": "artifacts/v1-m5-final-review-20261009/cloud-history/history.json",
+      "sources": [
+        "artifacts/v1-m5-final-review-20261009/cloud-history/history.json",
+        "artifacts/v1-m5-final-review-20261009/combined-history.json",
+        "artifacts/v1-m5-final-review-20261009/incoming/cloud-011.json",
+        "artifacts/v1-m5-performance-20261011/cloud-history-38104232879/history.json",
+        "artifacts/v1-m5-refresh-20261009/cloud-history/history.json",
+        "artifacts/v1-m5-refresh-20261009/combined-history.json",
+        "docs/evidence/v1-m5-20261009/cloud-history.json",
+        "docs/evidence/v1-m5-20261009/known-history-before-latest-merge.json",
+        "docs/evidence/v1-m5-performance-20261011/cloud-history.json"
+      ]
+    },
+    {
+      "observed_at": "2026-10-03T22:07:31.190Z",
+      "input_file": "2026-10-03T22-07-31.190Z-3aba29fb7cf7.json",
+      "canonical_sha256": "3aba29fb7cf7b69a281a3882e8cc8c7eb988320b3693a88bc1cab79a4856e141",
+      "input_sha256": "42e7bc3404fb336f240e744fc73c3db925a05d3cdd99128a8f5ac337bc5c9c65",
+      "standalone_bytes_preserved": false,
+      "selected_source": "artifacts/v1-m5-final-review-20261009/cloud-history/history.json",
+      "sources": [
+        "artifacts/v1-m5-final-review-20261009/cloud-history/history.json",
+        "artifacts/v1-m5-final-review-20261009/combined-history.json",
+        "artifacts/v1-m5-performance-20261011/cloud-history-38104232879/history.json",
+        "artifacts/v1-m5-refresh-20261009/cloud-history/history.json",
+        "artifacts/v1-m5-refresh-20261009/combined-history.json",
+        "docs/evidence/v1-m5-20261009/cloud-history.json",
+        "docs/evidence/v1-m5-20261009/known-history-before-latest-merge.json",
+        "docs/evidence/v1-m5-performance-20261011/cloud-history.json"
+      ]
+    },
+    {
+      "observed_at": "2026-10-03T22:07:31.19Z",
+      "input_file": "2026-10-03T22-07-31.190Z-b45dce5f152c.json",
+      "canonical_sha256": "b45dce5f152ceca997cb57ee9707f20935efa630ad6f9ea28645da85d87eb309",
+      "input_sha256": "fef926b7f2073898283f9a4a265ede9e2709b6b803f0f77944a19f60a3e9a1ae",
+      "standalone_bytes_preserved": true,
+      "selected_source": "artifacts/v1-m5-final-review-20261009/incoming/cloud-012.json",
+      "sources": [
+        "artifacts/v1-m5-final-review-20261009/incoming/cloud-012.json"
+      ]
+    },
+    {
+      "observed_at": "2026-10-04T00:37:11.524Z",
+      "input_file": "2026-10-04T00-37-11.524Z-16dbef8e9866.json",
+      "canonical_sha256": "16dbef8e9866754991d674c3ccce84ad604a8eb93c567b19c1e8158b2c93a243",
+      "input_sha256": "b89a1d8342fc0d87b00d399fa720df912e3e69af2efdef7c1b10c8818bdf8ce0",
+      "standalone_bytes_preserved": false,
+      "selected_source": "artifacts/v1-m5-final-review-20261009/cloud-history/history.json",
+      "sources": [
+        "artifacts/v1-m5-final-review-20261009/cloud-history/history.json",
+        "artifacts/v1-m5-final-review-20261009/combined-history.json",
+        "artifacts/v1-m5-final-review-20261009/incoming/cloud-013.json",
+        "artifacts/v1-m5-performance-20261011/cloud-history-38104232879/history.json",
+        "artifacts/v1-m5-refresh-20261009/cloud-history/history.json",
+        "artifacts/v1-m5-refresh-20261009/combined-history.json",
+        "docs/evidence/v1-m5-20261009/cloud-history.json",
+        "docs/evidence/v1-m5-20261009/known-history-before-latest-merge.json",
+        "docs/evidence/v1-m5-performance-20261011/cloud-history.json"
+      ]
+    },
+    {
+      "observed_at": "2026-10-04T06:20:44.837Z",
+      "input_file": "2026-10-04T06-20-44.837Z-82a0d6e03b0a.json",
+      "canonical_sha256": "82a0d6e03b0a90459cc2e882a840a846ad58fdc995bd64d15eb1616c5d4f7c27",
+      "input_sha256": "8f555fc327fb2b19124eafe664941d820615d7bff10f084b8b91a5067a4a9ba1",
+      "standalone_bytes_preserved": false,
+      "selected_source": "artifacts/v1-m5-final-review-20261009/cloud-history/history.json",
+      "sources": [
+        "artifacts/v1-m5-final-review-20261009/cloud-history/history.json",
+        "artifacts/v1-m5-final-review-20261009/combined-history.json",
+        "artifacts/v1-m5-final-review-20261009/incoming/cloud-014.json",
+        "artifacts/v1-m5-performance-20261011/cloud-history-38104232879/history.json",
+        "artifacts/v1-m5-refresh-20261009/cloud-history/history.json",
+        "artifacts/v1-m5-refresh-20261009/combined-history.json",
+        "docs/evidence/v1-m5-20261009/cloud-history.json",
+        "docs/evidence/v1-m5-20261009/known-history-before-latest-merge.json",
+        "docs/evidence/v1-m5-performance-20261011/cloud-history.json"
+      ]
+    },
+    {
+      "observed_at": "2026-10-04T12:50:03.952Z",
+      "input_file": "2026-10-04T12-50-03.952Z-cac3c276fb9a.json",
+      "canonical_sha256": "cac3c276fb9a23386d0c5fcfca7c21970a21a4bb706b40b4d140efb93a316f99",
+      "input_sha256": "db61ec1e06608ee4dba39fbc12d4c5b49179dbf9b20e8ffbca6e43ef6667e873",
+      "standalone_bytes_preserved": false,
+      "selected_source": "artifacts/v1-m5-final-review-20261009/cloud-history/history.json",
+      "sources": [
+        "artifacts/v1-m5-final-review-20261009/cloud-history/history.json",
+        "artifacts/v1-m5-final-review-20261009/combined-history.json",
+        "artifacts/v1-m5-final-review-20261009/incoming/cloud-015.json",
+        "artifacts/v1-m5-performance-20261011/cloud-history-38104232879/history.json",
+        "artifacts/v1-m5-refresh-20261009/cloud-history/history.json",
+        "artifacts/v1-m5-refresh-20261009/combined-history.json",
+        "docs/evidence/v1-m5-20261009/cloud-history.json",
+        "docs/evidence/v1-m5-20261009/known-history-before-latest-merge.json",
+        "docs/evidence/v1-m5-performance-20261011/cloud-history.json"
+      ]
+    },
+    {
+      "observed_at": "2026-10-04T17:32:52.445Z",
+      "input_file": "2026-10-04T17-32-52.445Z-b55b10be21e3.json",
+      "canonical_sha256": "b55b10be21e3a3e42d1e4666c15bba01266ad00aba7a213516be0ac76bbd29a0",
+      "input_sha256": "61999ff2cc9d540578baa7b34aae4bb2900d6f158e692ca94e3e1988d54bc422",
+      "standalone_bytes_preserved": false,
+      "selected_source": "artifacts/v1-m5-final-review-20261009/cloud-history/history.json",
+      "sources": [
+        "artifacts/v1-m5-final-review-20261009/cloud-history/history.json",
+        "artifacts/v1-m5-final-review-20261009/combined-history.json",
+        "artifacts/v1-m5-final-review-20261009/incoming/cloud-016.json",
+        "artifacts/v1-m5-performance-20261011/cloud-history-38104232879/history.json",
+        "artifacts/v1-m5-refresh-20261009/cloud-history/history.json",
+        "artifacts/v1-m5-refresh-20261009/combined-history.json",
+        "docs/evidence/v1-m5-20261009/cloud-history.json",
+        "docs/evidence/v1-m5-20261009/known-history-before-latest-merge.json",
+        "docs/evidence/v1-m5-performance-20261011/cloud-history.json"
+      ]
+    },
+    {
+      "observed_at": "2026-10-04T20:23:42.108Z",
+      "input_file": "2026-10-04T20-23-42.108Z-ccfbeabe05dc.json",
+      "canonical_sha256": "ccfbeabe05dcc8d159925036080c3c945d39506368545c11d1b6878a4a756ad2",
+      "input_sha256": "4d960119c13f73d0be03725f61ac261c988e5e31bf718dcaa4ac0d0c1a55e47f",
+      "standalone_bytes_preserved": false,
+      "selected_source": "artifacts/v1-m5-final-review-20261009/cloud-history/history.json",
+      "sources": [
+        "artifacts/v1-m5-final-review-20261009/cloud-history/history.json",
+        "artifacts/v1-m5-final-review-20261009/combined-history.json",
+        "artifacts/v1-m5-final-review-20261009/incoming/cloud-017.json",
+        "artifacts/v1-m5-performance-20261011/cloud-history-38104232879/history.json",
+        "artifacts/v1-m5-refresh-20261009/cloud-history/history.json",
+        "artifacts/v1-m5-refresh-20261009/combined-history.json",
+        "docs/evidence/v1-m5-20261009/cloud-history.json",
+        "docs/evidence/v1-m5-20261009/known-history-before-latest-merge.json",
+        "docs/evidence/v1-m5-performance-20261011/cloud-history.json"
+      ]
+    },
+    {
+      "observed_at": "2026-10-04T23:34:39.077Z",
+      "input_file": "2026-10-04T23-34-39.077Z-e945dcd2c045.json",
+      "canonical_sha256": "e945dcd2c0453cdf838e4bab05b5802beac0b99876fc658f47db88b8920b3bee",
+      "input_sha256": "e922ed4359b0b54f964884d0facb40e8210ca26a9e5b138684a6572000bbef23",
+      "standalone_bytes_preserved": false,
+      "selected_source": "artifacts/v1-m5-final-review-20261009/cloud-history/history.json",
+      "sources": [
+        "artifacts/v1-m5-final-review-20261009/cloud-history/history.json",
+        "artifacts/v1-m5-final-review-20261009/combined-history.json",
+        "artifacts/v1-m5-final-review-20261009/incoming/cloud-018.json",
+        "artifacts/v1-m5-performance-20261011/cloud-history-38104232879/history.json",
+        "artifacts/v1-m5-refresh-20261009/cloud-history/history.json",
+        "artifacts/v1-m5-refresh-20261009/combined-history.json",
+        "docs/evidence/v1-m5-20261009/cloud-history.json",
+        "docs/evidence/v1-m5-20261009/known-history-before-latest-merge.json",
+        "docs/evidence/v1-m5-performance-20261011/cloud-history.json"
+      ]
+    },
+    {
+      "observed_at": "2026-10-05T02:23:16.060Z",
+      "input_file": "2026-10-05T02-23-16.060Z-4d74e31e8e48.json",
+      "canonical_sha256": "4d74e31e8e4820b4065808b39b8bc10e2111c0a4beeb03f5ee78172db3014de8",
+      "input_sha256": "2bfa54d5cdce04ce923ba92a8c5621a65867f83a6a728ae91278ef8cae3cc1b0",
+      "standalone_bytes_preserved": false,
+      "selected_source": "artifacts/v1-m5-final-review-20261009/cloud-history/history.json",
+      "sources": [
+        "artifacts/v1-m5-final-review-20261009/cloud-history/history.json",
+        "artifacts/v1-m5-final-review-20261009/combined-history.json",
+        "artifacts/v1-m5-performance-20261011/cloud-history-38104232879/history.json",
+        "artifacts/v1-m5-refresh-20261009/cloud-history/history.json",
+        "artifacts/v1-m5-refresh-20261009/combined-history.json",
+        "docs/evidence/v1-m5-20261009/cloud-history.json",
+        "docs/evidence/v1-m5-20261009/known-history-before-latest-merge.json",
+        "docs/evidence/v1-m5-performance-20261011/cloud-history.json"
+      ]
+    },
+    {
+      "observed_at": "2026-10-05T02:23:16.06Z",
+      "input_file": "2026-10-05T02-23-16.060Z-28b40fe35f4d.json",
+      "canonical_sha256": "28b40fe35f4d21190272a345a1314f4e3dbb6497f0896d7dbacd73e88979ab0a",
+      "input_sha256": "391131569969351599826f97c7287075ac95fd57959e3f697b90ea6c01ee4075",
+      "standalone_bytes_preserved": true,
+      "selected_source": "artifacts/v1-m5-final-review-20261009/incoming/cloud-019.json",
+      "sources": [
+        "artifacts/v1-m5-final-review-20261009/incoming/cloud-019.json"
+      ]
+    },
+    {
+      "observed_at": "2026-10-05T09:35:12.005Z",
+      "input_file": "2026-10-05T09-35-12.005Z-201807287e25.json",
+      "canonical_sha256": "201807287e256a84e561e23df3638239c1b4d0d1301e79bcd91fe7093042fb7c",
+      "input_sha256": "2ff875141d997378e18fc32a6aeec25e3b0f203d0c9f616f3e79ccdd5474e42e",
+      "standalone_bytes_preserved": false,
+      "selected_source": "artifacts/v1-m5-final-review-20261009/cloud-history/history.json",
+      "sources": [
+        "artifacts/v1-m5-final-review-20261009/cloud-history/history.json",
+        "artifacts/v1-m5-final-review-20261009/combined-history.json",
+        "artifacts/v1-m5-final-review-20261009/incoming/cloud-020.json",
+        "artifacts/v1-m5-performance-20261011/cloud-history-38104232879/history.json",
+        "artifacts/v1-m5-refresh-20261009/cloud-history/history.json",
+        "artifacts/v1-m5-refresh-20261009/combined-history.json",
+        "docs/evidence/v1-m5-20261009/cloud-history.json",
+        "docs/evidence/v1-m5-20261009/known-history-before-latest-merge.json",
+        "docs/evidence/v1-m5-performance-20261011/cloud-history.json"
+      ]
+    },
+    {
+      "observed_at": "2026-10-05T18:49:41.429Z",
+      "input_file": "2026-10-05T18-49-41.429Z-5dc1e74878ac.json",
+      "canonical_sha256": "5dc1e74878ac90738a06752403a7a76afae53f3b785d6802c0ba4be51711eaac",
+      "input_sha256": "92504966775c302e4608bd718b7b042938b57f1639af37ec31211897066ae044",
+      "standalone_bytes_preserved": false,
+      "selected_source": "artifacts/v1-m5-final-review-20261009/cloud-history/history.json",
+      "sources": [
+        "artifacts/v1-m5-final-review-20261009/cloud-history/history.json",
+        "artifacts/v1-m5-final-review-20261009/combined-history.json",
+        "artifacts/v1-m5-final-review-20261009/incoming/cloud-021.json",
+        "artifacts/v1-m5-observation-repair-20261013/cloud-38387560382/history.json",
+        "artifacts/v1-m5-performance-20261011/cloud-history-38104232879/history.json",
+        "artifacts/v1-m5-refresh-20261009/cloud-history/history.json",
+        "artifacts/v1-m5-refresh-20261009/combined-history.json",
+        "docs/evidence/v1-m5-20261009/cloud-history.json",
+        "docs/evidence/v1-m5-20261009/known-history-before-latest-merge.json",
+        "docs/evidence/v1-m5-performance-20261011/cloud-history.json"
+      ]
+    },
+    {
+      "observed_at": "2026-10-06T00:46:03.841Z",
+      "input_file": "2026-10-06T00-46-03.841Z-0f56780130ab.json",
+      "canonical_sha256": "0f56780130aba4e1a3bd677631f35aabe60c270dce7cc78977ee35f85ebb1f50",
+      "input_sha256": "40612fc3aeebee53c9c1f2043153a12c23d75f709aff7b548e65506e0aeec398",
+      "standalone_bytes_preserved": false,
+      "selected_source": "artifacts/v1-m5-final-review-20261009/cloud-history/history.json",
+      "sources": [
+        "artifacts/v1-m5-final-review-20261009/cloud-history/history.json",
+        "artifacts/v1-m5-final-review-20261009/combined-history.json",
+        "artifacts/v1-m5-final-review-20261009/incoming/cloud-022.json",
+        "artifacts/v1-m5-observation-repair-20261013/cloud-38387560382/history.json",
+        "artifacts/v1-m5-performance-20261011/cloud-history-38104232879/history.json",
+        "artifacts/v1-m5-refresh-20261009/cloud-history/history.json",
+        "artifacts/v1-m5-refresh-20261009/combined-history.json",
+        "docs/evidence/v1-m5-20261009/cloud-history.json",
+        "docs/evidence/v1-m5-20261009/known-history-before-latest-merge.json",
+        "docs/evidence/v1-m5-performance-20261011/cloud-history.json"
+      ]
+    },
+    {
+      "observed_at": "2026-10-06T07:30:20.798Z",
+      "input_file": "2026-10-06T07-30-20.798Z-7a6c5c00a8b3.json",
+      "canonical_sha256": "7a6c5c00a8b3101586a2d02e264687923a46ade203b9a4af09523cebef3e108f",
+      "input_sha256": "4c973750b7a237ba240e568771a006faf75e453cf6bc45aaf020969b8c1b7317",
+      "standalone_bytes_preserved": false,
+      "selected_source": "artifacts/v1-m5-final-review-20261009/cloud-history/history.json",
+      "sources": [
+        "artifacts/v1-m5-final-review-20261009/cloud-history/history.json",
+        "artifacts/v1-m5-final-review-20261009/combined-history.json",
+        "artifacts/v1-m5-final-review-20261009/incoming/cloud-023.json",
+        "artifacts/v1-m5-observation-repair-20261013/cloud-38387560382/history.json",
+        "artifacts/v1-m5-performance-20261011/cloud-history-38104232879/history.json",
+        "artifacts/v1-m5-refresh-20261009/cloud-history/history.json",
+        "artifacts/v1-m5-refresh-20261009/combined-history.json",
+        "docs/evidence/v1-m5-20261009/cloud-history.json",
+        "docs/evidence/v1-m5-20261009/known-history-before-latest-merge.json",
+        "docs/evidence/v1-m5-performance-20261011/cloud-history.json"
+      ]
+    },
+    {
+      "observed_at": "2026-10-06T14:27:09.259Z",
+      "input_file": "2026-10-06T14-27-09.259Z-2cd611763be5.json",
+      "canonical_sha256": "2cd611763be5109cb82bac4a58048b4ebce1520815085fcf7fe28ef0390c8a18",
+      "input_sha256": "4e931e73c13f01ed436a6b00da134ff5833f88c741d75df2abfce8e2ab87c76b",
+      "standalone_bytes_preserved": false,
+      "selected_source": "artifacts/v1-m5-final-review-20261009/cloud-history/history.json",
+      "sources": [
+        "artifacts/v1-m5-final-review-20261009/cloud-history/history.json",
+        "artifacts/v1-m5-final-review-20261009/combined-history.json",
+        "artifacts/v1-m5-final-review-20261009/incoming/cloud-024.json",
+        "artifacts/v1-m5-observation-repair-20261013/cloud-38387560382/history.json",
+        "artifacts/v1-m5-performance-20261011/cloud-history-38104232879/history.json",
+        "artifacts/v1-m5-refresh-20261009/cloud-history/history.json",
+        "artifacts/v1-m5-refresh-20261009/combined-history.json",
+        "docs/evidence/v1-m5-20261009/cloud-history.json",
+        "docs/evidence/v1-m5-20261009/known-history-before-latest-merge.json",
+        "docs/evidence/v1-m5-performance-20261011/cloud-history.json"
+      ]
+    },
+    {
+      "observed_at": "2026-10-06T19:48:00.906Z",
+      "input_file": "2026-10-06T19-48-00.906Z-30b78da9776b.json",
+      "canonical_sha256": "30b78da9776b7e73a1aec281693178e4377c3e15913ee43a0664cfef93bcc8a4",
+      "input_sha256": "e5574939cf4ee94c945eb25afea6437a7cbb0f4e3dd23f923c6e698789b8da4b",
+      "standalone_bytes_preserved": false,
+      "selected_source": "artifacts/v1-m5-final-review-20261009/cloud-history/history.json",
+      "sources": [
+        "artifacts/v1-m5-final-review-20261009/cloud-history/history.json",
+        "artifacts/v1-m5-final-review-20261009/combined-history.json",
+        "artifacts/v1-m5-final-review-20261009/incoming/cloud-025.json",
+        "artifacts/v1-m5-observation-repair-20261013/cloud-38387560382/history.json",
+        "artifacts/v1-m5-performance-20261011/cloud-history-38104232879/history.json",
+        "artifacts/v1-m5-refresh-20261009/cloud-history/history.json",
+        "artifacts/v1-m5-refresh-20261009/combined-history.json",
+        "docs/evidence/v1-m5-20261009/cloud-history.json",
+        "docs/evidence/v1-m5-20261009/known-history-before-latest-merge.json",
+        "docs/evidence/v1-m5-performance-20261011/cloud-history.json"
+      ]
+    },
+    {
+      "observed_at": "2026-10-06T23:45:56.947Z",
+      "input_file": "2026-10-06T23-45-56.947Z-dc0179213eac.json",
+      "canonical_sha256": "dc0179213eac66f51f991e68e5a91e9e8754ee3e877bab5dea111de1ac301e6e",
+      "input_sha256": "2a4e8187be00b73458ff3611a2d3c6fc38cd668c0afd11adf6112019dccb4329",
+      "standalone_bytes_preserved": false,
+      "selected_source": "artifacts/v1-m5-final-review-20261009/cloud-history/history.json",
+      "sources": [
+        "artifacts/v1-m5-final-review-20261009/cloud-history/history.json",
+        "artifacts/v1-m5-final-review-20261009/combined-history.json",
+        "artifacts/v1-m5-final-review-20261009/incoming/cloud-026.json",
+        "artifacts/v1-m5-observation-repair-20261013/cloud-38387560382/history.json",
+        "artifacts/v1-m5-performance-20261011/cloud-history-38104232879/history.json",
+        "artifacts/v1-m5-refresh-20261009/cloud-history/history.json",
+        "artifacts/v1-m5-refresh-20261009/combined-history.json",
+        "docs/evidence/v1-m5-20261009/cloud-history.json",
+        "docs/evidence/v1-m5-20261009/known-history-before-latest-merge.json",
+        "docs/evidence/v1-m5-performance-20261011/cloud-history.json"
+      ]
+    },
+    {
+      "observed_at": "2026-10-07T05:49:56.993Z",
+      "input_file": "2026-10-07T05-49-56.993Z-ee081fd69b8f.json",
+      "canonical_sha256": "ee081fd69b8fe3f542c0e7f4b2306251d62bb43f5c2a237219bab4ef5a726919",
+      "input_sha256": "8db22df74cb0d15e03c67c79700c4f5bbe78baad285ca4db783f9bb46e62f281",
+      "standalone_bytes_preserved": false,
+      "selected_source": "artifacts/v1-m5-final-review-20261009/cloud-history/history.json",
+      "sources": [
+        "artifacts/v1-m5-final-review-20261009/cloud-history/history.json",
+        "artifacts/v1-m5-final-review-20261009/combined-history.json",
+        "artifacts/v1-m5-final-review-20261009/incoming/cloud-027.json",
+        "artifacts/v1-m5-observation-repair-20261013/cloud-38387560382/history.json",
+        "artifacts/v1-m5-performance-20261011/cloud-history-38104232879/history.json",
+        "artifacts/v1-m5-refresh-20261009/cloud-history/history.json",
+        "artifacts/v1-m5-refresh-20261009/combined-history.json",
+        "docs/evidence/v1-m5-20261009/cloud-history.json",
+        "docs/evidence/v1-m5-20261009/known-history-before-latest-merge.json",
+        "docs/evidence/v1-m5-performance-20261011/cloud-history.json"
+      ]
+    },
+    {
+      "observed_at": "2026-10-07T13:13:59.994Z",
+      "input_file": "2026-10-07T13-13-59.994Z-abb4c6548a04.json",
+      "canonical_sha256": "abb4c6548a0477c54e8ed0b0b030f357d9ca2312e4c002805d60ddf828715ccb",
+      "input_sha256": "00a9a509874ddadaeecea793495d72ff0042233a6d72d7ce601afd920d6187ef",
+      "standalone_bytes_preserved": false,
+      "selected_source": "artifacts/v1-m5-final-review-20261009/cloud-history/history.json",
+      "sources": [
+        "artifacts/v1-m5-final-review-20261009/cloud-history/history.json",
+        "artifacts/v1-m5-final-review-20261009/combined-history.json",
+        "artifacts/v1-m5-final-review-20261009/incoming/cloud-028.json",
+        "artifacts/v1-m5-observation-repair-20261013/cloud-38387560382/history.json",
+        "artifacts/v1-m5-performance-20261011/cloud-history-38104232879/history.json",
+        "artifacts/v1-m5-refresh-20261009/cloud-history/history.json",
+        "artifacts/v1-m5-refresh-20261009/combined-history.json",
+        "docs/evidence/v1-m5-20261009/cloud-history.json",
+        "docs/evidence/v1-m5-20261009/known-history-before-latest-merge.json",
+        "docs/evidence/v1-m5-performance-20261011/cloud-history.json"
+      ]
+    },
+    {
+      "observed_at": "2026-10-07T19:30:37.553Z",
+      "input_file": "2026-10-07T19-30-37.553Z-2c7a6092a627.json",
+      "canonical_sha256": "2c7a6092a627b09ed42622e13b6d304dcb6a9e53fbe5d52ac06649effe8a3f94",
+      "input_sha256": "7b7c3693967849b04d91354c8dcfbcdc9d05543fe9a982d59f58dad70708bec5",
+      "standalone_bytes_preserved": false,
+      "selected_source": "artifacts/v1-m5-final-review-20261009/cloud-history/history.json",
+      "sources": [
+        "artifacts/v1-m5-final-review-20261009/cloud-history/history.json",
+        "artifacts/v1-m5-final-review-20261009/combined-history.json",
+        "artifacts/v1-m5-final-review-20261009/incoming/cloud-029.json",
+        "artifacts/v1-m5-observation-repair-20261013/cloud-38387560382/history.json",
+        "artifacts/v1-m5-performance-20261011/cloud-history-38104232879/history.json",
+        "artifacts/v1-m5-refresh-20261009/cloud-history/history.json",
+        "artifacts/v1-m5-refresh-20261009/combined-history.json",
+        "docs/evidence/v1-m5-20261009/cloud-history.json",
+        "docs/evidence/v1-m5-20261009/known-history-before-latest-merge.json",
+        "docs/evidence/v1-m5-performance-20261011/cloud-history.json"
+      ]
+    },
+    {
+      "observed_at": "2026-10-07T23:47:19.145Z",
+      "input_file": "2026-10-07T23-47-19.145Z-64ec4e3e5b6f.json",
+      "canonical_sha256": "64ec4e3e5b6f8a3de84ef8ec442818193c05e2c73c90fabb2c09a5cd95cd7eeb",
+      "input_sha256": "d1b40ac08ccef4b84934960039ddf5d10bff34dbcdf20f804ff91c5c84523dd1",
+      "standalone_bytes_preserved": false,
+      "selected_source": "artifacts/v1-m5-final-review-20261009/cloud-history/history.json",
+      "sources": [
+        "artifacts/v1-m5-final-review-20261009/cloud-history/history.json",
+        "artifacts/v1-m5-final-review-20261009/combined-history.json",
+        "artifacts/v1-m5-final-review-20261009/incoming/cloud-030.json",
+        "artifacts/v1-m5-observation-repair-20261013/cloud-38387560382/history.json",
+        "artifacts/v1-m5-performance-20261011/cloud-history-38104232879/history.json",
+        "artifacts/v1-m5-refresh-20261009/cloud-history/history.json",
+        "artifacts/v1-m5-refresh-20261009/combined-history.json",
+        "docs/evidence/v1-m5-20261009/cloud-history.json",
+        "docs/evidence/v1-m5-20261009/known-history-before-latest-merge.json",
+        "docs/evidence/v1-m5-performance-20261011/cloud-history.json"
+      ]
+    },
+    {
+      "observed_at": "2026-10-08T05:55:00.282Z",
+      "input_file": "2026-10-08T05-55-00.282Z-52ede58aa23b.json",
+      "canonical_sha256": "52ede58aa23b31fa27423956137e26a540c8f0fe7b6a987a892c77c6c5e82f85",
+      "input_sha256": "7f3650953450d76a0df8d0796b1ea172d75f3527f1b04056ca9565141da65e4c",
+      "standalone_bytes_preserved": false,
+      "selected_source": "artifacts/v1-m5-final-review-20261009/cloud-history/history.json",
+      "sources": [
+        "artifacts/v1-m5-final-review-20261009/cloud-history/history.json",
+        "artifacts/v1-m5-final-review-20261009/combined-history.json",
+        "artifacts/v1-m5-final-review-20261009/incoming/cloud-031.json",
+        "artifacts/v1-m5-observation-repair-20261013/cloud-38387560382/history.json",
+        "artifacts/v1-m5-performance-20261011/cloud-history-38104232879/history.json",
+        "artifacts/v1-m5-refresh-20261009/cloud-history/history.json",
+        "artifacts/v1-m5-refresh-20261009/combined-history.json",
+        "docs/evidence/v1-m5-20261009/cloud-history.json",
+        "docs/evidence/v1-m5-20261009/known-history-before-latest-merge.json",
+        "docs/evidence/v1-m5-performance-20261011/cloud-history.json"
+      ]
+    },
+    {
+      "observed_at": "2026-10-08T13:20:36.499Z",
+      "input_file": "2026-10-08T13-20-36.499Z-b4e5a2cb0f82.json",
+      "canonical_sha256": "b4e5a2cb0f822ead83f39401ee3bf99988e52809187a9160dafc5b29b1fc25ce",
+      "input_sha256": "0e58b3a2fbe3e8f1b5c9ccd7437fa04d23622c4ef3114c0152bd2208c850f5d4",
+      "standalone_bytes_preserved": false,
+      "selected_source": "artifacts/v1-m5-final-review-20261009/cloud-history/history.json",
+      "sources": [
+        "artifacts/v1-m5-final-review-20261009/cloud-history/history.json",
+        "artifacts/v1-m5-final-review-20261009/combined-history.json",
+        "artifacts/v1-m5-final-review-20261009/incoming/cloud-032.json",
+        "artifacts/v1-m5-observation-repair-20261013/cloud-38387560382/history.json",
+        "artifacts/v1-m5-performance-20261011/cloud-history-38104232879/history.json",
+        "artifacts/v1-m5-refresh-20261009/cloud-history/history.json",
+        "artifacts/v1-m5-refresh-20261009/combined-history.json",
+        "docs/evidence/v1-m5-20261009/cloud-history.json",
+        "docs/evidence/v1-m5-20261009/known-history-before-latest-merge.json",
+        "docs/evidence/v1-m5-performance-20261011/cloud-history.json"
+      ]
+    },
+    {
+      "observed_at": "2026-10-08T19:25:24.930Z",
+      "input_file": "2026-10-08T19-25-24.930Z-1122a3ebde56.json",
+      "canonical_sha256": "1122a3ebde561ea664b730cbf72b556c2cb2181b4407416db4f9213f8b3b83eb",
+      "input_sha256": "33e63b8cc4ae49d2d4d1ff7d68e8678b84e76e3d3a29f0720865c546e344e9c2",
+      "standalone_bytes_preserved": false,
+      "selected_source": "artifacts/v1-m5-final-review-20261009/cloud-history/history.json",
+      "sources": [
+        "artifacts/v1-m5-final-review-20261009/cloud-history/history.json",
+        "artifacts/v1-m5-final-review-20261009/combined-history.json",
+        "artifacts/v1-m5-observation-repair-20261013/cloud-38387560382/history.json",
+        "artifacts/v1-m5-performance-20261011/cloud-history-38104232879/history.json",
+        "artifacts/v1-m5-refresh-20261009/cloud-history/history.json",
+        "artifacts/v1-m5-refresh-20261009/combined-history.json",
+        "docs/evidence/v1-m5-20261009/cloud-history.json",
+        "docs/evidence/v1-m5-20261009/known-history-before-latest-merge.json",
+        "docs/evidence/v1-m5-performance-20261011/cloud-history.json"
+      ]
+    },
+    {
+      "observed_at": "2026-10-08T19:25:24.93Z",
+      "input_file": "2026-10-08T19-25-24.930Z-742571dd12c9.json",
+      "canonical_sha256": "742571dd12c95787a7ed6af67f508ad326e3e0a0cadfb54f434d2875585480b1",
+      "input_sha256": "7cb04e4ca6f124e3f8d170c759bdd343a8a1e90950468518d47171f982309c33",
+      "standalone_bytes_preserved": true,
+      "selected_source": "artifacts/v1-m5-final-review-20261009/incoming/cloud-033.json",
+      "sources": [
+        "artifacts/v1-m5-final-review-20261009/incoming/cloud-033.json"
+      ]
+    },
+    {
+      "observed_at": "2026-10-08T23:56:12.715Z",
+      "input_file": "2026-10-08T23-56-12.715Z-490ea668f727.json",
+      "canonical_sha256": "490ea668f727af8963ea826c1d7df53034aae3f4ae8514c13becf9aae9d50994",
+      "input_sha256": "3d999b39a6a0739ecf9a0f9ce90b425f5012a539aeeb42179e2efb68d2d96c6f",
+      "standalone_bytes_preserved": false,
+      "selected_source": "artifacts/v1-m5-final-review-20261009/cloud-history/history.json",
+      "sources": [
+        "artifacts/v1-m5-final-review-20261009/cloud-history/history.json",
+        "artifacts/v1-m5-final-review-20261009/combined-history.json",
+        "artifacts/v1-m5-final-review-20261009/incoming/cloud-034.json",
+        "artifacts/v1-m5-observation-repair-20261013/cloud-38387560382/history.json",
+        "artifacts/v1-m5-performance-20261011/cloud-history-38104232879/history.json",
+        "artifacts/v1-m5-refresh-20261009/cloud-history/history.json",
+        "artifacts/v1-m5-refresh-20261009/combined-history.json",
+        "docs/evidence/v1-m5-20261009/cloud-history.json",
+        "docs/evidence/v1-m5-20261009/known-history-before-latest-merge.json",
+        "docs/evidence/v1-m5-performance-20261011/cloud-history.json"
+      ]
+    },
+    {
+      "observed_at": "2026-10-09T06:01:10.560Z",
+      "input_file": "2026-10-09T06-01-10.560Z-637fdb7f4e72.json",
+      "canonical_sha256": "637fdb7f4e726f558b7c344ff1e7e45ec3b15ac5cfa727a37a3fad3e613c6986",
+      "input_sha256": "12c32b9eaf3d7e0d87b1f60de9df443f5fb8fabd741d1c9e0943e136df61a51e",
+      "standalone_bytes_preserved": false,
+      "selected_source": "artifacts/v1-m5-final-review-20261009/cloud-history/history.json",
+      "sources": [
+        "artifacts/v1-m5-final-review-20261009/cloud-history/history.json",
+        "artifacts/v1-m5-final-review-20261009/combined-history.json",
+        "artifacts/v1-m5-observation-repair-20261013/cloud-38387560382/history.json",
+        "artifacts/v1-m5-performance-20261011/cloud-history-38104232879/history.json",
+        "artifacts/v1-m5-refresh-20261009/cloud-history/history.json",
+        "artifacts/v1-m5-refresh-20261009/combined-history.json",
+        "docs/evidence/v1-m5-20261009/cloud-history.json",
+        "docs/evidence/v1-m5-20261009/known-history-before-latest-merge.json",
+        "docs/evidence/v1-m5-performance-20261011/cloud-history.json"
+      ]
+    },
+    {
+      "observed_at": "2026-10-09T06:01:10.56Z",
+      "input_file": "2026-10-09T06-01-10.560Z-d06df25a30fa.json",
+      "canonical_sha256": "d06df25a30faf65b4c27fc334f837a10938dd2cdf80725ac02b6618c339ba776",
+      "input_sha256": "3af72551e6e3a6f6ffdb76a6b5c3682217ab99b01558c621991ed0e7c2a33ba6",
+      "standalone_bytes_preserved": true,
+      "selected_source": "artifacts/v1-m5-final-review-20261009/incoming/cloud-035.json",
+      "sources": [
+        "artifacts/v1-m5-final-review-20261009/incoming/cloud-035.json"
+      ]
+    },
+    {
+      "observed_at": "2026-10-09T11:59:45.453Z",
+      "input_file": "2026-10-09T11-59-45.453Z-f4574e28795e.json",
+      "canonical_sha256": "f4574e28795e450267ab6f79d3be1b039e91806a649635d584e329952c9be9d3",
+      "input_sha256": "b7eccf9a8d70d054508b4a18b293409b55041e882ce44146801d98980b5c8008",
+      "standalone_bytes_preserved": true,
+      "selected_source": "artifacts/v1-m5-refresh-20261009/incoming/2026-10-09T11-59-45.453Z.json",
+      "sources": [
+        "artifacts/v1-m5-final-review-20261009/combined-history.json",
+        "artifacts/v1-m5-refresh-20261009/combined-history.json",
+        "artifacts/v1-m5-refresh-20261009/incoming/2026-10-09T11-59-45.453Z.json",
+        "docs/evidence/v1-m5-20261009/known-history-before-latest-merge.json"
+      ]
+    },
+    {
+      "observed_at": "2026-10-09T13:09:02.368Z",
+      "input_file": "2026-10-09T13-09-02.368Z-fc4351c9a2fb.json",
+      "canonical_sha256": "fc4351c9a2fb96738d63e2ad5d1aa636054031923b29cc698090f753a414d211",
+      "input_sha256": "338497122c0ef184e6ef89471336adc748a7d13c09f99b2a7491cf7e0cd1d0bd",
+      "standalone_bytes_preserved": false,
+      "selected_source": "artifacts/v1-m5-final-review-20261009/cloud-history/history.json",
+      "sources": [
+        "artifacts/v1-m5-final-review-20261009/cloud-history/history.json",
+        "artifacts/v1-m5-final-review-20261009/incoming/cloud-036.json",
+        "artifacts/v1-m5-observation-repair-20261013/cloud-38387560382/history.json",
+        "artifacts/v1-m5-performance-20261011/cloud-history-38104232879/history.json",
+        "docs/evidence/v1-m5-20261009/cloud-history.json",
+        "docs/evidence/v1-m5-performance-20261011/cloud-history.json"
+      ]
+    },
+    {
+      "observed_at": "2026-10-09T14:36:58.013Z",
+      "input_file": "2026-10-09T14-36-58.013Z-c73904fb8b7f.json",
+      "canonical_sha256": "c73904fb8b7fc44ef7e0a2f3137f2d88facba32ce0fcb84125741f6ad60d2ee6",
+      "input_sha256": "3563d11bd97b75231b8246a6fa8e4689e3715e5b75028c583cf795abfd1ca3db",
+      "standalone_bytes_preserved": true,
+      "selected_source": "artifacts/v1-m5-final-review-20261009/incoming/local-current.json",
+      "sources": [
+        "artifacts/v1-m5-final-review-20261009/incoming/local-current.json",
+        "docs/evidence/v1-m5-20261009/latest-local-observation.json"
+      ]
+    },
+    {
+      "observed_at": "2026-10-09T18:58:29.224Z",
+      "input_file": "2026-10-09T18-58-29.224Z-91547f2f5732.json",
+      "canonical_sha256": "91547f2f57327b9618b4945122e2c4b6a7c4f37874c06221f267405bffd3605a",
+      "input_sha256": "074b01a4fa51d007c59dfbef0ec1daad876c232026c08afcf3ea62c6c479beb4",
+      "standalone_bytes_preserved": false,
+      "selected_source": "artifacts/v1-m5-observation-repair-20261013/cloud-38387560382/history.json",
+      "sources": [
+        "artifacts/v1-m5-observation-repair-20261013/cloud-38387560382/history.json",
+        "artifacts/v1-m5-performance-20261011/cloud-history-38104232879/history.json",
+        "docs/evidence/v1-m5-performance-20261011/cloud-history.json"
+      ]
+    },
+    {
+      "observed_at": "2026-10-09T23:12:23.956Z",
+      "input_file": "2026-10-09T23-12-23.956Z-d716cd811930.json",
+      "canonical_sha256": "d716cd81193020af7aba1f62f1fba09fd0c39100d5aec363426a8e654bfdb1d8",
+      "input_sha256": "ae50c495d1d4abb2f491e307a876ee02d18d4f0f9d67b55a2e9c489dd5bf45b0",
+      "standalone_bytes_preserved": false,
+      "selected_source": "artifacts/v1-m5-observation-repair-20261013/cloud-38387560382/history.json",
+      "sources": [
+        "artifacts/v1-m5-observation-repair-20261013/cloud-38387560382/history.json",
+        "artifacts/v1-m5-performance-20261011/cloud-history-38104232879/history.json",
+        "docs/evidence/v1-m5-performance-20261011/cloud-history.json"
+      ]
+    },
+    {
+      "observed_at": "2026-10-10T02:43:11.424Z",
+      "input_file": "2026-10-10T02-43-11.424Z-56bcdc540a07.json",
+      "canonical_sha256": "56bcdc540a0704482df0c1be11158b1e6d00dd9059ef153c1553d06e25d1e171",
+      "input_sha256": "ce1161662c6ebcd3f55240bb9033c03eca8f430e7433a202dd91dd46dc86aae5",
+      "standalone_bytes_preserved": false,
+      "selected_source": "artifacts/v1-m5-observation-repair-20261013/cloud-38387560382/history.json",
+      "sources": [
+        "artifacts/v1-m5-observation-repair-20261013/cloud-38387560382/history.json",
+        "artifacts/v1-m5-performance-20261011/cloud-history-38104232879/history.json",
+        "docs/evidence/v1-m5-performance-20261011/cloud-history.json"
+      ]
+    },
+    {
+      "observed_at": "2026-10-10T09:44:32.654Z",
+      "input_file": "2026-10-10T09-44-32.654Z-e9cf2b591ac1.json",
+      "canonical_sha256": "e9cf2b591ac1a3b603d9d772c6382c5e0a3446dd2663463f5f4509e84405cb7b",
+      "input_sha256": "21602ed9fa905c0d4885e06a5b7237cea5f24e1b03ed6e4146b9acdc34c8a8d3",
+      "standalone_bytes_preserved": false,
+      "selected_source": "artifacts/v1-m5-observation-repair-20261013/cloud-38387560382/history.json",
+      "sources": [
+        "artifacts/v1-m5-observation-repair-20261013/cloud-38387560382/history.json",
+        "artifacts/v1-m5-performance-20261011/cloud-history-38104232879/history.json",
+        "docs/evidence/v1-m5-performance-20261011/cloud-history.json"
+      ]
+    },
+    {
+      "observed_at": "2026-10-10T15:51:06.681Z",
+      "input_file": "2026-10-10T15-51-06.681Z-e82edc0ad356.json",
+      "canonical_sha256": "e82edc0ad3565863e5619ae68227c70a3f7da081e3aea77c9bdba79c5a71be04",
+      "input_sha256": "ab1f5f7629bfc59032c58c5caf86294f677035ca95dfac78ce9b7715d305eb8a",
+      "standalone_bytes_preserved": false,
+      "selected_source": "artifacts/v1-m5-observation-repair-20261013/cloud-38387560382/history.json",
+      "sources": [
+        "artifacts/v1-m5-observation-repair-20261013/cloud-38387560382/history.json",
+        "artifacts/v1-m5-performance-20261011/cloud-history-38104232879/history.json",
+        "docs/evidence/v1-m5-performance-20261011/cloud-history.json"
+      ]
+    },
+    {
+      "observed_at": "2026-10-10T20:01:31.427Z",
+      "input_file": "2026-10-10T20-01-31.427Z-df43006ccd21.json",
+      "canonical_sha256": "df43006ccd21e5046bd496061442bb730172cca335a08b7339daa6b9bc67554f",
+      "input_sha256": "d9f7643c1b7cb060b06b6e6a16c80a2039d9be5dfd14a63963676707bdd4018d",
+      "standalone_bytes_preserved": false,
+      "selected_source": "artifacts/v1-m5-observation-repair-20261013/cloud-38387560382/history.json",
+      "sources": [
+        "artifacts/v1-m5-observation-repair-20261013/cloud-38387560382/history.json",
+        "artifacts/v1-m5-performance-20261011/cloud-history-38104232879/history.json",
+        "docs/evidence/v1-m5-performance-20261011/cloud-history.json"
+      ]
+    },
+    {
+      "observed_at": "2026-10-10T23:30:16.409Z",
+      "input_file": "2026-10-10T23-30-16.409Z-41d210090dd7.json",
+      "canonical_sha256": "41d210090dd7f90e6e61ce54803b1c7a294e209ca046d02596df6b93acbeeaea",
+      "input_sha256": "12cd1fd1191627d05aace3adef416f1d86715b872b90799c1bf2ba1f969db1ce",
+      "standalone_bytes_preserved": false,
+      "selected_source": "artifacts/v1-m5-observation-repair-20261013/cloud-38387560382/history.json",
+      "sources": [
+        "artifacts/v1-m5-observation-repair-20261013/cloud-38387560382/history.json",
+        "artifacts/v1-m5-performance-20261011/cloud-history-38104232879/history.json",
+        "docs/evidence/v1-m5-performance-20261011/cloud-history.json"
+      ]
+    },
+    {
+      "observed_at": "2026-10-11T02:09:40.989Z",
+      "input_file": "2026-10-11T02-09-40.989Z-d46b5dd23453.json",
+      "canonical_sha256": "d46b5dd2345343579711630fa72107c2a2f5ed6ca22e3b55c7c15e312e15eb47",
+      "input_sha256": "6d507660f91ab894425bfb6b07d2b7ebc3b05518789829e607b7a303af979403",
+      "standalone_bytes_preserved": false,
+      "selected_source": "artifacts/v1-m5-observation-repair-20261013/cloud-38387560382/history.json",
+      "sources": [
+        "artifacts/v1-m5-observation-repair-20261013/cloud-38387560382/history.json",
+        "artifacts/v1-m5-performance-20261011/cloud-history-38104232879/history.json",
+        "docs/evidence/v1-m5-performance-20261011/cloud-history.json"
+      ]
+    },
+    {
+      "observed_at": "2026-10-11T09:17:11.280Z",
+      "input_file": "2026-10-11T09-17-11.280Z-4dee75446df3.json",
+      "canonical_sha256": "4dee75446df3cc96001a64b544267f8e9d5aad03d08ee75e6f345e16272bebfe",
+      "input_sha256": "0064a77e5633aef3a8ec782f531804ff1fbd438055a0871f73639dc529333005",
+      "standalone_bytes_preserved": false,
+      "selected_source": "artifacts/v1-m5-observation-repair-20261013/cloud-38387560382/history.json",
+      "sources": [
+        "artifacts/v1-m5-observation-repair-20261013/cloud-38387560382/history.json"
+      ]
+    },
+    {
+      "observed_at": "2026-10-11T15:56:50.375Z",
+      "input_file": "2026-10-11T15-56-50.375Z-a109659974c0.json",
+      "canonical_sha256": "a109659974c0f310429a014595c42529ef6f85d5d1606084d54f9d074e3889b7",
+      "input_sha256": "2ac19e9bd030463eedfab2eea3c2a666d589d69d76d436abed6806dc3a1796ef",
+      "standalone_bytes_preserved": false,
+      "selected_source": "artifacts/v1-m5-observation-repair-20261013/cloud-38387560382/history.json",
+      "sources": [
+        "artifacts/v1-m5-observation-repair-20261013/cloud-38387560382/history.json"
+      ]
+    },
+    {
+      "observed_at": "2026-10-11T20:12:40.046Z",
+      "input_file": "2026-10-11T20-12-40.046Z-fccf7ee5d18f.json",
+      "canonical_sha256": "fccf7ee5d18f3f378a27518e31bc80dac4c24a62ae64e4aa2912753a55ba6cc3",
+      "input_sha256": "09d2f42bc9774d94b5b3179a75ea8e251e0e086d5085758abfe85bd9488e56b9",
+      "standalone_bytes_preserved": false,
+      "selected_source": "artifacts/v1-m5-observation-repair-20261013/cloud-38387560382/history.json",
+      "sources": [
+        "artifacts/v1-m5-observation-repair-20261013/cloud-38387560382/history.json"
+      ]
+    },
+    {
+      "observed_at": "2026-10-11T23:57:44.417Z",
+      "input_file": "2026-10-11T23-57-44.417Z-47bf739f1f63.json",
+      "canonical_sha256": "47bf739f1f6317bc5c738277a762f545c3596f1bbb154affcea02da62b06305c",
+      "input_sha256": "be686044dbf6c98d70dd172ccfd6ee64df8a9f8e4cec23a3f21fc8781836ac71",
+      "standalone_bytes_preserved": false,
+      "selected_source": "artifacts/v1-m5-observation-repair-20261013/cloud-38387560382/history.json",
+      "sources": [
+        "artifacts/v1-m5-observation-repair-20261013/cloud-38387560382/history.json"
+      ]
+    },
+    {
+      "observed_at": "2026-10-12T05:48:44.195Z",
+      "input_file": "2026-10-12T05-48-44.195Z-c8a7b541777c.json",
+      "canonical_sha256": "c8a7b541777caf450829bf65c2e63d219cb3c0c288db87fcfaab96faff60cf0b",
+      "input_sha256": "459872a8cb316695c53f2559a7c50695de644c89d43c44df2c00867280eb9998",
+      "standalone_bytes_preserved": false,
+      "selected_source": "artifacts/v1-m5-observation-repair-20261013/cloud-38387560382/history.json",
+      "sources": [
+        "artifacts/v1-m5-observation-repair-20261013/cloud-38387560382/history.json"
+      ]
+    },
+    {
+      "observed_at": "2026-10-12T15:13:55.982Z",
+      "input_file": "2026-10-12T15-13-55.982Z-ac09e75235bd.json",
+      "canonical_sha256": "ac09e75235bd5b5ea94823d06620725a10edca0f8025dc635a794e3d93b784e3",
+      "input_sha256": "e82d03bf78f95881da3034a15a8b9469dba7d6a6aeb69908d8f6f3c04eae1f89",
+      "standalone_bytes_preserved": false,
+      "selected_source": "artifacts/v1-m5-observation-repair-20261013/cloud-38387560382/history.json",
+      "sources": [
+        "artifacts/v1-m5-observation-repair-20261013/cloud-38387560382/history.json"
+      ]
+    },
+    {
+      "observed_at": "2026-10-12T22:35:19.934Z",
+      "input_file": "2026-10-12T22-35-19.934Z-9ed79740678a.json",
+      "canonical_sha256": "9ed79740678ae1adf2f9cd45909304e6e04ff0a02ae8283850ff38a2c6984570",
+      "input_sha256": "007f6d7029b18e42b0bed3c613cbfad4285af38cdf57ed1ec1d889428e6d6d09",
+      "standalone_bytes_preserved": false,
+      "selected_source": "artifacts/v1-m5-observation-repair-20261013/cloud-38387560382/history.json",
+      "sources": [
+        "artifacts/v1-m5-observation-repair-20261013/cloud-38387560382/history.json"
+      ]
+    },
+    {
+      "observed_at": "2026-10-13T03:10:36.516Z",
+      "input_file": "2026-10-13T03-10-36.516Z-5f85686fcf8f.json",
+      "canonical_sha256": "5f85686fcf8f70c18d6102c14926caf8987acbdb5e43ff25ad90dcf1573cd537",
+      "input_sha256": "9daa34d2e1efb4e587e6318c02a77c9cdd85fdac4386c8ef4900658a311db23f",
+      "standalone_bytes_preserved": false,
+      "selected_source": "artifacts/v1-m5-observation-repair-20261013/cloud-38387560382/history.json",
+      "sources": [
+        "artifacts/v1-m5-observation-repair-20261013/cloud-38387560382/history.json"
+      ]
+    },
+    {
+      "observed_at": "2026-10-13T11:03:20.398Z",
+      "input_file": "2026-10-13T11-03-20.398Z-b894febb849a.json",
+      "canonical_sha256": "b894febb849a67c14b9d08d021dd493945a5f1323dcf33726283ea81b3aaddc3",
+      "input_sha256": "cdf6c15acf21e65175f410fbf9a9ff3788c27dce5c37402ee117ff4148e0ef71",
+      "standalone_bytes_preserved": false,
+      "selected_source": "artifacts/v1-m5-observation-repair-20261013/cloud-38387560382/history.json",
+      "sources": [
+        "artifacts/v1-m5-observation-repair-20261013/cloud-38387560382/history.json"
+      ]
+    },
+    {
+      "observed_at": "2026-10-13T15:18:42.229Z",
+      "input_file": "2026-10-13T15-18-42.229Z-5c48f35bb911.json",
+      "canonical_sha256": "5c48f35bb91195d9b92f9357c05e6f99c5924e09208eeccf56f9cd060ae6eac2",
+      "input_sha256": "c33dfe9b3273e0ddc4545d6cfcfa318a0fae469a178701c11357883d80ea8896",
+      "standalone_bytes_preserved": true,
+      "selected_source": "artifacts/v1-m5-observation-repair-20261013/incoming/2026-10-13T15-18-42.229Z.json",
+      "sources": [
+        "artifacts/v1-m5-observation-repair-20261013/incoming/2026-10-13T15-18-42.229Z.json"
+      ]
+    }
+  ]
+}

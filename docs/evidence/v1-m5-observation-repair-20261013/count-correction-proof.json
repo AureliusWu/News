@@ -1,0 +1,95 @@
+{
+  "schema_version": 1,
+  "corrected_at": "2026-10-13T15:45:03.684Z",
+  "human_approved": true,
+  "input_text_records": 67,
+  "unique_utc_instants": 62,
+  "same_instant_text_groups": [
+    {
+      "utc_identity": "2026-10-03T00:26:08.540000000Z",
+      "original_times": [
+        "2026-10-03T00:26:08.54Z",
+        "2026-10-03T00:26:08.540Z"
+      ],
+      "input_files": [
+        "2026-10-03T00-26-08.540Z-d39fe6663ca7.json",
+        "2026-10-03T00-26-08.540Z-ec2c4e467ed5.json"
+      ]
+    },
+    {
+      "utc_identity": "2026-10-03T22:07:31.190000000Z",
+      "original_times": [
+        "2026-10-03T22:07:31.190Z",
+        "2026-10-03T22:07:31.19Z"
+      ],
+      "input_files": [
+        "2026-10-03T22-07-31.190Z-3aba29fb7cf7.json",
+        "2026-10-03T22-07-31.190Z-b45dce5f152c.json"
+      ]
+    },
+    {
+      "utc_identity": "2026-10-05T02:23:16.060000000Z",
+      "original_times": [
+        "2026-10-05T02:23:16.06Z",
+        "2026-10-05T02:23:16.060Z"
+      ],
+      "input_files": [
+        "2026-10-05T02-23-16.060Z-28b40fe35f4d.json",
+        "2026-10-05T02-23-16.060Z-4d74e31e8e48.json"
+      ]
+    },
+    {
+      "utc_identity": "2026-10-08T19:25:24.930000000Z",
+      "original_times": [
+        "2026-10-08T19:25:24.930Z",
+        "2026-10-08T19:25:24.93Z"
+      ],
+      "input_files": [
+        "2026-10-08T19-25-24.930Z-1122a3ebde56.json",
+        "2026-10-08T19-25-24.930Z-742571dd12c9.json"
+      ]
+    },
+    {
+      "utc_identity": "2026-10-09T06:01:10.560000000Z",
+      "original_times": [
+        "2026-10-09T06:01:10.560Z",
+        "2026-10-09T06:01:10.56Z"
+      ],
+      "input_files": [
+        "2026-10-09T06-01-10.560Z-637fdb7f4e72.json",
+        "2026-10-09T06-01-10.560Z-d06df25a30fa.json"
+      ]
+    }
+  ],
+  "retained_eight_day_text_records": 38,
+  "retained_eight_day_unique_instants": 36,
+  "older_archived_text_records": 29,
+  "older_archived_unique_instants": 26,
+  "raw_input_sha256_unchanged": true,
+  "original_timestamps_not_rewritten": true,
+  "comparator_does_not_round": true,
+  "gate_comparison_clock": "2026-10-13T15:26:04.446Z",
+  "same_gate_for_all_texts_and_unique_instants": true,
+  "gate_result": {
+    "schema_version": 1,
+    "evaluated_at": "2026-10-13T15:26:04.446Z",
+    "window_start": "2026-10-06T15:00:00.000Z",
+    "window_end": "2026-10-13T15:00:00.000Z",
+    "expected_version": "0.9.0-alpha.1",
+    "interval_minutes": 30,
+    "expected_slots": 336,
+    "observed_slots": 31,
+    "passing_slots": 7,
+    "failed_slots": 24,
+    "missing_slots": 305,
+    "passing_fraction": 0.020833333333333332,
+    "observation_span_hours": 188.48355555555557,
+    "minimum_span_hours": 168,
+    "required_fraction": 0.95,
+    "status": "FAIL",
+    "gate_pass": false,
+    "candidate_version_bound": true,
+    "formal_release": false,
+    "caveat": "Direct HTTP observations only. Missing slots count as failures; Actions run success rates are not freshness evidence."
+  }
+}
