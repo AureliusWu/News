@@ -1,0 +1,759 @@
+{
+  "schema_version": 1,
+  "evaluated_at": "2026-10-15T08:07:10.335Z",
+  "method": "Lighthouse 13.5.0, Chrome 155, three sequential cold-profile navigations per form factor",
+  "threshold_ms": 3000,
+  "binding": {
+    "release_unchanged": true,
+    "snapshot_unchanged": true,
+    "source_revision": "3a3e0dcf0baf39ceacd0d4a65e015a80b3761333",
+    "version": "0.9.0-alpha.1",
+    "snapshot_id": "35b7edde202b3e2dcaf1c299"
+  },
+  "profiles": {
+    "desktop": {
+      "sample_count": 3,
+      "valid_samples": 3,
+      "controls_match": true,
+      "all_lcp_within_3s": true,
+      "lcp_median_ms": 770.6075000000001,
+      "lcp_worst_ms": 1521.466,
+      "tbt_median_ms": 0,
+      "tbt_worst_ms": 0,
+      "cls_worst": 0.0005273002514104575,
+      "worst_sample": "desktop-2"
+    },
+    "mobile": {
+      "sample_count": 3,
+      "valid_samples": 3,
+      "controls_match": true,
+      "all_lcp_within_3s": false,
+      "lcp_median_ms": 2833.579,
+      "lcp_worst_ms": 3267.8560000000007,
+      "tbt_median_ms": 106,
+      "tbt_worst_ms": 157,
+      "cls_worst": 0.022156293501915947,
+      "worst_sample": "mobile-3"
+    }
+  },
+  "samples": [
+    {
+      "sample": "desktop-1",
+      "profile": "desktop",
+      "raw_sha256": "b7a4c4907571f9999702902e061d6d45d2ac7fdf6279d9ef32d4e79b0b91a23d",
+      "execution": {
+        "sample": "desktop-1",
+        "started_at": "2026-10-15T08:00:35.9959042+00:00",
+        "completed_at": "2026-10-15T08:00:58.4119211+00:00",
+        "cli_exit": 0
+      },
+      "lighthouse_version": "13.5.0",
+      "fetch_time": "2026-10-15T08:00:46.226Z",
+      "final_url": "https://aureliuswu.github.io/News/",
+      "runtime_error": null,
+      "score": 0.99,
+      "lcp_ms": 752.321,
+      "fcp_ms": 482.321,
+      "tbt_ms": 0,
+      "cls": 0.0005273002514104575,
+      "controls": {
+        "formFactor": "desktop",
+        "throttlingMethod": "simulate",
+        "throttling": [
+          40,
+          10240,
+          0,
+          0,
+          0,
+          1
+        ],
+        "screen": [
+          false,
+          1350,
+          940,
+          1,
+          false
+        ],
+        "disableStorageReset": false,
+        "onlyCategories": [
+          "performance"
+        ],
+        "skipAudits": null
+      },
+      "controls_match": true,
+      "environment": {
+        "networkUserAgent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/155.0.0.0 Safari/537.36",
+        "hostUserAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/155.0.0.0 Safari/537.36",
+        "benchmarkIndex": 2737,
+        "credits": {}
+      },
+      "lcp_node": {
+        "type": "node",
+        "lhId": "page-0-H2",
+        "path": "1,HTML,1,BODY,1,DIV,0,DIV,2,MAIN,1,SECTION,5,DIV,1,ARTICLE,1,DIV,1,H2",
+        "selector": "div.news-list > article.news-card > div.news-body > h2",
+        "boundingRect": {
+          "top": 829,
+          "bottom": 884,
+          "left": 309,
+          "right": 937,
+          "width": 628,
+          "height": 55
+        },
+        "snippet": "<h2 lang=\"en\">",
+        "nodeLabel": "Cost forces ACT government to scrap pledge to tag DV perpetrators"
+      },
+      "startup": {
+        "news_request_count": 1,
+        "public_api_requests": 0,
+        "news_request": {
+          "url": "https://aureliuswu.github.io/News/data/news.json",
+          "sessionTargetType": "page",
+          "protocol": "h2",
+          "cache": "none",
+          "rendererStartTime": 755.4140000008047,
+          "networkRequestTime": 755.8480000011623,
+          "networkEndTime": 1232.2730000019073,
+          "finished": true,
+          "transferSize": 226146,
+          "resourceSize": 824582,
+          "statusCode": 200,
+          "mimeType": "application/json",
+          "resourceType": "Fetch",
+          "priority": "High",
+          "experimentalFromMainFrame": true,
+          "entity": "GitHub"
+        },
+        "main_scripts": [
+          {
+            "url": "https://aureliuswu.github.io/News/assets/main-DxnJj67l.js",
+            "sessionTargetType": "page",
+            "protocol": "h2",
+            "cache": "none",
+            "rendererStartTime": 756.0540000014007,
+            "networkRequestTime": 756.3770000003278,
+            "networkEndTime": 1248.3480000011623,
+            "finished": true,
+            "transferSize": 44476,
+            "resourceSize": 114159,
+            "statusCode": 200,
+            "mimeType": "application/javascript",
+            "resourceType": "Script",
+            "priority": "High",
+            "experimentalFromMainFrame": true,
+            "entity": "GitHub"
+          }
+        ],
+        "download_overlaps_main": true,
+        "discovered_before_main_ready": true
+      },
+      "http_errors": [],
+      "warnings": [],
+      "valid": true,
+      "news_is_lcp": true,
+      "screenshot_file": "desktop-1-final.jpg"
+    },
+    {
+      "sample": "desktop-2",
+      "profile": "desktop",
+      "raw_sha256": "84ae6866d15471251e6ca2cab8f584ca8e297721182aeb780c07cc9afba1f715",
+      "execution": {
+        "sample": "desktop-2",
+        "started_at": "2026-10-15T08:00:58.4743325+00:00",
+        "completed_at": "2026-10-15T08:01:16.3227444+00:00",
+        "cli_exit": 0
+      },
+      "lighthouse_version": "13.5.0",
+      "fetch_time": "2026-10-15T08:01:05.734Z",
+      "final_url": "https://aureliuswu.github.io/News/",
+      "runtime_error": null,
+      "score": 0.95,
+      "lcp_ms": 1521.466,
+      "fcp_ms": 725.914,
+      "tbt_ms": 0,
+      "cls": 0.00044059295300895546,
+      "controls": {
+        "formFactor": "desktop",
+        "throttlingMethod": "simulate",
+        "throttling": [
+          40,
+          10240,
+          0,
+          0,
+          0,
+          1
+        ],
+        "screen": [
+          false,
+          1350,
+          940,
+          1,
+          false
+        ],
+        "disableStorageReset": false,
+        "onlyCategories": [
+          "performance"
+        ],
+        "skipAudits": null
+      },
+      "controls_match": true,
+      "environment": {
+        "networkUserAgent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/155.0.0.0 Safari/537.36",
+        "hostUserAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/155.0.0.0 Safari/537.36",
+        "benchmarkIndex": 2649,
+        "credits": {}
+      },
+      "lcp_node": {
+        "type": "node",
+        "lhId": "page-0-H2",
+        "path": "1,HTML,1,BODY,1,DIV,0,DIV,2,MAIN,1,SECTION,5,DIV,1,ARTICLE,1,DIV,1,H2",
+        "selector": "div.news-list > article.news-card > div.news-body > h2",
+        "boundingRect": {
+          "top": 829,
+          "bottom": 884,
+          "left": 309,
+          "right": 937,
+          "width": 628,
+          "height": 55
+        },
+        "snippet": "<h2 lang=\"en\">",
+        "nodeLabel": "Cost forces ACT government to scrap pledge to tag DV perpetrators"
+      },
+      "startup": {
+        "news_request_count": 1,
+        "public_api_requests": 0,
+        "news_request": {
+          "url": "https://aureliuswu.github.io/News/data/news.json",
+          "sessionTargetType": "page",
+          "protocol": "h2",
+          "cache": "none",
+          "rendererStartTime": 413.1650000028312,
+          "networkRequestTime": 413.6380000039935,
+          "networkEndTime": 992.5859999991953,
+          "finished": true,
+          "transferSize": 226122,
+          "resourceSize": 824582,
+          "statusCode": 200,
+          "mimeType": "application/json",
+          "resourceType": "Fetch",
+          "priority": "High",
+          "experimentalFromMainFrame": true,
+          "entity": "GitHub"
+        },
+        "main_scripts": [
+          {
+            "url": "https://aureliuswu.github.io/News/assets/main-DxnJj67l.js",
+            "sessionTargetType": "page",
+            "protocol": "h2",
+            "cache": "none",
+            "rendererStartTime": 413.8210000023246,
+            "networkRequestTime": 414.1010000035167,
+            "networkEndTime": 698.0639999993145,
+            "finished": true,
+            "transferSize": 44475,
+            "resourceSize": 114159,
+            "statusCode": 200,
+            "mimeType": "application/javascript",
+            "resourceType": "Script",
+            "priority": "High",
+            "experimentalFromMainFrame": true,
+            "entity": "GitHub"
+          }
+        ],
+        "download_overlaps_main": true,
+        "discovered_before_main_ready": true
+      },
+      "http_errors": [],
+      "warnings": [],
+      "valid": true,
+      "news_is_lcp": true,
+      "screenshot_file": "desktop-2-final.jpg"
+    },
+    {
+      "sample": "desktop-3",
+      "profile": "desktop",
+      "raw_sha256": "e0ec88bdde16101c1db27696a0f8b565eca4ddab312fe87234473fdd8681b2cf",
+      "execution": {
+        "sample": "desktop-3",
+        "started_at": "2026-10-15T08:01:16.3243835+00:00",
+        "completed_at": "2026-10-15T08:01:34.0494079+00:00",
+        "cli_exit": 0
+      },
+      "lighthouse_version": "13.5.0",
+      "fetch_time": "2026-10-15T08:01:22.669Z",
+      "final_url": "https://aureliuswu.github.io/News/",
+      "runtime_error": null,
+      "score": 0.99,
+      "lcp_ms": 770.6075000000001,
+      "fcp_ms": 497.56100000000004,
+      "tbt_ms": 0,
+      "cls": 0.00044059295300895546,
+      "controls": {
+        "formFactor": "desktop",
+        "throttlingMethod": "simulate",
+        "throttling": [
+          40,
+          10240,
+          0,
+          0,
+          0,
+          1
+        ],
+        "screen": [
+          false,
+          1350,
+          940,
+          1,
+          false
+        ],
+        "disableStorageReset": false,
+        "onlyCategories": [
+          "performance"
+        ],
+        "skipAudits": null
+      },
+      "controls_match": true,
+      "environment": {
+        "networkUserAgent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/155.0.0.0 Safari/537.36",
+        "hostUserAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/155.0.0.0 Safari/537.36",
+        "benchmarkIndex": 2071,
+        "credits": {}
+      },
+      "lcp_node": {
+        "type": "node",
+        "lhId": "page-0-H2",
+        "path": "1,HTML,1,BODY,1,DIV,0,DIV,2,MAIN,1,SECTION,5,DIV,1,ARTICLE,1,DIV,1,H2",
+        "selector": "div.news-list > article.news-card > div.news-body > h2",
+        "boundingRect": {
+          "top": 829,
+          "bottom": 884,
+          "left": 309,
+          "right": 937,
+          "width": 628,
+          "height": 55
+        },
+        "snippet": "<h2 lang=\"en\">",
+        "nodeLabel": "Cost forces ACT government to scrap pledge to tag DV perpetrators"
+      },
+      "startup": {
+        "news_request_count": 1,
+        "public_api_requests": 0,
+        "news_request": {
+          "url": "https://aureliuswu.github.io/News/data/news.json",
+          "sessionTargetType": "page",
+          "protocol": "h2",
+          "cache": "none",
+          "rendererStartTime": 804.4230000004172,
+          "networkRequestTime": 804.8130000010133,
+          "networkEndTime": 1419.940000001341,
+          "finished": true,
+          "transferSize": 226123,
+          "resourceSize": 824582,
+          "statusCode": 200,
+          "mimeType": "application/json",
+          "resourceType": "Fetch",
+          "priority": "High",
+          "experimentalFromMainFrame": true,
+          "entity": "GitHub"
+        },
+        "main_scripts": [
+          {
+            "url": "https://aureliuswu.github.io/News/assets/main-DxnJj67l.js",
+            "sessionTargetType": "page",
+            "protocol": "h2",
+            "cache": "none",
+            "rendererStartTime": 805.0770000033081,
+            "networkRequestTime": 805.3630000017583,
+            "networkEndTime": 1170.3319999985397,
+            "finished": true,
+            "transferSize": 44472,
+            "resourceSize": 114159,
+            "statusCode": 200,
+            "mimeType": "application/javascript",
+            "resourceType": "Script",
+            "priority": "High",
+            "experimentalFromMainFrame": true,
+            "entity": "GitHub"
+          }
+        ],
+        "download_overlaps_main": true,
+        "discovered_before_main_ready": true
+      },
+      "http_errors": [],
+      "warnings": [],
+      "valid": true,
+      "news_is_lcp": true,
+      "screenshot_file": "desktop-3-final.jpg"
+    },
+    {
+      "sample": "mobile-1",
+      "profile": "mobile",
+      "raw_sha256": "6823ea5359ff706d4b167de559d5dcb280390cb67cec8cb2f786f0af9d2d7751",
+      "execution": {
+        "sample": "mobile-1",
+        "started_at": "2026-10-15T08:01:34.0511840+00:00",
+        "completed_at": "2026-10-15T08:01:51.2326410+00:00",
+        "cli_exit": 0
+      },
+      "lighthouse_version": "13.5.0",
+      "fetch_time": "2026-10-15T08:01:39.971Z",
+      "final_url": "https://aureliuswu.github.io/News/",
+      "runtime_error": null,
+      "score": 0.95,
+      "lcp_ms": 2833.579,
+      "fcp_ms": 1107.734,
+      "tbt_ms": 106,
+      "cls": 0.022156293501915947,
+      "controls": {
+        "formFactor": "mobile",
+        "throttlingMethod": "simulate",
+        "throttling": [
+          150,
+          1638.4,
+          562.5,
+          1474.5600000000002,
+          675,
+          4
+        ],
+        "screen": [
+          true,
+          412,
+          823,
+          1.75,
+          false
+        ],
+        "disableStorageReset": false,
+        "onlyCategories": [
+          "performance"
+        ],
+        "skipAudits": null
+      },
+      "controls_match": true,
+      "environment": {
+        "networkUserAgent": "Mozilla/5.0 (Linux; Android 11; moto g power (2022)) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/155.0.0.0 Mobile Safari/537.36",
+        "hostUserAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/155.0.0.0 Safari/537.36",
+        "benchmarkIndex": 2881.5,
+        "credits": {}
+      },
+      "lcp_node": {
+        "type": "node",
+        "lhId": "page-0-H2",
+        "path": "1,HTML,1,BODY,1,DIV,0,DIV,2,MAIN,1,SECTION,5,DIV,0,ARTICLE,1,DIV,1,H2",
+        "selector": "div.news-list > article.news-card > div.news-body > h2",
+        "boundingRect": {
+          "top": 676,
+          "bottom": 769,
+          "left": 91,
+          "right": 283,
+          "width": 192,
+          "height": 94
+        },
+        "snippet": "<h2 lang=\"en\">",
+        "nodeLabel": "Chickens euthanased in NSW egg farm 'emergency situation'"
+      },
+      "startup": {
+        "news_request_count": 1,
+        "public_api_requests": 0,
+        "news_request": {
+          "url": "https://aureliuswu.github.io/News/data/news.json",
+          "sessionTargetType": "page",
+          "protocol": "h2",
+          "cache": "none",
+          "rendererStartTime": 515.5590000003576,
+          "networkRequestTime": 515.9310000017285,
+          "networkEndTime": 1030.3859999999404,
+          "finished": true,
+          "transferSize": 226396,
+          "resourceSize": 824582,
+          "statusCode": 200,
+          "mimeType": "application/json",
+          "resourceType": "Fetch",
+          "priority": "High",
+          "experimentalFromMainFrame": true,
+          "entity": "GitHub"
+        },
+        "main_scripts": [
+          {
+            "url": "https://aureliuswu.github.io/News/assets/main-DxnJj67l.js",
+            "sessionTargetType": "page",
+            "protocol": "h2",
+            "cache": "none",
+            "rendererStartTime": 516.1100000031292,
+            "networkRequestTime": 516.3660000003874,
+            "networkEndTime": 721.5249999985099,
+            "finished": true,
+            "transferSize": 44448,
+            "resourceSize": 114159,
+            "statusCode": 200,
+            "mimeType": "application/javascript",
+            "resourceType": "Script",
+            "priority": "High",
+            "experimentalFromMainFrame": true,
+            "entity": "GitHub"
+          }
+        ],
+        "download_overlaps_main": true,
+        "discovered_before_main_ready": true
+      },
+      "http_errors": [],
+      "warnings": [],
+      "valid": true,
+      "news_is_lcp": true,
+      "screenshot_file": "mobile-1-final.jpg"
+    },
+    {
+      "sample": "mobile-2",
+      "profile": "mobile",
+      "raw_sha256": "d585b0c587ac38943143db2e73e34c3ad5fe5ae269fa66d723f244988e08e4e9",
+      "execution": {
+        "sample": "mobile-2",
+        "started_at": "2026-10-15T08:01:51.2340920+00:00",
+        "completed_at": "2026-10-15T08:02:07.6156848+00:00",
+        "cli_exit": 0
+      },
+      "lighthouse_version": "13.5.0",
+      "fetch_time": "2026-10-15T08:01:56.955Z",
+      "final_url": "https://aureliuswu.github.io/News/",
+      "runtime_error": null,
+      "score": 0.95,
+      "lcp_ms": 2516.554,
+      "fcp_ms": 1053.554,
+      "tbt_ms": 157,
+      "cls": 0.022156293501915947,
+      "controls": {
+        "formFactor": "mobile",
+        "throttlingMethod": "simulate",
+        "throttling": [
+          150,
+          1638.4,
+          562.5,
+          1474.5600000000002,
+          675,
+          4
+        ],
+        "screen": [
+          true,
+          412,
+          823,
+          1.75,
+          false
+        ],
+        "disableStorageReset": false,
+        "onlyCategories": [
+          "performance"
+        ],
+        "skipAudits": null
+      },
+      "controls_match": true,
+      "environment": {
+        "networkUserAgent": "Mozilla/5.0 (Linux; Android 11; moto g power (2022)) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/155.0.0.0 Mobile Safari/537.36",
+        "hostUserAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/155.0.0.0 Safari/537.36",
+        "benchmarkIndex": 2718,
+        "credits": {}
+      },
+      "lcp_node": {
+        "type": "node",
+        "lhId": "page-0-H2",
+        "path": "1,HTML,1,BODY,1,DIV,0,DIV,2,MAIN,1,SECTION,5,DIV,0,ARTICLE,1,DIV,1,H2",
+        "selector": "div.news-list > article.news-card > div.news-body > h2",
+        "boundingRect": {
+          "top": 676,
+          "bottom": 769,
+          "left": 91,
+          "right": 283,
+          "width": 192,
+          "height": 94
+        },
+        "snippet": "<h2 lang=\"en\">",
+        "nodeLabel": "Chickens euthanased in NSW egg farm 'emergency situation'"
+      },
+      "startup": {
+        "news_request_count": 1,
+        "public_api_requests": 0,
+        "news_request": {
+          "url": "https://aureliuswu.github.io/News/data/news.json",
+          "sessionTargetType": "page",
+          "protocol": "h2",
+          "cache": "none",
+          "rendererStartTime": 686.8069999963045,
+          "networkRequestTime": 687.1909999959171,
+          "networkEndTime": 1213.4979999959469,
+          "finished": true,
+          "transferSize": 226123,
+          "resourceSize": 824582,
+          "statusCode": 200,
+          "mimeType": "application/json",
+          "resourceType": "Fetch",
+          "priority": "High",
+          "experimentalFromMainFrame": true,
+          "entity": "GitHub"
+        },
+        "main_scripts": [
+          {
+            "url": "https://aureliuswu.github.io/News/assets/main-DxnJj67l.js",
+            "sessionTargetType": "page",
+            "protocol": "h2",
+            "cache": "none",
+            "rendererStartTime": 687.2819999977946,
+            "networkRequestTime": 687.555999994278,
+            "networkEndTime": 1024.0339999981225,
+            "finished": true,
+            "transferSize": 44474,
+            "resourceSize": 114159,
+            "statusCode": 200,
+            "mimeType": "application/javascript",
+            "resourceType": "Script",
+            "priority": "High",
+            "experimentalFromMainFrame": true,
+            "entity": "GitHub"
+          }
+        ],
+        "download_overlaps_main": true,
+        "discovered_before_main_ready": true
+      },
+      "http_errors": [],
+      "warnings": [],
+      "valid": true,
+      "news_is_lcp": true,
+      "screenshot_file": "mobile-2-final.jpg"
+    },
+    {
+      "sample": "mobile-3",
+      "profile": "mobile",
+      "raw_sha256": "c54462be41746f729281fa952870fe01f1a74dd98243e3a0d2284361983a78f9",
+      "execution": {
+        "sample": "mobile-3",
+        "started_at": "2026-10-15T08:02:07.6171149+00:00",
+        "completed_at": "2026-10-15T08:02:24.9257526+00:00",
+        "cli_exit": 0
+      },
+      "lighthouse_version": "13.5.0",
+      "fetch_time": "2026-10-15T08:02:13.675Z",
+      "final_url": "https://aureliuswu.github.io/News/",
+      "runtime_error": null,
+      "score": 0.92,
+      "lcp_ms": 3267.8560000000007,
+      "fcp_ms": 1392.8400000000001,
+      "tbt_ms": 102,
+      "cls": 0.022156293501915947,
+      "controls": {
+        "formFactor": "mobile",
+        "throttlingMethod": "simulate",
+        "throttling": [
+          150,
+          1638.4,
+          562.5,
+          1474.5600000000002,
+          675,
+          4
+        ],
+        "screen": [
+          true,
+          412,
+          823,
+          1.75,
+          false
+        ],
+        "disableStorageReset": false,
+        "onlyCategories": [
+          "performance"
+        ],
+        "skipAudits": null
+      },
+      "controls_match": true,
+      "environment": {
+        "networkUserAgent": "Mozilla/5.0 (Linux; Android 11; moto g power (2022)) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/155.0.0.0 Mobile Safari/537.36",
+        "hostUserAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/155.0.0.0 Safari/537.36",
+        "benchmarkIndex": 2770.5,
+        "credits": {}
+      },
+      "lcp_node": {
+        "type": "node",
+        "lhId": "page-0-H2",
+        "path": "1,HTML,1,BODY,1,DIV,0,DIV,2,MAIN,1,SECTION,5,DIV,0,ARTICLE,1,DIV,1,H2",
+        "selector": "div.news-list > article.news-card > div.news-body > h2",
+        "boundingRect": {
+          "top": 676,
+          "bottom": 769,
+          "left": 91,
+          "right": 283,
+          "width": 192,
+          "height": 94
+        },
+        "snippet": "<h2 lang=\"en\">",
+        "nodeLabel": "Chickens euthanased in NSW egg farm 'emergency situation'"
+      },
+      "startup": {
+        "news_request_count": 1,
+        "public_api_requests": 0,
+        "news_request": {
+          "url": "https://aureliuswu.github.io/News/data/news.json",
+          "sessionTargetType": "page",
+          "protocol": "h2",
+          "cache": "none",
+          "rendererStartTime": 477.1360000036657,
+          "networkRequestTime": 477.62900000438094,
+          "networkEndTime": 1120.2659999988973,
+          "finished": true,
+          "transferSize": 226396,
+          "resourceSize": 824582,
+          "statusCode": 200,
+          "mimeType": "application/json",
+          "resourceType": "Fetch",
+          "priority": "High",
+          "experimentalFromMainFrame": true,
+          "entity": "GitHub"
+        },
+        "main_scripts": [
+          {
+            "url": "https://aureliuswu.github.io/News/assets/main-DxnJj67l.js",
+            "sessionTargetType": "page",
+            "protocol": "h2",
+            "cache": "none",
+            "rendererStartTime": 477.8310000002384,
+            "networkRequestTime": 478.12300000339746,
+            "networkEndTime": 838.8750000037253,
+            "finished": true,
+            "transferSize": 44477,
+            "resourceSize": 114159,
+            "statusCode": 200,
+            "mimeType": "application/javascript",
+            "resourceType": "Script",
+            "priority": "High",
+            "experimentalFromMainFrame": true,
+            "entity": "GitHub"
+          }
+        ],
+        "download_overlaps_main": true,
+        "discovered_before_main_ready": true
+      },
+      "http_errors": [],
+      "warnings": [],
+      "valid": true,
+      "news_is_lcp": true,
+      "screenshot_file": "mobile-3-final.jpg"
+    }
+  ],
+  "startup_verified": true,
+  "lab_lcp_gate": "NOT_PASSED",
+  "previous": {
+    "code_revision": "5e55cf7d5a5014bc4c55b7f9aad18bbede966380",
+    "desktop_lcp_ms": [
+      802.9620000000001,
+      616.422,
+      767.268
+    ],
+    "mobile_lcp_ms": [
+      2292.186,
+      2277.446,
+      3191.8280000000004
+    ],
+    "slow_samples_preserved": true,
+    "news_input_differs": true,
+    "causal_percentage_improvement_claim": false
+  },
+  "actual_interaction_gate": "NOT_MEASURED",
+  "physical_phone_gate": "NOT_MEASURED",
+  "full_performance_gate": "INCOMPLETE",
+  "formal_release": false
+}

@@ -1,0 +1,32 @@
+
+> global-news-frontend@0.9.0-alpha.1 build
+> vite build --base /News/ --outDir ../artifacts/v1-m5-startup-warmup-20261015/pages-dist
+
+vite v7.3.6 building client environment for production...
+transforming...
+✓ 71 modules transformed.
+
+(!) outDir D:\AI项目\News\artifacts\v1-m5-startup-warmup-20261015\pages-dist is not inside project root and will not be emptied.
+Use --emptyOutDir to override.
+
+rendering chunks...
+computing gzip size...
+../artifacts/v1-m5-startup-warmup-20261015/pages-dist/registerSW.js                     0.14 kB
+../artifacts/v1-m5-startup-warmup-20261015/pages-dist/manifest.webmanifest              0.47 kB
+../artifacts/v1-m5-startup-warmup-20261015/pages-dist/index.html                        0.69 kB │ gzip:  0.39 kB
+../artifacts/v1-m5-startup-warmup-20261015/pages-dist/assets/EventsView-83jjtbIs.css    0.58 kB │ gzip:  0.32 kB
+../artifacts/v1-m5-startup-warmup-20261015/pages-dist/assets/index-B4ExFm1u.css         0.60 kB │ gzip:  0.38 kB
+../artifacts/v1-m5-startup-warmup-20261015/pages-dist/assets/main-CHtS8VTz.css         30.45 kB │ gzip:  8.40 kB
+../artifacts/v1-m5-startup-warmup-20261015/pages-dist/assets/LibraryView-BLlz18gv.js    4.12 kB │ gzip:  2.29 kB
+../artifacts/v1-m5-startup-warmup-20261015/pages-dist/assets/SourcesView-CnokryDD.js    4.72 kB │ gzip:  2.56 kB
+../artifacts/v1-m5-startup-warmup-20261015/pages-dist/assets/index-BZ_6pHoJ.js         15.14 kB │ gzip:  7.11 kB
+../artifacts/v1-m5-startup-warmup-20261015/pages-dist/assets/EventsView-BW4m2CsR.js    15.40 kB │ gzip:  6.65 kB
+../artifacts/v1-m5-startup-warmup-20261015/pages-dist/assets/main-DxnJj67l.js         114.16 kB │ gzip: 44.25 kB
+✓ built in 2.07s
+
+PWA v1.3.0
+mode      generateSW
+precache  16 entries (181.71 KiB)
+files generated
+  ../artifacts/v1-m5-startup-warmup-20261015/pages-dist/sw.js
+  ../artifacts/v1-m5-startup-warmup-20261015/pages-dist/workbox-5b7feed3.js

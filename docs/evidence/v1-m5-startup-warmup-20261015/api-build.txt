@@ -1,0 +1,32 @@
+
+> global-news-frontend@0.9.0-alpha.1 build
+> vite build --base / --outDir ../artifacts/v1-m5-startup-warmup-20261015/root-dist
+
+vite v7.3.6 building client environment for production...
+transforming...
+✓ 71 modules transformed.
+
+(!) outDir D:\AI项目\News\artifacts\v1-m5-startup-warmup-20261015\root-dist is not inside project root and will not be emptied.
+Use --emptyOutDir to override.
+
+rendering chunks...
+computing gzip size...
+../artifacts/v1-m5-startup-warmup-20261015/root-dist/registerSW.js                     0.13 kB
+../artifacts/v1-m5-startup-warmup-20261015/root-dist/manifest.webmanifest              0.47 kB
+../artifacts/v1-m5-startup-warmup-20261015/root-dist/index.html                        0.66 kB │ gzip:  0.39 kB
+../artifacts/v1-m5-startup-warmup-20261015/root-dist/assets/EventsView-83jjtbIs.css    0.58 kB │ gzip:  0.32 kB
+../artifacts/v1-m5-startup-warmup-20261015/root-dist/assets/index-B4ExFm1u.css         0.60 kB │ gzip:  0.38 kB
+../artifacts/v1-m5-startup-warmup-20261015/root-dist/assets/main-CHtS8VTz.css         30.45 kB │ gzip:  8.40 kB
+../artifacts/v1-m5-startup-warmup-20261015/root-dist/assets/index-gG1PZq3-.js          2.02 kB │ gzip:  1.04 kB
+../artifacts/v1-m5-startup-warmup-20261015/root-dist/assets/SourcesView-B3H51DKg.js    2.74 kB │ gzip:  1.71 kB
+../artifacts/v1-m5-startup-warmup-20261015/root-dist/assets/LibraryView-BLitbKSk.js    4.12 kB │ gzip:  2.29 kB
+../artifacts/v1-m5-startup-warmup-20261015/root-dist/assets/EventsView-BMS_FDie.js    15.39 kB │ gzip:  6.65 kB
+../artifacts/v1-m5-startup-warmup-20261015/root-dist/assets/main-B9A5v4lS.js         121.37 kB │ gzip: 48.16 kB
+✓ built in 2.07s
+
+PWA v1.3.0
+mode      generateSW
+precache  16 entries (173.96 KiB)
+files generated
+  ../artifacts/v1-m5-startup-warmup-20261015/root-dist/sw.js
+  ../artifacts/v1-m5-startup-warmup-20261015/root-dist/workbox-5b7feed3.js

@@ -1,0 +1,12 @@
+{
+  "phase": "initial local typecheck",
+  "source": "command output in this turn",
+  "file": "frontend/src/startup/warmup.spec.ts",
+  "line": 32,
+  "column": 44,
+  "code": "TS2493",
+  "diagnostic": "Tuple type '[]' of length '0' has no element at index '0'.",
+  "resolution": "Declared the fetch input and optional RequestInit parameters on the test mock.",
+  "subsequent_application_typecheck": "PASS",
+  "subsequent_node_typecheck": "PASS"
+}

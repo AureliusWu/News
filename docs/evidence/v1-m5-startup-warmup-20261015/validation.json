@@ -1,0 +1,35 @@
+{
+  "code_revision": "3a3e0dcf0baf39ceacd0d4a65e015a80b3761333",
+  "frontend_tests": {
+    "files": 10,
+    "passed": 136,
+    "new_startup_tests": 9
+  },
+  "typecheck": "PASS_AFTER_RECORDED_TEST_MOCK_SIGNATURE_FIX",
+  "builds": {
+    "snapshot": {
+      "base": "/News/",
+      "result": "PASS",
+      "pwa_static_contract": "PASS",
+      "precache_count": 16
+    },
+    "api": {
+      "base": "/",
+      "result": "PASS",
+      "pwa_static_contract": "PASS",
+      "precache_count": 16
+    }
+  },
+  "ci": {
+    "id": 38702292514,
+    "result": "success"
+  },
+  "startup": {
+    "single_news_download_all_six": true,
+    "download_overlaps_main_all_six": true,
+    "public_api_requests": 0
+  },
+  "lab_lcp_gate": "NOT_PASSED",
+  "full_performance_gate": "INCOMPLETE",
+  "formal_release": false
+}
