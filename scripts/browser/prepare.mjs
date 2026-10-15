@@ -18,6 +18,8 @@ async function download(name) {
   if (!response.ok) throw new Error(`${url} returned ${response.status}`);
   const bytes = Buffer.from(await response.arrayBuffer());
   if (bytes.length > 4 * 1024 * 1024) throw new Error('Frozen input exceeds 4 MiB.');
+  // Preserve received public bytes even when a later contract check fails.
+  await writeFile(join(output, 'frozen', name), bytes);
   return {url: url.href, bytes, json: JSON.parse(bytes.toString('utf8'))};
 }
 
@@ -29,8 +31,24 @@ for (const [field, prefix] of [['events_file', 'events'], ['source_health_file',
   const name = `${prefix}.${news.json.snapshot_id}.json`;
   if (news.json[field] !== name) throw new Error(`Unexpected bound asset ${field}.`);
   const asset = await download(name);
-  for (const key of ['snapshot_id', 'generated_at', 'content_sha256']) {
-    if (asset.json[key] !== news.json[key]) throw new Error(`Mismatched frozen asset ${name}: ${key}`);
+  const binding = prefix === 'events'
+    ? [['snapshot_id', 'snapshot_id'], ['generated_at', 'generated_at'], ['content_sha256', 'content_sha256']]
+    : [['snapshot_id', 'snapshot_id'], ['checked_at', 'generated_at']];
+  for (const [assetKey, newsKey] of binding) {
+    if (asset.json[assetKey] !== news.json[newsKey]) {
+      throw new Error(`Mismatched frozen asset ${name}: ${assetKey}`);
+    }
+  }
+  if (prefix === 'source-health') {
+    for (const [key, value] of Object.entries(news.json.health)) {
+      if (JSON.stringify(asset.json.summary?.[key]) !== JSON.stringify(value)) {
+        throw new Error(`Mismatched frozen health summary ${name}: ${key}`);
+      }
+    }
+    const checks = Object.values(asset.json.checks || {});
+    if (!checks.length || checks.some(value => value !== true)) {
+      throw new Error(`Frozen source-health checks did not pass: ${name}`);
+    }
   }
   files.set(name, asset);
   if (prefix === 'source-health') files.set('source-health.json', asset);
