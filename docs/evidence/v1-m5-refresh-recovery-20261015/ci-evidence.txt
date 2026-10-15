@@ -1,0 +1,26 @@
+build	Setup Node.js	2026-10-15T06:51:00.8510160Z (node:2074) [DEP0040] DeprecationWarning: The `punycode` module is deprecated. Please use a userland alternative instead.
+build	Setup Node.js	2026-10-15T06:51:01.3602123Z (node:2074) [DEP0169] DeprecationWarning: `url.parse()` behavior is not standardized and prone to errors that have security implications. Use the WHATWG URL API instead. CVEs are not issued for `url.parse()` vulnerabilities.
+build	Check disabled AI policy and independent release-gate rules	2026-10-15T06:51:02.3038605Z # Subtest: missing slots count as failed coverage
+build	Check disabled AI policy and independent release-gate rules	2026-10-15T06:51:02.3038960Z ok 5 - missing slots count as failed coverage
+build	Check disabled AI policy and independent release-gate rules	2026-10-15T06:51:02.3042101Z # Subtest: future generation, report mismatch, failed transport reduce valid observations
+build	Check disabled AI policy and independent release-gate rules	2026-10-15T06:51:02.3042758Z ok 7 - future generation, report mismatch, failed transport reduce valid observations
+build	Check disabled AI policy and independent release-gate rules	2026-10-15T06:51:02.3060175Z # Subtest: correction never erases a historic failed sample or contradictory retry
+build	Check disabled AI policy and independent release-gate rules	2026-10-15T06:51:02.3060885Z ok 17 - correction never erases a historic failed sample or contradictory retry
+build	Check disabled AI policy and independent release-gate rules	2026-10-15T06:51:02.3098982Z # tests 17
+build	Check disabled AI policy and independent release-gate rules	2026-10-15T06:51:02.3111882Z # pass 17
+build	Check disabled AI policy and independent release-gate rules	2026-10-15T06:51:02.3112067Z # fail 0
+build	Setup Python for free snapshot publishing	2026-10-15T06:51:02.4100041Z (node:2137) [DEP0040] DeprecationWarning: The `punycode` module is deprecated. Please use a userland alternative instead.
+build	Setup Python for free snapshot publishing	2026-10-15T06:51:02.7996766Z (node:2137) [DEP0169] DeprecationWarning: `url.parse()` behavior is not standardized and prone to errors that have security implications. Use the WHATWG URL API instead. CVEs are not issued for `url.parse()` vulnerabilities.
+build	Test snapshot normalization and publication gates	2026-10-15T06:51:04.8453701Z Ran 60 tests in 0.043s
+build	Collect real news and enforce source/freshness gates	2026-10-15T06:51:26.1163679Z     "failed": 6,
+build	Collect real news and enforce source/freshness gates	2026-10-15T06:51:26.1170303Z   "failed_sources": [
+build	Test frontend and snapshot adapter	2026-10-15T06:51:32.3492305Z ^[[2m Test Files ^[[22m ^[[1m^[[32m9 passed^[[39m^[[22m^[[90m (9)^[[39m
+build	Build frontend	2026-10-15T06:51:38.4062376Z precache  ^[[32m15 entries^[[39m ^[[2m(181.11 KiB)^[[22m
+build	Build frontend	2026-10-15T06:51:38.5466524Z {"result":"PASS","base":"/News/","manifestLanguage":"zh-CN","browserIcon":"/News/favicon.svg","startUrl":"/News/","scope":"/News/","navigationFallback":"/News/index.html","precachedAssets":15}
+build	Upload source-health evidence	2026-10-15T06:51:38.7360107Z (node:2608) [DEP0040] DeprecationWarning: The `punycode` module is deprecated. Please use a userland alternative instead.
+build	Upload source-health evidence	2026-10-15T06:51:39.0480454Z (node:2608) [DEP0169] DeprecationWarning: `url.parse()` behavior is not standardized and prone to errors that have security implications. Use the WHATWG URL API instead. CVEs are not issued for `url.parse()` vulnerabilities.
+build	Upload Pages artifact	2026-10-15T06:51:39.6106845Z (node:2622) [DEP0040] DeprecationWarning: The `punycode` module is deprecated. Please use a userland alternative instead.
+build	Upload Pages artifact	2026-10-15T06:51:40.0072861Z (node:2622) [DEP0169] DeprecationWarning: `url.parse()` behavior is not standardized and prone to errors that have security implications. Use the WHATWG URL API instead. CVEs are not issued for `url.parse()` vulnerabilities.
+build	Post Setup Python for free snapshot publishing	2026-10-15T06:51:40.8402962Z (node:2634) [DEP0040] DeprecationWarning: The `punycode` module is deprecated. Please use a userland alternative instead.
+build	Post Setup Node.js	2026-10-15T06:51:40.9217569Z (node:2642) [DEP0040] DeprecationWarning: The `punycode` module is deprecated. Please use a userland alternative instead.
+deploy	Deploy to GitHub Pages	2026-10-15T06:51:48.3487110Z (node:2190) [DEP0040] DeprecationWarning: The `punycode` module is deprecated. Please use a userland alternative instead.

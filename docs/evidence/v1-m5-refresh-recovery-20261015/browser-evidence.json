@@ -1,0 +1,13 @@
+{
+  "observed_at": "2026-10-15T06:55:21.814Z",
+  "browser": "Microsoft Edge",
+  "url": "https://aureliuswu.github.io/News/",
+  "snapshot_display": "2026/10/15 GMT+8 14:51:25",
+  "healthy_sources": "32/38",
+  "banner_scheduled_snapshot": true,
+  "stale_banner_visible": false,
+  "stale_cache_notice_visible": false,
+  "displayed_version": "0.9.0-alpha.1",
+  "screenshot": "edge-home-after.jpg",
+  "scope": "current visible public snapshot; not seven-day coverage, offline or performance evidence"
+}
