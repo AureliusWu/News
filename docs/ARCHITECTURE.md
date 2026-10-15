@@ -131,3 +131,7 @@ is implied. See `UI_ZH_CN.md` for scope and pending acceptance work.
 ### 2026-10-15 Snapshot persistence and first paint
 
 Validated online snapshots are returned without waiting for CacheStorage.open or Cache.put. Storage opens concurrently with the network request. Best-effort writes use one writer per transport instance and retain only the latest queued validated snapshot, so a slow earlier write cannot overwrite a later completed write or accumulate an unbounded queue. Network failures still use validated memory first, then persistent cache; stale labels, snapshot validation, generation-bound pagination, and existing cache namespaces are unchanged. Offline reuse after persistence completes is covered by fault-controlled unit tests; real device/offline lifecycle acceptance remains separate.
+
+### 2026-10-15 Homepage snapshot startup warmup
+
+In snapshot builds only, bootstrap starts the homepage metadata request through the existing provider singleton before importing the Vue main module. That request warms the same validated snapshot and pending download used by the page, allowing JSON download to overlap application loading without replacing global fetch or adding a second successful download. API builds and non-homepage routes retain lazy requests. Warmup failures are contained and leave the normal page request and validated cache fallback responsible for user-visible state. Public cold-navigation measurements must verify request sharing, startup order, layout stability, and the original performance threshold independently.
