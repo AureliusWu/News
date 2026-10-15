@@ -14,7 +14,7 @@ export default defineConfig({
   use: {baseURL: siteURL, viewport: {width: 1350, height: 940},
     trace: 'retain-on-failure', screenshot: 'only-on-failure', serviceWorkers: 'allow'},
   projects: [
-    {name: 'chromium', use: {browserName: 'chromium', launchOptions: {chromiumSandbox: true}}},
+    {name: 'chrome', use: {browserName: 'chromium', channel: 'chrome', launchOptions: {chromiumSandbox: true}}},
     {name: 'firefox', use: {browserName: 'firefox'}},
   ],
 });

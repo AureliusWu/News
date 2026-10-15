@@ -11,6 +11,10 @@ on:
         description: Candidate application revision
         required: true
         default: 3a3e0dcf0baf39ceacd0d4a65e015a80b3761333
+      run_performance:
+        description: Run the separate frozen-input performance diagnostic
+        type: boolean
+        default: true
 
 permissions:
   contents: read
@@ -64,7 +68,7 @@ jobs:
         working-directory: scripts/browser
         run: npm test
       - name: Alternating same-input startup comparison
-        if: ${{ !cancelled() && steps.prepare.outcome == 'success' }}
+        if: ${{ !cancelled() && steps.prepare.outcome == 'success' && inputs.run_performance }}
         run: |
           export CHROME_PATH="$(command -v google-chrome)"
           test -n "$CHROME_PATH"
