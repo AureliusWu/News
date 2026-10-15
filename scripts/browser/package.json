@@ -1,0 +1,13 @@
+{
+  "name": "news-isolated-browser-verification",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "test": "playwright test",
+    "performance": "node performance.mjs"
+  },
+  "devDependencies": {
+    "@playwright/test": "1.64.1",
+    "lighthouse": "13.5.0"
+  }
+}

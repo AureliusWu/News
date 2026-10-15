@@ -1,0 +1,79 @@
+name: Isolated browser and startup verification
+
+on:
+  workflow_dispatch:
+    inputs:
+      baseline_ref:
+        description: Previous application revision
+        required: true
+        default: 5e55cf7d5a5014bc4c55b7f9aad18bbede966380
+      candidate_ref:
+        description: Candidate application revision
+        required: true
+        default: 3a3e0dcf0baf39ceacd0d4a65e015a80b3761333
+
+permissions:
+  contents: read
+
+concurrency:
+  group: isolated-browser-verification
+  cancel-in-progress: false
+
+jobs:
+  browser:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 25
+    env:
+      VERIFICATION_OUTPUT: ${{ github.workspace }}/artifacts/ci-browser-verification
+      BASELINE_ROOT: ${{ github.workspace }}/verification-inputs/baseline
+      CANDIDATE_ROOT: ${{ github.workspace }}/verification-inputs/candidate
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+      - uses: actions/checkout@v4
+        with:
+          ref: ${{ inputs.baseline_ref }}
+          path: verification-inputs/baseline
+          persist-credentials: false
+      - uses: actions/checkout@v4
+        with:
+          ref: ${{ inputs.candidate_ref }}
+          path: verification-inputs/candidate
+          persist-credentials: false
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+          cache-dependency-path: |
+            scripts/browser/package-lock.json
+            verification-inputs/baseline/frontend/package-lock.json
+            verification-inputs/candidate/frontend/package-lock.json
+      - name: Install isolated test and application dependencies
+        run: |
+          npm ci --prefix scripts/browser
+          npm ci --prefix verification-inputs/baseline/frontend
+          npm ci --prefix verification-inputs/candidate/frontend
+      - name: Install real browser engines
+        working-directory: scripts/browser
+        run: npx --no-install playwright install --with-deps chromium firefox
+      - name: Freeze bound public news and build both revisions
+        id: prepare
+        run: node scripts/browser/prepare.mjs
+      - name: Browser, offline and same-origin upgrade tests
+        working-directory: scripts/browser
+        run: npm test
+      - name: Alternating same-input startup comparison
+        if: ${{ !cancelled() && steps.prepare.outcome == 'success' }}
+        run: |
+          export CHROME_PATH="$(command -v google-chrome)"
+          test -n "$CHROME_PATH"
+          node scripts/browser/performance.mjs
+      - name: Preserve every run, frozen input and failure trace
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: isolated-browser-verification-${{ github.run_id }}-${{ github.run_attempt }}
+          path: artifacts/ci-browser-verification/
+          retention-days: 14
+          if-no-files-found: warn

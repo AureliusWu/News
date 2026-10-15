@@ -1,0 +1,76 @@
+import {execFileSync} from 'node:child_process';
+import {createHash} from 'node:crypto';
+import {copyFile, mkdir, readFile, writeFile} from 'node:fs/promises';
+import {join, resolve} from 'node:path';
+import {output, requireIsolatedCI} from './server.mjs';
+
+requireIsolatedCI();
+const sha = bytes => createHash('sha256').update(bytes).digest('hex');
+const origin = 'https://aureliuswu.github.io/News/data/';
+await mkdir(join(output, 'frozen'), {recursive: true});
+
+async function download(name) {
+  const url = new URL(name, origin);
+  if (url.origin !== new URL(origin).origin || !url.pathname.startsWith('/News/data/')) {
+    throw new Error('Frozen input escaped the public data directory.');
+  }
+  const response = await fetch(url, {signal: AbortSignal.timeout(30000), cache: 'no-store'});
+  if (!response.ok) throw new Error(`${url} returned ${response.status}`);
+  const bytes = Buffer.from(await response.arrayBuffer());
+  if (bytes.length > 4 * 1024 * 1024) throw new Error('Frozen input exceeds 4 MiB.');
+  return {url: url.href, bytes, json: JSON.parse(bytes.toString('utf8'))};
+}
+
+const news = await download('news.json');
+if (!/^[a-f0-9]{24}$/.test(news.json.snapshot_id) || !news.json.health?.gate_pass ||
+    !Array.isArray(news.json.articles) || !news.json.articles.length) throw new Error('Invalid live news input.');
+const files = new Map([['news.json', news]]);
+for (const [field, prefix] of [['events_file', 'events'], ['source_health_file', 'source-health']]) {
+  const name = `${prefix}.${news.json.snapshot_id}.json`;
+  if (news.json[field] !== name) throw new Error(`Unexpected bound asset ${field}.`);
+  const asset = await download(name);
+  for (const key of ['snapshot_id', 'generated_at', 'content_sha256']) {
+    if (asset.json[key] !== news.json[key]) throw new Error(`Mismatched frozen asset ${name}: ${key}`);
+  }
+  files.set(name, asset);
+  if (prefix === 'source-health') files.set('source-health.json', asset);
+}
+const inputs = [];
+for (const [name, asset] of files) {
+  await writeFile(join(output, 'frozen', name), asset.bytes);
+  inputs.push({name, url: asset.url, bytes: asset.bytes.length, sha256: sha(asset.bytes)});
+}
+
+const variants = {};
+for (const name of ['baseline', 'candidate']) {
+  const root = resolve(process.env[`${name.toUpperCase()}_ROOT`] || `verification-inputs/${name}`);
+  const revision = execFileSync('git', ['rev-parse', 'HEAD'], {cwd: root, encoding: 'utf8'}).trim();
+  const dist = join(output, 'builds', name);
+  execFileSync('npm', ['run', 'build', '--', '--outDir', dist], {
+    cwd: join(root, 'frontend'), stdio: 'inherit',
+    env: {...process.env, BASE_PATH: '/News/', VITE_NEWS_MODE: 'snapshot', VITE_API_BASE_URL: ''},
+  });
+  await mkdir(join(dist, 'data'), {recursive: true});
+  for (const [file] of files) {
+    await copyFile(join(output, 'frozen', file), join(dist, 'data', file));
+    if (sha(await readFile(join(dist, 'data', file))) !== inputs.find(input => input.name === file).sha256) {
+      throw new Error(`Frozen bytes changed in ${name}/${file}.`);
+    }
+  }
+  const html = await readFile(join(dist, 'index.html'), 'utf8');
+  const entry = html.match(/<script\b[^>]*type="module"[^>]*src="([^"]+)"/)?.[1];
+  if (!entry?.startsWith('/News/assets/')) throw new Error(`Missing built entry for ${name}.`);
+  variants[name] = {
+    root, dist, revision, entry, html_sha256: sha(html),
+    entry_sha256: sha(await readFile(join(dist, entry.slice('/News/'.length)))),
+    sw_sha256: sha(await readFile(join(dist, 'sw.js'))),
+  };
+}
+if (variants.baseline.entry === variants.candidate.entry) throw new Error('Comparison entries must differ.');
+await writeFile(join(output, 'manifest.json'), JSON.stringify({
+  schema_version: 1, captured_at: new Date().toISOString(),
+  snapshot_id: news.json.snapshot_id, generated_at: news.json.generated_at,
+  content_sha256: news.json.content_sha256, article_count: news.json.articles.length,
+  inputs, ...variants,
+  scope: 'Isolated CI; exact frozen public JSON; no production deployment, phone or Windows gate closure.',
+}, null, 2) + '\n');
