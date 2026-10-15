@@ -1,0 +1,1711 @@
+{
+  "schema_version": 1,
+  "queried_at": "2026-10-15T08:39:51.962Z",
+  "window_start": "2026-10-08T08:30:00.000Z",
+  "window_end": "2026-10-15T08:30:00.000Z",
+  "expected_half_hour_slots": 336,
+  "interpretation": "Workflow creation timestamps and job conclusions only. Not proof of publication, a fresh bound observation, or the seven-day acceptance gate. Scheduled creation gaps do not alone prove their cause.",
+  "workflows": [
+    {
+      "workflow": "deploy-gh-pages.yml",
+      "history_complete_to_window_start": true,
+      "pages": 1,
+      "window_run_count": 36,
+      "event_conclusion_counts": {
+        "push/success": 3,
+        "schedule/success": 32,
+        "workflow_dispatch/success": 1
+      },
+      "scheduled_run_count": 32,
+      "scheduled_created_slot_count": 32,
+      "scheduled_max_created_gap_hours": 10.022222222222222,
+      "first_scheduled": {
+        "id": 37785591741,
+        "event": "schedule",
+        "status": "completed",
+        "conclusion": "success",
+        "created_at": "2026-10-08T13:35:47Z",
+        "updated_at": "2026-10-08T13:36:55Z",
+        "head_sha": "ff209036387fd457a2dfd7505f4d1e2a1e66e889",
+        "url": "https://github.com/AureliusWu/News/actions/runs/37785591741"
+      },
+      "last_scheduled": {
+        "id": 38699095410,
+        "event": "schedule",
+        "status": "completed",
+        "conclusion": "success",
+        "created_at": "2026-10-15T07:29:29Z",
+        "updated_at": "2026-10-15T07:30:22Z",
+        "head_sha": "5e55cf7d5a5014bc4c55b7f9aad18bbede966380",
+        "url": "https://github.com/AureliusWu/News/actions/runs/38699095410"
+      },
+      "runs": [
+        {
+          "id": 38702292514,
+          "event": "push",
+          "status": "completed",
+          "conclusion": "success",
+          "created_at": "2026-10-15T07:57:41Z",
+          "updated_at": "2026-10-15T07:58:59Z",
+          "head_sha": "3a3e0dcf0baf39ceacd0d4a65e015a80b3761333",
+          "url": "https://github.com/AureliusWu/News/actions/runs/38702292514"
+        },
+        {
+          "id": 38699095410,
+          "event": "schedule",
+          "status": "completed",
+          "conclusion": "success",
+          "created_at": "2026-10-15T07:29:29Z",
+          "updated_at": "2026-10-15T07:30:22Z",
+          "head_sha": "5e55cf7d5a5014bc4c55b7f9aad18bbede966380",
+          "url": "https://github.com/AureliusWu/News/actions/runs/38699095410"
+        },
+        {
+          "id": 38697977138,
+          "event": "push",
+          "status": "completed",
+          "conclusion": "success",
+          "created_at": "2026-10-15T07:19:30Z",
+          "updated_at": "2026-10-15T07:21:06Z",
+          "head_sha": "5e55cf7d5a5014bc4c55b7f9aad18bbede966380",
+          "url": "https://github.com/AureliusWu/News/actions/runs/38697977138"
+        },
+        {
+          "id": 38694897709,
+          "event": "workflow_dispatch",
+          "status": "completed",
+          "conclusion": "success",
+          "created_at": "2026-10-15T06:50:53Z",
+          "updated_at": "2026-10-15T06:52:07Z",
+          "head_sha": "c03f23e1d9c9c2c86b1c368d49af283d3a4e0e43",
+          "url": "https://github.com/AureliusWu/News/actions/runs/38694897709"
+        },
+        {
+          "id": 38667951588,
+          "event": "schedule",
+          "status": "completed",
+          "conclusion": "success",
+          "created_at": "2026-10-15T01:52:04Z",
+          "updated_at": "2026-10-15T01:53:05Z",
+          "head_sha": "40f8a207fa95f2e5811e49a2f52eb15cf55c2889",
+          "url": "https://github.com/AureliusWu/News/actions/runs/38667951588"
+        },
+        {
+          "id": 38654401348,
+          "event": "schedule",
+          "status": "completed",
+          "conclusion": "success",
+          "created_at": "2026-10-14T23:29:36Z",
+          "updated_at": "2026-10-14T23:30:28Z",
+          "head_sha": "40f8a207fa95f2e5811e49a2f52eb15cf55c2889",
+          "url": "https://github.com/AureliusWu/News/actions/runs/38654401348"
+        },
+        {
+          "id": 38634762448,
+          "event": "schedule",
+          "status": "completed",
+          "conclusion": "success",
+          "created_at": "2026-10-14T20:45:33Z",
+          "updated_at": "2026-10-14T20:46:28Z",
+          "head_sha": "40f8a207fa95f2e5811e49a2f52eb15cf55c2889",
+          "url": "https://github.com/AureliusWu/News/actions/runs/38634762448"
+        },
+        {
+          "id": 38605071749,
+          "event": "schedule",
+          "status": "completed",
+          "conclusion": "success",
+          "created_at": "2026-10-14T17:15:13Z",
+          "updated_at": "2026-10-14T17:16:06Z",
+          "head_sha": "40f8a207fa95f2e5811e49a2f52eb15cf55c2889",
+          "url": "https://github.com/AureliusWu/News/actions/runs/38605071749"
+        },
+        {
+          "id": 38560864189,
+          "event": "schedule",
+          "status": "completed",
+          "conclusion": "success",
+          "created_at": "2026-10-14T12:02:26Z",
+          "updated_at": "2026-10-14T12:03:26Z",
+          "head_sha": "40f8a207fa95f2e5811e49a2f52eb15cf55c2889",
+          "url": "https://github.com/AureliusWu/News/actions/runs/38560864189"
+        },
+        {
+          "id": 38520986147,
+          "event": "schedule",
+          "status": "completed",
+          "conclusion": "success",
+          "created_at": "2026-10-14T06:13:46Z",
+          "updated_at": "2026-10-14T06:14:42Z",
+          "head_sha": "40f8a207fa95f2e5811e49a2f52eb15cf55c2889",
+          "url": "https://github.com/AureliusWu/News/actions/runs/38520986147"
+        },
+        {
+          "id": 38494683187,
+          "event": "schedule",
+          "status": "completed",
+          "conclusion": "success",
+          "created_at": "2026-10-14T01:15:05Z",
+          "updated_at": "2026-10-14T01:16:03Z",
+          "head_sha": "40f8a207fa95f2e5811e49a2f52eb15cf55c2889",
+          "url": "https://github.com/AureliusWu/News/actions/runs/38494683187"
+        },
+        {
+          "id": 38473747345,
+          "event": "schedule",
+          "status": "completed",
+          "conclusion": "success",
+          "created_at": "2026-10-13T21:51:59Z",
+          "updated_at": "2026-10-13T21:52:57Z",
+          "head_sha": "40f8a207fa95f2e5811e49a2f52eb15cf55c2889",
+          "url": "https://github.com/AureliusWu/News/actions/runs/38473747345"
+        },
+        {
+          "id": 38436272928,
+          "event": "schedule",
+          "status": "completed",
+          "conclusion": "success",
+          "created_at": "2026-10-13T17:08:46Z",
+          "updated_at": "2026-10-13T17:09:43Z",
+          "head_sha": "40f8a207fa95f2e5811e49a2f52eb15cf55c2889",
+          "url": "https://github.com/AureliusWu/News/actions/runs/38436272928"
+        },
+        {
+          "id": 38423725304,
+          "event": "push",
+          "status": "completed",
+          "conclusion": "success",
+          "created_at": "2026-10-13T15:37:57Z",
+          "updated_at": "2026-10-13T15:39:20Z",
+          "head_sha": "3032b0fbdea9203c9a83c72269cb5b7882e61358",
+          "url": "https://github.com/AureliusWu/News/actions/runs/38423725304"
+        },
+        {
+          "id": 38376525404,
+          "event": "schedule",
+          "status": "completed",
+          "conclusion": "success",
+          "created_at": "2026-10-13T09:28:13Z",
+          "updated_at": "2026-10-13T09:29:10Z",
+          "head_sha": "b0f3b2b4bd2364f7ecf56d1f16e86bfb6a66abd8",
+          "url": "https://github.com/AureliusWu/News/actions/runs/38376525404"
+        },
+        {
+          "id": 38335009106,
+          "event": "schedule",
+          "status": "completed",
+          "conclusion": "success",
+          "created_at": "2026-10-13T02:02:38Z",
+          "updated_at": "2026-10-13T02:03:29Z",
+          "head_sha": "b0f3b2b4bd2364f7ecf56d1f16e86bfb6a66abd8",
+          "url": "https://github.com/AureliusWu/News/actions/runs/38335009106"
+        },
+        {
+          "id": 38300169954,
+          "event": "schedule",
+          "status": "completed",
+          "conclusion": "success",
+          "created_at": "2026-10-12T19:49:19Z",
+          "updated_at": "2026-10-12T19:50:20Z",
+          "head_sha": "b0f3b2b4bd2364f7ecf56d1f16e86bfb6a66abd8",
+          "url": "https://github.com/AureliusWu/News/actions/runs/38300169954"
+        },
+        {
+          "id": 38232208046,
+          "event": "schedule",
+          "status": "completed",
+          "conclusion": "success",
+          "created_at": "2026-10-12T09:47:59Z",
+          "updated_at": "2026-10-12T09:48:53Z",
+          "head_sha": "b0f3b2b4bd2364f7ecf56d1f16e86bfb6a66abd8",
+          "url": "https://github.com/AureliusWu/News/actions/runs/38232208046"
+        },
+        {
+          "id": 38195849542,
+          "event": "schedule",
+          "status": "completed",
+          "conclusion": "success",
+          "created_at": "2026-10-12T02:27:22Z",
+          "updated_at": "2026-10-12T02:28:21Z",
+          "head_sha": "b0f3b2b4bd2364f7ecf56d1f16e86bfb6a66abd8",
+          "url": "https://github.com/AureliusWu/News/actions/runs/38195849542"
+        },
+        {
+          "id": 38183442105,
+          "event": "schedule",
+          "status": "completed",
+          "conclusion": "success",
+          "created_at": "2026-10-11T23:13:03Z",
+          "updated_at": "2026-10-11T23:14:04Z",
+          "head_sha": "b0f3b2b4bd2364f7ecf56d1f16e86bfb6a66abd8",
+          "url": "https://github.com/AureliusWu/News/actions/runs/38183442105"
+        },
+        {
+          "id": 38169322914,
+          "event": "schedule",
+          "status": "completed",
+          "conclusion": "success",
+          "created_at": "2026-10-11T19:44:58Z",
+          "updated_at": "2026-10-11T19:45:57Z",
+          "head_sha": "b0f3b2b4bd2364f7ecf56d1f16e86bfb6a66abd8",
+          "url": "https://github.com/AureliusWu/News/actions/runs/38169322914"
+        },
+        {
+          "id": 38152571445,
+          "event": "schedule",
+          "status": "completed",
+          "conclusion": "success",
+          "created_at": "2026-10-11T15:44:53Z",
+          "updated_at": "2026-10-11T15:45:50Z",
+          "head_sha": "b0f3b2b4bd2364f7ecf56d1f16e86bfb6a66abd8",
+          "url": "https://github.com/AureliusWu/News/actions/runs/38152571445"
+        },
+        {
+          "id": 38126801672,
+          "event": "schedule",
+          "status": "completed",
+          "conclusion": "success",
+          "created_at": "2026-10-11T09:00:13Z",
+          "updated_at": "2026-10-11T09:01:03Z",
+          "head_sha": "b0f3b2b4bd2364f7ecf56d1f16e86bfb6a66abd8",
+          "url": "https://github.com/AureliusWu/News/actions/runs/38126801672"
+        },
+        {
+          "id": 38104463232,
+          "event": "schedule",
+          "status": "completed",
+          "conclusion": "success",
+          "created_at": "2026-10-11T02:13:43Z",
+          "updated_at": "2026-10-11T02:14:32Z",
+          "head_sha": "2ce6e7fff98e489fc42136b0ecffa67a6eb33d31",
+          "url": "https://github.com/AureliusWu/News/actions/runs/38104463232"
+        },
+        {
+          "id": 38095562459,
+          "event": "schedule",
+          "status": "completed",
+          "conclusion": "success",
+          "created_at": "2026-10-10T23:35:32Z",
+          "updated_at": "2026-10-10T23:36:24Z",
+          "head_sha": "2ce6e7fff98e489fc42136b0ecffa67a6eb33d31",
+          "url": "https://github.com/AureliusWu/News/actions/runs/38095562459"
+        },
+        {
+          "id": 38082376591,
+          "event": "schedule",
+          "status": "completed",
+          "conclusion": "success",
+          "created_at": "2026-10-10T20:05:35Z",
+          "updated_at": "2026-10-10T20:06:27Z",
+          "head_sha": "2ce6e7fff98e489fc42136b0ecffa67a6eb33d31",
+          "url": "https://github.com/AureliusWu/News/actions/runs/38082376591"
+        },
+        {
+          "id": 38065402998,
+          "event": "schedule",
+          "status": "completed",
+          "conclusion": "success",
+          "created_at": "2026-10-10T15:52:58Z",
+          "updated_at": "2026-10-10T15:53:48Z",
+          "head_sha": "2ce6e7fff98e489fc42136b0ecffa67a6eb33d31",
+          "url": "https://github.com/AureliusWu/News/actions/runs/38065402998"
+        },
+        {
+          "id": 38043047270,
+          "event": "schedule",
+          "status": "completed",
+          "conclusion": "success",
+          "created_at": "2026-10-10T09:54:33Z",
+          "updated_at": "2026-10-10T09:55:22Z",
+          "head_sha": "2ce6e7fff98e489fc42136b0ecffa67a6eb33d31",
+          "url": "https://github.com/AureliusWu/News/actions/runs/38043047270"
+        },
+        {
+          "id": 38018261123,
+          "event": "schedule",
+          "status": "completed",
+          "conclusion": "success",
+          "created_at": "2026-10-10T02:47:41Z",
+          "updated_at": "2026-10-10T02:48:40Z",
+          "head_sha": "2ce6e7fff98e489fc42136b0ecffa67a6eb33d31",
+          "url": "https://github.com/AureliusWu/News/actions/runs/38018261123"
+        },
+        {
+          "id": 38003701996,
+          "event": "schedule",
+          "status": "completed",
+          "conclusion": "success",
+          "created_at": "2026-10-09T23:17:49Z",
+          "updated_at": "2026-10-09T23:18:36Z",
+          "head_sha": "2ce6e7fff98e489fc42136b0ecffa67a6eb33d31",
+          "url": "https://github.com/AureliusWu/News/actions/runs/38003701996"
+        },
+        {
+          "id": 37977358915,
+          "event": "schedule",
+          "status": "completed",
+          "conclusion": "success",
+          "created_at": "2026-10-09T19:01:29Z",
+          "updated_at": "2026-10-09T19:02:18Z",
+          "head_sha": "2ce6e7fff98e489fc42136b0ecffa67a6eb33d31",
+          "url": "https://github.com/AureliusWu/News/actions/runs/37977358915"
+        },
+        {
+          "id": 37936727628,
+          "event": "schedule",
+          "status": "completed",
+          "conclusion": "success",
+          "created_at": "2026-10-09T13:25:25Z",
+          "updated_at": "2026-10-09T13:26:17Z",
+          "head_sha": "ff209036387fd457a2dfd7505f4d1e2a1e66e889",
+          "url": "https://github.com/AureliusWu/News/actions/runs/37936727628"
+        },
+        {
+          "id": 37892464137,
+          "event": "schedule",
+          "status": "completed",
+          "conclusion": "success",
+          "created_at": "2026-10-09T06:13:57Z",
+          "updated_at": "2026-10-09T06:14:47Z",
+          "head_sha": "ff209036387fd457a2dfd7505f4d1e2a1e66e889",
+          "url": "https://github.com/AureliusWu/News/actions/runs/37892464137"
+        },
+        {
+          "id": 37862305015,
+          "event": "schedule",
+          "status": "completed",
+          "conclusion": "success",
+          "created_at": "2026-10-08T23:58:02Z",
+          "updated_at": "2026-10-08T23:58:54Z",
+          "head_sha": "ff209036387fd457a2dfd7505f4d1e2a1e66e889",
+          "url": "https://github.com/AureliusWu/News/actions/runs/37862305015"
+        },
+        {
+          "id": 37832368180,
+          "event": "schedule",
+          "status": "completed",
+          "conclusion": "success",
+          "created_at": "2026-10-08T19:29:45Z",
+          "updated_at": "2026-10-08T19:30:43Z",
+          "head_sha": "ff209036387fd457a2dfd7505f4d1e2a1e66e889",
+          "url": "https://github.com/AureliusWu/News/actions/runs/37832368180"
+        },
+        {
+          "id": 37785591741,
+          "event": "schedule",
+          "status": "completed",
+          "conclusion": "success",
+          "created_at": "2026-10-08T13:35:47Z",
+          "updated_at": "2026-10-08T13:36:55Z",
+          "head_sha": "ff209036387fd457a2dfd7505f4d1e2a1e66e889",
+          "url": "https://github.com/AureliusWu/News/actions/runs/37785591741"
+        },
+        {
+          "id": 37736169215,
+          "event": "schedule",
+          "status": "completed",
+          "conclusion": "success",
+          "created_at": "2026-10-08T06:10:27Z",
+          "updated_at": "2026-10-08T06:11:14Z",
+          "head_sha": "ff209036387fd457a2dfd7505f4d1e2a1e66e889",
+          "url": "https://github.com/AureliusWu/News/actions/runs/37736169215"
+        },
+        {
+          "id": 37704597296,
+          "event": "schedule",
+          "status": "completed",
+          "conclusion": "success",
+          "created_at": "2026-10-07T23:51:24Z",
+          "updated_at": "2026-10-07T23:52:15Z",
+          "head_sha": "ff209036387fd457a2dfd7505f4d1e2a1e66e889",
+          "url": "https://github.com/AureliusWu/News/actions/runs/37704597296"
+        },
+        {
+          "id": 37675350518,
+          "event": "schedule",
+          "status": "completed",
+          "conclusion": "success",
+          "created_at": "2026-10-07T19:33:14Z",
+          "updated_at": "2026-10-07T19:34:05Z",
+          "head_sha": "ff209036387fd457a2dfd7505f4d1e2a1e66e889",
+          "url": "https://github.com/AureliusWu/News/actions/runs/37675350518"
+        },
+        {
+          "id": 37628908947,
+          "event": "schedule",
+          "status": "completed",
+          "conclusion": "success",
+          "created_at": "2026-10-07T13:29:36Z",
+          "updated_at": "2026-10-07T13:30:37Z",
+          "head_sha": "ff209036387fd457a2dfd7505f4d1e2a1e66e889",
+          "url": "https://github.com/AureliusWu/News/actions/runs/37628908947"
+        },
+        {
+          "id": 37579580741,
+          "event": "schedule",
+          "status": "completed",
+          "conclusion": "success",
+          "created_at": "2026-10-07T06:04:53Z",
+          "updated_at": "2026-10-07T06:05:47Z",
+          "head_sha": "ff209036387fd457a2dfd7505f4d1e2a1e66e889",
+          "url": "https://github.com/AureliusWu/News/actions/runs/37579580741"
+        },
+        {
+          "id": 37548796343,
+          "event": "schedule",
+          "status": "completed",
+          "conclusion": "success",
+          "created_at": "2026-10-06T23:51:01Z",
+          "updated_at": "2026-10-06T23:51:49Z",
+          "head_sha": "ff209036387fd457a2dfd7505f4d1e2a1e66e889",
+          "url": "https://github.com/AureliusWu/News/actions/runs/37548796343"
+        },
+        {
+          "id": 37522020343,
+          "event": "schedule",
+          "status": "completed",
+          "conclusion": "success",
+          "created_at": "2026-10-06T19:51:32Z",
+          "updated_at": "2026-10-06T19:52:30Z",
+          "head_sha": "ff209036387fd457a2dfd7505f4d1e2a1e66e889",
+          "url": "https://github.com/AureliusWu/News/actions/runs/37522020343"
+        },
+        {
+          "id": 37479372388,
+          "event": "schedule",
+          "status": "completed",
+          "conclusion": "success",
+          "created_at": "2026-10-06T14:29:18Z",
+          "updated_at": "2026-10-06T14:30:15Z",
+          "head_sha": "ff209036387fd457a2dfd7505f4d1e2a1e66e889",
+          "url": "https://github.com/AureliusWu/News/actions/runs/37479372388"
+        },
+        {
+          "id": 37430706405,
+          "event": "schedule",
+          "status": "completed",
+          "conclusion": "success",
+          "created_at": "2026-10-06T07:36:20Z",
+          "updated_at": "2026-10-06T07:37:47Z",
+          "head_sha": "ff209036387fd457a2dfd7505f4d1e2a1e66e889",
+          "url": "https://github.com/AureliusWu/News/actions/runs/37430706405"
+        },
+        {
+          "id": 37396072522,
+          "event": "schedule",
+          "status": "completed",
+          "conclusion": "success",
+          "created_at": "2026-10-06T00:50:18Z",
+          "updated_at": "2026-10-06T00:51:16Z",
+          "head_sha": "ff209036387fd457a2dfd7505f4d1e2a1e66e889",
+          "url": "https://github.com/AureliusWu/News/actions/runs/37396072522"
+        },
+        {
+          "id": 37359059906,
+          "event": "schedule",
+          "status": "completed",
+          "conclusion": "success",
+          "created_at": "2026-10-05T18:51:02Z",
+          "updated_at": "2026-10-05T18:51:54Z",
+          "head_sha": "ff209036387fd457a2dfd7505f4d1e2a1e66e889",
+          "url": "https://github.com/AureliusWu/News/actions/runs/37359059906"
+        },
+        {
+          "id": 37291264063,
+          "event": "schedule",
+          "status": "completed",
+          "conclusion": "success",
+          "created_at": "2026-10-05T09:37:24Z",
+          "updated_at": "2026-10-05T09:38:20Z",
+          "head_sha": "ff209036387fd457a2dfd7505f4d1e2a1e66e889",
+          "url": "https://github.com/AureliusWu/News/actions/runs/37291264063"
+        },
+        {
+          "id": 37255327289,
+          "event": "schedule",
+          "status": "completed",
+          "conclusion": "success",
+          "created_at": "2026-10-05T02:25:12Z",
+          "updated_at": "2026-10-05T02:26:04Z",
+          "head_sha": "ff209036387fd457a2dfd7505f4d1e2a1e66e889",
+          "url": "https://github.com/AureliusWu/News/actions/runs/37255327289"
+        },
+        {
+          "id": 37244386077,
+          "event": "schedule",
+          "status": "completed",
+          "conclusion": "success",
+          "created_at": "2026-10-04T23:36:45Z",
+          "updated_at": "2026-10-04T23:37:33Z",
+          "head_sha": "ff209036387fd457a2dfd7505f4d1e2a1e66e889",
+          "url": "https://github.com/AureliusWu/News/actions/runs/37244386077"
+        },
+        {
+          "id": 37232221341,
+          "event": "schedule",
+          "status": "completed",
+          "conclusion": "success",
+          "created_at": "2026-10-04T20:28:24Z",
+          "updated_at": "2026-10-04T20:29:18Z",
+          "head_sha": "ff209036387fd457a2dfd7505f4d1e2a1e66e889",
+          "url": "https://github.com/AureliusWu/News/actions/runs/37232221341"
+        },
+        {
+          "id": 37221159410,
+          "event": "schedule",
+          "status": "completed",
+          "conclusion": "success",
+          "created_at": "2026-10-04T17:36:30Z",
+          "updated_at": "2026-10-04T17:37:19Z",
+          "head_sha": "ff209036387fd457a2dfd7505f4d1e2a1e66e889",
+          "url": "https://github.com/AureliusWu/News/actions/runs/37221159410"
+        },
+        {
+          "id": 37203607798,
+          "event": "schedule",
+          "status": "completed",
+          "conclusion": "success",
+          "created_at": "2026-10-04T12:52:18Z",
+          "updated_at": "2026-10-04T12:53:05Z",
+          "head_sha": "ff209036387fd457a2dfd7505f4d1e2a1e66e889",
+          "url": "https://github.com/AureliusWu/News/actions/runs/37203607798"
+        },
+        {
+          "id": 37182674905,
+          "event": "schedule",
+          "status": "completed",
+          "conclusion": "success",
+          "created_at": "2026-10-04T06:23:42Z",
+          "updated_at": "2026-10-04T06:24:40Z",
+          "head_sha": "ff209036387fd457a2dfd7505f4d1e2a1e66e889",
+          "url": "https://github.com/AureliusWu/News/actions/runs/37182674905"
+        },
+        {
+          "id": 37165679682,
+          "event": "schedule",
+          "status": "completed",
+          "conclusion": "success",
+          "created_at": "2026-10-04T00:40:44Z",
+          "updated_at": "2026-10-04T00:41:41Z",
+          "head_sha": "ff209036387fd457a2dfd7505f4d1e2a1e66e889",
+          "url": "https://github.com/AureliusWu/News/actions/runs/37165679682"
+        },
+        {
+          "id": 37156319005,
+          "event": "schedule",
+          "status": "completed",
+          "conclusion": "success",
+          "created_at": "2026-10-03T21:48:16Z",
+          "updated_at": "2026-10-03T21:49:07Z",
+          "head_sha": "ff209036387fd457a2dfd7505f4d1e2a1e66e889",
+          "url": "https://github.com/AureliusWu/News/actions/runs/37156319005"
+        },
+        {
+          "id": 37145163509,
+          "event": "schedule",
+          "status": "completed",
+          "conclusion": "success",
+          "created_at": "2026-10-03T18:41:42Z",
+          "updated_at": "2026-10-03T18:42:29Z",
+          "head_sha": "ff209036387fd457a2dfd7505f4d1e2a1e66e889",
+          "url": "https://github.com/AureliusWu/News/actions/runs/37145163509"
+        },
+        {
+          "id": 37131421685,
+          "event": "schedule",
+          "status": "completed",
+          "conclusion": "success",
+          "created_at": "2026-10-03T14:56:14Z",
+          "updated_at": "2026-10-03T14:57:08Z",
+          "head_sha": "ff209036387fd457a2dfd7505f4d1e2a1e66e889",
+          "url": "https://github.com/AureliusWu/News/actions/runs/37131421685"
+        },
+        {
+          "id": 37117139700,
+          "event": "schedule",
+          "status": "completed",
+          "conclusion": "success",
+          "created_at": "2026-10-03T10:39:31Z",
+          "updated_at": "2026-10-03T10:40:21Z",
+          "head_sha": "ff209036387fd457a2dfd7505f4d1e2a1e66e889",
+          "url": "https://github.com/AureliusWu/News/actions/runs/37117139700"
+        },
+        {
+          "id": 37099638247,
+          "event": "schedule",
+          "status": "completed",
+          "conclusion": "success",
+          "created_at": "2026-10-03T05:22:56Z",
+          "updated_at": "2026-10-03T05:23:50Z",
+          "head_sha": "ff209036387fd457a2dfd7505f4d1e2a1e66e889",
+          "url": "https://github.com/AureliusWu/News/actions/runs/37099638247"
+        },
+        {
+          "id": 37096825016,
+          "event": "push",
+          "status": "completed",
+          "conclusion": "success",
+          "created_at": "2026-10-03T04:31:27Z",
+          "updated_at": "2026-10-03T04:32:32Z",
+          "head_sha": "1592e7919f9c132d891a9bd0fae87a8c9569baec",
+          "url": "https://github.com/AureliusWu/News/actions/runs/37096825016"
+        },
+        {
+          "id": 37088284095,
+          "event": "push",
+          "status": "completed",
+          "conclusion": "success",
+          "created_at": "2026-10-03T02:01:05Z",
+          "updated_at": "2026-10-03T02:02:21Z",
+          "head_sha": "3cd438990517a21855a554cbf59b701d57cd81db",
+          "url": "https://github.com/AureliusWu/News/actions/runs/37088284095"
+        },
+        {
+          "id": 37080242318,
+          "event": "schedule",
+          "status": "completed",
+          "conclusion": "success",
+          "created_at": "2026-10-03T00:01:20Z",
+          "updated_at": "2026-10-03T00:02:13Z",
+          "head_sha": "e8b63d275d4f917099f3bfdd43b3a08df05189b1",
+          "url": "https://github.com/AureliusWu/News/actions/runs/37080242318"
+        },
+        {
+          "id": 37062773039,
+          "event": "schedule",
+          "status": "completed",
+          "conclusion": "success",
+          "created_at": "2026-10-02T20:47:00Z",
+          "updated_at": "2026-10-02T20:48:02Z",
+          "head_sha": "e8b63d275d4f917099f3bfdd43b3a08df05189b1",
+          "url": "https://github.com/AureliusWu/News/actions/runs/37062773039"
+        },
+        {
+          "id": 37029866249,
+          "event": "schedule",
+          "status": "completed",
+          "conclusion": "success",
+          "created_at": "2026-10-02T15:51:06Z",
+          "updated_at": "2026-10-02T15:51:59Z",
+          "head_sha": "e8b63d275d4f917099f3bfdd43b3a08df05189b1",
+          "url": "https://github.com/AureliusWu/News/actions/runs/37029866249"
+        },
+        {
+          "id": 36987425249,
+          "event": "schedule",
+          "status": "completed",
+          "conclusion": "success",
+          "created_at": "2026-10-02T09:01:54Z",
+          "updated_at": "2026-10-02T09:03:12Z",
+          "head_sha": "e8b63d275d4f917099f3bfdd43b3a08df05189b1",
+          "url": "https://github.com/AureliusWu/News/actions/runs/36987425249"
+        },
+        {
+          "id": 36956353354,
+          "event": "schedule",
+          "status": "completed",
+          "conclusion": "success",
+          "created_at": "2026-10-02T02:35:41Z",
+          "updated_at": "2026-10-02T02:36:30Z",
+          "head_sha": "4978a84f0621109be496c3797caa4d4916164e52",
+          "url": "https://github.com/AureliusWu/News/actions/runs/36956353354"
+        },
+        {
+          "id": 36954447724,
+          "event": "push",
+          "status": "completed",
+          "conclusion": "success",
+          "created_at": "2026-10-02T02:11:11Z",
+          "updated_at": "2026-10-02T02:12:25Z",
+          "head_sha": "4978a84f0621109be496c3797caa4d4916164e52",
+          "url": "https://github.com/AureliusWu/News/actions/runs/36954447724"
+        },
+        {
+          "id": 36940805726,
+          "event": "schedule",
+          "status": "completed",
+          "conclusion": "success",
+          "created_at": "2026-10-01T23:26:21Z",
+          "updated_at": "2026-10-01T23:27:19Z",
+          "head_sha": "85acd6b8b441ae9147d37cbb041d1e0824a00ebf",
+          "url": "https://github.com/AureliusWu/News/actions/runs/36940805726"
+        },
+        {
+          "id": 36915236511,
+          "event": "schedule",
+          "status": "completed",
+          "conclusion": "success",
+          "created_at": "2026-10-01T19:34:06Z",
+          "updated_at": "2026-10-01T19:35:12Z",
+          "head_sha": "85acd6b8b441ae9147d37cbb041d1e0824a00ebf",
+          "url": "https://github.com/AureliusWu/News/actions/runs/36915236511"
+        },
+        {
+          "id": 36873551809,
+          "event": "workflow_dispatch",
+          "status": "completed",
+          "conclusion": "success",
+          "created_at": "2026-10-01T14:04:57Z",
+          "updated_at": "2026-10-01T14:06:09Z",
+          "head_sha": "85acd6b8b441ae9147d37cbb041d1e0824a00ebf",
+          "url": "https://github.com/AureliusWu/News/actions/runs/36873551809"
+        },
+        {
+          "id": 36872494809,
+          "event": "schedule",
+          "status": "completed",
+          "conclusion": "success",
+          "created_at": "2026-10-01T13:56:49Z",
+          "updated_at": "2026-10-01T13:57:52Z",
+          "head_sha": "85acd6b8b441ae9147d37cbb041d1e0824a00ebf",
+          "url": "https://github.com/AureliusWu/News/actions/runs/36872494809"
+        },
+        {
+          "id": 36825547376,
+          "event": "schedule",
+          "status": "completed",
+          "conclusion": "success",
+          "created_at": "2026-10-01T06:35:04Z",
+          "updated_at": "2026-10-01T06:36:01Z",
+          "head_sha": "85acd6b8b441ae9147d37cbb041d1e0824a00ebf",
+          "url": "https://github.com/AureliusWu/News/actions/runs/36825547376"
+        },
+        {
+          "id": 36796854102,
+          "event": "schedule",
+          "status": "completed",
+          "conclusion": "success",
+          "created_at": "2026-10-01T00:34:29Z",
+          "updated_at": "2026-10-01T00:35:30Z",
+          "head_sha": "85acd6b8b441ae9147d37cbb041d1e0824a00ebf",
+          "url": "https://github.com/AureliusWu/News/actions/runs/36796854102"
+        },
+        {
+          "id": 36775389350,
+          "event": "schedule",
+          "status": "completed",
+          "conclusion": "success",
+          "created_at": "2026-09-30T20:50:07Z",
+          "updated_at": "2026-09-30T20:51:10Z",
+          "head_sha": "85acd6b8b441ae9147d37cbb041d1e0824a00ebf",
+          "url": "https://github.com/AureliusWu/News/actions/runs/36775389350"
+        },
+        {
+          "id": 36740544174,
+          "event": "schedule",
+          "status": "completed",
+          "conclusion": "success",
+          "created_at": "2026-09-30T15:56:35Z",
+          "updated_at": "2026-09-30T15:57:41Z",
+          "head_sha": "85acd6b8b441ae9147d37cbb041d1e0824a00ebf",
+          "url": "https://github.com/AureliusWu/News/actions/runs/36740544174"
+        },
+        {
+          "id": 36693412844,
+          "event": "schedule",
+          "status": "completed",
+          "conclusion": "success",
+          "created_at": "2026-09-30T09:01:27Z",
+          "updated_at": "2026-09-30T09:03:03Z",
+          "head_sha": "85acd6b8b441ae9147d37cbb041d1e0824a00ebf",
+          "url": "https://github.com/AureliusWu/News/actions/runs/36693412844"
+        },
+        {
+          "id": 36659914577,
+          "event": "schedule",
+          "status": "completed",
+          "conclusion": "success",
+          "created_at": "2026-09-30T02:27:16Z",
+          "updated_at": "2026-09-30T02:28:25Z",
+          "head_sha": "85acd6b8b441ae9147d37cbb041d1e0824a00ebf",
+          "url": "https://github.com/AureliusWu/News/actions/runs/36659914577"
+        },
+        {
+          "id": 36646815470,
+          "event": "schedule",
+          "status": "completed",
+          "conclusion": "success",
+          "created_at": "2026-09-29T23:44:47Z",
+          "updated_at": "2026-09-29T23:45:45Z",
+          "head_sha": "85acd6b8b441ae9147d37cbb041d1e0824a00ebf",
+          "url": "https://github.com/AureliusWu/News/actions/runs/36646815470"
+        },
+        {
+          "id": 36623252432,
+          "event": "schedule",
+          "status": "completed",
+          "conclusion": "success",
+          "created_at": "2026-09-29T20:00:29Z",
+          "updated_at": "2026-09-29T20:01:36Z",
+          "head_sha": "85acd6b8b441ae9147d37cbb041d1e0824a00ebf",
+          "url": "https://github.com/AureliusWu/News/actions/runs/36623252432"
+        },
+        {
+          "id": 36587744786,
+          "event": "schedule",
+          "status": "completed",
+          "conclusion": "success",
+          "created_at": "2026-09-29T15:07:13Z",
+          "updated_at": "2026-09-29T15:14:48Z",
+          "head_sha": "85acd6b8b441ae9147d37cbb041d1e0824a00ebf",
+          "url": "https://github.com/AureliusWu/News/actions/runs/36587744786"
+        },
+        {
+          "id": 36543694768,
+          "event": "schedule",
+          "status": "completed",
+          "conclusion": "success",
+          "created_at": "2026-09-29T08:35:32Z",
+          "updated_at": "2026-09-29T08:36:43Z",
+          "head_sha": "85acd6b8b441ae9147d37cbb041d1e0824a00ebf",
+          "url": "https://github.com/AureliusWu/News/actions/runs/36543694768"
+        },
+        {
+          "id": 36510564578,
+          "event": "schedule",
+          "status": "completed",
+          "conclusion": "success",
+          "created_at": "2026-09-29T02:00:33Z",
+          "updated_at": "2026-09-29T02:01:33Z",
+          "head_sha": "85acd6b8b441ae9147d37cbb041d1e0824a00ebf",
+          "url": "https://github.com/AureliusWu/News/actions/runs/36510564578"
+        },
+        {
+          "id": 36490174876,
+          "event": "schedule",
+          "status": "completed",
+          "conclusion": "success",
+          "created_at": "2026-09-28T22:04:30Z",
+          "updated_at": "2026-09-28T22:05:28Z",
+          "head_sha": "85acd6b8b441ae9147d37cbb041d1e0824a00ebf",
+          "url": "https://github.com/AureliusWu/News/actions/runs/36490174876"
+        },
+        {
+          "id": 36447926053,
+          "event": "schedule",
+          "status": "completed",
+          "conclusion": "success",
+          "created_at": "2026-09-28T16:00:55Z",
+          "updated_at": "2026-09-28T16:01:56Z",
+          "head_sha": "85acd6b8b441ae9147d37cbb041d1e0824a00ebf",
+          "url": "https://github.com/AureliusWu/News/actions/runs/36447926053"
+        },
+        {
+          "id": 36393020747,
+          "event": "schedule",
+          "status": "completed",
+          "conclusion": "success",
+          "created_at": "2026-09-28T07:41:25Z",
+          "updated_at": "2026-09-28T07:42:25Z",
+          "head_sha": "85acd6b8b441ae9147d37cbb041d1e0824a00ebf",
+          "url": "https://github.com/AureliusWu/News/actions/runs/36393020747"
+        },
+        {
+          "id": 36366979325,
+          "event": "schedule",
+          "status": "completed",
+          "conclusion": "success",
+          "created_at": "2026-09-28T01:42:02Z",
+          "updated_at": "2026-09-28T01:43:07Z",
+          "head_sha": "85acd6b8b441ae9147d37cbb041d1e0824a00ebf",
+          "url": "https://github.com/AureliusWu/News/actions/runs/36366979325"
+        },
+        {
+          "id": 36357484014,
+          "event": "schedule",
+          "status": "completed",
+          "conclusion": "success",
+          "created_at": "2026-09-27T23:05:05Z",
+          "updated_at": "2026-09-27T23:06:06Z",
+          "head_sha": "85acd6b8b441ae9147d37cbb041d1e0824a00ebf",
+          "url": "https://github.com/AureliusWu/News/actions/runs/36357484014"
+        },
+        {
+          "id": 36347058849,
+          "event": "schedule",
+          "status": "completed",
+          "conclusion": "success",
+          "created_at": "2026-09-27T20:10:41Z",
+          "updated_at": "2026-09-27T20:11:36Z",
+          "head_sha": "85acd6b8b441ae9147d37cbb041d1e0824a00ebf",
+          "url": "https://github.com/AureliusWu/News/actions/runs/36347058849"
+        },
+        {
+          "id": 36335302088,
+          "event": "schedule",
+          "status": "completed",
+          "conclusion": "success",
+          "created_at": "2026-09-27T17:00:21Z",
+          "updated_at": "2026-09-27T17:01:22Z",
+          "head_sha": "85acd6b8b441ae9147d37cbb041d1e0824a00ebf",
+          "url": "https://github.com/AureliusWu/News/actions/runs/36335302088"
+        },
+        {
+          "id": 36317920235,
+          "event": "schedule",
+          "status": "completed",
+          "conclusion": "success",
+          "created_at": "2026-09-27T12:07:01Z",
+          "updated_at": "2026-09-27T12:07:58Z",
+          "head_sha": "85acd6b8b441ae9147d37cbb041d1e0824a00ebf",
+          "url": "https://github.com/AureliusWu/News/actions/runs/36317920235"
+        },
+        {
+          "id": 36298379248,
+          "event": "schedule",
+          "status": "completed",
+          "conclusion": "success",
+          "created_at": "2026-09-27T05:50:53Z",
+          "updated_at": "2026-09-27T05:52:27Z",
+          "head_sha": "85acd6b8b441ae9147d37cbb041d1e0824a00ebf",
+          "url": "https://github.com/AureliusWu/News/actions/runs/36298379248"
+        },
+        {
+          "id": 36283196297,
+          "event": "schedule",
+          "status": "completed",
+          "conclusion": "success",
+          "created_at": "2026-09-27T00:40:15Z",
+          "updated_at": "2026-09-27T00:41:17Z",
+          "head_sha": "85acd6b8b441ae9147d37cbb041d1e0824a00ebf",
+          "url": "https://github.com/AureliusWu/News/actions/runs/36283196297"
+        },
+        {
+          "id": 36275521375,
+          "event": "schedule",
+          "status": "completed",
+          "conclusion": "success",
+          "created_at": "2026-09-26T22:12:38Z",
+          "updated_at": "2026-09-26T22:13:43Z",
+          "head_sha": "85acd6b8b441ae9147d37cbb041d1e0824a00ebf",
+          "url": "https://github.com/AureliusWu/News/actions/runs/36275521375"
+        },
+        {
+          "id": 36266145692,
+          "event": "schedule",
+          "status": "completed",
+          "conclusion": "success",
+          "created_at": "2026-09-26T19:27:57Z",
+          "updated_at": "2026-09-26T19:28:58Z",
+          "head_sha": "85acd6b8b441ae9147d37cbb041d1e0824a00ebf",
+          "url": "https://github.com/AureliusWu/News/actions/runs/36266145692"
+        },
+        {
+          "id": 36256677589,
+          "event": "schedule",
+          "status": "completed",
+          "conclusion": "success",
+          "created_at": "2026-09-26T16:46:47Z",
+          "updated_at": "2026-09-26T16:47:55Z",
+          "head_sha": "85acd6b8b441ae9147d37cbb041d1e0824a00ebf",
+          "url": "https://github.com/AureliusWu/News/actions/runs/36256677589"
+        },
+        {
+          "id": 36242101613,
+          "event": "schedule",
+          "status": "completed",
+          "conclusion": "success",
+          "created_at": "2026-09-26T12:29:59Z",
+          "updated_at": "2026-09-26T12:30:59Z",
+          "head_sha": "85acd6b8b441ae9147d37cbb041d1e0824a00ebf",
+          "url": "https://github.com/AureliusWu/News/actions/runs/36242101613"
+        },
+        {
+          "id": 36227787208,
+          "event": "schedule",
+          "status": "completed",
+          "conclusion": "success",
+          "created_at": "2026-09-26T07:46:10Z",
+          "updated_at": "2026-09-26T07:47:06Z",
+          "head_sha": "85acd6b8b441ae9147d37cbb041d1e0824a00ebf",
+          "url": "https://github.com/AureliusWu/News/actions/runs/36227787208"
+        },
+        {
+          "id": 36210434563,
+          "event": "schedule",
+          "status": "completed",
+          "conclusion": "success",
+          "created_at": "2026-09-26T02:02:50Z",
+          "updated_at": "2026-09-26T02:04:24Z",
+          "head_sha": "85acd6b8b441ae9147d37cbb041d1e0824a00ebf",
+          "url": "https://github.com/AureliusWu/News/actions/runs/36210434563"
+        },
+        {
+          "id": 36201663590,
+          "event": "schedule",
+          "status": "completed",
+          "conclusion": "success",
+          "created_at": "2026-09-25T23:36:20Z",
+          "updated_at": "2026-09-25T23:37:22Z",
+          "head_sha": "85acd6b8b441ae9147d37cbb041d1e0824a00ebf",
+          "url": "https://github.com/AureliusWu/News/actions/runs/36201663590"
+        }
+      ]
+    },
+    {
+      "workflow": "observe-news.yml",
+      "history_complete_to_window_start": true,
+      "pages": 1,
+      "window_run_count": 32,
+      "event_conclusion_counts": {
+        "workflow_dispatch/success": 1,
+        "schedule/success": 31
+      },
+      "scheduled_run_count": 31,
+      "scheduled_created_slot_count": 31,
+      "scheduled_max_created_gap_hours": 9.418888888888889,
+      "first_scheduled": {
+        "id": 37783577820,
+        "event": "schedule",
+        "status": "completed",
+        "conclusion": "success",
+        "created_at": "2026-10-08T13:20:27Z",
+        "updated_at": "2026-10-08T13:20:44Z",
+        "head_sha": "ff209036387fd457a2dfd7505f4d1e2a1e66e889",
+        "url": "https://github.com/AureliusWu/News/actions/runs/37783577820"
+      },
+      "last_scheduled": {
+        "id": 38682065385,
+        "event": "schedule",
+        "status": "completed",
+        "conclusion": "success",
+        "created_at": "2026-10-15T04:33:12Z",
+        "updated_at": "2026-10-15T04:33:27Z",
+        "head_sha": "40f8a207fa95f2e5811e49a2f52eb15cf55c2889",
+        "url": "https://github.com/AureliusWu/News/actions/runs/38682065385"
+      },
+      "runs": [
+        {
+          "id": 38695345350,
+          "event": "workflow_dispatch",
+          "status": "completed",
+          "conclusion": "success",
+          "created_at": "2026-10-15T06:55:10Z",
+          "updated_at": "2026-10-15T06:55:25Z",
+          "head_sha": "c03f23e1d9c9c2c86b1c368d49af283d3a4e0e43",
+          "url": "https://github.com/AureliusWu/News/actions/runs/38695345350"
+        },
+        {
+          "id": 38682065385,
+          "event": "schedule",
+          "status": "completed",
+          "conclusion": "success",
+          "created_at": "2026-10-15T04:33:12Z",
+          "updated_at": "2026-10-15T04:33:27Z",
+          "head_sha": "40f8a207fa95f2e5811e49a2f52eb15cf55c2889",
+          "url": "https://github.com/AureliusWu/News/actions/runs/38682065385"
+        },
+        {
+          "id": 38658059458,
+          "event": "schedule",
+          "status": "completed",
+          "conclusion": "success",
+          "created_at": "2026-10-15T00:06:10Z",
+          "updated_at": "2026-10-15T00:06:31Z",
+          "head_sha": "40f8a207fa95f2e5811e49a2f52eb15cf55c2889",
+          "url": "https://github.com/AureliusWu/News/actions/runs/38658059458"
+        },
+        {
+          "id": 38641585773,
+          "event": "schedule",
+          "status": "completed",
+          "conclusion": "success",
+          "created_at": "2026-10-14T21:36:46Z",
+          "updated_at": "2026-10-14T21:37:05Z",
+          "head_sha": "40f8a207fa95f2e5811e49a2f52eb15cf55c2889",
+          "url": "https://github.com/AureliusWu/News/actions/runs/38641585773"
+        },
+        {
+          "id": 38611195279,
+          "event": "schedule",
+          "status": "completed",
+          "conclusion": "success",
+          "created_at": "2026-10-14T17:58:27Z",
+          "updated_at": "2026-10-14T17:58:42Z",
+          "head_sha": "40f8a207fa95f2e5811e49a2f52eb15cf55c2889",
+          "url": "https://github.com/AureliusWu/News/actions/runs/38611195279"
+        },
+        {
+          "id": 38568729012,
+          "event": "schedule",
+          "status": "completed",
+          "conclusion": "success",
+          "created_at": "2026-10-14T13:04:02Z",
+          "updated_at": "2026-10-14T13:04:18Z",
+          "head_sha": "40f8a207fa95f2e5811e49a2f52eb15cf55c2889",
+          "url": "https://github.com/AureliusWu/News/actions/runs/38568729012"
+        },
+        {
+          "id": 38528830039,
+          "event": "schedule",
+          "status": "completed",
+          "conclusion": "success",
+          "created_at": "2026-10-14T07:31:01Z",
+          "updated_at": "2026-10-14T07:31:21Z",
+          "head_sha": "40f8a207fa95f2e5811e49a2f52eb15cf55c2889",
+          "url": "https://github.com/AureliusWu/News/actions/runs/38528830039"
+        },
+        {
+          "id": 38498129722,
+          "event": "schedule",
+          "status": "completed",
+          "conclusion": "success",
+          "created_at": "2026-10-14T01:53:28Z",
+          "updated_at": "2026-10-14T01:53:40Z",
+          "head_sha": "40f8a207fa95f2e5811e49a2f52eb15cf55c2889",
+          "url": "https://github.com/AureliusWu/News/actions/runs/38498129722"
+        },
+        {
+          "id": 38482148284,
+          "event": "schedule",
+          "status": "completed",
+          "conclusion": "success",
+          "created_at": "2026-10-13T23:06:16Z",
+          "updated_at": "2026-10-13T23:06:31Z",
+          "head_sha": "40f8a207fa95f2e5811e49a2f52eb15cf55c2889",
+          "url": "https://github.com/AureliusWu/News/actions/runs/38482148284"
+        },
+        {
+          "id": 38444875397,
+          "event": "schedule",
+          "status": "completed",
+          "conclusion": "success",
+          "created_at": "2026-10-13T18:12:34Z",
+          "updated_at": "2026-10-13T18:12:51Z",
+          "head_sha": "40f8a207fa95f2e5811e49a2f52eb15cf55c2889",
+          "url": "https://github.com/AureliusWu/News/actions/runs/38444875397"
+        },
+        {
+          "id": 38387560382,
+          "event": "schedule",
+          "status": "completed",
+          "conclusion": "success",
+          "created_at": "2026-10-13T11:03:12Z",
+          "updated_at": "2026-10-13T11:03:27Z",
+          "head_sha": "b0f3b2b4bd2364f7ecf56d1f16e86bfb6a66abd8",
+          "url": "https://github.com/AureliusWu/News/actions/runs/38387560382"
+        },
+        {
+          "id": 38340442018,
+          "event": "schedule",
+          "status": "completed",
+          "conclusion": "success",
+          "created_at": "2026-10-13T03:10:30Z",
+          "updated_at": "2026-10-13T03:10:41Z",
+          "head_sha": "b0f3b2b4bd2364f7ecf56d1f16e86bfb6a66abd8",
+          "url": "https://github.com/AureliusWu/News/actions/runs/38340442018"
+        },
+        {
+          "id": 38317496199,
+          "event": "schedule",
+          "status": "completed",
+          "conclusion": "success",
+          "created_at": "2026-10-12T22:35:08Z",
+          "updated_at": "2026-10-12T22:35:27Z",
+          "head_sha": "b0f3b2b4bd2364f7ecf56d1f16e86bfb6a66abd8",
+          "url": "https://github.com/AureliusWu/News/actions/runs/38317496199"
+        },
+        {
+          "id": 38268682254,
+          "event": "schedule",
+          "status": "completed",
+          "conclusion": "success",
+          "created_at": "2026-10-12T15:13:43Z",
+          "updated_at": "2026-10-12T15:14:04Z",
+          "head_sha": "b0f3b2b4bd2364f7ecf56d1f16e86bfb6a66abd8",
+          "url": "https://github.com/AureliusWu/News/actions/runs/38268682254"
+        },
+        {
+          "id": 38209570383,
+          "event": "schedule",
+          "status": "completed",
+          "conclusion": "success",
+          "created_at": "2026-10-12T05:48:35Z",
+          "updated_at": "2026-10-12T05:48:51Z",
+          "head_sha": "b0f3b2b4bd2364f7ecf56d1f16e86bfb6a66abd8",
+          "url": "https://github.com/AureliusWu/News/actions/runs/38209570383"
+        },
+        {
+          "id": 38186204548,
+          "event": "schedule",
+          "status": "completed",
+          "conclusion": "success",
+          "created_at": "2026-10-11T23:57:35Z",
+          "updated_at": "2026-10-11T23:57:52Z",
+          "head_sha": "b0f3b2b4bd2364f7ecf56d1f16e86bfb6a66abd8",
+          "url": "https://github.com/AureliusWu/News/actions/runs/38186204548"
+        },
+        {
+          "id": 38171225284,
+          "event": "schedule",
+          "status": "completed",
+          "conclusion": "success",
+          "created_at": "2026-10-11T20:12:30Z",
+          "updated_at": "2026-10-11T20:12:47Z",
+          "head_sha": "b0f3b2b4bd2364f7ecf56d1f16e86bfb6a66abd8",
+          "url": "https://github.com/AureliusWu/News/actions/runs/38171225284"
+        },
+        {
+          "id": 38153390222,
+          "event": "schedule",
+          "status": "completed",
+          "conclusion": "success",
+          "created_at": "2026-10-11T15:56:42Z",
+          "updated_at": "2026-10-11T15:56:56Z",
+          "head_sha": "b0f3b2b4bd2364f7ecf56d1f16e86bfb6a66abd8",
+          "url": "https://github.com/AureliusWu/News/actions/runs/38153390222"
+        },
+        {
+          "id": 38127816278,
+          "event": "schedule",
+          "status": "completed",
+          "conclusion": "success",
+          "created_at": "2026-10-11T09:17:03Z",
+          "updated_at": "2026-10-11T09:17:17Z",
+          "head_sha": "b0f3b2b4bd2364f7ecf56d1f16e86bfb6a66abd8",
+          "url": "https://github.com/AureliusWu/News/actions/runs/38127816278"
+        },
+        {
+          "id": 38104232879,
+          "event": "schedule",
+          "status": "completed",
+          "conclusion": "success",
+          "created_at": "2026-10-11T02:09:32Z",
+          "updated_at": "2026-10-11T02:09:47Z",
+          "head_sha": "2ce6e7fff98e489fc42136b0ecffa67a6eb33d31",
+          "url": "https://github.com/AureliusWu/News/actions/runs/38104232879"
+        },
+        {
+          "id": 38095242928,
+          "event": "schedule",
+          "status": "completed",
+          "conclusion": "success",
+          "created_at": "2026-10-10T23:30:09Z",
+          "updated_at": "2026-10-10T23:30:22Z",
+          "head_sha": "2ce6e7fff98e489fc42136b0ecffa67a6eb33d31",
+          "url": "https://github.com/AureliusWu/News/actions/runs/38095242928"
+        },
+        {
+          "id": 38082094125,
+          "event": "schedule",
+          "status": "completed",
+          "conclusion": "success",
+          "created_at": "2026-10-10T20:01:23Z",
+          "updated_at": "2026-10-10T20:01:37Z",
+          "head_sha": "2ce6e7fff98e489fc42136b0ecffa67a6eb33d31",
+          "url": "https://github.com/AureliusWu/News/actions/runs/38082094125"
+        },
+        {
+          "id": 38065266969,
+          "event": "schedule",
+          "status": "completed",
+          "conclusion": "success",
+          "created_at": "2026-10-10T15:50:58Z",
+          "updated_at": "2026-10-10T15:51:14Z",
+          "head_sha": "2ce6e7fff98e489fc42136b0ecffa67a6eb33d31",
+          "url": "https://github.com/AureliusWu/News/actions/runs/38065266969"
+        },
+        {
+          "id": 38042448361,
+          "event": "schedule",
+          "status": "completed",
+          "conclusion": "success",
+          "created_at": "2026-10-10T09:44:24Z",
+          "updated_at": "2026-10-10T09:44:39Z",
+          "head_sha": "2ce6e7fff98e489fc42136b0ecffa67a6eb33d31",
+          "url": "https://github.com/AureliusWu/News/actions/runs/38042448361"
+        },
+        {
+          "id": 38017977496,
+          "event": "schedule",
+          "status": "completed",
+          "conclusion": "success",
+          "created_at": "2026-10-10T02:43:05Z",
+          "updated_at": "2026-10-10T02:43:17Z",
+          "head_sha": "2ce6e7fff98e489fc42136b0ecffa67a6eb33d31",
+          "url": "https://github.com/AureliusWu/News/actions/runs/38017977496"
+        },
+        {
+          "id": 38003232452,
+          "event": "schedule",
+          "status": "completed",
+          "conclusion": "success",
+          "created_at": "2026-10-09T23:12:17Z",
+          "updated_at": "2026-10-09T23:12:31Z",
+          "head_sha": "2ce6e7fff98e489fc42136b0ecffa67a6eb33d31",
+          "url": "https://github.com/AureliusWu/News/actions/runs/38003232452"
+        },
+        {
+          "id": 37976985551,
+          "event": "schedule",
+          "status": "completed",
+          "conclusion": "success",
+          "created_at": "2026-10-09T18:58:20Z",
+          "updated_at": "2026-10-09T18:58:37Z",
+          "head_sha": "2ce6e7fff98e489fc42136b0ecffa67a6eb33d31",
+          "url": "https://github.com/AureliusWu/News/actions/runs/37976985551"
+        },
+        {
+          "id": 37934788335,
+          "event": "schedule",
+          "status": "completed",
+          "conclusion": "success",
+          "created_at": "2026-10-09T13:08:54Z",
+          "updated_at": "2026-10-09T13:09:11Z",
+          "head_sha": "ff209036387fd457a2dfd7505f4d1e2a1e66e889",
+          "url": "https://github.com/AureliusWu/News/actions/runs/37934788335"
+        },
+        {
+          "id": 37891356541,
+          "event": "schedule",
+          "status": "completed",
+          "conclusion": "success",
+          "created_at": "2026-10-09T06:01:03Z",
+          "updated_at": "2026-10-09T06:01:19Z",
+          "head_sha": "ff209036387fd457a2dfd7505f4d1e2a1e66e889",
+          "url": "https://github.com/AureliusWu/News/actions/runs/37891356541"
+        },
+        {
+          "id": 37862138656,
+          "event": "schedule",
+          "status": "completed",
+          "conclusion": "success",
+          "created_at": "2026-10-08T23:56:05Z",
+          "updated_at": "2026-10-08T23:56:19Z",
+          "head_sha": "ff209036387fd457a2dfd7505f4d1e2a1e66e889",
+          "url": "https://github.com/AureliusWu/News/actions/runs/37862138656"
+        },
+        {
+          "id": 37831813449,
+          "event": "schedule",
+          "status": "completed",
+          "conclusion": "success",
+          "created_at": "2026-10-08T19:25:18Z",
+          "updated_at": "2026-10-08T19:25:31Z",
+          "head_sha": "ff209036387fd457a2dfd7505f4d1e2a1e66e889",
+          "url": "https://github.com/AureliusWu/News/actions/runs/37831813449"
+        },
+        {
+          "id": 37783577820,
+          "event": "schedule",
+          "status": "completed",
+          "conclusion": "success",
+          "created_at": "2026-10-08T13:20:27Z",
+          "updated_at": "2026-10-08T13:20:44Z",
+          "head_sha": "ff209036387fd457a2dfd7505f4d1e2a1e66e889",
+          "url": "https://github.com/AureliusWu/News/actions/runs/37783577820"
+        },
+        {
+          "id": 37734784822,
+          "event": "schedule",
+          "status": "completed",
+          "conclusion": "success",
+          "created_at": "2026-10-08T05:54:52Z",
+          "updated_at": "2026-10-08T05:55:08Z",
+          "head_sha": "ff209036387fd457a2dfd7505f4d1e2a1e66e889",
+          "url": "https://github.com/AureliusWu/News/actions/runs/37734784822"
+        },
+        {
+          "id": 37704213325,
+          "event": "schedule",
+          "status": "completed",
+          "conclusion": "success",
+          "created_at": "2026-10-07T23:47:12Z",
+          "updated_at": "2026-10-07T23:47:25Z",
+          "head_sha": "ff209036387fd457a2dfd7505f4d1e2a1e66e889",
+          "url": "https://github.com/AureliusWu/News/actions/runs/37704213325"
+        },
+        {
+          "id": 37675004963,
+          "event": "schedule",
+          "status": "completed",
+          "conclusion": "success",
+          "created_at": "2026-10-07T19:30:30Z",
+          "updated_at": "2026-10-07T19:30:45Z",
+          "head_sha": "ff209036387fd457a2dfd7505f4d1e2a1e66e889",
+          "url": "https://github.com/AureliusWu/News/actions/runs/37675004963"
+        },
+        {
+          "id": 37626864389,
+          "event": "schedule",
+          "status": "completed",
+          "conclusion": "success",
+          "created_at": "2026-10-07T13:13:51Z",
+          "updated_at": "2026-10-07T13:14:05Z",
+          "head_sha": "ff209036387fd457a2dfd7505f4d1e2a1e66e889",
+          "url": "https://github.com/AureliusWu/News/actions/runs/37626864389"
+        },
+        {
+          "id": 37578263985,
+          "event": "schedule",
+          "status": "completed",
+          "conclusion": "success",
+          "created_at": "2026-10-07T05:49:49Z",
+          "updated_at": "2026-10-07T05:50:03Z",
+          "head_sha": "ff209036387fd457a2dfd7505f4d1e2a1e66e889",
+          "url": "https://github.com/AureliusWu/News/actions/runs/37578263985"
+        },
+        {
+          "id": 37548328225,
+          "event": "schedule",
+          "status": "completed",
+          "conclusion": "success",
+          "created_at": "2026-10-06T23:45:48Z",
+          "updated_at": "2026-10-06T23:46:04Z",
+          "head_sha": "ff209036387fd457a2dfd7505f4d1e2a1e66e889",
+          "url": "https://github.com/AureliusWu/News/actions/runs/37548328225"
+        },
+        {
+          "id": 37521593381,
+          "event": "schedule",
+          "status": "completed",
+          "conclusion": "success",
+          "created_at": "2026-10-06T19:47:54Z",
+          "updated_at": "2026-10-06T19:48:07Z",
+          "head_sha": "ff209036387fd457a2dfd7505f4d1e2a1e66e889",
+          "url": "https://github.com/AureliusWu/News/actions/runs/37521593381"
+        },
+        {
+          "id": 37479039506,
+          "event": "schedule",
+          "status": "completed",
+          "conclusion": "success",
+          "created_at": "2026-10-06T14:26:56Z",
+          "updated_at": "2026-10-06T14:27:18Z",
+          "head_sha": "ff209036387fd457a2dfd7505f4d1e2a1e66e889",
+          "url": "https://github.com/AureliusWu/News/actions/runs/37479039506"
+        },
+        {
+          "id": 37430052067,
+          "event": "schedule",
+          "status": "completed",
+          "conclusion": "success",
+          "created_at": "2026-10-06T07:30:11Z",
+          "updated_at": "2026-10-06T07:30:26Z",
+          "head_sha": "ff209036387fd457a2dfd7505f4d1e2a1e66e889",
+          "url": "https://github.com/AureliusWu/News/actions/runs/37430052067"
+        },
+        {
+          "id": 37395689459,
+          "event": "schedule",
+          "status": "completed",
+          "conclusion": "success",
+          "created_at": "2026-10-06T00:45:53Z",
+          "updated_at": "2026-10-06T00:46:11Z",
+          "head_sha": "ff209036387fd457a2dfd7505f4d1e2a1e66e889",
+          "url": "https://github.com/AureliusWu/News/actions/runs/37395689459"
+        },
+        {
+          "id": 37358870030,
+          "event": "schedule",
+          "status": "completed",
+          "conclusion": "success",
+          "created_at": "2026-10-05T18:49:33Z",
+          "updated_at": "2026-10-05T18:49:49Z",
+          "head_sha": "ff209036387fd457a2dfd7505f4d1e2a1e66e889",
+          "url": "https://github.com/AureliusWu/News/actions/runs/37358870030"
+        },
+        {
+          "id": 37291002827,
+          "event": "schedule",
+          "status": "completed",
+          "conclusion": "success",
+          "created_at": "2026-10-05T09:35:04Z",
+          "updated_at": "2026-10-05T09:35:19Z",
+          "head_sha": "ff209036387fd457a2dfd7505f4d1e2a1e66e889",
+          "url": "https://github.com/AureliusWu/News/actions/runs/37291002827"
+        },
+        {
+          "id": 37255185855,
+          "event": "schedule",
+          "status": "completed",
+          "conclusion": "success",
+          "created_at": "2026-10-05T02:23:08Z",
+          "updated_at": "2026-10-05T02:23:22Z",
+          "head_sha": "ff209036387fd457a2dfd7505f4d1e2a1e66e889",
+          "url": "https://github.com/AureliusWu/News/actions/runs/37255185855"
+        },
+        {
+          "id": 37244253595,
+          "event": "schedule",
+          "status": "completed",
+          "conclusion": "success",
+          "created_at": "2026-10-04T23:34:32Z",
+          "updated_at": "2026-10-04T23:34:44Z",
+          "head_sha": "ff209036387fd457a2dfd7505f4d1e2a1e66e889",
+          "url": "https://github.com/AureliusWu/News/actions/runs/37244253595"
+        },
+        {
+          "id": 37231914112,
+          "event": "schedule",
+          "status": "completed",
+          "conclusion": "success",
+          "created_at": "2026-10-04T20:23:34Z",
+          "updated_at": "2026-10-04T20:23:47Z",
+          "head_sha": "ff209036387fd457a2dfd7505f4d1e2a1e66e889",
+          "url": "https://github.com/AureliusWu/News/actions/runs/37231914112"
+        },
+        {
+          "id": 37220915427,
+          "event": "schedule",
+          "status": "completed",
+          "conclusion": "success",
+          "created_at": "2026-10-04T17:32:45Z",
+          "updated_at": "2026-10-04T17:32:58Z",
+          "head_sha": "ff209036387fd457a2dfd7505f4d1e2a1e66e889",
+          "url": "https://github.com/AureliusWu/News/actions/runs/37220915427"
+        },
+        {
+          "id": 37203460507,
+          "event": "schedule",
+          "status": "completed",
+          "conclusion": "success",
+          "created_at": "2026-10-04T12:49:51Z",
+          "updated_at": "2026-10-04T12:50:11Z",
+          "head_sha": "ff209036387fd457a2dfd7505f4d1e2a1e66e889",
+          "url": "https://github.com/AureliusWu/News/actions/runs/37203460507"
+        },
+        {
+          "id": 37182522221,
+          "event": "schedule",
+          "status": "completed",
+          "conclusion": "success",
+          "created_at": "2026-10-04T06:20:33Z",
+          "updated_at": "2026-10-04T06:20:51Z",
+          "head_sha": "ff209036387fd457a2dfd7505f4d1e2a1e66e889",
+          "url": "https://github.com/AureliusWu/News/actions/runs/37182522221"
+        },
+        {
+          "id": 37165492910,
+          "event": "schedule",
+          "status": "completed",
+          "conclusion": "success",
+          "created_at": "2026-10-04T00:37:04Z",
+          "updated_at": "2026-10-04T00:37:17Z",
+          "head_sha": "ff209036387fd457a2dfd7505f4d1e2a1e66e889",
+          "url": "https://github.com/AureliusWu/News/actions/runs/37165492910"
+        },
+        {
+          "id": 37157359308,
+          "event": "schedule",
+          "status": "completed",
+          "conclusion": "success",
+          "created_at": "2026-10-03T22:07:25Z",
+          "updated_at": "2026-10-03T22:07:35Z",
+          "head_sha": "ff209036387fd457a2dfd7505f4d1e2a1e66e889",
+          "url": "https://github.com/AureliusWu/News/actions/runs/37157359308"
+        },
+        {
+          "id": 37145627359,
+          "event": "schedule",
+          "status": "completed",
+          "conclusion": "success",
+          "created_at": "2026-10-03T18:49:08Z",
+          "updated_at": "2026-10-03T18:49:21Z",
+          "head_sha": "ff209036387fd457a2dfd7505f4d1e2a1e66e889",
+          "url": "https://github.com/AureliusWu/News/actions/runs/37145627359"
+        },
+        {
+          "id": 37132513916,
+          "event": "schedule",
+          "status": "completed",
+          "conclusion": "success",
+          "created_at": "2026-10-03T15:14:01Z",
+          "updated_at": "2026-10-03T15:14:25Z",
+          "head_sha": "ff209036387fd457a2dfd7505f4d1e2a1e66e889",
+          "url": "https://github.com/AureliusWu/News/actions/runs/37132513916"
+        },
+        {
+          "id": 37120085320,
+          "event": "schedule",
+          "status": "completed",
+          "conclusion": "success",
+          "created_at": "2026-10-03T11:34:26Z",
+          "updated_at": "2026-10-03T11:34:41Z",
+          "head_sha": "ff209036387fd457a2dfd7505f4d1e2a1e66e889",
+          "url": "https://github.com/AureliusWu/News/actions/runs/37120085320"
+        },
+        {
+          "id": 37100678486,
+          "event": "schedule",
+          "status": "completed",
+          "conclusion": "success",
+          "created_at": "2026-10-03T05:42:19Z",
+          "updated_at": "2026-10-03T05:42:38Z",
+          "head_sha": "ff209036387fd457a2dfd7505f4d1e2a1e66e889",
+          "url": "https://github.com/AureliusWu/News/actions/runs/37100678486"
+        },
+        {
+          "id": 37097286700,
+          "event": "workflow_dispatch",
+          "status": "completed",
+          "conclusion": "success",
+          "created_at": "2026-10-03T04:39:53Z",
+          "updated_at": "2026-10-03T04:40:06Z",
+          "head_sha": "1592e7919f9c132d891a9bd0fae87a8c9569baec",
+          "url": "https://github.com/AureliusWu/News/actions/runs/37097286700"
+        },
+        {
+          "id": 37082039849,
+          "event": "schedule",
+          "status": "completed",
+          "conclusion": "success",
+          "created_at": "2026-10-03T00:26:02Z",
+          "updated_at": "2026-10-03T00:26:13Z",
+          "head_sha": "e8b63d275d4f917099f3bfdd43b3a08df05189b1",
+          "url": "https://github.com/AureliusWu/News/actions/runs/37082039849"
+        },
+        {
+          "id": 37062081793,
+          "event": "schedule",
+          "status": "completed",
+          "conclusion": "success",
+          "created_at": "2026-10-02T20:40:24Z",
+          "updated_at": "2026-10-02T20:40:39Z",
+          "head_sha": "e8b63d275d4f917099f3bfdd43b3a08df05189b1",
+          "url": "https://github.com/AureliusWu/News/actions/runs/37062081793"
+        },
+        {
+          "id": 37029112059,
+          "event": "schedule",
+          "status": "completed",
+          "conclusion": "success",
+          "created_at": "2026-10-02T15:44:37Z",
+          "updated_at": "2026-10-02T15:44:50Z",
+          "head_sha": "e8b63d275d4f917099f3bfdd43b3a08df05189b1",
+          "url": "https://github.com/AureliusWu/News/actions/runs/37029112059"
+        },
+        {
+          "id": 36987120677,
+          "event": "schedule",
+          "status": "completed",
+          "conclusion": "success",
+          "created_at": "2026-10-02T08:58:44Z",
+          "updated_at": "2026-10-02T08:58:59Z",
+          "head_sha": "e8b63d275d4f917099f3bfdd43b3a08df05189b1",
+          "url": "https://github.com/AureliusWu/News/actions/runs/36987120677"
+        },
+        {
+          "id": 36956596732,
+          "event": "workflow_dispatch",
+          "status": "completed",
+          "conclusion": "success",
+          "created_at": "2026-10-02T02:38:56Z",
+          "updated_at": "2026-10-02T02:39:10Z",
+          "head_sha": "4978a84f0621109be496c3797caa4d4916164e52",
+          "url": "https://github.com/AureliusWu/News/actions/runs/36956596732"
+        },
+        {
+          "id": 36956301885,
+          "event": "workflow_dispatch",
+          "status": "completed",
+          "conclusion": "success",
+          "created_at": "2026-10-02T02:35:03Z",
+          "updated_at": "2026-10-02T02:35:17Z",
+          "head_sha": "4978a84f0621109be496c3797caa4d4916164e52",
+          "url": "https://github.com/AureliusWu/News/actions/runs/36956301885"
+        }
+      ]
+    }
+  ]
+}

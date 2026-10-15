@@ -1,0 +1,18 @@
+browser	Freeze bound public news and build both revisions	﻿2026-10-15T08:36:23.2953113Z ##[group]Run node scripts/browser/prepare.mjs
+browser	Freeze bound public news and build both revisions	2026-10-15T08:36:23.2953504Z ^[[36;1mnode scripts/browser/prepare.mjs^[[0m
+browser	Freeze bound public news and build both revisions	2026-10-15T08:36:23.3016641Z shell: /usr/bin/bash -e {0}
+browser	Freeze bound public news and build both revisions	2026-10-15T08:36:23.3016889Z env:
+browser	Freeze bound public news and build both revisions	2026-10-15T08:36:23.3017238Z   VERIFICATION_OUTPUT: /home/runner/work/News/News/artifacts/ci-browser-verification
+browser	Freeze bound public news and build both revisions	2026-10-15T08:36:23.3017778Z   BASELINE_ROOT: /home/runner/work/News/News/verification-inputs/baseline
+browser	Freeze bound public news and build both revisions	2026-10-15T08:36:23.3018289Z   CANDIDATE_ROOT: /home/runner/work/News/News/verification-inputs/candidate
+browser	Freeze bound public news and build both revisions	2026-10-15T08:36:23.3018669Z ##[endgroup]
+browser	Freeze bound public news and build both revisions	2026-10-15T08:36:23.6867033Z file:///home/runner/work/News/News/scripts/browser/prepare.mjs:33
+browser	Freeze bound public news and build both revisions	2026-10-15T08:36:23.6868362Z     if (asset.json[key] !== news.json[key]) throw new Error(`Mismatched frozen asset ${name}: ${key}`);
+browser	Freeze bound public news and build both revisions	2026-10-15T08:36:23.6869345Z                                                   ^
+browser	Freeze bound public news and build both revisions	2026-10-15T08:36:23.6869707Z 
+browser	Freeze bound public news and build both revisions	2026-10-15T08:36:23.6870596Z Error: Mismatched frozen asset source-health.35b7edde202b3e2dcaf1c299.json: generated_at
+browser	Freeze bound public news and build both revisions	2026-10-15T08:36:23.6871343Z     at file:///home/runner/work/News/News/scripts/browser/prepare.mjs:33:51
+browser	Freeze bound public news and build both revisions	2026-10-15T08:36:23.6871944Z     at process.processTicksAndRejections (node:internal/process/task_queues:103:5)
+browser	Freeze bound public news and build both revisions	2026-10-15T08:36:23.6872290Z 
+browser	Freeze bound public news and build both revisions	2026-10-15T08:36:23.6872425Z Node.js v22.23.3
+browser	Freeze bound public news and build both revisions	2026-10-15T08:36:23.6945439Z ##[error]Process completed with exit code 1.

@@ -1,0 +1,84 @@
+{
+  "observed_at": "2026-10-15T08:37:29.224Z",
+  "results": [
+    {
+      "url": "https://aureliuswu.github.io/News/data/news.json",
+      "http_status": 200,
+      "keys": [
+        "schema_version",
+        "generated_at",
+        "content_sha256",
+        "articles",
+        "sources",
+        "health",
+        "meta",
+        "snapshot_id",
+        "events_file",
+        "source_health_file"
+      ],
+      "scalar": {
+        "schema_version": 1,
+        "generated_at": "2026-10-15T07:58:18.169271Z",
+        "content_sha256": "dbe53f1a35d6ac4380bcbcf694dde17d33784e6af78330873db3d9df000d3c4f",
+        "snapshot_id": "35b7edde202b3e2dcaf1c299",
+        "events_file": "events.35b7edde202b3e2dcaf1c299.json",
+        "source_health_file": "source-health.35b7edde202b3e2dcaf1c299.json"
+      },
+      "objects": {
+        "health": {
+          "configured": 38,
+          "healthy": 32,
+          "failed": 6,
+          "publishers": 22,
+          "article_count": 806,
+          "latest_publication": "2026-10-15T07:52:26Z",
+          "gate_pass": true
+        },
+        "meta": {
+          "version": "0.4.0-alpha.1",
+          "publication_mode": "snapshot",
+          "source_count": 38,
+          "article_count": 806,
+          "last_sync_at": "2026-10-15T07:58:18.169271Z"
+        }
+      }
+    },
+    {
+      "url": "https://aureliuswu.github.io/News/data/source-health.35b7edde202b3e2dcaf1c299.json",
+      "http_status": 200,
+      "keys": [
+        "checked_at",
+        "mode",
+        "summary",
+        "checks",
+        "sources",
+        "snapshot_id"
+      ],
+      "scalar": {
+        "checked_at": "2026-10-15T07:58:18.169271Z",
+        "mode": "github-pages-snapshot",
+        "snapshot_id": "35b7edde202b3e2dcaf1c299"
+      },
+      "objects": {
+        "summary": {
+          "configured": 38,
+          "healthy": 32,
+          "failed": 6,
+          "publishers": 22,
+          "article_count": 806,
+          "latest_publication": "2026-10-15T07:52:26Z",
+          "gate_pass": true
+        },
+        "checks": {
+          "at_least_25_healthy_feeds": true,
+          "at_least_15_publishers": true,
+          "at_least_7_regions": true,
+          "at_least_2_languages": true,
+          "at_least_100_real_articles": true,
+          "latest_publication_within_6_hours": true,
+          "unique_article_ids": true
+        }
+      }
+    }
+  ]
+}
