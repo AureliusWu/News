@@ -9,8 +9,19 @@ requireIsolatedCI();
 const data = await manifest();
 const directory = join(output, 'performance');
 await mkdir(directory, {recursive: true});
-const config = join(directory, 'lighthouse.config.cjs');
-await writeFile(config, `module.exports = {extends: 'lighthouse:default', settings: {blockedUrlPatterns: ['https://*']}};\n`);
+function controlsMatch(settings, preset) {
+  const desktop = preset === 'desktop';
+  return settings?.formFactor === (desktop ? 'desktop' : 'mobile') &&
+    settings.throttlingMethod === 'simulate' &&
+    settings.screenEmulation?.mobile === !desktop &&
+    settings.screenEmulation.width === (desktop ? 1350 : 412) &&
+    settings.screenEmulation.height === (desktop ? 940 : 823) &&
+    settings.screenEmulation.deviceScaleFactor === (desktop ? 1 : 1.75) &&
+    settings.throttling?.rttMs === (desktop ? 40 : 150) &&
+    settings.throttling.throughputKbps === (desktop ? 10240 : 1638.4) &&
+    settings.throttling.cpuSlowdownMultiplier === (desktop ? 1 : 4) &&
+    settings.blockedUrlPatterns?.includes('https://*');
+}
 const samples = [];
 for (const preset of ['desktop', 'mobile']) {
   for (let sample = 1; sample <= 3; sample++) {
@@ -24,7 +35,7 @@ for (const preset of ['desktop', 'mobile']) {
         exitCode = await new Promise((resolve, reject) => {
           const args = [fileURLToPath(new URL('./node_modules/lighthouse/cli/index.js', import.meta.url)), siteURL,
             '--only-categories=performance', '--throttling-method=simulate', '--output=json',
-            `--output-path=${reportPath}`, `--config-path=${config}`, '--chrome-flags=--headless=new', '--quiet'];
+            `--output-path=${reportPath}`, '--blocked-url-patterns=https://*', '--chrome-flags=--headless=new', '--quiet'];
           if (preset === 'desktop') args.push('--preset=desktop');
           const child = spawn(process.execPath, args, {stdio: 'inherit'});
           child.on('error', reject);
@@ -38,6 +49,7 @@ for (const preset of ['desktop', 'mobile']) {
         result = {...result, sha256: createHash('sha256').update(bytes).digest('hex'),
           lighthouse_version: report.lighthouseVersion, user_agent: report.userAgent,
           fetch_time: report.fetchTime, settings: report.configSettings,
+          controls_match: controlsMatch(report.configSettings, preset),
           lcp_ms: report.audits['largest-contentful-paint'].numericValue,
           fcp_ms: report.audits['first-contentful-paint'].numericValue,
           tbt_ms: report.audits['total-blocking-time'].numericValue,
@@ -65,9 +77,11 @@ for (const preset of ['desktop', 'mobile']) {
   groups[preset].candidate_median_change_fraction = groups[preset].candidate.median_lcp_ms / groups[preset].baseline.median_lcp_ms - 1;
 }
 const valid = samples.length === 12 && samples.every(row => row.exit_code === 0 && !row.runtime_error &&
-  Number.isFinite(row.lcp_ms) && row.news_requests.length === 1 && row.news_requests[0].statusCode === 200);
+  row.controls_match && Number.isFinite(row.lcp_ms) && row.news_requests.length === 1 && row.news_requests[0].statusCode === 200);
 await writeFile(join(directory, 'summary.json'), JSON.stringify({
   observed_at: new Date().toISOString(), all_samples_valid: valid, groups,
+  diagnostic_budget_status: ['desktop', 'mobile'].every(preset => groups[preset].candidate.worst_lcp_ms <= 3000)
+    ? 'WITHIN_LAB_BUDGET' : 'EXCEEDS_LAB_BUDGET',
   baseline: data.baseline, candidate: data.candidate, inputs: data.inputs,
   design: '3 cold runs per arm and device; alternating AB/BA order; same runner/browser and exact frozen JSON; third-party HTTPS resources blocked in BOTH arms.',
   interpretation: 'Controlled application-startup diagnostic only. Loopback delivery and excluded third-party images do not close production first-screen, interaction or phone gates. No sample removal or retries.',

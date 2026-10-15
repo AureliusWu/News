@@ -58,12 +58,33 @@ jobs:
           npm ci --prefix scripts/browser
           npm ci --prefix verification-inputs/baseline/frontend
           npm ci --prefix verification-inputs/candidate/frontend
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Candidate Python dependencies
+        run: python -m pip install -r verification-inputs/candidate/backend/requirements.txt -r verification-inputs/candidate/scripts/snapshot/requirements.txt
+      - name: Current release and candidate regression checks
+        run: |
+          mkdir -p "$VERIFICATION_OUTPUT/regression"
+          set -o pipefail
+          node --test scripts/release-gates.test.mjs scripts/release-approval.test.mjs 2>&1 | tee "$VERIFICATION_OUTPUT/regression/node.txt"
+          npm --prefix verification-inputs/candidate/frontend test 2>&1 | tee "$VERIFICATION_OUTPUT/regression/frontend.txt"
+          npm --prefix verification-inputs/candidate/frontend run typecheck 2>&1 | tee "$VERIFICATION_OUTPUT/regression/typecheck.txt"
+          cd verification-inputs/candidate
+          python -m pytest backend/tests -q -ra 2>&1 | tee "$VERIFICATION_OUTPUT/regression/backend.txt"
+          python -m unittest discover -s scripts/snapshot -p 'test_*.py' -v 2>&1 | tee "$VERIFICATION_OUTPUT/regression/snapshot.txt"
+          python -m unittest discover -s scripts/tests -p 'test_*.py' -v 2>&1 | tee "$VERIFICATION_OUTPUT/regression/restore.txt"
       - name: Install real browser engines
         working-directory: scripts/browser
         run: npx --no-install playwright install --with-deps chromium firefox
       - name: Freeze bound public news and build both revisions
         id: prepare
-        run: node scripts/browser/prepare.mjs
+        run: |
+          for variant in baseline candidate; do
+            root="$GITHUB_WORKSPACE/verification-inputs/$variant"
+            GITHUB_SHA="$(git -C "$root" rev-parse HEAD)" node "$root/scripts/write-release.mjs"
+          done
+          node scripts/browser/prepare.mjs
       - name: Browser, offline and same-origin upgrade tests
         working-directory: scripts/browser
         run: npm test
