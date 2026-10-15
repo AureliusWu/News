@@ -1,0 +1,31 @@
+
+> global-news-frontend@0.9.0-alpha.1 build
+> vite build --base /News/ --outDir ../artifacts/v1-m5-performance-20261015/pages-dist
+
+vite v7.3.6 building client environment for production...
+transforming...
+✓ 70 modules transformed.
+
+(!) outDir D:\AI项目\News\artifacts\v1-m5-performance-20261015\pages-dist is not inside project root and will not be emptied.
+Use --emptyOutDir to override.
+
+rendering chunks...
+computing gzip size...
+../artifacts/v1-m5-performance-20261015/pages-dist/registerSW.js                     0.14 kB
+../artifacts/v1-m5-performance-20261015/pages-dist/manifest.webmanifest              0.47 kB
+../artifacts/v1-m5-performance-20261015/pages-dist/index.html                        0.61 kB │ gzip:  0.37 kB
+../artifacts/v1-m5-performance-20261015/pages-dist/assets/EventsView-83jjtbIs.css    0.58 kB │ gzip:  0.32 kB
+../artifacts/v1-m5-performance-20261015/pages-dist/assets/main-D3IzAlDI.css         31.05 kB │ gzip:  8.55 kB
+../artifacts/v1-m5-performance-20261015/pages-dist/assets/index-BBTt6J6j.js          2.03 kB │ gzip:  1.04 kB
+../artifacts/v1-m5-performance-20261015/pages-dist/assets/LibraryView-DN6Y95xK.js    4.12 kB │ gzip:  2.29 kB
+../artifacts/v1-m5-performance-20261015/pages-dist/assets/SourcesView-DM8KxmCa.js    4.72 kB │ gzip:  2.56 kB
+../artifacts/v1-m5-performance-20261015/pages-dist/assets/EventsView-BPYg-fAk.js    15.39 kB │ gzip:  6.65 kB
+../artifacts/v1-m5-performance-20261015/pages-dist/assets/main-BRzh1hLC.js         126.92 kB │ gzip: 49.51 kB
+✓ built in 1.82s
+
+PWA v1.3.0
+mode      generateSW
+precache  15 entries (181.28 KiB)
+files generated
+  ../artifacts/v1-m5-performance-20261015/pages-dist/sw.js
+  ../artifacts/v1-m5-performance-20261015/pages-dist/workbox-5b7feed3.js

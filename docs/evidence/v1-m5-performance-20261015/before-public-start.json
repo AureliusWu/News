@@ -1,0 +1,42 @@
+{
+  "observed_at": "2026-10-15T07:04:33.558Z",
+  "release_status": 200,
+  "news_status": 200,
+  "release": {
+    "schema_version": 1,
+    "version": "0.9.0-alpha.1",
+    "stage": "M5-candidate",
+    "formal_release": false,
+    "source_revision": "c03f23e1d9c9c2c86b1c368d49af283d3a4e0e43",
+    "built_at": "2026-10-15T06:51:35.509Z",
+    "data_schema_version": 1,
+    "ai_content_generation": {
+      "schema_version": 1,
+      "scope": "content-generation",
+      "enabled": false,
+      "translation_enabled": false,
+      "summary_enabled": false,
+      "disabled_reason": "no-verified-free-quota",
+      "max_cost_usd": 0,
+      "max_requests_per_day": 0,
+      "max_cache_entries": 0,
+      "source_citations_required": true,
+      "original_switch_required": true,
+      "external_content_is_untrusted": true
+    },
+    "app_bundle_sha256": "0613b5bc8213553ddd1247aabb68b84a1d3fdff4dfc39fcf9f8910cc184e62bd",
+    "base_path": "/News/",
+    "event_method_version": "lexical-complete-link-v1",
+    "event_matcher_version": "title-summary-v4",
+    "event_alias_schema_version": 1,
+    "asset_count": 19
+  },
+  "snapshot": {
+    "snapshot_id": "d44675ffd0665683c0b701a2",
+    "generated_at": "2026-10-15T06:51:25.514968Z",
+    "article_count": 788,
+    "content_sha256": "0d81366d5e8f234f7491867be2e30dc5d82b0525f8a6d6041f5b20743cea4fb7",
+    "response_sha256": "0c00b8ce86ae168a2f6822d3f9887bea4f8e7f276cca38082bd782c3c7d90c1d",
+    "etag": "W/\"6ad0780f-c3a20\""
+  }
+}

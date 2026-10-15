@@ -1,0 +1,22 @@
+
+> global-news-frontend@0.9.0-alpha.1 test
+> vitest run --run
+
+
+ RUN  v3.2.7 D:/AI项目/News/frontend
+
+ ✓ src/events/trends.spec.ts (16 tests) 16ms
+ ✓ src/locales/zh-CN.spec.ts (17 tests) 9ms
+ ✓ src/api/providers.spec.ts (14 tests) 48ms
+ ✓ src/reading/library.spec.ts (24 tests) 478ms
+ ✓ src/snapshot/transport.spec.ts (22 tests) 417ms
+ ✓ src/pages/__tests__/AboutView.spec.ts (2 tests) 84ms
+ ✓ src/reading/navigation.spec.ts (3 tests) 99ms
+ ✓ src/pages/__tests__/EventsView.spec.ts (4 tests) 127ms
+ ✓ src/pages/__tests__/HomeView.spec.ts (25 tests) 337ms
+
+ Test Files  9 passed (9)
+      Tests  127 passed (127)
+   Start at  15:17:53
+   Duration  21.08s (transform 4.43s, setup 33.74s, collect 6.68s, tests 1.61s, environment 106.04s, prepare 6.30s)
+

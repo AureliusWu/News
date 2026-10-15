@@ -1,0 +1,914 @@
+{
+  "schema_version": 1,
+  "evaluated_at": "2026-10-15T07:25:34.248Z",
+  "method": "Lighthouse 13.5.0 CLI; Chrome 155; three sequential cold-profile navigations per form factor",
+  "threshold_ms": 3000,
+  "metric": "simulated LCP; not input latency",
+  "binding": {
+    "release_unchanged": true,
+    "snapshot_unchanged": true,
+    "candidate_version": "0.9.0-alpha.1",
+    "source_revision": "5e55cf7d5a5014bc4c55b7f9aad18bbede966380",
+    "snapshot_id": "3e460ed17764e7dff84e556e"
+  },
+  "profiles": {
+    "desktop": {
+      "sample_count": 3,
+      "valid_samples": 3,
+      "controls_match": true,
+      "all_lcp_within_3s": true,
+      "lcp_median_ms": 767.268,
+      "lcp_worst_ms": 802.9620000000001,
+      "fcp_median_ms": 534.9580000000001,
+      "tbt_median_ms": 0,
+      "tbt_worst_ms": 0,
+      "cls_worst": 0.001115506558858563,
+      "scores": [
+        0.99,
+        1,
+        0.99
+      ],
+      "worst_sample": "desktop-1"
+    },
+    "mobile": {
+      "sample_count": 3,
+      "valid_samples": 3,
+      "controls_match": true,
+      "all_lcp_within_3s": false,
+      "lcp_median_ms": 2292.186,
+      "lcp_worst_ms": 3191.8280000000004,
+      "fcp_median_ms": 1008.1860000000001,
+      "tbt_median_ms": 68.50000000000006,
+      "tbt_worst_ms": 101.49999999999955,
+      "cls_worst": 0.02101428634866133,
+      "scores": [
+        0.98,
+        0.98,
+        0.91
+      ],
+      "worst_sample": "mobile-3"
+    }
+  },
+  "samples": [
+    {
+      "sample": "desktop-1",
+      "profile": "desktop",
+      "raw_file": "desktop-1.json",
+      "raw_sha256": "f32f1a0b6f54a8eed0602e8378750b58c362683fb4b5c91a01bacae330b93e33",
+      "execution": {
+        "sample": "desktop-1",
+        "started_at": "2026-10-15T07:21:54.7148305+00:00",
+        "completed_at": "2026-10-15T07:22:34.1874045+00:00",
+        "cli_exit": 0
+      },
+      "lighthouse_version": "13.5.0",
+      "fetch_time": "2026-10-15T07:22:22.320Z",
+      "requested_url": "https://aureliuswu.github.io/News/",
+      "final_url": "https://aureliuswu.github.io/News/",
+      "runtime_error": null,
+      "score": 0.99,
+      "lcp_ms": 802.9620000000001,
+      "fcp_ms": 578.3620000000001,
+      "tbt_ms": 0,
+      "cls": 0.001115506558858563,
+      "controls": {
+        "formFactor": "desktop",
+        "throttlingMethod": "simulate",
+        "throttling": [
+          40,
+          10240,
+          0,
+          0,
+          0,
+          1
+        ],
+        "screen": [
+          false,
+          1350,
+          940,
+          1,
+          false
+        ],
+        "disableStorageReset": false,
+        "onlyCategories": [
+          "performance"
+        ],
+        "skipAudits": null
+      },
+      "controls_match": true,
+      "environment": {
+        "networkUserAgent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/155.0.0.0 Safari/537.36",
+        "hostUserAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/155.0.0.0 Safari/537.36",
+        "benchmarkIndex": 2870,
+        "credits": {}
+      },
+      "run_warnings": [],
+      "http_errors": [],
+      "lcp_breakdown": [
+        {
+          "type": "table",
+          "headings": [
+            {
+              "key": "label",
+              "valueType": "text",
+              "label": "Subpart"
+            },
+            {
+              "key": "duration",
+              "valueType": "ms",
+              "label": "Duration"
+            }
+          ],
+          "items": [
+            {
+              "subpart": "timeToFirstByte",
+              "label": "Time to first byte",
+              "duration": 640.802
+            },
+            {
+              "subpart": "elementRenderDelay",
+              "label": "Element render delay",
+              "duration": 1648.795
+            }
+          ]
+        },
+        {
+          "type": "node",
+          "lhId": "page-0-H2",
+          "path": "1,HTML,1,BODY,1,DIV,0,DIV,2,MAIN,1,SECTION,5,DIV,1,ARTICLE,1,DIV,1,H2",
+          "selector": "div.news-list > article.news-card > div.news-body > h2",
+          "boundingRect": {
+            "top": 802,
+            "bottom": 829,
+            "left": 309,
+            "right": 1107,
+            "width": 798,
+            "height": 27
+          },
+          "snippet": "<h2 lang=\"en\">",
+          "nodeLabel": "UK economy sees surprise growth in August ahead of Healey's first Budget"
+        }
+      ],
+      "lcp_node": {
+        "type": "node",
+        "lhId": "page-0-H2",
+        "path": "1,HTML,1,BODY,1,DIV,0,DIV,2,MAIN,1,SECTION,5,DIV,1,ARTICLE,1,DIV,1,H2",
+        "selector": "div.news-list > article.news-card > div.news-body > h2",
+        "boundingRect": {
+          "top": 802,
+          "bottom": 829,
+          "left": 309,
+          "right": 1107,
+          "width": 798,
+          "height": 27
+        },
+        "snippet": "<h2 lang=\"en\">",
+        "nodeLabel": "UK economy sees surprise growth in August ahead of Healey's first Budget"
+      },
+      "news_network": {
+        "url": "https://aureliuswu.github.io/News/data/news.json",
+        "sessionTargetType": "page",
+        "protocol": "h2",
+        "cache": "none",
+        "rendererStartTime": 1537.1229999996722,
+        "networkRequestTime": 1537.4959999993443,
+        "networkEndTime": 2172.5610000006855,
+        "finished": true,
+        "transferSize": 218497,
+        "resourceSize": 798505,
+        "statusCode": 200,
+        "mimeType": "application/json",
+        "resourceType": "Fetch",
+        "priority": "High",
+        "experimentalFromMainFrame": true,
+        "entity": "GitHub"
+      },
+      "raw_lcp_time_ms": 2289.597,
+      "post_download_render_gap_ms": 117.03599999931475,
+      "valid": true,
+      "screenshot_file": "desktop-1-final.jpg"
+    },
+    {
+      "sample": "desktop-2",
+      "profile": "desktop",
+      "raw_file": "desktop-2.json",
+      "raw_sha256": "d2f9f0fa0e3dbc713ea2a90d4ca97d3c0c57017ffc5f631bd6926d5b518dcbc8",
+      "execution": {
+        "sample": "desktop-2",
+        "started_at": "2026-10-15T07:22:34.2370839+00:00",
+        "completed_at": "2026-10-15T07:22:53.4559562+00:00",
+        "cli_exit": 0
+      },
+      "lighthouse_version": "13.5.0",
+      "fetch_time": "2026-10-15T07:22:40.841Z",
+      "requested_url": "https://aureliuswu.github.io/News/",
+      "final_url": "https://aureliuswu.github.io/News/",
+      "runtime_error": null,
+      "score": 1,
+      "lcp_ms": 616.422,
+      "fcp_ms": 368.04200000000003,
+      "tbt_ms": 0,
+      "cls": 0,
+      "controls": {
+        "formFactor": "desktop",
+        "throttlingMethod": "simulate",
+        "throttling": [
+          40,
+          10240,
+          0,
+          0,
+          0,
+          1
+        ],
+        "screen": [
+          false,
+          1350,
+          940,
+          1,
+          false
+        ],
+        "disableStorageReset": false,
+        "onlyCategories": [
+          "performance"
+        ],
+        "skipAudits": null
+      },
+      "controls_match": true,
+      "environment": {
+        "networkUserAgent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/155.0.0.0 Safari/537.36",
+        "hostUserAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/155.0.0.0 Safari/537.36",
+        "benchmarkIndex": 1997,
+        "credits": {}
+      },
+      "run_warnings": [],
+      "http_errors": [],
+      "lcp_breakdown": [
+        {
+          "type": "table",
+          "headings": [
+            {
+              "key": "label",
+              "valueType": "text",
+              "label": "Subpart"
+            },
+            {
+              "key": "duration",
+              "valueType": "ms",
+              "label": "Duration"
+            }
+          ],
+          "items": [
+            {
+              "subpart": "timeToFirstByte",
+              "label": "Time to first byte",
+              "duration": 570.66
+            },
+            {
+              "subpart": "elementRenderDelay",
+              "label": "Element render delay",
+              "duration": 1037.855
+            }
+          ]
+        },
+        {
+          "type": "node",
+          "lhId": "page-0-H2",
+          "path": "1,HTML,1,BODY,1,DIV,0,DIV,2,MAIN,1,SECTION,5,DIV,1,ARTICLE,1,DIV,1,H2",
+          "selector": "div.news-list > article.news-card > div.news-body > h2",
+          "boundingRect": {
+            "top": 802,
+            "bottom": 856,
+            "left": 309,
+            "right": 937,
+            "width": 628,
+            "height": 55
+          },
+          "snippet": "<h2 lang=\"en\">",
+          "nodeLabel": "UK economy sees surprise growth in August ahead of Healey's first Budget"
+        }
+      ],
+      "lcp_node": {
+        "type": "node",
+        "lhId": "page-0-H2",
+        "path": "1,HTML,1,BODY,1,DIV,0,DIV,2,MAIN,1,SECTION,5,DIV,1,ARTICLE,1,DIV,1,H2",
+        "selector": "div.news-list > article.news-card > div.news-body > h2",
+        "boundingRect": {
+          "top": 802,
+          "bottom": 856,
+          "left": 309,
+          "right": 937,
+          "width": 628,
+          "height": 55
+        },
+        "snippet": "<h2 lang=\"en\">",
+        "nodeLabel": "UK economy sees surprise growth in August ahead of Healey's first Budget"
+      },
+      "news_network": {
+        "url": "https://aureliuswu.github.io/News/data/news.json",
+        "sessionTargetType": "page",
+        "protocol": "h2",
+        "cache": "none",
+        "rendererStartTime": 1061.289999999106,
+        "networkRequestTime": 1061.9409999996424,
+        "networkEndTime": 1475.7340000011027,
+        "finished": true,
+        "transferSize": 218495,
+        "resourceSize": 798505,
+        "statusCode": 200,
+        "mimeType": "application/json",
+        "resourceType": "Fetch",
+        "priority": "High",
+        "experimentalFromMainFrame": true,
+        "entity": "GitHub"
+      },
+      "raw_lcp_time_ms": 1608.5149999999999,
+      "post_download_render_gap_ms": 132.7809999988972,
+      "valid": true,
+      "screenshot_file": "desktop-2-final.jpg"
+    },
+    {
+      "sample": "desktop-3",
+      "profile": "desktop",
+      "raw_file": "desktop-3.json",
+      "raw_sha256": "6639d77ccee832294610028995f8676f66549e14a8ea21d23a1b3d0bc8bf6bdc",
+      "execution": {
+        "sample": "desktop-3",
+        "started_at": "2026-10-15T07:22:53.4575504+00:00",
+        "completed_at": "2026-10-15T07:23:11.6005335+00:00",
+        "cli_exit": 0
+      },
+      "lighthouse_version": "13.5.0",
+      "fetch_time": "2026-10-15T07:22:58.782Z",
+      "requested_url": "https://aureliuswu.github.io/News/",
+      "final_url": "https://aureliuswu.github.io/News/",
+      "runtime_error": null,
+      "score": 0.99,
+      "lcp_ms": 767.268,
+      "fcp_ms": 534.9580000000001,
+      "tbt_ms": 0,
+      "cls": 0,
+      "controls": {
+        "formFactor": "desktop",
+        "throttlingMethod": "simulate",
+        "throttling": [
+          40,
+          10240,
+          0,
+          0,
+          0,
+          1
+        ],
+        "screen": [
+          false,
+          1350,
+          940,
+          1,
+          false
+        ],
+        "disableStorageReset": false,
+        "onlyCategories": [
+          "performance"
+        ],
+        "skipAudits": null
+      },
+      "controls_match": true,
+      "environment": {
+        "networkUserAgent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/155.0.0.0 Safari/537.36",
+        "hostUserAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/155.0.0.0 Safari/537.36",
+        "benchmarkIndex": 2720,
+        "credits": {}
+      },
+      "run_warnings": [],
+      "http_errors": [],
+      "lcp_breakdown": [
+        {
+          "type": "table",
+          "headings": [
+            {
+              "key": "label",
+              "valueType": "text",
+              "label": "Subpart"
+            },
+            {
+              "key": "duration",
+              "valueType": "ms",
+              "label": "Duration"
+            }
+          ],
+          "items": [
+            {
+              "subpart": "timeToFirstByte",
+              "label": "Time to first byte",
+              "duration": 461.144
+            },
+            {
+              "subpart": "elementRenderDelay",
+              "label": "Element render delay",
+              "duration": 1477.121
+            }
+          ]
+        },
+        {
+          "type": "node",
+          "lhId": "page-0-H2",
+          "path": "1,HTML,1,BODY,1,DIV,0,DIV,2,MAIN,1,SECTION,5,DIV,1,ARTICLE,1,DIV,1,H2",
+          "selector": "div.news-list > article.news-card > div.news-body > h2",
+          "boundingRect": {
+            "top": 802,
+            "bottom": 856,
+            "left": 309,
+            "right": 937,
+            "width": 628,
+            "height": 55
+          },
+          "snippet": "<h2 lang=\"en\">",
+          "nodeLabel": "UK economy sees surprise growth in August ahead of Healey's first Budget"
+        }
+      ],
+      "lcp_node": {
+        "type": "node",
+        "lhId": "page-0-H2",
+        "path": "1,HTML,1,BODY,1,DIV,0,DIV,2,MAIN,1,SECTION,5,DIV,1,ARTICLE,1,DIV,1,H2",
+        "selector": "div.news-list > article.news-card > div.news-body > h2",
+        "boundingRect": {
+          "top": 802,
+          "bottom": 856,
+          "left": 309,
+          "right": 937,
+          "width": 628,
+          "height": 55
+        },
+        "snippet": "<h2 lang=\"en\">",
+        "nodeLabel": "UK economy sees surprise growth in August ahead of Healey's first Budget"
+      },
+      "news_network": {
+        "url": "https://aureliuswu.github.io/News/data/news.json",
+        "sessionTargetType": "page",
+        "protocol": "h2",
+        "cache": "none",
+        "rendererStartTime": 1239.75,
+        "networkRequestTime": 1240.2890000008047,
+        "networkEndTime": 1843.949999999255,
+        "finished": true,
+        "transferSize": 218498,
+        "resourceSize": 798505,
+        "statusCode": 200,
+        "mimeType": "application/json",
+        "resourceType": "Fetch",
+        "priority": "High",
+        "experimentalFromMainFrame": true,
+        "entity": "GitHub"
+      },
+      "raw_lcp_time_ms": 1938.265,
+      "post_download_render_gap_ms": 94.31500000074516,
+      "valid": true,
+      "screenshot_file": "desktop-3-final.jpg"
+    },
+    {
+      "sample": "mobile-1",
+      "profile": "mobile",
+      "raw_file": "mobile-1.json",
+      "raw_sha256": "5a92e5b6809311a468b99eb1cc7a3215f74db15e246ac476198c68e403b552d5",
+      "execution": {
+        "sample": "mobile-1",
+        "started_at": "2026-10-15T07:23:11.6020234+00:00",
+        "completed_at": "2026-10-15T07:23:27.0594926+00:00",
+        "cli_exit": 0
+      },
+      "lighthouse_version": "13.5.0",
+      "fetch_time": "2026-10-15T07:23:16.845Z",
+      "requested_url": "https://aureliuswu.github.io/News/",
+      "final_url": "https://aureliuswu.github.io/News/",
+      "runtime_error": null,
+      "score": 0.98,
+      "lcp_ms": 2292.186,
+      "fcp_ms": 1008.1860000000001,
+      "tbt_ms": 68.50000000000006,
+      "cls": 0.02101428634866133,
+      "controls": {
+        "formFactor": "mobile",
+        "throttlingMethod": "simulate",
+        "throttling": [
+          150,
+          1638.4,
+          562.5,
+          1474.5600000000002,
+          675,
+          4
+        ],
+        "screen": [
+          true,
+          412,
+          823,
+          1.75,
+          false
+        ],
+        "disableStorageReset": false,
+        "onlyCategories": [
+          "performance"
+        ],
+        "skipAudits": null
+      },
+      "controls_match": true,
+      "environment": {
+        "networkUserAgent": "Mozilla/5.0 (Linux; Android 11; moto g power (2022)) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/155.0.0.0 Mobile Safari/537.36",
+        "hostUserAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/155.0.0.0 Safari/537.36",
+        "benchmarkIndex": 2907,
+        "credits": {}
+      },
+      "run_warnings": [],
+      "http_errors": [],
+      "lcp_breakdown": [
+        {
+          "type": "table",
+          "headings": [
+            {
+              "key": "label",
+              "valueType": "text",
+              "label": "Subpart"
+            },
+            {
+              "key": "duration",
+              "valueType": "ms",
+              "label": "Duration"
+            }
+          ],
+          "items": [
+            {
+              "subpart": "timeToFirstByte",
+              "label": "Time to first byte",
+              "duration": 271.344
+            },
+            {
+              "subpart": "elementRenderDelay",
+              "label": "Element render delay",
+              "duration": 850.466
+            }
+          ]
+        },
+        {
+          "type": "node",
+          "lhId": "page-0-H2",
+          "path": "1,HTML,1,BODY,1,DIV,0,DIV,2,MAIN,1,SECTION,5,DIV,0,ARTICLE,1,DIV,1,H2",
+          "selector": "div.news-list > article.news-card > div.news-body > h2",
+          "boundingRect": {
+            "top": 676,
+            "bottom": 722,
+            "left": 91,
+            "right": 383,
+            "width": 292,
+            "height": 47
+          },
+          "snippet": "<h2 lang=\"ja\">",
+          "nodeLabel": "バーガーキング アプリの会員情報 約1118万件漏えい"
+        }
+      ],
+      "lcp_node": {
+        "type": "node",
+        "lhId": "page-0-H2",
+        "path": "1,HTML,1,BODY,1,DIV,0,DIV,2,MAIN,1,SECTION,5,DIV,0,ARTICLE,1,DIV,1,H2",
+        "selector": "div.news-list > article.news-card > div.news-body > h2",
+        "boundingRect": {
+          "top": 676,
+          "bottom": 722,
+          "left": 91,
+          "right": 383,
+          "width": 292,
+          "height": 47
+        },
+        "snippet": "<h2 lang=\"ja\">",
+        "nodeLabel": "バーガーキング アプリの会員情報 約1118万件漏えい"
+      },
+      "news_network": {
+        "url": "https://aureliuswu.github.io/News/data/news.json",
+        "sessionTargetType": "page",
+        "protocol": "h2",
+        "cache": "none",
+        "rendererStartTime": 619.6509999968112,
+        "networkRequestTime": 619.945000000298,
+        "networkEndTime": 1032.6619999967515,
+        "finished": true,
+        "transferSize": 218499,
+        "resourceSize": 798505,
+        "statusCode": 200,
+        "mimeType": "application/json",
+        "resourceType": "Fetch",
+        "priority": "High",
+        "experimentalFromMainFrame": true,
+        "entity": "GitHub"
+      },
+      "raw_lcp_time_ms": 1121.81,
+      "post_download_render_gap_ms": 89.1480000032484,
+      "valid": true,
+      "screenshot_file": "mobile-1-final.jpg"
+    },
+    {
+      "sample": "mobile-2",
+      "profile": "mobile",
+      "raw_file": "mobile-2.json",
+      "raw_sha256": "9aa174cf1d0d2615b4dd7591689fd1d84007da75cdc8489178908806b0d71cbe",
+      "execution": {
+        "sample": "mobile-2",
+        "started_at": "2026-10-15T07:23:27.0608609+00:00",
+        "completed_at": "2026-10-15T07:23:42.6424878+00:00",
+        "cli_exit": 0
+      },
+      "lighthouse_version": "13.5.0",
+      "fetch_time": "2026-10-15T07:23:32.448Z",
+      "requested_url": "https://aureliuswu.github.io/News/",
+      "final_url": "https://aureliuswu.github.io/News/",
+      "runtime_error": null,
+      "score": 0.98,
+      "lcp_ms": 2277.446,
+      "fcp_ms": 992.9459999999999,
+      "tbt_ms": 67.5,
+      "cls": 0.02101428634866133,
+      "controls": {
+        "formFactor": "mobile",
+        "throttlingMethod": "simulate",
+        "throttling": [
+          150,
+          1638.4,
+          562.5,
+          1474.5600000000002,
+          675,
+          4
+        ],
+        "screen": [
+          true,
+          412,
+          823,
+          1.75,
+          false
+        ],
+        "disableStorageReset": false,
+        "onlyCategories": [
+          "performance"
+        ],
+        "skipAudits": null
+      },
+      "controls_match": true,
+      "environment": {
+        "networkUserAgent": "Mozilla/5.0 (Linux; Android 11; moto g power (2022)) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/155.0.0.0 Mobile Safari/537.36",
+        "hostUserAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/155.0.0.0 Safari/537.36",
+        "benchmarkIndex": 2945,
+        "credits": {}
+      },
+      "run_warnings": [],
+      "http_errors": [],
+      "lcp_breakdown": [
+        {
+          "type": "table",
+          "headings": [
+            {
+              "key": "label",
+              "valueType": "text",
+              "label": "Subpart"
+            },
+            {
+              "key": "duration",
+              "valueType": "ms",
+              "label": "Duration"
+            }
+          ],
+          "items": [
+            {
+              "subpart": "timeToFirstByte",
+              "label": "Time to first byte",
+              "duration": 210.819
+            },
+            {
+              "subpart": "elementRenderDelay",
+              "label": "Element render delay",
+              "duration": 847.356
+            }
+          ]
+        },
+        {
+          "type": "node",
+          "lhId": "page-0-H2",
+          "path": "1,HTML,1,BODY,1,DIV,0,DIV,2,MAIN,1,SECTION,5,DIV,0,ARTICLE,1,DIV,1,H2",
+          "selector": "div.news-list > article.news-card > div.news-body > h2",
+          "boundingRect": {
+            "top": 676,
+            "bottom": 722,
+            "left": 91,
+            "right": 383,
+            "width": 292,
+            "height": 47
+          },
+          "snippet": "<h2 lang=\"ja\">",
+          "nodeLabel": "バーガーキング アプリの会員情報 約1118万件漏えい"
+        }
+      ],
+      "lcp_node": {
+        "type": "node",
+        "lhId": "page-0-H2",
+        "path": "1,HTML,1,BODY,1,DIV,0,DIV,2,MAIN,1,SECTION,5,DIV,0,ARTICLE,1,DIV,1,H2",
+        "selector": "div.news-list > article.news-card > div.news-body > h2",
+        "boundingRect": {
+          "top": 676,
+          "bottom": 722,
+          "left": 91,
+          "right": 383,
+          "width": 292,
+          "height": 47
+        },
+        "snippet": "<h2 lang=\"ja\">",
+        "nodeLabel": "バーガーキング アプリの会員情報 約1118万件漏えい"
+      },
+      "news_network": {
+        "url": "https://aureliuswu.github.io/News/data/news.json",
+        "sessionTargetType": "page",
+        "protocol": "h2",
+        "cache": "none",
+        "rendererStartTime": 520.0140000022948,
+        "networkRequestTime": 520.3220000006258,
+        "networkEndTime": 967.0080000013113,
+        "finished": true,
+        "transferSize": 218496,
+        "resourceSize": 798505,
+        "statusCode": 200,
+        "mimeType": "application/json",
+        "resourceType": "Fetch",
+        "priority": "High",
+        "experimentalFromMainFrame": true,
+        "entity": "GitHub"
+      },
+      "raw_lcp_time_ms": 1058.175,
+      "post_download_render_gap_ms": 91.16699999868865,
+      "valid": true,
+      "screenshot_file": "mobile-2-final.jpg"
+    },
+    {
+      "sample": "mobile-3",
+      "profile": "mobile",
+      "raw_file": "mobile-3.json",
+      "raw_sha256": "9cc07ad4e0629d30dce6b7ce3710d4cbd0b5c6a57b01e218657e093d07a8d922",
+      "execution": {
+        "sample": "mobile-3",
+        "started_at": "2026-10-15T07:23:42.6439195+00:00",
+        "completed_at": "2026-10-15T07:24:00.0470049+00:00",
+        "cli_exit": 0
+      },
+      "lighthouse_version": "13.5.0",
+      "fetch_time": "2026-10-15T07:23:48.619Z",
+      "requested_url": "https://aureliuswu.github.io/News/",
+      "final_url": "https://aureliuswu.github.io/News/",
+      "runtime_error": null,
+      "score": 0.91,
+      "lcp_ms": 3191.8280000000004,
+      "fcp_ms": 1049.828,
+      "tbt_ms": 101.49999999999955,
+      "cls": 0,
+      "controls": {
+        "formFactor": "mobile",
+        "throttlingMethod": "simulate",
+        "throttling": [
+          150,
+          1638.4,
+          562.5,
+          1474.5600000000002,
+          675,
+          4
+        ],
+        "screen": [
+          true,
+          412,
+          823,
+          1.75,
+          false
+        ],
+        "disableStorageReset": false,
+        "onlyCategories": [
+          "performance"
+        ],
+        "skipAudits": null
+      },
+      "controls_match": true,
+      "environment": {
+        "networkUserAgent": "Mozilla/5.0 (Linux; Android 11; moto g power (2022)) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/155.0.0.0 Mobile Safari/537.36",
+        "hostUserAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/155.0.0.0 Safari/537.36",
+        "benchmarkIndex": 2683,
+        "credits": {}
+      },
+      "run_warnings": [],
+      "http_errors": [],
+      "lcp_breakdown": [
+        {
+          "type": "table",
+          "headings": [
+            {
+              "key": "label",
+              "valueType": "text",
+              "label": "Subpart"
+            },
+            {
+              "key": "duration",
+              "valueType": "ms",
+              "label": "Duration"
+            }
+          ],
+          "items": [
+            {
+              "subpart": "timeToFirstByte",
+              "label": "Time to first byte",
+              "duration": 327.218
+            },
+            {
+              "subpart": "elementRenderDelay",
+              "label": "Element render delay",
+              "duration": 2225.428
+            }
+          ]
+        },
+        {
+          "type": "node",
+          "lhId": "page-0-H2",
+          "path": "1,HTML,1,BODY,1,DIV,0,DIV,2,MAIN,1,SECTION,5,DIV,0,ARTICLE,1,DIV,1,H2",
+          "selector": "div.news-list > article.news-card > div.news-body > h2",
+          "boundingRect": {
+            "top": 676,
+            "bottom": 722,
+            "left": 91,
+            "right": 383,
+            "width": 292,
+            "height": 47
+          },
+          "snippet": "<h2 lang=\"ja\">",
+          "nodeLabel": "バーガーキング アプリの会員情報 約1118万件漏えい"
+        }
+      ],
+      "lcp_node": {
+        "type": "node",
+        "lhId": "page-0-H2",
+        "path": "1,HTML,1,BODY,1,DIV,0,DIV,2,MAIN,1,SECTION,5,DIV,0,ARTICLE,1,DIV,1,H2",
+        "selector": "div.news-list > article.news-card > div.news-body > h2",
+        "boundingRect": {
+          "top": 676,
+          "bottom": 722,
+          "left": 91,
+          "right": 383,
+          "width": 292,
+          "height": 47
+        },
+        "snippet": "<h2 lang=\"ja\">",
+        "nodeLabel": "バーガーキング アプリの会員情報 約1118万件漏えい"
+      },
+      "news_network": {
+        "url": "https://aureliuswu.github.io/News/data/news.json",
+        "sessionTargetType": "page",
+        "protocol": "h2",
+        "cache": "none",
+        "rendererStartTime": 801.7360000014305,
+        "networkRequestTime": 802.2490000016987,
+        "networkEndTime": 1092.614000003785,
+        "finished": true,
+        "transferSize": 218518,
+        "resourceSize": 798505,
+        "statusCode": 200,
+        "mimeType": "application/json",
+        "resourceType": "Fetch",
+        "priority": "High",
+        "experimentalFromMainFrame": true,
+        "entity": "GitHub"
+      },
+      "raw_lcp_time_ms": 2552.6459999999997,
+      "post_download_render_gap_ms": 1460.0319999962148,
+      "valid": true,
+      "screenshot_file": "mobile-3-final.jpg"
+    }
+  ],
+  "pre_change": {
+    "source_revision": "c03f23e1d9c9c2c86b1c368d49af283d3a4e0e43",
+    "snapshot_id": "d44675ffd0665683c0b701a2",
+    "desktop_lcp_ms": [
+      747.829,
+      744.799,
+      530.424
+    ],
+    "mobile_lcp_ms": [
+      2223.298,
+      3269.4420000000005,
+      2211.242
+    ],
+    "mobile_post_download_render_gap_ms": [
+      113.767,
+      1438.084,
+      98.2
+    ],
+    "slow_sample_preserved": true
+  },
+  "comparability": {
+    "same_lighthouse": true,
+    "same_chrome_major": true,
+    "same_controlled_profiles": true,
+    "news_snapshot_changed_between_cohorts": true,
+    "causal_percentage_improvement_claim": false
+  },
+  "lab_lcp_gate": "NOT_PASSED",
+  "interaction_gate": "NOT_MEASURED",
+  "physical_device_gate": "NOT_MEASURED",
+  "full_performance_gate": "INCOMPLETE",
+  "formal_release": false
+}

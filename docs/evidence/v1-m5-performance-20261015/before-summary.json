@@ -1,0 +1,1347 @@
+{
+  "schema_version": 1,
+  "evaluated_at": "2026-10-15T07:09:23.234Z",
+  "method": "Lighthouse CLI laboratory navigation; three sequential cold-profile runs per form factor",
+  "lighthouse_version": "13.5.0",
+  "chrome_product_version": "155.0.8059.41",
+  "first_screen_proxy": "LCP",
+  "threshold_ms": 3000,
+  "storage_reset": true,
+  "throttling_method": "simulate",
+  "binding": {
+    "release_unchanged": true,
+    "snapshot_unchanged": true,
+    "candidate_version": "0.9.0-alpha.1",
+    "source_revision": "c03f23e1d9c9c2c86b1c368d49af283d3a4e0e43",
+    "snapshot_id": "d44675ffd0665683c0b701a2"
+  },
+  "profiles": {
+    "desktop": {
+      "sample_count": 3,
+      "valid_samples": 3,
+      "controls_match": true,
+      "all_lcp_within_3s": true,
+      "lcp_median_ms": 744.799,
+      "lcp_worst_ms": 747.829,
+      "fcp_median_ms": 544.549,
+      "tbt_median_ms": 0,
+      "tbt_worst_ms": 0,
+      "cls_worst": 0,
+      "scores": [
+        0.98,
+        0.98,
+        1
+      ],
+      "worst_sample": "desktop-1"
+    },
+    "mobile": {
+      "sample_count": 3,
+      "valid_samples": 3,
+      "controls_match": true,
+      "all_lcp_within_3s": false,
+      "lcp_median_ms": 2223.298,
+      "lcp_worst_ms": 3269.4420000000005,
+      "fcp_median_ms": 1025.798,
+      "tbt_median_ms": 86.5,
+      "tbt_worst_ms": 95,
+      "cls_worst": 0.02101428634866133,
+      "scores": [
+        0.98,
+        0.9,
+        0.98
+      ],
+      "worst_sample": "mobile-2"
+    }
+  },
+  "samples": [
+    {
+      "sample": "desktop-1",
+      "profile": "desktop",
+      "raw_file": "desktop-1.json",
+      "raw_sha256": "bcf5a3aa373d00e4e99aaf7833b7d5c5496c52de7cbd561bdec9238ad21a8f3b",
+      "execution": {
+        "sample": "desktop-1",
+        "started_at": "2026-10-15T07:04:33.5917538+00:00",
+        "completed_at": "2026-10-15T07:04:58.8929187+00:00",
+        "cli_exit": 0
+      },
+      "lighthouse_version": "13.5.0",
+      "fetch_time": "2026-10-15T07:04:44.549Z",
+      "requested_url": "https://aureliuswu.github.io/News/",
+      "final_url": "https://aureliuswu.github.io/News/",
+      "runtime_error": null,
+      "performance_score": 0.98,
+      "lcp_ms": 747.829,
+      "fcp_ms": 548.329,
+      "tbt_ms": 0,
+      "cls": 0,
+      "controls": {
+        "formFactor": "desktop",
+        "throttlingMethod": "simulate",
+        "throttling": [
+          40,
+          10240,
+          0,
+          0,
+          0,
+          1
+        ],
+        "screen": [
+          false,
+          1350,
+          940,
+          1,
+          false
+        ],
+        "disableStorageReset": false,
+        "onlyCategories": [
+          "performance"
+        ],
+        "skipAudits": null
+      },
+      "controls_match_historical_profile": true,
+      "environment": {
+        "networkUserAgent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/155.0.0.0 Safari/537.36",
+        "hostUserAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/155.0.0.0 Safari/537.36",
+        "benchmarkIndex": 2668.5,
+        "credits": {}
+      },
+      "run_warnings": [],
+      "lcp_breakdown": [
+        {
+          "type": "table",
+          "headings": [
+            {
+              "key": "label",
+              "valueType": "text",
+              "label": "Subpart"
+            },
+            {
+              "key": "duration",
+              "valueType": "ms",
+              "label": "Duration"
+            }
+          ],
+          "items": [
+            {
+              "subpart": "timeToFirstByte",
+              "label": "Time to first byte",
+              "duration": 820.954
+            },
+            {
+              "subpart": "elementRenderDelay",
+              "label": "Element render delay",
+              "duration": 1361.663
+            }
+          ]
+        },
+        {
+          "type": "node",
+          "lhId": "page-0-H2",
+          "path": "1,HTML,1,BODY,1,DIV,0,DIV,2,MAIN,1,SECTION,5,DIV,0,ARTICLE,1,DIV,1,H2",
+          "selector": "div.news-list > article.news-card > div.news-body > h2",
+          "boundingRect": {
+            "top": 566,
+            "bottom": 621,
+            "left": 309,
+            "right": 937,
+            "width": 628,
+            "height": 55
+          },
+          "snippet": "<h2 lang=\"en\">",
+          "nodeLabel": "'Very dangerous': Timor-Leste shuts schools over Indonesia haze"
+        }
+      ],
+      "lcp_node": {
+        "type": "node",
+        "lhId": "page-0-H2",
+        "path": "1,HTML,1,BODY,1,DIV,0,DIV,2,MAIN,1,SECTION,5,DIV,0,ARTICLE,1,DIV,1,H2",
+        "selector": "div.news-list > article.news-card > div.news-body > h2",
+        "boundingRect": {
+          "top": 566,
+          "bottom": 621,
+          "left": 309,
+          "right": 937,
+          "width": 628,
+          "height": 55
+        },
+        "snippet": "<h2 lang=\"en\">",
+        "nodeLabel": "'Very dangerous': Timor-Leste shuts schools over Indonesia haze"
+      },
+      "first_party_network": [
+        {
+          "url": "https://aureliuswu.github.io/News/",
+          "sessionTargetType": "page",
+          "protocol": "h2",
+          "cache": "none",
+          "rendererStartTime": 0,
+          "networkRequestTime": 0.8490000013262033,
+          "networkEndTime": 820.7960000000894,
+          "finished": true,
+          "transferSize": 780,
+          "resourceSize": 607,
+          "statusCode": 200,
+          "mimeType": "text/html",
+          "resourceType": "Document",
+          "priority": "VeryHigh",
+          "experimentalFromMainFrame": true,
+          "entity": "GitHub"
+        },
+        {
+          "url": "https://aureliuswu.github.io/News/assets/index-DN9d9IEh.js",
+          "sessionTargetType": "page",
+          "protocol": "h2",
+          "cache": "none",
+          "rendererStartTime": 825.2129999995232,
+          "networkRequestTime": 830.6760000027716,
+          "networkEndTime": 1140.137000001967,
+          "finished": true,
+          "transferSize": 1193,
+          "resourceSize": 2028,
+          "statusCode": 200,
+          "mimeType": "application/javascript",
+          "resourceType": "Script",
+          "priority": "High",
+          "experimentalFromMainFrame": true,
+          "entity": "GitHub"
+        },
+        {
+          "url": "https://aureliuswu.github.io/News/registerSW.js",
+          "sessionTargetType": "page",
+          "protocol": "h2",
+          "cache": "none",
+          "rendererStartTime": 825.5450000017881,
+          "networkRequestTime": 830.9070000015199,
+          "networkEndTime": 1134.6310000009835,
+          "finished": true,
+          "transferSize": 375,
+          "resourceSize": 144,
+          "statusCode": 200,
+          "mimeType": "application/javascript",
+          "resourceType": "Script",
+          "priority": "High",
+          "experimentalFromMainFrame": true,
+          "entity": "GitHub"
+        },
+        {
+          "url": "https://aureliuswu.github.io/News/assets/main-DYPoUnNN.js",
+          "sessionTargetType": "page",
+          "protocol": "h2",
+          "cache": "none",
+          "rendererStartTime": 1142.03200000152,
+          "networkRequestTime": 1142.3490000031888,
+          "networkEndTime": 1540.004999998957,
+          "finished": true,
+          "transferSize": 49542,
+          "resourceSize": 126755,
+          "statusCode": 200,
+          "mimeType": "application/javascript",
+          "resourceType": "Script",
+          "priority": "High",
+          "experimentalFromMainFrame": true,
+          "entity": "GitHub"
+        },
+        {
+          "url": "https://aureliuswu.github.io/News/data/news.json",
+          "sessionTargetType": "page",
+          "protocol": "h2",
+          "cache": "none",
+          "rendererStartTime": 1638.4860000014305,
+          "networkRequestTime": 1638.9510000012815,
+          "networkEndTime": 2076.0900000035763,
+          "finished": true,
+          "transferSize": 219327,
+          "resourceSize": 801312,
+          "statusCode": 200,
+          "mimeType": "application/json",
+          "resourceType": "Fetch",
+          "priority": "High",
+          "experimentalFromMainFrame": true,
+          "entity": "GitHub"
+        }
+      ],
+      "http_errors": [],
+      "screenshot_file": "desktop-1-final.jpg",
+      "valid": true
+    },
+    {
+      "sample": "desktop-2",
+      "profile": "desktop",
+      "raw_file": "desktop-2.json",
+      "raw_sha256": "0e5a82a92d2a33527dcf15ac723d4e96a12e2458cfb7bafec8dd45924a806915",
+      "execution": {
+        "sample": "desktop-2",
+        "started_at": "2026-10-15T07:05:19.4651516+00:00",
+        "completed_at": "2026-10-15T07:05:37.6066744+00:00",
+        "cli_exit": 0
+      },
+      "lighthouse_version": "13.5.0",
+      "fetch_time": "2026-10-15T07:05:25.642Z",
+      "requested_url": "https://aureliuswu.github.io/News/",
+      "final_url": "https://aureliuswu.github.io/News/",
+      "runtime_error": null,
+      "performance_score": 0.98,
+      "lcp_ms": 744.799,
+      "fcp_ms": 544.549,
+      "tbt_ms": 0,
+      "cls": 0,
+      "controls": {
+        "formFactor": "desktop",
+        "throttlingMethod": "simulate",
+        "throttling": [
+          40,
+          10240,
+          0,
+          0,
+          0,
+          1
+        ],
+        "screen": [
+          false,
+          1350,
+          940,
+          1,
+          false
+        ],
+        "disableStorageReset": false,
+        "onlyCategories": [
+          "performance"
+        ],
+        "skipAudits": null
+      },
+      "controls_match_historical_profile": true,
+      "environment": {
+        "networkUserAgent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/155.0.0.0 Safari/537.36",
+        "hostUserAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/155.0.0.0 Safari/537.36",
+        "benchmarkIndex": 2658,
+        "credits": {}
+      },
+      "run_warnings": [],
+      "lcp_breakdown": [
+        {
+          "type": "table",
+          "headings": [
+            {
+              "key": "label",
+              "valueType": "text",
+              "label": "Subpart"
+            },
+            {
+              "key": "duration",
+              "valueType": "ms",
+              "label": "Duration"
+            }
+          ],
+          "items": [
+            {
+              "subpart": "timeToFirstByte",
+              "label": "Time to first byte",
+              "duration": 760.25
+            },
+            {
+              "subpart": "elementRenderDelay",
+              "label": "Element render delay",
+              "duration": 1441.828
+            }
+          ]
+        },
+        {
+          "type": "node",
+          "lhId": "page-0-H2",
+          "path": "1,HTML,1,BODY,1,DIV,0,DIV,2,MAIN,1,SECTION,5,DIV,0,ARTICLE,1,DIV,1,H2",
+          "selector": "div.news-list > article.news-card > div.news-body > h2",
+          "boundingRect": {
+            "top": 566,
+            "bottom": 621,
+            "left": 309,
+            "right": 937,
+            "width": 628,
+            "height": 55
+          },
+          "snippet": "<h2 lang=\"en\">",
+          "nodeLabel": "'Very dangerous': Timor-Leste shuts schools over Indonesia haze"
+        }
+      ],
+      "lcp_node": {
+        "type": "node",
+        "lhId": "page-0-H2",
+        "path": "1,HTML,1,BODY,1,DIV,0,DIV,2,MAIN,1,SECTION,5,DIV,0,ARTICLE,1,DIV,1,H2",
+        "selector": "div.news-list > article.news-card > div.news-body > h2",
+        "boundingRect": {
+          "top": 566,
+          "bottom": 621,
+          "left": 309,
+          "right": 937,
+          "width": 628,
+          "height": 55
+        },
+        "snippet": "<h2 lang=\"en\">",
+        "nodeLabel": "'Very dangerous': Timor-Leste shuts schools over Indonesia haze"
+      },
+      "first_party_network": [
+        {
+          "url": "https://aureliuswu.github.io/News/",
+          "sessionTargetType": "page",
+          "protocol": "h2",
+          "cache": "none",
+          "rendererStartTime": 0,
+          "networkRequestTime": 0.8310000002384186,
+          "networkEndTime": 760.4270000010729,
+          "finished": true,
+          "transferSize": 779,
+          "resourceSize": 607,
+          "statusCode": 200,
+          "mimeType": "text/html",
+          "resourceType": "Document",
+          "priority": "VeryHigh",
+          "experimentalFromMainFrame": true,
+          "entity": "GitHub"
+        },
+        {
+          "url": "https://aureliuswu.github.io/News/assets/index-DN9d9IEh.js",
+          "sessionTargetType": "page",
+          "protocol": "h2",
+          "cache": "none",
+          "rendererStartTime": 764.6019999980927,
+          "networkRequestTime": 770.3050000034273,
+          "networkEndTime": 1234.1430000029504,
+          "finished": true,
+          "transferSize": 1228,
+          "resourceSize": 2028,
+          "statusCode": 200,
+          "mimeType": "application/javascript",
+          "resourceType": "Script",
+          "priority": "High",
+          "experimentalFromMainFrame": true,
+          "entity": "GitHub"
+        },
+        {
+          "url": "https://aureliuswu.github.io/News/registerSW.js",
+          "sessionTargetType": "page",
+          "protocol": "h2",
+          "cache": "none",
+          "rendererStartTime": 764.859999999404,
+          "networkRequestTime": 770.9250000007451,
+          "networkEndTime": 1234,
+          "finished": true,
+          "transferSize": 374,
+          "resourceSize": 144,
+          "statusCode": 200,
+          "mimeType": "application/javascript",
+          "resourceType": "Script",
+          "priority": "High",
+          "experimentalFromMainFrame": true,
+          "entity": "GitHub"
+        },
+        {
+          "url": "https://aureliuswu.github.io/News/assets/main-DYPoUnNN.js",
+          "sessionTargetType": "page",
+          "protocol": "h2",
+          "cache": "none",
+          "rendererStartTime": 1238.0619999989867,
+          "networkRequestTime": 1238.4109999984503,
+          "networkEndTime": 1639.4619999974966,
+          "finished": true,
+          "transferSize": 49688,
+          "resourceSize": 126755,
+          "statusCode": 200,
+          "mimeType": "application/javascript",
+          "resourceType": "Script",
+          "priority": "High",
+          "experimentalFromMainFrame": true,
+          "entity": "GitHub"
+        },
+        {
+          "url": "https://aureliuswu.github.io/News/data/news.json",
+          "sessionTargetType": "page",
+          "protocol": "h2",
+          "cache": "none",
+          "rendererStartTime": 1735.6290000006557,
+          "networkRequestTime": 1736.164999999106,
+          "networkEndTime": 2079.9360000006855,
+          "finished": true,
+          "transferSize": 219330,
+          "resourceSize": 801312,
+          "statusCode": 200,
+          "mimeType": "application/json",
+          "resourceType": "Fetch",
+          "priority": "High",
+          "experimentalFromMainFrame": true,
+          "entity": "GitHub"
+        }
+      ],
+      "http_errors": [],
+      "screenshot_file": "desktop-2-final.jpg",
+      "valid": true
+    },
+    {
+      "sample": "desktop-3",
+      "profile": "desktop",
+      "raw_file": "desktop-3.json",
+      "raw_sha256": "0ff4e0207afee61a2ce4885146f58970edd5dcec9b46287ea450fc49cbf6cd7f",
+      "execution": {
+        "sample": "desktop-3",
+        "started_at": "2026-10-15T07:05:37.6521550+00:00",
+        "completed_at": "2026-10-15T07:05:54.0429628+00:00",
+        "cli_exit": 0
+      },
+      "lighthouse_version": "13.5.0",
+      "fetch_time": "2026-10-15T07:05:43.636Z",
+      "requested_url": "https://aureliuswu.github.io/News/",
+      "final_url": "https://aureliuswu.github.io/News/",
+      "runtime_error": null,
+      "performance_score": 1,
+      "lcp_ms": 530.424,
+      "fcp_ms": 330.924,
+      "tbt_ms": 0,
+      "cls": 0,
+      "controls": {
+        "formFactor": "desktop",
+        "throttlingMethod": "simulate",
+        "throttling": [
+          40,
+          10240,
+          0,
+          0,
+          0,
+          1
+        ],
+        "screen": [
+          false,
+          1350,
+          940,
+          1,
+          false
+        ],
+        "disableStorageReset": false,
+        "onlyCategories": [
+          "performance"
+        ],
+        "skipAudits": null
+      },
+      "controls_match_historical_profile": true,
+      "environment": {
+        "networkUserAgent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/155.0.0.0 Safari/537.36",
+        "hostUserAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/155.0.0.0 Safari/537.36",
+        "benchmarkIndex": 2269.5,
+        "credits": {}
+      },
+      "run_warnings": [],
+      "lcp_breakdown": [
+        {
+          "type": "table",
+          "headings": [
+            {
+              "key": "label",
+              "valueType": "text",
+              "label": "Subpart"
+            },
+            {
+              "key": "duration",
+              "valueType": "ms",
+              "label": "Duration"
+            }
+          ],
+          "items": [
+            {
+              "subpart": "timeToFirstByte",
+              "label": "Time to first byte",
+              "duration": 231.952
+            },
+            {
+              "subpart": "elementRenderDelay",
+              "label": "Element render delay",
+              "duration": 839.368
+            }
+          ]
+        },
+        {
+          "type": "node",
+          "lhId": "page-0-H2",
+          "path": "1,HTML,1,BODY,1,DIV,0,DIV,2,MAIN,1,SECTION,5,DIV,0,ARTICLE,1,DIV,1,H2",
+          "selector": "div.news-list > article.news-card > div.news-body > h2",
+          "boundingRect": {
+            "top": 566,
+            "bottom": 621,
+            "left": 309,
+            "right": 937,
+            "width": 628,
+            "height": 55
+          },
+          "snippet": "<h2 lang=\"en\">",
+          "nodeLabel": "'Very dangerous': Timor-Leste shuts schools over Indonesia haze"
+        }
+      ],
+      "lcp_node": {
+        "type": "node",
+        "lhId": "page-0-H2",
+        "path": "1,HTML,1,BODY,1,DIV,0,DIV,2,MAIN,1,SECTION,5,DIV,0,ARTICLE,1,DIV,1,H2",
+        "selector": "div.news-list > article.news-card > div.news-body > h2",
+        "boundingRect": {
+          "top": 566,
+          "bottom": 621,
+          "left": 309,
+          "right": 937,
+          "width": 628,
+          "height": 55
+        },
+        "snippet": "<h2 lang=\"en\">",
+        "nodeLabel": "'Very dangerous': Timor-Leste shuts schools over Indonesia haze"
+      },
+      "first_party_network": [
+        {
+          "url": "https://aureliuswu.github.io/News/",
+          "sessionTargetType": "page",
+          "protocol": "h2",
+          "cache": "none",
+          "rendererStartTime": 0,
+          "networkRequestTime": 0.959000002592802,
+          "networkEndTime": 231.61000000312924,
+          "finished": true,
+          "transferSize": 779,
+          "resourceSize": 607,
+          "statusCode": 200,
+          "mimeType": "text/html",
+          "resourceType": "Document",
+          "priority": "VeryHigh",
+          "experimentalFromMainFrame": true,
+          "entity": "GitHub"
+        },
+        {
+          "url": "https://aureliuswu.github.io/News/assets/index-DN9d9IEh.js",
+          "sessionTargetType": "page",
+          "protocol": "h2",
+          "cache": "none",
+          "rendererStartTime": 235.902000002563,
+          "networkRequestTime": 241.38500000163913,
+          "networkEndTime": 336.02800000458956,
+          "finished": true,
+          "transferSize": 1239,
+          "resourceSize": 2028,
+          "statusCode": 200,
+          "mimeType": "application/javascript",
+          "resourceType": "Script",
+          "priority": "High",
+          "experimentalFromMainFrame": true,
+          "entity": "GitHub"
+        },
+        {
+          "url": "https://aureliuswu.github.io/News/registerSW.js",
+          "sessionTargetType": "page",
+          "protocol": "h2",
+          "cache": "none",
+          "rendererStartTime": 236.13100000470877,
+          "networkRequestTime": 241.73000000417233,
+          "networkEndTime": 336.1920000053942,
+          "finished": true,
+          "transferSize": 345,
+          "resourceSize": 144,
+          "statusCode": 200,
+          "mimeType": "application/javascript",
+          "resourceType": "Script",
+          "priority": "High",
+          "experimentalFromMainFrame": true,
+          "entity": "GitHub"
+        },
+        {
+          "url": "https://aureliuswu.github.io/News/assets/main-DYPoUnNN.js",
+          "sessionTargetType": "page",
+          "protocol": "h2",
+          "cache": "none",
+          "rendererStartTime": 339.95000000298023,
+          "networkRequestTime": 340.25900000333786,
+          "networkEndTime": 528.8060000017285,
+          "finished": true,
+          "transferSize": 49697,
+          "resourceSize": 126755,
+          "statusCode": 200,
+          "mimeType": "application/javascript",
+          "resourceType": "Script",
+          "priority": "High",
+          "experimentalFromMainFrame": true,
+          "entity": "GitHub"
+        },
+        {
+          "url": "https://aureliuswu.github.io/News/data/news.json",
+          "sessionTargetType": "page",
+          "protocol": "h2",
+          "cache": "none",
+          "rendererStartTime": 623.7900000028312,
+          "networkRequestTime": 624.3480000011623,
+          "networkEndTime": 944.3150000013411,
+          "finished": true,
+          "transferSize": 219338,
+          "resourceSize": 801312,
+          "statusCode": 200,
+          "mimeType": "application/json",
+          "resourceType": "Fetch",
+          "priority": "High",
+          "experimentalFromMainFrame": true,
+          "entity": "GitHub"
+        }
+      ],
+      "http_errors": [],
+      "screenshot_file": "desktop-3-final.jpg",
+      "valid": true
+    },
+    {
+      "sample": "mobile-1",
+      "profile": "mobile",
+      "raw_file": "mobile-1.json",
+      "raw_sha256": "15172798edd0662675822dded83b3f0e05dac2c199ce96fe6c6d906e30691e52",
+      "execution": {
+        "sample": "mobile-1",
+        "started_at": "2026-10-15T07:05:54.0457400+00:00",
+        "completed_at": "2026-10-15T07:06:11.7210348+00:00",
+        "cli_exit": 0
+      },
+      "lighthouse_version": "13.5.0",
+      "fetch_time": "2026-10-15T07:06:00.213Z",
+      "requested_url": "https://aureliuswu.github.io/News/",
+      "final_url": "https://aureliuswu.github.io/News/",
+      "runtime_error": null,
+      "performance_score": 0.98,
+      "lcp_ms": 2223.298,
+      "fcp_ms": 1025.798,
+      "tbt_ms": 95,
+      "cls": 0.02101428634866133,
+      "controls": {
+        "formFactor": "mobile",
+        "throttlingMethod": "simulate",
+        "throttling": [
+          150,
+          1638.4,
+          562.5,
+          1474.5600000000002,
+          675,
+          4
+        ],
+        "screen": [
+          true,
+          412,
+          823,
+          1.75,
+          false
+        ],
+        "disableStorageReset": false,
+        "onlyCategories": [
+          "performance"
+        ],
+        "skipAudits": null
+      },
+      "controls_match_historical_profile": true,
+      "environment": {
+        "networkUserAgent": "Mozilla/5.0 (Linux; Android 11; moto g power (2022)) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/155.0.0.0 Mobile Safari/537.36",
+        "hostUserAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/155.0.0.0 Safari/537.36",
+        "benchmarkIndex": 2638.5,
+        "credits": {}
+      },
+      "run_warnings": [],
+      "lcp_breakdown": [
+        {
+          "type": "table",
+          "headings": [
+            {
+              "key": "label",
+              "valueType": "text",
+              "label": "Subpart"
+            },
+            {
+              "key": "duration",
+              "valueType": "ms",
+              "label": "Duration"
+            }
+          ],
+          "items": [
+            {
+              "subpart": "timeToFirstByte",
+              "label": "Time to first byte",
+              "duration": 317.1559999980926
+            },
+            {
+              "subpart": "elementRenderDelay",
+              "label": "Element render delay",
+              "duration": 1081.2950000019073
+            }
+          ]
+        },
+        {
+          "type": "node",
+          "lhId": "page-0-H2",
+          "path": "1,HTML,1,BODY,1,DIV,0,DIV,2,MAIN,1,SECTION,5,DIV,0,ARTICLE,1,DIV,1,H2",
+          "selector": "div.news-list > article.news-card > div.news-body > h2",
+          "boundingRect": {
+            "top": 676,
+            "bottom": 769,
+            "left": 91,
+            "right": 283,
+            "width": 192,
+            "height": 94
+          },
+          "snippet": "<h2 lang=\"en\">",
+          "nodeLabel": "'Very dangerous': Timor-Leste shuts schools over Indonesia haze"
+        }
+      ],
+      "lcp_node": {
+        "type": "node",
+        "lhId": "page-0-H2",
+        "path": "1,HTML,1,BODY,1,DIV,0,DIV,2,MAIN,1,SECTION,5,DIV,0,ARTICLE,1,DIV,1,H2",
+        "selector": "div.news-list > article.news-card > div.news-body > h2",
+        "boundingRect": {
+          "top": 676,
+          "bottom": 769,
+          "left": 91,
+          "right": 283,
+          "width": 192,
+          "height": 94
+        },
+        "snippet": "<h2 lang=\"en\">",
+        "nodeLabel": "'Very dangerous': Timor-Leste shuts schools over Indonesia haze"
+      },
+      "first_party_network": [
+        {
+          "url": "https://aureliuswu.github.io/News/",
+          "sessionTargetType": "page",
+          "protocol": "h2",
+          "cache": "none",
+          "rendererStartTime": 0,
+          "networkRequestTime": 0.8569999970495701,
+          "networkEndTime": 316.93899999931455,
+          "finished": true,
+          "transferSize": 778,
+          "resourceSize": 607,
+          "statusCode": 200,
+          "mimeType": "text/html",
+          "resourceType": "Document",
+          "priority": "VeryHigh",
+          "experimentalFromMainFrame": true,
+          "entity": "GitHub"
+        },
+        {
+          "url": "https://aureliuswu.github.io/News/assets/index-DN9d9IEh.js",
+          "sessionTargetType": "page",
+          "protocol": "h2",
+          "cache": "none",
+          "rendererStartTime": 322.88399999961257,
+          "networkRequestTime": 327.2939999997616,
+          "networkEndTime": 622.5460000000894,
+          "finished": true,
+          "transferSize": 1217,
+          "resourceSize": 2028,
+          "statusCode": 200,
+          "mimeType": "application/javascript",
+          "resourceType": "Script",
+          "priority": "High",
+          "experimentalFromMainFrame": true,
+          "entity": "GitHub"
+        },
+        {
+          "url": "https://aureliuswu.github.io/News/registerSW.js",
+          "sessionTargetType": "page",
+          "protocol": "h2",
+          "cache": "none",
+          "rendererStartTime": 323.1579999998212,
+          "networkRequestTime": 327.4889999963343,
+          "networkEndTime": 446.25400000065565,
+          "finished": true,
+          "transferSize": 373,
+          "resourceSize": 144,
+          "statusCode": 200,
+          "mimeType": "application/javascript",
+          "resourceType": "Script",
+          "priority": "High",
+          "experimentalFromMainFrame": true,
+          "entity": "GitHub"
+        },
+        {
+          "url": "https://aureliuswu.github.io/News/assets/main-DYPoUnNN.js",
+          "sessionTargetType": "page",
+          "protocol": "h2",
+          "cache": "none",
+          "rendererStartTime": 624.5650000013411,
+          "networkRequestTime": 624.9369999989867,
+          "networkEndTime": 843.9820000007749,
+          "finished": true,
+          "transferSize": 49558,
+          "resourceSize": 126755,
+          "statusCode": 200,
+          "mimeType": "application/javascript",
+          "resourceType": "Script",
+          "priority": "High",
+          "experimentalFromMainFrame": true,
+          "entity": "GitHub"
+        },
+        {
+          "url": "https://aureliuswu.github.io/News/data/news.json",
+          "sessionTargetType": "page",
+          "protocol": "h2",
+          "cache": "none",
+          "rendererStartTime": 937.597999997437,
+          "networkRequestTime": 938.1390000022948,
+          "networkEndTime": 1284.6840000003576,
+          "finished": true,
+          "transferSize": 219316,
+          "resourceSize": 801312,
+          "statusCode": 200,
+          "mimeType": "application/json",
+          "resourceType": "Fetch",
+          "priority": "High",
+          "experimentalFromMainFrame": true,
+          "entity": "GitHub"
+        }
+      ],
+      "http_errors": [],
+      "screenshot_file": "mobile-1-final.jpg",
+      "valid": true
+    },
+    {
+      "sample": "mobile-2",
+      "profile": "mobile",
+      "raw_file": "mobile-2.json",
+      "raw_sha256": "9217a422c897ddf16cba251affcc608f4f9a7d934ed1636e9c193a6924b0ea71",
+      "execution": {
+        "sample": "mobile-2",
+        "started_at": "2026-10-15T07:06:11.7227101+00:00",
+        "completed_at": "2026-10-15T07:06:30.3189357+00:00",
+        "cli_exit": 0
+      },
+      "lighthouse_version": "13.5.0",
+      "fetch_time": "2026-10-15T07:06:18.887Z",
+      "requested_url": "https://aureliuswu.github.io/News/",
+      "final_url": "https://aureliuswu.github.io/News/",
+      "runtime_error": null,
+      "performance_score": 0.9,
+      "lcp_ms": 3269.4420000000005,
+      "fcp_ms": 1029.2420000000002,
+      "tbt_ms": 86.5,
+      "cls": 0,
+      "controls": {
+        "formFactor": "mobile",
+        "throttlingMethod": "simulate",
+        "throttling": [
+          150,
+          1638.4,
+          562.5,
+          1474.5600000000002,
+          675,
+          4
+        ],
+        "screen": [
+          true,
+          412,
+          823,
+          1.75,
+          false
+        ],
+        "disableStorageReset": false,
+        "onlyCategories": [
+          "performance"
+        ],
+        "skipAudits": null
+      },
+      "controls_match_historical_profile": true,
+      "environment": {
+        "networkUserAgent": "Mozilla/5.0 (Linux; Android 11; moto g power (2022)) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/155.0.0.0 Mobile Safari/537.36",
+        "hostUserAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/155.0.0.0 Safari/537.36",
+        "benchmarkIndex": 2518.5,
+        "credits": {}
+      },
+      "run_warnings": [],
+      "lcp_breakdown": [
+        {
+          "type": "table",
+          "headings": [
+            {
+              "key": "label",
+              "valueType": "text",
+              "label": "Subpart"
+            },
+            {
+              "key": "duration",
+              "valueType": "ms",
+              "label": "Duration"
+            }
+          ],
+          "items": [
+            {
+              "subpart": "timeToFirstByte",
+              "label": "Time to first byte",
+              "duration": 307.322
+            },
+            {
+              "subpart": "elementRenderDelay",
+              "label": "Element render delay",
+              "duration": 2189.259
+            }
+          ]
+        },
+        {
+          "type": "node",
+          "lhId": "page-0-H2",
+          "path": "1,HTML,1,BODY,1,DIV,0,DIV,2,MAIN,1,SECTION,5,DIV,0,ARTICLE,1,DIV,1,H2",
+          "selector": "div.news-list > article.news-card > div.news-body > h2",
+          "boundingRect": {
+            "top": 676,
+            "bottom": 769,
+            "left": 91,
+            "right": 283,
+            "width": 192,
+            "height": 94
+          },
+          "snippet": "<h2 lang=\"en\">",
+          "nodeLabel": "'Very dangerous': Timor-Leste shuts schools over Indonesia haze"
+        }
+      ],
+      "lcp_node": {
+        "type": "node",
+        "lhId": "page-0-H2",
+        "path": "1,HTML,1,BODY,1,DIV,0,DIV,2,MAIN,1,SECTION,5,DIV,0,ARTICLE,1,DIV,1,H2",
+        "selector": "div.news-list > article.news-card > div.news-body > h2",
+        "boundingRect": {
+          "top": 676,
+          "bottom": 769,
+          "left": 91,
+          "right": 283,
+          "width": 192,
+          "height": 94
+        },
+        "snippet": "<h2 lang=\"en\">",
+        "nodeLabel": "'Very dangerous': Timor-Leste shuts schools over Indonesia haze"
+      },
+      "first_party_network": [
+        {
+          "url": "https://aureliuswu.github.io/News/",
+          "sessionTargetType": "page",
+          "protocol": "h2",
+          "cache": "none",
+          "rendererStartTime": 0,
+          "networkRequestTime": 0.8129999972879887,
+          "networkEndTime": 307.00099999830127,
+          "finished": true,
+          "transferSize": 777,
+          "resourceSize": 607,
+          "statusCode": 200,
+          "mimeType": "text/html",
+          "resourceType": "Document",
+          "priority": "VeryHigh",
+          "experimentalFromMainFrame": true,
+          "entity": "GitHub"
+        },
+        {
+          "url": "https://aureliuswu.github.io/News/assets/index-DN9d9IEh.js",
+          "sessionTargetType": "page",
+          "protocol": "h2",
+          "cache": "none",
+          "rendererStartTime": 313.37399999797344,
+          "networkRequestTime": 318.44699999690056,
+          "networkEndTime": 429.87399999797344,
+          "finished": true,
+          "transferSize": 1266,
+          "resourceSize": 2028,
+          "statusCode": 200,
+          "mimeType": "application/javascript",
+          "resourceType": "Script",
+          "priority": "High",
+          "experimentalFromMainFrame": true,
+          "entity": "GitHub"
+        },
+        {
+          "url": "https://aureliuswu.github.io/News/registerSW.js",
+          "sessionTargetType": "page",
+          "protocol": "h2",
+          "cache": "none",
+          "rendererStartTime": 313.65899999812245,
+          "networkRequestTime": 319.0460000000894,
+          "networkEndTime": 431.2829999960959,
+          "finished": true,
+          "transferSize": 346,
+          "resourceSize": 144,
+          "statusCode": 200,
+          "mimeType": "application/javascript",
+          "resourceType": "Script",
+          "priority": "High",
+          "experimentalFromMainFrame": true,
+          "entity": "GitHub"
+        },
+        {
+          "url": "https://aureliuswu.github.io/News/assets/main-DYPoUnNN.js",
+          "sessionTargetType": "page",
+          "protocol": "h2",
+          "cache": "none",
+          "rendererStartTime": 433.1309999972582,
+          "networkRequestTime": 433.4869999960065,
+          "networkEndTime": 651.5219999998808,
+          "finished": true,
+          "transferSize": 49674,
+          "resourceSize": 126755,
+          "statusCode": 200,
+          "mimeType": "application/javascript",
+          "resourceType": "Script",
+          "priority": "High",
+          "experimentalFromMainFrame": true,
+          "entity": "GitHub"
+        },
+        {
+          "url": "https://aureliuswu.github.io/News/data/news.json",
+          "sessionTargetType": "page",
+          "protocol": "h2",
+          "cache": "none",
+          "rendererStartTime": 687.5130000002682,
+          "networkRequestTime": 687.9860000014305,
+          "networkEndTime": 1058.4969999976456,
+          "finished": true,
+          "transferSize": 219316,
+          "resourceSize": 801312,
+          "statusCode": 200,
+          "mimeType": "application/json",
+          "resourceType": "Fetch",
+          "priority": "High",
+          "experimentalFromMainFrame": true,
+          "entity": "GitHub"
+        }
+      ],
+      "http_errors": [],
+      "screenshot_file": "mobile-2-final.jpg",
+      "valid": true
+    },
+    {
+      "sample": "mobile-3",
+      "profile": "mobile",
+      "raw_file": "mobile-3.json",
+      "raw_sha256": "b8c276a907cab28b3b7f0cde03e74144da398bc538996f3c278ba6f5f9b6b5ce",
+      "execution": {
+        "sample": "mobile-3",
+        "started_at": "2026-10-15T07:06:30.3205708+00:00",
+        "completed_at": "2026-10-15T07:06:47.5437937+00:00",
+        "cli_exit": 0
+      },
+      "lighthouse_version": "13.5.0",
+      "fetch_time": "2026-10-15T07:06:36.563Z",
+      "requested_url": "https://aureliuswu.github.io/News/",
+      "final_url": "https://aureliuswu.github.io/News/",
+      "runtime_error": null,
+      "performance_score": 0.98,
+      "lcp_ms": 2211.242,
+      "fcp_ms": 1012.9300000000001,
+      "tbt_ms": 79.50000000000006,
+      "cls": 0.02101428634866133,
+      "controls": {
+        "formFactor": "mobile",
+        "throttlingMethod": "simulate",
+        "throttling": [
+          150,
+          1638.4,
+          562.5,
+          1474.5600000000002,
+          675,
+          4
+        ],
+        "screen": [
+          true,
+          412,
+          823,
+          1.75,
+          false
+        ],
+        "disableStorageReset": false,
+        "onlyCategories": [
+          "performance"
+        ],
+        "skipAudits": null
+      },
+      "controls_match_historical_profile": true,
+      "environment": {
+        "networkUserAgent": "Mozilla/5.0 (Linux; Android 11; moto g power (2022)) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/155.0.0.0 Mobile Safari/537.36",
+        "hostUserAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/155.0.0.0 Safari/537.36",
+        "benchmarkIndex": 2382.5,
+        "credits": {}
+      },
+      "run_warnings": [],
+      "lcp_breakdown": [
+        {
+          "type": "table",
+          "headings": [
+            {
+              "key": "label",
+              "valueType": "text",
+              "label": "Subpart"
+            },
+            {
+              "key": "duration",
+              "valueType": "ms",
+              "label": "Duration"
+            }
+          ],
+          "items": [
+            {
+              "subpart": "timeToFirstByte",
+              "label": "Time to first byte",
+              "duration": 282.21899999809267
+            },
+            {
+              "subpart": "elementRenderDelay",
+              "label": "Element render delay",
+              "duration": 955.6540000019073
+            }
+          ]
+        },
+        {
+          "type": "node",
+          "lhId": "page-0-H2",
+          "path": "1,HTML,1,BODY,1,DIV,0,DIV,2,MAIN,1,SECTION,5,DIV,0,ARTICLE,1,DIV,1,H2",
+          "selector": "div.news-list > article.news-card > div.news-body > h2",
+          "boundingRect": {
+            "top": 676,
+            "bottom": 769,
+            "left": 91,
+            "right": 283,
+            "width": 192,
+            "height": 94
+          },
+          "snippet": "<h2 lang=\"en\">",
+          "nodeLabel": "'Very dangerous': Timor-Leste shuts schools over Indonesia haze"
+        }
+      ],
+      "lcp_node": {
+        "type": "node",
+        "lhId": "page-0-H2",
+        "path": "1,HTML,1,BODY,1,DIV,0,DIV,2,MAIN,1,SECTION,5,DIV,0,ARTICLE,1,DIV,1,H2",
+        "selector": "div.news-list > article.news-card > div.news-body > h2",
+        "boundingRect": {
+          "top": 676,
+          "bottom": 769,
+          "left": 91,
+          "right": 283,
+          "width": 192,
+          "height": 94
+        },
+        "snippet": "<h2 lang=\"en\">",
+        "nodeLabel": "'Very dangerous': Timor-Leste shuts schools over Indonesia haze"
+      },
+      "first_party_network": [
+        {
+          "url": "https://aureliuswu.github.io/News/",
+          "sessionTargetType": "page",
+          "protocol": "h2",
+          "cache": "none",
+          "rendererStartTime": 0,
+          "networkRequestTime": 1.1419999971985817,
+          "networkEndTime": 281.7879999987781,
+          "finished": true,
+          "transferSize": 778,
+          "resourceSize": 607,
+          "statusCode": 200,
+          "mimeType": "text/html",
+          "resourceType": "Document",
+          "priority": "VeryHigh",
+          "experimentalFromMainFrame": true,
+          "entity": "GitHub"
+        },
+        {
+          "url": "https://aureliuswu.github.io/News/assets/index-DN9d9IEh.js",
+          "sessionTargetType": "page",
+          "protocol": "h2",
+          "cache": "none",
+          "rendererStartTime": 289.5219999998808,
+          "networkRequestTime": 294.7289999984205,
+          "networkEndTime": 405.679999999702,
+          "finished": true,
+          "transferSize": 1242,
+          "resourceSize": 2028,
+          "statusCode": 200,
+          "mimeType": "application/javascript",
+          "resourceType": "Script",
+          "priority": "High",
+          "experimentalFromMainFrame": true,
+          "entity": "GitHub"
+        },
+        {
+          "url": "https://aureliuswu.github.io/News/registerSW.js",
+          "sessionTargetType": "page",
+          "protocol": "h2",
+          "cache": "none",
+          "rendererStartTime": 289.7969999983907,
+          "networkRequestTime": 295.29700000211596,
+          "networkEndTime": 405.82499999925494,
+          "finished": true,
+          "transferSize": 345,
+          "resourceSize": 144,
+          "statusCode": 200,
+          "mimeType": "application/javascript",
+          "resourceType": "Script",
+          "priority": "High",
+          "experimentalFromMainFrame": true,
+          "entity": "GitHub"
+        },
+        {
+          "url": "https://aureliuswu.github.io/News/assets/main-DYPoUnNN.js",
+          "sessionTargetType": "page",
+          "protocol": "h2",
+          "cache": "none",
+          "rendererStartTime": 409.20499999821186,
+          "networkRequestTime": 409.5840000025928,
+          "networkEndTime": 619.2809999994934,
+          "finished": true,
+          "transferSize": 49521,
+          "resourceSize": 126755,
+          "statusCode": 200,
+          "mimeType": "application/javascript",
+          "resourceType": "Script",
+          "priority": "High",
+          "experimentalFromMainFrame": true,
+          "entity": "GitHub"
+        },
+        {
+          "url": "https://aureliuswu.github.io/News/data/news.json",
+          "sessionTargetType": "page",
+          "protocol": "h2",
+          "cache": "none",
+          "rendererStartTime": 712.4710000008345,
+          "networkRequestTime": 712.9810000024736,
+          "networkEndTime": 1139.672999996692,
+          "finished": true,
+          "transferSize": 219340,
+          "resourceSize": 801312,
+          "statusCode": 200,
+          "mimeType": "application/json",
+          "resourceType": "Fetch",
+          "priority": "High",
+          "experimentalFromMainFrame": true,
+          "entity": "GitHub"
+        }
+      ],
+      "http_errors": [],
+      "screenshot_file": "mobile-3-final.jpg",
+      "valid": true
+    }
+  ],
+  "baseline": {
+    "date": "2026-10-11",
+    "lighthouse_version": "13.5.0",
+    "chrome_major": 154,
+    "desktop_lcp_ms": [
+      779.464,
+      4359.7970000000005,
+      581.283
+    ],
+    "mobile_lcp_ms": [
+      2192.678,
+      2183.332,
+      2396.742
+    ],
+    "slow_sample": "artifacts/v1-m5-performance-20261011/desktop-2.json",
+    "slow_sample_sha256": "b1b54378dacbc64aa334446a72b4ccc313b2d1baa73f8b820b7a828e1ffe5199",
+    "slow_sample_tbt_ms": 44.5,
+    "preserved": true
+  },
+  "comparability": {
+    "same_lighthouse": true,
+    "browser_major_changed": true,
+    "causal_before_after_claim": false
+  },
+  "lab_lcp_gate": "NOT_PASSED",
+  "interaction_gate": "NOT_MEASURED",
+  "physical_device_gate": "NOT_MEASURED",
+  "full_performance_gate": "INCOMPLETE",
+  "formal_release": false
+}

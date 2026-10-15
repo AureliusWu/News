@@ -1,0 +1,39 @@
+{
+  "code_revision": "5e55cf7d5a5014bc4c55b7f9aad18bbede966380",
+  "frontend": {
+    "result": "PASS",
+    "test_files": 9,
+    "tests": 127,
+    "snapshot_transport_tests": 22,
+    "new_fault_control_tests": 4
+  },
+  "typecheck": {
+    "application": "PASS",
+    "node": "PASS",
+    "build_info_output": "artifacts/v1-m5-performance-20261015"
+  },
+  "builds": {
+    "snapshot": {
+      "result": "PASS",
+      "base": "/News/",
+      "pwa_static_contract": "PASS",
+      "precached_assets": 15
+    },
+    "api": {
+      "result": "PASS",
+      "base": "/",
+      "pwa_static_contract": "PASS",
+      "precached_assets": 15
+    }
+  },
+  "ci": {
+    "run_id": 38697977138,
+    "result": "success",
+    "url": "https://github.com/AureliusWu/News/actions/runs/38697977138"
+  },
+  "backend_tests": "NOT_RUN_THIS_FRONTEND_CHANGE",
+  "performance_lab": "NOT_PASSED",
+  "performance_interaction": "NOT_MEASURED",
+  "real_offline_lifecycle": "NOT_MEASURED",
+  "formal_release": false
+}

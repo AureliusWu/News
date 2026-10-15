@@ -1,0 +1,333 @@
+{
+  "evaluated_at": "2026-10-15T07:31:48.401Z",
+  "scope": "three bounded diagnostic runs, all retained; no replacement of prior failures",
+  "samples": [
+    {
+      "sample": "mobile-1",
+      "raw_sha256": "7da50e8fdc6c39aee9a038918a89e2d31c2a6ba57a44127e2a80ba9b8a3df5d5",
+      "fetch_time": "2026-10-15T07:29:40.780Z",
+      "lighthouse_version": "13.5.0",
+      "environment": {
+        "networkUserAgent": "Mozilla/5.0 (Linux; Android 11; moto g power (2022)) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/155.0.0.0 Mobile Safari/537.36",
+        "hostUserAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/155.0.0.0 Safari/537.36",
+        "benchmarkIndex": 2642.5,
+        "credits": {}
+      },
+      "config_settings": {
+        "output": [
+          "json"
+        ],
+        "maxWaitForFcp": 30000,
+        "maxWaitForLoad": 45000,
+        "pauseAfterFcpMs": 1000,
+        "pauseAfterLoadMs": 1000,
+        "networkQuietThresholdMs": 1000,
+        "cpuQuietThresholdMs": 1000,
+        "formFactor": "mobile",
+        "throttling": {
+          "rttMs": 150,
+          "throughputKbps": 1638.4,
+          "requestLatencyMs": 562.5,
+          "downloadThroughputKbps": 1474.5600000000002,
+          "uploadThroughputKbps": 675,
+          "cpuSlowdownMultiplier": 4
+        },
+        "throttlingMethod": "simulate",
+        "screenEmulation": {
+          "mobile": true,
+          "width": 412,
+          "height": 823,
+          "deviceScaleFactor": 1.75,
+          "disabled": false
+        },
+        "emulatedUserAgent": "Mozilla/5.0 (Linux; Android 11; moto g power (2022)) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/136.0.0.0 Mobile Safari/537.36",
+        "auditMode": false,
+        "gatherMode": false,
+        "clearStorageTypes": [
+          "file_systems",
+          "shader_cache",
+          "service_workers",
+          "cache_storage"
+        ],
+        "disableStorageReset": false,
+        "debugNavigation": false,
+        "channel": "cli",
+        "usePassiveGathering": false,
+        "disableFullPageScreenshot": false,
+        "skipAboutBlank": false,
+        "blankPage": "about:blank",
+        "ignoreStatusCode": false,
+        "locale": "en-US",
+        "blockedUrlPatterns": null,
+        "additionalTraceCategories": null,
+        "extraHeaders": null,
+        "precomputedLanternData": null,
+        "onlyAudits": null,
+        "onlyCategories": [
+          "performance"
+        ],
+        "skipAudits": null
+      },
+      "runtime_error": null,
+      "lcp_ms": 2536.701,
+      "tbt_ms": 198.99999999999977,
+      "cls": 0.02101428634866133,
+      "raw_lcp_time_ms": 1846.352,
+      "post_download_render_gap_ms": 141.22800000202665,
+      "lcp_node": {
+        "type": "node",
+        "lhId": "page-0-H2",
+        "path": "1,HTML,1,BODY,1,DIV,0,DIV,2,MAIN,1,SECTION,5,DIV,0,ARTICLE,1,DIV,1,H2",
+        "selector": "div.news-list > article.news-card > div.news-body > h2",
+        "boundingRect": {
+          "top": 676,
+          "bottom": 722,
+          "left": 91,
+          "right": 383,
+          "width": 292,
+          "height": 47
+        },
+        "snippet": "<h2 lang=\"ja\">",
+        "nodeLabel": "バーガーキング アプリの会員情報 約1118万件漏えい"
+      },
+      "news_network": {
+        "url": "https://aureliuswu.github.io/News/data/news.json",
+        "sessionTargetType": "page",
+        "protocol": "h2",
+        "cache": "none",
+        "rendererStartTime": 1163.2679999992251,
+        "networkRequestTime": 1163.8229999989271,
+        "networkEndTime": 1705.1239999979734,
+        "finished": true,
+        "transferSize": 218512,
+        "resourceSize": 798505,
+        "statusCode": 200,
+        "mimeType": "application/json",
+        "resourceType": "Fetch",
+        "priority": "High",
+        "experimentalFromMainFrame": true,
+        "entity": "GitHub"
+      },
+      "http_errors": [],
+      "screenshot_file": "mobile-1-final.jpg"
+    },
+    {
+      "sample": "mobile-2",
+      "raw_sha256": "6a70007294bef3e6417e7c2e1b20b626ef9984f7b081a110a6c4bb50334d92b8",
+      "fetch_time": "2026-10-15T07:29:58.412Z",
+      "lighthouse_version": "13.5.0",
+      "environment": {
+        "networkUserAgent": "Mozilla/5.0 (Linux; Android 11; moto g power (2022)) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/155.0.0.0 Mobile Safari/537.36",
+        "hostUserAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/155.0.0.0 Safari/537.36",
+        "benchmarkIndex": 2648.5,
+        "credits": {}
+      },
+      "config_settings": {
+        "output": [
+          "json"
+        ],
+        "maxWaitForFcp": 30000,
+        "maxWaitForLoad": 45000,
+        "pauseAfterFcpMs": 1000,
+        "pauseAfterLoadMs": 1000,
+        "networkQuietThresholdMs": 1000,
+        "cpuQuietThresholdMs": 1000,
+        "formFactor": "mobile",
+        "throttling": {
+          "rttMs": 150,
+          "throughputKbps": 1638.4,
+          "requestLatencyMs": 562.5,
+          "downloadThroughputKbps": 1474.5600000000002,
+          "uploadThroughputKbps": 675,
+          "cpuSlowdownMultiplier": 4
+        },
+        "throttlingMethod": "simulate",
+        "screenEmulation": {
+          "mobile": true,
+          "width": 412,
+          "height": 823,
+          "deviceScaleFactor": 1.75,
+          "disabled": false
+        },
+        "emulatedUserAgent": "Mozilla/5.0 (Linux; Android 11; moto g power (2022)) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/136.0.0.0 Mobile Safari/537.36",
+        "auditMode": false,
+        "gatherMode": false,
+        "clearStorageTypes": [
+          "file_systems",
+          "shader_cache",
+          "service_workers",
+          "cache_storage"
+        ],
+        "disableStorageReset": false,
+        "debugNavigation": false,
+        "channel": "cli",
+        "usePassiveGathering": false,
+        "disableFullPageScreenshot": false,
+        "skipAboutBlank": false,
+        "blankPage": "about:blank",
+        "ignoreStatusCode": false,
+        "locale": "en-US",
+        "blockedUrlPatterns": null,
+        "additionalTraceCategories": null,
+        "extraHeaders": null,
+        "precomputedLanternData": null,
+        "onlyAudits": null,
+        "onlyCategories": [
+          "performance"
+        ],
+        "skipAudits": null
+      },
+      "runtime_error": null,
+      "lcp_ms": 2317.282,
+      "tbt_ms": 126,
+      "cls": 0.02101428634866133,
+      "raw_lcp_time_ms": 1071.269,
+      "post_download_render_gap_ms": 114.81699999669195,
+      "lcp_node": {
+        "type": "node",
+        "lhId": "page-0-H2",
+        "path": "1,HTML,1,BODY,1,DIV,0,DIV,2,MAIN,1,SECTION,5,DIV,0,ARTICLE,1,DIV,1,H2",
+        "selector": "div.news-list > article.news-card > div.news-body > h2",
+        "boundingRect": {
+          "top": 676,
+          "bottom": 722,
+          "left": 91,
+          "right": 383,
+          "width": 292,
+          "height": 47
+        },
+        "snippet": "<h2 lang=\"ja\">",
+        "nodeLabel": "バーガーキング アプリの会員情報 約1118万件漏えい"
+      },
+      "news_network": {
+        "url": "https://aureliuswu.github.io/News/data/news.json",
+        "sessionTargetType": "page",
+        "protocol": "h2",
+        "cache": "none",
+        "rendererStartTime": 619.3150000013411,
+        "networkRequestTime": 619.7230000048876,
+        "networkEndTime": 956.4520000033081,
+        "finished": true,
+        "transferSize": 218511,
+        "resourceSize": 798505,
+        "statusCode": 200,
+        "mimeType": "application/json",
+        "resourceType": "Fetch",
+        "priority": "High",
+        "experimentalFromMainFrame": true,
+        "entity": "GitHub"
+      },
+      "http_errors": [],
+      "screenshot_file": "mobile-2-final.jpg"
+    },
+    {
+      "sample": "mobile-3",
+      "raw_sha256": "d0bfa246865011e0f0ac969228633f9e63439090c65ed984456fa98e8cd20112",
+      "fetch_time": "2026-10-15T07:30:16.599Z",
+      "lighthouse_version": "13.5.0",
+      "environment": {
+        "networkUserAgent": "Mozilla/5.0 (Linux; Android 11; moto g power (2022)) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/155.0.0.0 Mobile Safari/537.36",
+        "hostUserAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/155.0.0.0 Safari/537.36",
+        "benchmarkIndex": 2356,
+        "credits": {}
+      },
+      "config_settings": {
+        "output": [
+          "json"
+        ],
+        "maxWaitForFcp": 30000,
+        "maxWaitForLoad": 45000,
+        "pauseAfterFcpMs": 1000,
+        "pauseAfterLoadMs": 1000,
+        "networkQuietThresholdMs": 1000,
+        "cpuQuietThresholdMs": 1000,
+        "formFactor": "mobile",
+        "throttling": {
+          "rttMs": 150,
+          "throughputKbps": 1638.4,
+          "requestLatencyMs": 562.5,
+          "downloadThroughputKbps": 1474.5600000000002,
+          "uploadThroughputKbps": 675,
+          "cpuSlowdownMultiplier": 4
+        },
+        "throttlingMethod": "simulate",
+        "screenEmulation": {
+          "mobile": true,
+          "width": 412,
+          "height": 823,
+          "deviceScaleFactor": 1.75,
+          "disabled": false
+        },
+        "emulatedUserAgent": "Mozilla/5.0 (Linux; Android 11; moto g power (2022)) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/136.0.0.0 Mobile Safari/537.36",
+        "auditMode": false,
+        "gatherMode": false,
+        "clearStorageTypes": [
+          "file_systems",
+          "shader_cache",
+          "service_workers",
+          "cache_storage"
+        ],
+        "disableStorageReset": false,
+        "debugNavigation": false,
+        "channel": "cli",
+        "usePassiveGathering": false,
+        "disableFullPageScreenshot": false,
+        "skipAboutBlank": false,
+        "blankPage": "about:blank",
+        "ignoreStatusCode": false,
+        "locale": "en-US",
+        "blockedUrlPatterns": null,
+        "additionalTraceCategories": null,
+        "extraHeaders": null,
+        "precomputedLanternData": null,
+        "onlyAudits": null,
+        "onlyCategories": [
+          "performance"
+        ],
+        "skipAudits": null
+      },
+      "runtime_error": null,
+      "lcp_ms": 2667.69,
+      "tbt_ms": 173,
+      "cls": 0.02101428634866133,
+      "raw_lcp_time_ms": 2056.807,
+      "post_download_render_gap_ms": 117.86499999833086,
+      "lcp_node": {
+        "type": "node",
+        "lhId": "page-0-H2",
+        "path": "1,HTML,1,BODY,1,DIV,0,DIV,2,MAIN,1,SECTION,5,DIV,0,ARTICLE,1,DIV,1,H2",
+        "selector": "div.news-list > article.news-card > div.news-body > h2",
+        "boundingRect": {
+          "top": 676,
+          "bottom": 769,
+          "left": 91,
+          "right": 283,
+          "width": 192,
+          "height": 94
+        },
+        "snippet": "<h2 lang=\"en\">",
+        "nodeLabel": "UK threatens to ban Eritreans over migrant return policy"
+      },
+      "news_network": {
+        "url": "https://aureliuswu.github.io/News/data/news.json",
+        "sessionTargetType": "page",
+        "protocol": "h2",
+        "cache": "none",
+        "rendererStartTime": 1181.0540000014007,
+        "networkRequestTime": 1181.597000002861,
+        "networkEndTime": 1938.942000001669,
+        "finished": true,
+        "transferSize": 226528,
+        "resourceSize": 824501,
+        "statusCode": 200,
+        "mimeType": "application/json",
+        "resourceType": "Fetch",
+        "priority": "High",
+        "experimentalFromMainFrame": true,
+        "entity": "GitHub"
+      },
+      "http_errors": [],
+      "screenshot_file": "mobile-3-final.jpg"
+    }
+  ]
+}
