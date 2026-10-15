@@ -127,3 +127,7 @@ is implied. See `UI_ZH_CN.md` for scope and pending acceptance work.
 七天观测绑定 0.9 候选，真实跨度至少 168 小时，336 个闭合半小时窗口、至少 95% 有效且数据年龄不超过两小时，缺测和失败均计入分母。
 允许先部署非正式候选开始观测；真实配对回滚/前滚、设备/PWA 升级、性能和七天证据必须另行关闭，未满足不得打 V1.0.0 标签。
 最新完整证据与顺序见 [V1_M5_CANDIDATE.md](V1_M5_CANDIDATE.md)；AI 关闭边界见 [V1_M4_AI_DISABLED.md](V1_M4_AI_DISABLED.md)。此前文档中的未修复前缀、M2 等待人工、M3 未开始/容量断言待修正均为历史状态。
+
+### 2026-10-15 Snapshot persistence and first paint
+
+Validated online snapshots are returned without waiting for CacheStorage.open or Cache.put. Storage opens concurrently with the network request. Best-effort writes use one writer per transport instance and retain only the latest queued validated snapshot, so a slow earlier write cannot overwrite a later completed write or accumulate an unbounded queue. Network failures still use validated memory first, then persistent cache; stale labels, snapshot validation, generation-bound pagination, and existing cache namespaces are unchanged. Offline reuse after persistence completes is covered by fault-controlled unit tests; real device/offline lifecycle acceptance remains separate.

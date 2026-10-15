@@ -11,6 +11,11 @@ function fixture(): Snapshot {
     health: { configured: 1, healthy: 1, failed: 0, gate_pass: true },
   };
 }
+function deferred<T>() {
+  let resolve!: (value: T | PromiseLike<T>) => void;
+  const promise = new Promise<T>(done => { resolve = done; });
+  return { promise, resolve };
+}
 describe('snapshot query contract', () => {
   it('accepts a valid snapshot', () => expect(validateSnapshot(fixture(), NOW).articles).toHaveLength(3));
   it('rejects an expired snapshot', () => expect(() => validateSnapshot(fixture(), NOW + 73 * 3600000)).toThrow());
@@ -62,6 +67,95 @@ describe('snapshot transport isolation', () => {
     const controller = new AbortController(); controller.abort();
     const adapted = createSnapshotFetch(vi.fn(), options);
     await expect(adapted('/api/v1/news', { signal: controller.signal })).rejects.toMatchObject({ name: 'AbortError' });
+  });
+  it('returns online news while opening persistent storage is stalled', async () => {
+    const opening = deferred<Cache>();
+    const put = vi.fn(async () => undefined);
+    const storage = { open: vi.fn(() => opening.promise) } as unknown as CacheStorage;
+    const fetcher = vi.fn(async () => new Response(JSON.stringify(fixture())));
+    const adapted = createSnapshotFetch(fetcher as typeof fetch, { ...options, storage });
+    let response: Response | undefined;
+    const loading = adapted('/api/v1/news').then(value => { response = value; });
+    try {
+      await vi.waitFor(() => expect(response?.status).toBe(200));
+      expect(fetcher).toHaveBeenCalledTimes(1);
+      expect((await response!.json()).items).toHaveLength(3);
+      expect(put).not.toHaveBeenCalled();
+    } finally { opening.resolve({ put } as unknown as Cache); await loading; }
+    await vi.waitFor(() => expect(put).toHaveBeenCalledTimes(1));
+  });
+  it('shows online news before a slow cache write and can reuse the completed write offline', async () => {
+    const writing = deferred<void>();
+    let saved: string | undefined;
+    const put = vi.fn(async (_key: RequestInfo | URL, value: Response) => { await writing.promise; saved = await value.text(); });
+    const cache = { put, match: async () => saved ? new Response(saved) : undefined };
+    const storage = { open: async () => cache } as unknown as CacheStorage;
+    const onState = vi.fn();
+    const adapted = createSnapshotFetch(vi.fn(async () => new Response(JSON.stringify(fixture()))), { ...options, storage, onState });
+    let response: Response | undefined;
+    const loading = adapted('/api/v1/news').then(value => { response = value; });
+    try {
+      await vi.waitFor(() => expect(response?.status).toBe(200));
+      expect(onState).toHaveBeenCalledWith(expect.objectContaining({ cached: false }));
+      expect(saved).toBeUndefined();
+    } finally { writing.resolve(); await loading; }
+    await vi.waitFor(() => expect(saved).toBeDefined());
+    const offline = createSnapshotFetch(vi.fn(async () => { throw new Error('offline'); }), { ...options, storage });
+    const recovered = await offline('/api/v1/news');
+    expect(recovered.headers.get('X-Cache-Stale')).toBe('true');
+    expect((await recovered.json()).items).toHaveLength(3);
+  });
+  it('keeps online and in-memory fallback usable after a cache quota failure', async () => {
+    let clock = NOW;
+    const put = vi.fn(async () => { throw new Error('quota'); });
+    const storage = { open: async () => ({ put }) } as unknown as CacheStorage;
+    const fetcher = vi.fn(async () => new Response(JSON.stringify(fixture())));
+    const adapted = createSnapshotFetch(fetcher as typeof fetch, { ...options, now: () => clock, storage });
+    expect((await adapted('/api/v1/news')).headers.get('X-Cache-Stale')).toBeNull();
+    await vi.waitFor(() => expect(put).toHaveBeenCalledTimes(1));
+    clock += 61000;
+    fetcher.mockImplementationOnce(async () => { throw new Error('offline'); });
+    const recovered = await adapted('/api/v1/news');
+    expect(recovered.headers.get('X-Cache-Stale')).toBe('true');
+    expect((await recovered.json()).items).toHaveLength(3);
+  });
+  it('serializes persistence and coalesces queued refreshes to the latest validated snapshot', async () => {
+    let clock = NOW;
+    let saved: string | undefined;
+    const firstWrite = deferred<void>();
+    const put = vi.fn(async (_key: RequestInfo | URL, value: Response) => {
+      const body = await value.text();
+      if (put.mock.calls.length === 1) await firstWrite.promise;
+      saved = body;
+    });
+    const cache = { put, match: async () => saved ? new Response(saved) : undefined };
+    const storage = { open: async () => cache } as unknown as CacheStorage;
+    let generation = 0;
+    const fetcher = vi.fn(async () => {
+      const snapshot = fixture();
+      snapshot.content_sha256 = ['a', 'b', 'c'][generation]!.repeat(64);
+      snapshot.articles[0].title = `Generation ${++generation}`;
+      return new Response(JSON.stringify(snapshot));
+    });
+    const adapted = createSnapshotFetch(fetcher as typeof fetch, { ...options, now: () => clock, storage });
+    let firstResponse: Response | undefined;
+    const loading = adapted('/api/v1/news').then(value => { firstResponse = value; });
+    try {
+      await vi.waitFor(() => expect(firstResponse?.status).toBe(200));
+      await vi.waitFor(() => expect(put).toHaveBeenCalledTimes(1));
+      clock += 61000;
+      await adapted('/api/v1/news');
+      clock += 61000;
+      const latest = await adapted('/api/v1/news');
+      expect((await latest.json()).items[0].title).toBe('Generation 3');
+      expect(put).toHaveBeenCalledTimes(1);
+    } finally { firstWrite.resolve(); await loading; }
+    await vi.waitFor(() => expect(saved && JSON.parse(saved).content_sha256).toBe('c'.repeat(64)));
+    expect(put).toHaveBeenCalledTimes(2);
+    const offline = createSnapshotFetch(vi.fn(async () => { throw new Error('offline'); }), { ...options, storage });
+    const recovered = await offline('/api/v1/news');
+    expect(recovered.headers.get('X-Cache-Stale')).toBe('true');
+    expect((await recovered.json()).items[0].title).toBe('Generation 3');
   });
   it('uses a validated cache on network failure and labels it stale', async () => {
     const onState = vi.fn();

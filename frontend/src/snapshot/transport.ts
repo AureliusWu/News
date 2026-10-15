@@ -122,26 +122,45 @@ export function createSnapshotFetch(nativeFetch: typeof fetch, options: Options)
   const dataUrl = new URL(`${base}data/news.json`, options.origin).href;
   let memory: Loaded | undefined;
   let pending: Promise<Loaded> | undefined;
+  let cacheWriteRunning = false;
+  let nextCacheWrite: { snapshot: Snapshot; cache: Promise<Cache | undefined> } | undefined;
+  const persist = (snapshot: Snapshot, cache: Promise<Cache | undefined>) => {
+    nextCacheWrite = { snapshot, cache };
+    if (cacheWriteRunning) return;
+    cacheWriteRunning = true;
+    void (async () => {
+      try {
+        while (nextCacheWrite) {
+          const write = nextCacheWrite;
+          nextCacheWrite = undefined;
+          try {
+            const target = await write.cache;
+            await target?.put(dataUrl, json(write.snapshot));
+          } catch { /* Best-effort persistence must not block online news. */ }
+        }
+      } finally { cacheWriteRunning = false; }
+    })();
+  };
   const load = (): Promise<Loaded> => {
     if (memory && now() - memory.checkedAt < 60000) return Promise.resolve(memory);
     if (pending) return pending;
     pending = (async () => {
       const controller = new AbortController();
       const timeout = setTimeout(() => controller.abort(), 12000);
-      let cache: Cache | undefined;
-      try { cache = await options.storage?.open(`global-news-snapshot-v1:${base}`); } catch { /* Storage may be disabled. */ }
+      const cache = Promise.resolve().then(() => options.storage?.open(`global-news-snapshot-v1:${base}`))
+        .catch(() => undefined);
       try {
         const response = await nativeFetch(dataUrl, { cache: 'no-store', credentials: 'omit', signal: controller.signal });
         if (!response.ok) throw new Error(`Snapshot download failed (${response.status}).`);
         const snapshot = validateSnapshot(await response.json(), now());
         memory = { snapshot, cached: false, checkedAt: now() };
-        try { await cache?.put(dataUrl, json(snapshot)); } catch { /* Cache quota must not break online news. */ }
+        persist(snapshot, cache);
       } catch (error) {
         let fallback: Snapshot | undefined;
         try {
           if (memory) fallback = validateSnapshot(memory.snapshot, now());
           else {
-            const saved = await cache?.match(dataUrl);
+            const saved = await (await cache)?.match(dataUrl);
             if (saved) fallback = validateSnapshot(await saved.json(), now());
           }
         } catch { /* Expired or invalid cached data is not displayed. */ }
