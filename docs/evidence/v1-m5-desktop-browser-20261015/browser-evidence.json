@@ -1,0 +1,209 @@
+{
+  "schema_version": 1,
+  "summarized_at": "2026-10-15T05:24:13.999Z",
+  "started_at": "2026-10-15T05:13:11.851Z",
+  "target": "https://aureliuswu.github.io/News/",
+  "local_revision": "40f8a207fa95f2e5811e49a2f52eb15cf55c2889",
+  "public_release": {
+    "observed_at": "2026-10-15T05:16:48.800Z",
+    "url": "https://aureliuswu.github.io/News/release.json",
+    "status": 200,
+    "content_type": "application/json; charset=utf-8",
+    "latency_ms": 1010,
+    "release": {
+      "schema_version": 1,
+      "version": "0.9.0-alpha.1",
+      "stage": "M5-candidate",
+      "formal_release": false,
+      "source_revision": "3032b0fbdea9203c9a83c72269cb5b7882e61358",
+      "built_at": "2026-10-13T15:38:52.789Z",
+      "data_schema_version": 1,
+      "ai_content_generation": {
+        "schema_version": 1,
+        "scope": "content-generation",
+        "enabled": false,
+        "translation_enabled": false,
+        "summary_enabled": false,
+        "disabled_reason": "no-verified-free-quota",
+        "max_cost_usd": 0,
+        "max_requests_per_day": 0,
+        "max_cache_entries": 0,
+        "source_citations_required": true,
+        "original_switch_required": true,
+        "external_content_is_untrusted": true
+      },
+      "app_bundle_sha256": "28329501e09ffac94c633511aafa7a7e06045bb3c8d906d8432bbb8a0d65f08b",
+      "base_path": "/News/",
+      "event_method_version": "lexical-complete-link-v1",
+      "event_matcher_version": "title-summary-v4",
+      "event_alias_schema_version": 1,
+      "asset_count": 19
+    },
+    "scope": "Independent public HTTP release provenance, not browser cache or freshness coverage"
+  },
+  "chrome": {
+    "initial_bookmark_count": 0,
+    "initial_visible_version": "0.9.0-alpha.1",
+    "initial_snapshot_time_display": "2026/10/15 GMT+8 09:52:40",
+    "initial_freshness_banner": "更新延迟",
+    "checks": [
+      {
+        "check": "home_to_events_click",
+        "observed_at": "2026-10-15T05:14:16.141Z",
+        "event_list_visible": true,
+        "artifact": "chrome-events.dom.txt"
+      },
+      {
+        "check": "multi_publisher_filter",
+        "observed_at": "2026-10-15T05:14:39.413Z",
+        "checkbox_checked": true,
+        "artifact": "chrome-multi.dom.txt"
+      },
+      {
+        "check": "filtered_event_detail_pointer_click",
+        "observed_at": "2026-10-15T05:15:01.244Z",
+        "event_detail_visible": true,
+        "artifact": "chrome-detail.dom.txt"
+      },
+      {
+        "check": "bookmark_survives_real_reload_and_is_restored",
+        "title": "North Korea test-fires two types of submarine-launched strategic cruise missiles",
+        "before": "false",
+        "observed_at": "2026-10-15T05:15:45.174Z",
+        "restored": true,
+        "after_click": "true",
+        "after_reload": "true",
+        "after_restore": "false"
+      }
+    ],
+    "multi_event_count": 6,
+    "bookmark_in_flight": null,
+    "layout_390": {
+      "cards": [
+        {
+          "buttons": [
+            {
+              "left": 90.8000030517578,
+              "right": 143.60000228881836,
+              "width": 52.79999923706055
+            },
+            {
+              "left": 155.60000610351562,
+              "right": 235.6000061035156,
+              "width": 80
+            }
+          ],
+          "left": 14.800000190734863,
+          "right": 360.4000062942505,
+          "width": 345.6000061035156
+        },
+        {
+          "buttons": [
+            {
+              "left": 90.8000030517578,
+              "right": 143.60000228881836,
+              "width": 52.79999923706055
+            },
+            {
+              "left": 155.60000610351562,
+              "right": 235.6000061035156,
+              "width": 80
+            }
+          ],
+          "left": 14.800000190734863,
+          "right": 360.4000062942505,
+          "width": 345.6000061035156
+        }
+      ],
+      "document_scroll_width": 375,
+      "viewport_width": 375,
+      "configured_width": 390,
+      "horizontal_overflow": false
+    },
+    "screenshot": "chrome-detail-390.jpg",
+    "viewport_restored": true,
+    "scoped_result": "PASS",
+    "scope": "Home, event filter, pointer detail navigation, bookmark reload/restore, configured 390px desktop viewport only"
+  },
+  "edge": {
+    "scoped_result": "PARTIAL",
+    "recovery_error": "Debugger unattached after execution timeout",
+    "completed_from_saved_dom": {
+      "edge-home.dom.txt": {
+        "captured": true,
+        "recorded_at": "2026-10-15T05:19:41.170Z",
+        "sha256": "5e92d114307150ecdba844413e53b6dda526a060fb0b9554bf298568d0878433",
+        "bytes": 38018,
+        "home_visible": true
+      },
+      "edge-events.dom.txt": {
+        "captured": true,
+        "recorded_at": "2026-10-15T05:20:23.359Z",
+        "sha256": "f56110ef13f7261d843398a6919568007069b1cbb89442f80eb0d5bdf8564993",
+        "bytes": 13071,
+        "event_list_visible": true
+      },
+      "edge-multi.dom.txt": {
+        "captured": true,
+        "recorded_at": "2026-10-15T05:21:06.186Z",
+        "sha256": "6a8d156263807eccff700d608c1442d0da3a1d950668adf44ed0b489440fb758",
+        "bytes": 4033,
+        "checked": true,
+        "event_count": 6
+      },
+      "edge-detail.dom.txt": {
+        "captured": false
+      }
+    },
+    "bookmark_test": "NOT_RUN",
+    "viewport_390": "NOT_RUN"
+  },
+  "prior_iab_click": {
+    "status": "NOT_REPRODUCED_IN_CHROME",
+    "root_cause": "UNDETERMINED",
+    "application_route_modified": false
+  },
+  "limitations": {
+    "physical_phone": "NOT_VERIFIED",
+    "firefox": "NOT_VERIFIED",
+    "pwa_real_offline": "NOT_VERIFIED",
+    "old_client_upgrade_matrix": "NOT_VERIFIED",
+    "performance_regression": "NOT_RUN_THIS_ROUND_REMAINS_OPEN",
+    "seven_day_gate": "NOT_RECALCULATED_THIS_ROUND_REMAINS_OPEN",
+    "local_start_stop_and_fault_injection": "PREVIOUS_EXECUTION_POLICY_BLOCK_REMAINS_OPEN",
+    "cloudflare": "DEFERRED_BY_USER"
+  },
+  "freshness": {
+    "status": "FAIL_VISIBLE_STALENESS",
+    "observed_snapshot_time_display": "2026/10/15 GMT+8 09:52:40",
+    "visible_banner": "更新延迟",
+    "recommendation_pause_visible": true,
+    "scope": "Actual browser display, not a new independent HTTP freshness observation"
+  },
+  "raw_edge_receipts": [
+    {
+      "file": "edge-home.dom.txt",
+      "captured": true,
+      "recorded_at": "2026-10-15T05:19:41.170Z",
+      "sha256": "5e92d114307150ecdba844413e53b6dda526a060fb0b9554bf298568d0878433",
+      "bytes": 38018
+    },
+    {
+      "file": "edge-events.dom.txt",
+      "captured": true,
+      "recorded_at": "2026-10-15T05:20:23.359Z",
+      "sha256": "f56110ef13f7261d843398a6919568007069b1cbb89442f80eb0d5bdf8564993",
+      "bytes": 13071
+    },
+    {
+      "file": "edge-multi.dom.txt",
+      "captured": true,
+      "recorded_at": "2026-10-15T05:21:06.186Z",
+      "sha256": "6a8d156263807eccff700d608c1442d0da3a1d950668adf44ed0b489440fb758",
+      "bytes": 4033
+    }
+  ],
+  "application_code_modified": false,
+  "formal_release": false,
+  "verdict": "FAIL"
+}
