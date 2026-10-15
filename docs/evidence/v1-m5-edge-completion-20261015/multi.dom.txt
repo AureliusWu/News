@@ -1,0 +1,73 @@
+- status:
+  - generic: 更新延迟 | 快照更新：2026/10/15 GMT+8 09:52:40 | 可用来源：32/38 | 计划约每 30 分钟更新，非实时，可能延迟。
+  - button "刷新快照"
+- link "跳转到新闻":
+  - /url: "#main-content"
+- banner:
+  - navigation "主导航":
+    - link "全球新闻":
+      - /url: /News/
+      - generic: G
+      - text: 全球新闻
+    - generic: 从原始来源，了解世界
+    - link "关于":
+      - /url: /News/about
+- main:
+  - region "事件聚合":
+    - link "返回新闻":
+      - /url: /News/
+    - heading "事件聚合" [level=1]
+    - paragraph: 事件聚合预览：依据同语种标题相似度和发布时间保守归组，可能漏合并或误合并。不同语种暂分开呈现；报道数量不代表事实可信度。
+    - paragraph: 快照时间：2026/10/15 GMT+8 09:52:40
+    - paragraph: AI 评估出口已采用：240 对中 238 对可计分，样本精确率 100%、召回率 50%。仅 15 对预测为同一事件；样本已用于调参，不是独立人工金标，也不代表全部新闻的准确率。
+    - generic "热度怎么算？"
+    - status: 数据时间异常或已超过 2 小时，暂停规则推荐；热度仍是快照时点的历史值。
+    - searchbox "搜索事件"
+    - checkbox "仅看多机构报道" [checked] [active]
+    - text: 仅看多机构报道
+    - text: 事件排序
+    - combobox "事件排序":
+      - option "最新原文" [selected]
+      - option "可解释热度"
+      - option "发布机构数量"
+    - paragraph: 6 个事件
+    - article:
+      - heading "North Korea test-fires submarine-launched cruise missiles amid rising tensions" [level=2]:
+        - link "North Korea test-fires submarine-launched cruise missiles amid rising tensions":
+          - /url: /News/events/e_f85f03b66e4fa90b92e2a575
+      - paragraph: 2 篇报道 · 2 个发布机构 · 2026/10/15 GMT+8 09:16:04
+      - paragraph: CNA Asia、France 24 World
+    - article:
+      - heading "Zimbabwean author denies using AI to write award-winning story" [level=2]:
+        - link "Zimbabwean author denies using AI to write award-winning story":
+          - /url: /News/events/e_ffcea920af887d3a8881f4cf
+      - paragraph: 2 篇报道 · 2 个发布机构 · 2026/10/15 GMT+8 03:01:29
+      - paragraph: BBC Africa、The Guardian World
+    - article:
+      - heading "Russia detains Japanese journalist on suspicion of spying" [level=2]:
+        - link "Russia detains Japanese journalist on suspicion of spying":
+          - /url: /News/events/e_4f3232f91bc4bbeaf3f460cd
+      - paragraph: 2 篇报道 · 2 个发布机构 · 2026/10/14 GMT+8 18:55:54
+      - paragraph: Euronews、The Japan Times
+    - article:
+      - heading "World's oldest shipwreck found off coast of Turkey" [level=2]:
+        - link "World's oldest shipwreck found off coast of Turkey":
+          - /url: /News/events/e_d7c1f92d88a02180513a5bf9
+      - paragraph: 2 篇报道 · 2 个发布机构 · 2026/10/14 GMT+8 16:22:48
+      - paragraph: BBC World、Euronews
+    - article:
+      - heading "MI5 Chief Warns of Escalating Hybrid Threats From Iran and Russia on British Soil" [level=2]:
+        - link "MI5 Chief Warns of Escalating Hybrid Threats From Iran and Russia on British Soil":
+          - /url: /News/events/e_e79f7d1e1a6f9c3f39cd8e75
+      - paragraph: 2 篇报道 · 2 个发布机构 · 2026/10/14 GMT+8 00:04:04
+      - paragraph: BBC Europe、New York Times World
+    - article:
+      - heading "Dozens of gold prospectors killed in strikes on Egypt-Sudan border, rights group says" [level=2]:
+        - link "Dozens of gold prospectors killed in strikes on Egypt-Sudan border, rights group says":
+          - /url: /News/events/e_cb466187beb7f7539bf6d68c
+      - paragraph: 2 篇报道 · 2 个发布机构 · 2026/10/12 GMT+8 09:28:27
+      - paragraph: BBC Middle East、France 24 Africa
+- contentinfo:
+  - text: 全球新闻 / Global News
+  - generic: V0.9.0-alpha.1
+  - generic: 新闻内容及图片版权归原发布媒体所有。

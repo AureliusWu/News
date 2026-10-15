@@ -1,0 +1,134 @@
+{
+  "started_at": "2026-10-15T05:32:59.640Z",
+  "browser": "Microsoft Edge",
+  "tool": "cua_repl",
+  "origin": "https://aureliuswu.github.io/News/",
+  "prior_attempt_preserved": "docs/V1_M5_DESKTOP_BROWSER_20261015.md",
+  "initial_bookmark_count": 0,
+  "checks": {
+    "events": {
+      "observed_at": "2026-10-15T05:33:42.339Z",
+      "dom_file": "events.dom.txt",
+      "heading": true
+    },
+    "multi_publisher": {
+      "observed_at": "2026-10-15T05:34:33.822Z",
+      "dom_file": "multi.dom.txt",
+      "checked": true,
+      "events_before": 777,
+      "events_after": 6
+    },
+    "detail": {
+      "observed_at": "2026-10-15T05:35:29.270Z",
+      "dom_file": "detail.dom.txt",
+      "navigation": "ordinary link click",
+      "event_id": "e_f85f03b66e4fa90b92e2a575",
+      "two_articles_two_publishers": true,
+      "publishers": [
+        "France 24 World",
+        "CNA Asia"
+      ],
+      "publishers_visible": true
+    },
+    "bookmark": {
+      "started_at": "2026-10-15T05:35:51.277Z",
+      "article_title": "North Korea test-fires two types of submarine-launched strategic cruise missiles",
+      "before": "false",
+      "after_reload": true,
+      "reload_observed_at": "2026-10-15T06:44:25.123Z",
+      "reload_dom": "bookmark-after-reload.dom.txt",
+      "restored_state": "false",
+      "restored": true,
+      "completed_at": "2026-10-15T06:45:15.992Z",
+      "result": "PASS"
+    },
+    "narrow_layout": {
+      "observed_at": "2026-10-15T06:45:32.845Z",
+      "configured_viewport": {
+        "width": 390,
+        "height": 844
+      },
+      "measurement": {
+        "cards": [
+          {
+            "buttons": [
+              {
+                "height": 44,
+                "left": 90.8000030517578,
+                "pressed": "false",
+                "right": 143.60000228881836,
+                "text": "收藏",
+                "width": 52.79999923706055
+              },
+              {
+                "height": 44,
+                "left": 155.60000610351562,
+                "pressed": "false",
+                "right": 235.6000061035156,
+                "text": "标为已读",
+                "width": 80
+              }
+            ],
+            "left": 14.800000190734863,
+            "right": 360.4000062942505,
+            "width": 345.6000061035156
+          },
+          {
+            "buttons": [
+              {
+                "height": 44,
+                "left": 90.8000030517578,
+                "pressed": "false",
+                "right": 143.60000228881836,
+                "text": "收藏",
+                "width": 52.79999923706055
+              },
+              {
+                "height": 44,
+                "left": 155.60000610351562,
+                "pressed": "false",
+                "right": 235.6000061035156,
+                "text": "标为已读",
+                "width": 80
+              }
+            ],
+            "left": 14.800000190734863,
+            "right": 360.4000062942505,
+            "width": 345.6000061035156
+          }
+        ],
+        "client_width": 375,
+        "scroll_width": 375
+      },
+      "viewport_restored": true,
+      "screenshot": "edge-detail-390.jpg",
+      "no_horizontal_overflow": true,
+      "cards_and_buttons_fit": true,
+      "screenshot_visually_reviewed": true,
+      "result": "PASS"
+    }
+  },
+  "interruption": {
+    "old_tab_id": "1515610829",
+    "old_tab_missing": true,
+    "recovery": "new tab in same Edge at previously observed detail URL",
+    "reopened_bookmark_selected": true,
+    "observed_at": "2026-10-15T06:43:42.903Z"
+  },
+  "completed_at": "2026-10-15T06:47:14.748Z",
+  "scoped_result": "PASS",
+  "displayed_version": "0.9.0-alpha.1",
+  "displayed_snapshot": "2026/10/15 GMT+8 09:52:40",
+  "displayed_source_health": "32/38",
+  "freshness": "FAIL_DISPLAYED_UPDATE_DELAY",
+  "overall_release": "NOT_PASSED",
+  "formal_release": false,
+  "remaining": [
+    "seven-day freshness >=95%",
+    "matched multi-sample performance",
+    "Firefox",
+    "physical mobile device",
+    "real offline and old-client upgrade",
+    "blocked local start-stop and fault injection"
+  ]
+}

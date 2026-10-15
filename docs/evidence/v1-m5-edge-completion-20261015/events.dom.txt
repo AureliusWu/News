@@ -1,0 +1,218 @@
+- status:
+  - generic: 更新延迟 | 快照更新：2026/10/15 GMT+8 09:52:40 | 可用来源：32/38 | 计划约每 30 分钟更新，非实时，可能延迟。
+  - button "刷新快照"
+- link "跳转到新闻":
+  - /url: "#main-content"
+- banner:
+  - navigation "主导航":
+    - link "全球新闻":
+      - /url: /News/
+      - generic: G
+      - text: 全球新闻
+    - generic: 从原始来源，了解世界
+    - link "关于":
+      - /url: /News/about
+- main:
+  - region "事件聚合":
+    - link "返回新闻":
+      - /url: /News/
+    - heading "事件聚合" [level=1]
+    - paragraph: 事件聚合预览：依据同语种标题相似度和发布时间保守归组，可能漏合并或误合并。不同语种暂分开呈现；报道数量不代表事实可信度。
+    - paragraph: 快照时间：2026/10/15 GMT+8 09:52:40
+    - paragraph: AI 评估出口已采用：240 对中 238 对可计分，样本精确率 100%、召回率 50%。仅 15 对预测为同一事件；样本已用于调参，不是独立人工金标，也不代表全部新闻的准确率。
+    - generic "热度怎么算？"
+    - status: 数据时间异常或已超过 2 小时，暂停规则推荐；热度仍是快照时点的历史值。
+    - searchbox "搜索事件"
+    - checkbox "仅看多机构报道"
+    - text: 仅看多机构报道
+    - text: 事件排序
+    - combobox "事件排序":
+      - option "最新原文" [selected]
+      - option "可解释热度"
+      - option "发布机构数量"
+    - paragraph: 777 个事件
+    - article:
+      - heading "AI giant Anthropic sees revenue surge ahead of stock market listing" [level=2]:
+        - link "AI giant Anthropic sees revenue surge ahead of stock market listing":
+          - /url: /News/events/e_4b887d1a17c263087db60309
+      - paragraph: 1 篇报道 · 1 个发布机构 · 2026/10/15 GMT+8 09:49:46
+      - paragraph: BBC Business
+    - article:
+      - heading "ドジャース×ブルワーズ リーグ優勝決定S 第3戦見どころ" [level=2]:
+        - link "ドジャース×ブルワーズ リーグ優勝決定S 第3戦見どころ":
+          - /url: /News/events/e_c1c9e9ba3b603b4dd5605b22
+      - paragraph: 1 篇报道 · 1 个发布机构 · 2026/10/15 GMT+8 09:48:17
+      - paragraph: NHK News
+    - article:
+      - heading "Shape of Pope Leo’s papacy more uncertain after cancer diagnosis" [level=2]:
+        - link "Shape of Pope Leo’s papacy more uncertain after cancer diagnosis":
+          - /url: /News/events/e_a194efd2fef91399e599f1a5
+      - paragraph: 1 篇报道 · 1 个发布机构 · 2026/10/15 GMT+8 09:46:00
+      - paragraph: The Japan Times
+    - article:
+      - heading "横浜高校の織田翔希投手がアメリカ挑戦を表明" [level=2]:
+        - link "横浜高校の織田翔希投手がアメリカ挑戦を表明":
+          - /url: /News/events/e_5f583a21d4c4e61bae7b76cb
+      - paragraph: 1 篇报道 · 1 个发布机构 · 2026/10/15 GMT+8 09:42:28
+      - paragraph: NHK News
+    - article:
+      - heading "Ravens hoping to get QB Lamar Jackson back in time to face Browns" [level=2]:
+        - link "Ravens hoping to get QB Lamar Jackson back in time to face Browns":
+          - /url: /News/events/e_3d891d31f0625dfde1549e71
+      - paragraph: 1 篇报道 · 1 个发布机构 · 2026/10/15 GMT+8 09:36:00
+      - paragraph: The Japan Times
+    - article:
+      - heading "White House spokesperson Katie Zacharia’s law career faces scrutiny" [level=2]:
+        - link "White House spokesperson Katie Zacharia’s law career faces scrutiny":
+          - /url: /News/events/e_4bbb73debd7c94b33fa26af3
+      - paragraph: 1 篇报道 · 1 个发布机构 · 2026/10/15 GMT+8 09:35:40
+      - paragraph: Al Jazeera
+    - article:
+      - heading "Trump heads to rallies in Arizona and Montana after campaign stop-off in Alaska – US politics live" [level=2]:
+        - link "Trump heads to rallies in Arizona and Montana after campaign stop-off in Alaska – US politics live":
+          - /url: /News/events/e_c1b2434e6572761d0d3f8cd9
+      - paragraph: 1 篇报道 · 1 个发布机构 · 2026/10/15 GMT+8 09:35:01
+      - paragraph: The Guardian World
+    - article:
+      - heading "Trump suggests those who leak government information should ‘be shot’" [level=2]:
+        - link "Trump suggests those who leak government information should ‘be shot’":
+          - /url: /News/events/e_3cbf7bbef5e7120b4973b4c2
+      - paragraph: 1 篇报道 · 1 个发布机构 · 2026/10/15 GMT+8 09:34:41
+      - paragraph: Al Jazeera
+    - article:
+      - heading "Takaichi trade gets a rethink one year on as bond appeal grows" [level=2]:
+        - link "Takaichi trade gets a rethink one year on as bond appeal grows":
+          - /url: /News/events/e_3a9f5bef4046f31cf4a4d4a4
+      - paragraph: 1 篇报道 · 1 个发布机构 · 2026/10/15 GMT+8 09:34:00
+      - paragraph: The Japan Times
+    - article:
+      - 'heading "Australian politics live: Victoria Labor promises free abortion care if re-elected; Albanese criticises Hanson’s ‘monoculture’" [level=2]':
+        - 'link "Australian politics live: Victoria Labor promises free abortion care if re-elected; Albanese criticises Hanson’s ‘monoculture’"':
+          - /url: /News/events/e_c1c79a0220b4390df4b19fc6
+      - paragraph: 1 篇报道 · 1 个发布机构 · 2026/10/15 GMT+8 09:33:18
+      - paragraph: The Guardian World
+    - article:
+      - heading "Young Chinese are choosing healthy relationships over toxic filial piety" [level=2]:
+        - link "Young Chinese are choosing healthy relationships over toxic filial piety":
+          - /url: /News/events/e_62a98d099726d06cd85a39fd
+      - paragraph: 1 篇报道 · 1 个发布机构 · 2026/10/15 GMT+8 09:30:08
+      - paragraph: SCMP China
+    - article:
+      - heading "Istanbul in chaos, shut down by heaviest rainfall since 1985" [level=2]:
+        - link "Istanbul in chaos, shut down by heaviest rainfall since 1985":
+          - /url: /News/events/e_9f6fcc632fb317e2407410c4
+      - paragraph: 1 篇报道 · 1 个发布机构 · 2026/10/15 GMT+8 09:29:43
+      - paragraph: Al Jazeera
+    - article:
+      - heading "Yass Valley Council residents facing possible 76pc rate rise" [level=2]:
+        - link "Yass Valley Council residents facing possible 76pc rate rise":
+          - /url: /News/events/e_2a971d61880061f282e149e5
+      - paragraph: 1 篇报道 · 1 个发布机构 · 2026/10/15 GMT+8 09:28:15
+      - paragraph: ABC Australia
+    - article:
+      - heading "Ship catches fire in Romania’s waters amid rising attacks in the Black Sea" [level=2]:
+        - link "Ship catches fire in Romania’s waters amid rising attacks in the Black Sea":
+          - /url: /News/events/e_68351de2837462b9291f8db6
+      - paragraph: 1 篇报道 · 1 个发布机构 · 2026/10/15 GMT+8 09:20:26
+      - paragraph: Al Jazeera
+    - article:
+      - heading "Conroy targets 'rot' in Defence after $15.6m bungle unmasked" [level=2]:
+        - link "Conroy targets 'rot' in Defence after $15.6m bungle unmasked":
+          - /url: /News/events/e_2f2064550deec5402f6e9681
+      - paragraph: 1 篇报道 · 1 个发布机构 · 2026/10/15 GMT+8 09:19:37
+      - paragraph: ABC Australia
+    - article:
+      - heading "North Korea test-fires submarine-launched cruise missiles amid rising tensions" [level=2]:
+        - link "North Korea test-fires submarine-launched cruise missiles amid rising tensions":
+          - /url: /News/events/e_f85f03b66e4fa90b92e2a575
+      - paragraph: 2 篇报道 · 2 个发布机构 · 2026/10/15 GMT+8 09:16:04
+      - paragraph: CNA Asia、France 24 World
+    - article:
+      - heading "Mexico Bans Violent Content on Social Media for Children" [level=2]:
+        - link "Mexico Bans Violent Content on Social Media for Children":
+          - /url: /News/events/e_79a446e008055f1d99315de3
+      - paragraph: 1 篇报道 · 1 个发布机构 · 2026/10/15 GMT+8 09:15:31
+      - paragraph: New York Times World
+    - article:
+      - heading "農相に自民 武部新氏起用の意向 簗氏の後任に 高市首相" [level=2]:
+        - link "農相に自民 武部新氏起用の意向 簗氏の後任に 高市首相":
+          - /url: /News/events/e_1fa823e95c40a8434c545bf6
+      - paragraph: 1 篇报道 · 1 个发布机构 · 2026/10/15 GMT+8 09:14:00
+      - paragraph: NHK News
+    - article:
+      - heading "Japan to invest up to $21 billion in two U.S. chip factories to be run by GlobalFoundries" [level=2]:
+        - link "Japan to invest up to $21 billion in two U.S. chip factories to be run by GlobalFoundries":
+          - /url: /News/events/e_db063cbf7bdf843f34a19507
+      - paragraph: 1 篇报道 · 1 个发布机构 · 2026/10/15 GMT+8 09:14:00
+      - paragraph: The Japan Times
+    - article:
+      - heading "凍ったゼリーで男児死亡の民間こども園に監査 奈良 香芝" [level=2]:
+        - link "凍ったゼリーで男児死亡の民間こども園に監査 奈良 香芝":
+          - /url: /News/events/e_fd451edec86aae91c799683c
+      - paragraph: 1 篇报道 · 1 个发布机构 · 2026/10/15 GMT+8 09:09:10
+      - paragraph: NHK News
+    - article:
+      - heading "RSL going bush to connect with veterans from Afghanistan" [level=2]:
+        - link "RSL going bush to connect with veterans from Afghanistan":
+          - /url: /News/events/e_f745fc85912a6c94f09f43d0
+      - paragraph: 1 篇报道 · 1 个发布机构 · 2026/10/15 GMT+8 09:04:54
+      - paragraph: ABC Australia
+    - article:
+      - heading "株価 一時2500円以上値下がり" [level=2]:
+        - link "株価 一時2500円以上値下がり":
+          - /url: /News/events/e_3cf540318fc29a04ba8ebe1e
+      - paragraph: 1 篇报道 · 1 个发布机构 · 2026/10/15 GMT+8 09:03:00
+      - paragraph: NHK News
+    - article:
+      - 'heading "Manchester City vs PSG Live: Champions League" [level=2]':
+        - 'link "Manchester City vs PSG Live: Champions League"':
+          - /url: /News/events/e_d18123ffb4b0b110dcf83c25
+      - paragraph: 1 篇报道 · 1 个发布机构 · 2026/10/15 GMT+8 09:01:00
+      - paragraph: The Japan Times
+    - article:
+      - heading "US and China race to shape AI agenda ahead of Xi-Trump talks in Shenzhen, sources say" [level=2]:
+        - link "US and China race to shape AI agenda ahead of Xi-Trump talks in Shenzhen, sources say":
+          - /url: /News/events/e_45959148b0332a1b5a57d665
+      - paragraph: 1 篇报道 · 1 个发布机构 · 2026/10/15 GMT+8 09:00:22
+      - paragraph: SCMP China
+    - article:
+      - heading "Chinese scientists use open-source data to spot suspected Israeli electronic warfare units" [level=2]:
+        - link "Chinese scientists use open-source data to spot suspected Israeli electronic warfare units":
+          - /url: /News/events/e_8a7ef538057c2b461d230382
+      - paragraph: 1 篇报道 · 1 个发布机构 · 2026/10/15 GMT+8 09:00:19
+      - paragraph: SCMP China
+    - article:
+      - heading "Saudi crown prince faces Houthi menace in one of his biggest crises" [level=2]:
+        - link "Saudi crown prince faces Houthi menace in one of his biggest crises":
+          - /url: /News/events/e_62acdc497213081369120f39
+      - paragraph: 1 篇报道 · 1 个发布机构 · 2026/10/15 GMT+8 08:52:00
+      - paragraph: The Japan Times
+    - article:
+      - 'heading "Breaking: Unemployment rate sits at post-COVID high after revision" [level=2]':
+        - 'link "Breaking: Unemployment rate sits at post-COVID high after revision"':
+          - /url: /News/events/e_7046a36b13a1fec5bc68025b
+      - paragraph: 1 篇报道 · 1 个发布机构 · 2026/10/15 GMT+8 08:50:22
+      - paragraph: ABC Australia
+    - article:
+      - heading "Wallaroos lose star but regain experience for historic 'quadruple header'" [level=2]:
+        - link "Wallaroos lose star but regain experience for historic 'quadruple header'":
+          - /url: /News/events/e_49ed81c3aef8a92c56d596ce
+      - paragraph: 1 篇报道 · 1 个发布机构 · 2026/10/15 GMT+8 08:48:27
+      - paragraph: ABC Australia
+    - article:
+      - heading "Patients struggling with rising costs and long waits for healthcare refunds" [level=2]:
+        - link "Patients struggling with rising costs and long waits for healthcare refunds":
+          - /url: /News/events/e_9e925345d06811007eb79a26
+      - paragraph: 1 篇报道 · 1 个发布机构 · 2026/10/15 GMT+8 08:47:34
+      - paragraph: ABC Australia
+    - article:
+      - heading "Brisbane City Council floats trialling licensed bars on CityCats" [level=2]:
+        - link "Brisbane City Council floats trialling licensed bars on CityCats":
+          - /url: /News/events/e_4ceb208e14d134afe615134f
+      - paragraph: 1 篇报道 · 1 个发布机构 · 2026/10/15 GMT+8 08:40:10
+      - paragraph: ABC Australia
+    - button "加载更多事件"
+- contentinfo:
+  - text: 全球新闻 / Global News
+  - generic: V0.9.0-alpha.1
+  - generic: 新闻内容及图片版权归原发布媒体所有。

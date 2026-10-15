@@ -1,0 +1,63 @@
+- status:
+  - generic: 更新延迟 | 快照更新：2026/10/15 GMT+8 09:52:40 | 可用来源：32/38 | 计划约每 30 分钟更新，非实时，可能延迟。
+  - button "刷新快照"
+- link "跳转到新闻":
+  - /url: "#main-content"
+- banner:
+  - navigation "主导航":
+    - link "全球新闻":
+      - /url: /News/
+      - generic: G
+      - text: 全球新闻
+    - generic: 从原始来源，了解世界
+    - link "关于":
+      - /url: /News/about
+- main:
+  - region "事件报道":
+    - link "返回新闻":
+      - /url: /News/
+    - heading "事件报道" [level=1]
+    - paragraph: 事件聚合预览：依据同语种标题相似度和发布时间保守归组，可能漏合并或误合并。不同语种暂分开呈现；报道数量不代表事实可信度。
+    - paragraph: 快照时间：2026/10/15 GMT+8 09:52:40
+    - paragraph: AI 评估出口已采用：240 对中 238 对可计分，样本精确率 100%、召回率 50%。仅 15 对预测为同一事件；样本已用于调参，不是独立人工金标，也不代表全部新闻的准确率。
+    - generic "热度怎么算？"
+    - status: 数据时间异常或已超过 2 小时，暂停规则推荐；热度仍是快照时点的历史值。
+    - link "返回事件列表":
+      - /url: /News/events
+    - heading "North Korea test-fires submarine-launched cruise missiles amid rising tensions" [level=2]
+    - paragraph: 2 篇报道 · 2 个发布机构。同机构不同订阅源只计一次；不同机构转载同稿的独立性尚未确认。
+    - paragraph: 最早原文：2026/10/15 GMT+8 07:12:08 · 最近原文：2026/10/15 GMT+8 09:16:04
+    - paragraph: 快照热度：48 / 100。增长 10 · 机构多样性 20 · 新鲜度 18
+    - heading "报道时间线" [level=2]
+    - article:
+      - time: 6 小时前
+      - generic: France 24 World
+      - generic: 国际 / 国际
+      - heading "North Korea test-fires submarine-launched cruise missiles amid rising tensions" [level=2]:
+        - link "North Korea test-fires submarine-launched cruise missiles amid rising tensions":
+          - /url: https://www.france24.com/en/asia-pacific/20261014-north-korea-test-fires-submarine-launched-cruise-missiles
+      - paragraph: North Korea test-fired two types of submarine-launched strategic cruise missiles on Wednesday, state media KCNA reported Thursday, saying the launches posed no threat to neighbouring countries. The tests follow heightened tensions with South Korea after a September 21 landmine ex
+      - link "阅读原文：North Korea test-fires submarine-launched cruise missiles amid rising tensions":
+        - /url: https://www.france24.com/en/asia-pacific/20261014-north-korea-test-fires-submarine-launched-cruise-missiles
+        - text: 阅读原文 ↗
+      - generic "阅读操作":
+        - button "收藏：North Korea test-fires submarine-launched cruise missiles amid rising tensions": 收藏
+        - button "标为已读：North Korea test-fires submarine-launched cruise missiles amid rising tensions": 标为已读
+    - article:
+      - time: 4 小时前
+      - generic: CNA Asia
+      - generic: 国际 / 亚洲
+      - heading "North Korea test-fires two types of submarine-launched strategic cruise missiles" [level=2]:
+        - link "North Korea test-fires two types of submarine-launched strategic cruise missiles":
+          - /url: https://www.channelnewsasia.com/east-asia/north-korea-tests-submarine-launched-strategic-cruise-missiles-6460706
+      - paragraph: Photos released by KCNA showed one missile blasting vertically out of the sea, trailed by a thick plume of smoke. Another photo appeared to show a projectile erupting from the water at a 45-degree angle.
+      - link "阅读原文：North Korea test-fires two types of submarine-launched strategic cruise missiles":
+        - /url: https://www.channelnewsasia.com/east-asia/north-korea-tests-submarine-launched-strategic-cruise-missiles-6460706
+        - text: 阅读原文 ↗
+      - generic "阅读操作":
+        - button "收藏：North Korea test-fires two types of submarine-launched strategic cruise missiles": 收藏
+        - button "标为已读：North Korea test-fires two types of submarine-launched strategic cruise missiles": 标为已读
+- contentinfo:
+  - text: 全球新闻 / Global News
+  - generic: V0.9.0-alpha.1
+  - generic: 新闻内容及图片版权归原发布媒体所有。

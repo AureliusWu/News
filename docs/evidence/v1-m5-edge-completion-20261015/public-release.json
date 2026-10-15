@@ -1,0 +1,36 @@
+{
+  "observed_at": "2026-10-15T06:47:45.326Z",
+  "url": "https://aureliuswu.github.io/News/release.json",
+  "status": 200,
+  "content_type": "application/json; charset=utf-8",
+  "request_ms": 929,
+  "release": {
+    "schema_version": 1,
+    "version": "0.9.0-alpha.1",
+    "stage": "M5-candidate",
+    "formal_release": false,
+    "source_revision": "3032b0fbdea9203c9a83c72269cb5b7882e61358",
+    "built_at": "2026-10-13T15:38:52.789Z",
+    "data_schema_version": 1,
+    "ai_content_generation": {
+      "schema_version": 1,
+      "scope": "content-generation",
+      "enabled": false,
+      "translation_enabled": false,
+      "summary_enabled": false,
+      "disabled_reason": "no-verified-free-quota",
+      "max_cost_usd": 0,
+      "max_requests_per_day": 0,
+      "max_cache_entries": 0,
+      "source_citations_required": true,
+      "original_switch_required": true,
+      "external_content_is_untrusted": true
+    },
+    "app_bundle_sha256": "28329501e09ffac94c633511aafa7a7e06045bb3c8d906d8432bbb8a0d65f08b",
+    "base_path": "/News/",
+    "event_method_version": "lexical-complete-link-v1",
+    "event_matcher_version": "title-summary-v4",
+    "event_alias_schema_version": 1,
+    "asset_count": 19
+  }
+}
