@@ -1,0 +1,584 @@
+{
+  "recorded_at": "2026-10-16T03:33:37.088Z",
+  "site": "https://aureliuswu.github.io/News/",
+  "source_revision": "31cf95d6ae471bb961eb5b85a334ec78f4cce260",
+  "release": {
+    "version": "1.0.0",
+    "formal_release": true,
+    "release_status": "RELEASED_WITH_WARNINGS",
+    "waivers": [
+      {
+        "id": "seven-day-freshness-and-scheduling",
+        "disposition": "WAIVED_FOR_THIS_RELEASE",
+        "observed_status": "FAIL",
+        "limitation": "Last complete calculation: 16/336 passing slots (4.76%), below 95%. Reliable half-hour publication and independent observation coverage remain unresolved; updates may be delayed.",
+        "evidence": [
+          "docs/V1_M5_STARTUP_WARMUP_20261015.md",
+          "docs/V1_M5_CI_BROWSER_20261015.md"
+        ]
+      },
+      {
+        "id": "production-first-screen-and-interaction-performance",
+        "disposition": "WAIVED_FOR_THIS_RELEASE",
+        "observed_status": "NOT_PASSED",
+        "limitation": "Public mobile simulated LCP worst sample was 3267.856 ms against the unchanged 3000 ms budget. Real interaction latency remains unmeasured. Loopback diagnostics do not replace public performance evidence.",
+        "evidence": [
+          "docs/V1_M5_STARTUP_WARMUP_20261015.md",
+          "docs/V1_M5_PERFORMANCE_RETEST_20261015.md"
+        ]
+      },
+      {
+        "id": "physical-phone-acceptance",
+        "disposition": "WAIVED_FOR_THIS_RELEASE",
+        "observed_status": "NOT_RUN",
+        "limitation": "No unambiguous physical-device model, browser and operation receipt. Desktop 390px checks are not physical-phone acceptance.",
+        "evidence": [
+          "docs/V1_M5_CI_BROWSER_20261015.md",
+          "docs/V1_M5_DESKTOP_BROWSER_20261015.md"
+        ]
+      },
+      {
+        "id": "complete-legacy-client-upgrade-matrix",
+        "disposition": "WAIVED_FOR_THIS_RELEASE",
+        "observed_status": "PARTIAL",
+        "limitation": "A real automated older-candidate transition covers only its exact browser and version pair; the full historical-version, installed-PWA and cross-browser offline matrix is not established.",
+        "evidence": [
+          "docs/V1_M5_CI_BROWSER_PLAN_20261015.md",
+          "docs/V1.0_ACCEPTANCE.md"
+        ]
+      },
+      {
+        "id": "windows-full-start-stop-fault-injection",
+        "disposition": "WAIVED_FOR_THIS_RELEASE",
+        "observed_status": "NOT_RUN",
+        "limitation": "The earlier Windows host-level full start/stop and fault-injection command was blocked by execution policy. Isolated Linux CI tests do not close that Windows acceptance scope.",
+        "evidence": [
+          "docs/V1_M5_STARTUP_WARMUP_20261015.md",
+          "docs/V1.0_ACCEPTANCE.md"
+        ]
+      }
+    ]
+  },
+  "mode": "GitHub Pages snapshot; no hosted native backend API is required or claimed",
+  "snapshot": {
+    "id": "13368837cfe17c5157ec08aa",
+    "generated_at": "2026-10-16T03:20:27.113767Z",
+    "article_count": 785,
+    "health": {
+      "configured": 38,
+      "healthy": 32,
+      "failed": 6,
+      "publishers": 22,
+      "regions": [
+        "africa",
+        "asia",
+        "china",
+        "europe",
+        "japan",
+        "middle-east",
+        "oceania",
+        "us",
+        "world"
+      ],
+      "languages": [
+        "en",
+        "fr",
+        "ja",
+        "zh"
+      ],
+      "article_count": 785,
+      "latest_publication": "2026-10-16T03:11:55Z",
+      "gate_pass": true
+    },
+    "age_hours": 0.21943722222222223,
+    "freshness_2h_pass": true
+  },
+  "checks": {
+    "html_200": true,
+    "html_chinese": true,
+    "html_matches_tested_artifact": true,
+    "release_200": true,
+    "version_matches": true,
+    "source_matches": true,
+    "explicit_waivers_exposed": true,
+    "news_json": true,
+    "source_health_bound": true,
+    "collector_gate_pass": true,
+    "immutable_health_bound": true,
+    "events_bound": true,
+    "static_assets_match": true,
+    "expected_missing_rejected": true
+  },
+  "assets": [
+    {
+      "url": "https://aureliuswu.github.io/News/sw.js",
+      "status": 200,
+      "content_type": "application/javascript; charset=utf-8",
+      "elapsed_ms": 331,
+      "bytes": 2497,
+      "sha256": "64ef7767c79d31067de99a617b519a8b24a0005ea9cd73684a50b4ebb581bc83",
+      "tested_sha256": "64ef7767c79d31067de99a617b519a8b24a0005ea9cd73684a50b4ebb581bc83",
+      "matches_tested_artifact": true
+    },
+    {
+      "url": "https://aureliuswu.github.io/News/registerSW.js",
+      "status": 200,
+      "content_type": "application/javascript; charset=utf-8",
+      "elapsed_ms": 337,
+      "bytes": 144,
+      "sha256": "210066bb21533cffe41b4bbc6243bcf34aacf80dc61ac80e8be69bbfc6c6c91d",
+      "tested_sha256": "210066bb21533cffe41b4bbc6243bcf34aacf80dc61ac80e8be69bbfc6c6c91d",
+      "matches_tested_artifact": true
+    },
+    {
+      "url": "https://aureliuswu.github.io/News/placeholder.html",
+      "status": 200,
+      "content_type": "text/html; charset=utf-8",
+      "elapsed_ms": 318,
+      "bytes": 70,
+      "sha256": "5df00d2ec638ba2e3140022f2c5cbe97fb57212a3b90b8b76fb82a7307cb37b8",
+      "tested_sha256": "5df00d2ec638ba2e3140022f2c5cbe97fb57212a3b90b8b76fb82a7307cb37b8",
+      "matches_tested_artifact": true
+    },
+    {
+      "url": "https://aureliuswu.github.io/News/index.html",
+      "status": 200,
+      "content_type": "text/html; charset=utf-8",
+      "elapsed_ms": 313,
+      "bytes": 686,
+      "sha256": "2ae6ff3221f99206ccccb21b331b42a7be948472d3f72640b75fdf98a0b27616",
+      "tested_sha256": "2ae6ff3221f99206ccccb21b331b42a7be948472d3f72640b75fdf98a0b27616",
+      "matches_tested_artifact": true
+    },
+    {
+      "url": "https://aureliuswu.github.io/News/assets/main-efOZvREm.js",
+      "status": 200,
+      "content_type": "application/javascript; charset=utf-8",
+      "elapsed_ms": 339,
+      "bytes": 114151,
+      "sha256": "1bda2ce4bbb4aba233fb5e29da70d03bebb0ee6d1411ca286437e92766de293a",
+      "tested_sha256": "1bda2ce4bbb4aba233fb5e29da70d03bebb0ee6d1411ca286437e92766de293a",
+      "matches_tested_artifact": true
+    },
+    {
+      "url": "https://aureliuswu.github.io/News/assets/main-CHtS8VTz.css",
+      "status": 200,
+      "content_type": "text/css; charset=utf-8",
+      "elapsed_ms": 340,
+      "bytes": 30447,
+      "sha256": "456b7dcc08ac0ff4dc629fd67542f974237bd4c4aef6548e633d713037da6b9a",
+      "tested_sha256": "456b7dcc08ac0ff4dc629fd67542f974237bd4c4aef6548e633d713037da6b9a",
+      "matches_tested_artifact": true
+    },
+    {
+      "url": "https://aureliuswu.github.io/News/assets/index-CDEoXoMp.js",
+      "status": 200,
+      "content_type": "application/javascript; charset=utf-8",
+      "elapsed_ms": 358,
+      "bytes": 15140,
+      "sha256": "f4dbb70b09cdcda10524ad00f217bb0868579969991cac1da06279bad7610aee",
+      "tested_sha256": "f4dbb70b09cdcda10524ad00f217bb0868579969991cac1da06279bad7610aee",
+      "matches_tested_artifact": true
+    },
+    {
+      "url": "https://aureliuswu.github.io/News/assets/index-B4ExFm1u.css",
+      "status": 200,
+      "content_type": "text/css; charset=utf-8",
+      "elapsed_ms": 323,
+      "bytes": 599,
+      "sha256": "d084ce090348423d820235761427d1a67cdd7744aa464a726be8e1232a81df9c",
+      "tested_sha256": "d084ce090348423d820235761427d1a67cdd7744aa464a726be8e1232a81df9c",
+      "matches_tested_artifact": true
+    },
+    {
+      "url": "https://aureliuswu.github.io/News/assets/SourcesView-BgH4mXyB.js",
+      "status": 200,
+      "content_type": "application/javascript; charset=utf-8",
+      "elapsed_ms": 329,
+      "bytes": 4723,
+      "sha256": "e1588fb4b8d3fb57d87ba272f361203a9bb2e76151c18c4b104663d85cba81d8",
+      "tested_sha256": "e1588fb4b8d3fb57d87ba272f361203a9bb2e76151c18c4b104663d85cba81d8",
+      "matches_tested_artifact": true
+    },
+    {
+      "url": "https://aureliuswu.github.io/News/assets/LibraryView-BndMs2bm.js",
+      "status": 200,
+      "content_type": "application/javascript; charset=utf-8",
+      "elapsed_ms": 313,
+      "bytes": 4122,
+      "sha256": "f55fc0afae393909a8f9288921cee8fa0b89ea316a5e6435db71d11d9c168a64",
+      "tested_sha256": "f55fc0afae393909a8f9288921cee8fa0b89ea316a5e6435db71d11d9c168a64",
+      "matches_tested_artifact": true
+    },
+    {
+      "url": "https://aureliuswu.github.io/News/assets/EventsView-mRSJhYw0.js",
+      "status": 200,
+      "content_type": "application/javascript; charset=utf-8",
+      "elapsed_ms": 314,
+      "bytes": 15396,
+      "sha256": "638e2679fefdf41cfc28074ac4d54b3a512a9866cf7b684665315ed283f245d0",
+      "tested_sha256": "638e2679fefdf41cfc28074ac4d54b3a512a9866cf7b684665315ed283f245d0",
+      "matches_tested_artifact": true
+    },
+    {
+      "url": "https://aureliuswu.github.io/News/assets/EventsView-83jjtbIs.css",
+      "status": 200,
+      "content_type": "text/css; charset=utf-8",
+      "elapsed_ms": 313,
+      "bytes": 580,
+      "sha256": "2a2f2cd35810ed2b587ba291f7f50f629ce6c70953c3dbc292eea60295f801a4",
+      "tested_sha256": "2a2f2cd35810ed2b587ba291f7f50f629ce6c70953c3dbc292eea60295f801a4",
+      "matches_tested_artifact": true
+    },
+    {
+      "url": "https://aureliuswu.github.io/News/favicon.svg",
+      "status": 200,
+      "content_type": "image/svg+xml",
+      "elapsed_ms": 314,
+      "bytes": 217,
+      "sha256": "69b473db79a2035e1ba5c92e88aaa05a360233f1d6f2b6b804a2181b1d3bd67e",
+      "tested_sha256": "69b473db79a2035e1ba5c92e88aaa05a360233f1d6f2b6b804a2181b1d3bd67e",
+      "matches_tested_artifact": true
+    },
+    {
+      "url": "https://aureliuswu.github.io/News/robots.txt",
+      "status": 200,
+      "content_type": "text/plain; charset=utf-8",
+      "elapsed_ms": 345,
+      "bytes": 24,
+      "sha256": "e5c4b84484ee4216e9373be99380320c25dd94805f99f0a805846f087636553f",
+      "tested_sha256": "e5c4b84484ee4216e9373be99380320c25dd94805f99f0a805846f087636553f",
+      "matches_tested_artifact": true
+    },
+    {
+      "url": "https://aureliuswu.github.io/News/icons/icon-192.png",
+      "status": 200,
+      "content_type": "image/png",
+      "elapsed_ms": 313,
+      "bytes": 127,
+      "sha256": "14f075ad3cbbc0c2452df2013ccecbd4c1cdd6875dfed4d06f18b36c201a04c2",
+      "tested_sha256": "14f075ad3cbbc0c2452df2013ccecbd4c1cdd6875dfed4d06f18b36c201a04c2",
+      "matches_tested_artifact": true
+    },
+    {
+      "url": "https://aureliuswu.github.io/News/icons/icon-512.png",
+      "status": 200,
+      "content_type": "image/png",
+      "elapsed_ms": 317,
+      "bytes": 127,
+      "sha256": "14f075ad3cbbc0c2452df2013ccecbd4c1cdd6875dfed4d06f18b36c201a04c2",
+      "tested_sha256": "14f075ad3cbbc0c2452df2013ccecbd4c1cdd6875dfed4d06f18b36c201a04c2",
+      "matches_tested_artifact": true
+    },
+    {
+      "url": "https://aureliuswu.github.io/News/manifest.webmanifest",
+      "status": 200,
+      "content_type": "application/manifest+json; charset=utf-8",
+      "elapsed_ms": 312,
+      "bytes": 471,
+      "sha256": "1f9e4a8a9ed38aa89af9fa3ad922ce4665c7f37e846891f168a5cfa2dd5bc925",
+      "tested_sha256": "1f9e4a8a9ed38aa89af9fa3ad922ce4665c7f37e846891f168a5cfa2dd5bc925",
+      "matches_tested_artifact": true
+    },
+    {
+      "url": "https://aureliuswu.github.io/News/favicon.svg",
+      "status": 200,
+      "content_type": "image/svg+xml",
+      "elapsed_ms": 83,
+      "bytes": 217,
+      "sha256": "69b473db79a2035e1ba5c92e88aaa05a360233f1d6f2b6b804a2181b1d3bd67e",
+      "tested_sha256": "69b473db79a2035e1ba5c92e88aaa05a360233f1d6f2b6b804a2181b1d3bd67e",
+      "matches_tested_artifact": true
+    },
+    {
+      "url": "https://aureliuswu.github.io/News/manifest.webmanifest",
+      "status": 200,
+      "content_type": "application/manifest+json; charset=utf-8",
+      "elapsed_ms": 94,
+      "bytes": 471,
+      "sha256": "1f9e4a8a9ed38aa89af9fa3ad922ce4665c7f37e846891f168a5cfa2dd5bc925",
+      "tested_sha256": "1f9e4a8a9ed38aa89af9fa3ad922ce4665c7f37e846891f168a5cfa2dd5bc925",
+      "matches_tested_artifact": true
+    },
+    {
+      "url": "https://aureliuswu.github.io/News/assets/index-CDEoXoMp.js",
+      "status": 200,
+      "content_type": "application/javascript; charset=utf-8",
+      "elapsed_ms": 87,
+      "bytes": 15140,
+      "sha256": "f4dbb70b09cdcda10524ad00f217bb0868579969991cac1da06279bad7610aee",
+      "tested_sha256": "f4dbb70b09cdcda10524ad00f217bb0868579969991cac1da06279bad7610aee",
+      "matches_tested_artifact": true
+    },
+    {
+      "url": "https://aureliuswu.github.io/News/assets/index-B4ExFm1u.css",
+      "status": 200,
+      "content_type": "text/css; charset=utf-8",
+      "elapsed_ms": 84,
+      "bytes": 599,
+      "sha256": "d084ce090348423d820235761427d1a67cdd7744aa464a726be8e1232a81df9c",
+      "tested_sha256": "d084ce090348423d820235761427d1a67cdd7744aa464a726be8e1232a81df9c",
+      "matches_tested_artifact": true
+    },
+    {
+      "url": "https://aureliuswu.github.io/News/registerSW.js",
+      "status": 200,
+      "content_type": "application/javascript; charset=utf-8",
+      "elapsed_ms": 83,
+      "bytes": 144,
+      "sha256": "210066bb21533cffe41b4bbc6243bcf34aacf80dc61ac80e8be69bbfc6c6c91d",
+      "tested_sha256": "210066bb21533cffe41b4bbc6243bcf34aacf80dc61ac80e8be69bbfc6c6c91d",
+      "matches_tested_artifact": true
+    }
+  ],
+  "deep_link": {
+    "url": "https://aureliuswu.github.io/News/events/e_49f80c7c9078c0c789d20d64",
+    "http_status": 404,
+    "serves_tested_spa_shell": true,
+    "limitation": "GitHub Pages may return HTTP 404 with the SPA shell for a direct deep link. The live browser rendered the requested event and original link."
+  },
+  "requests": [
+    {
+      "url": "https://aureliuswu.github.io/News/",
+      "status": 200,
+      "content_type": "text/html; charset=utf-8",
+      "elapsed_ms": 1118,
+      "bytes": 686,
+      "sha256": "2ae6ff3221f99206ccccb21b331b42a7be948472d3f72640b75fdf98a0b27616"
+    },
+    {
+      "url": "https://aureliuswu.github.io/News/release.json",
+      "status": 200,
+      "content_type": "application/json; charset=utf-8",
+      "elapsed_ms": 369,
+      "bytes": 3688,
+      "sha256": "8e11ebdbe527b6b36b11510cfed4f4035d3bf5c5393bf7c67b61bd237392673d"
+    },
+    {
+      "url": "https://aureliuswu.github.io/News/data/news.json",
+      "status": 200,
+      "content_type": "application/json; charset=utf-8",
+      "elapsed_ms": 549,
+      "bytes": 799393,
+      "sha256": "dc7489637abab1dcb554251c91b72cd6b15b7b6336306aeba1001ebf166f54ef"
+    },
+    {
+      "url": "https://aureliuswu.github.io/News/data/source-health.json",
+      "status": 200,
+      "content_type": "application/json; charset=utf-8",
+      "elapsed_ms": 324,
+      "bytes": 14577,
+      "sha256": "0e2611a2555bfdb158c1114bd5c90244d6c74ede3cb7c83ddf49e6b9be6c5262"
+    },
+    {
+      "url": "https://aureliuswu.github.io/News/data/events.13368837cfe17c5157ec08aa.json",
+      "status": 200,
+      "content_type": "application/json; charset=utf-8",
+      "elapsed_ms": 352,
+      "bytes": 298401,
+      "sha256": "d4e11900795b79e98b088f135b6dd7985f420da7cc4343c98111eb4f1e008dc2"
+    },
+    {
+      "url": "https://aureliuswu.github.io/News/data/source-health.13368837cfe17c5157ec08aa.json",
+      "status": 200,
+      "content_type": "application/json; charset=utf-8",
+      "elapsed_ms": 345,
+      "bytes": 10621,
+      "sha256": "28ba4c7a5087821eed01326ccecbf73747db9ad1ba4f64ce6116bb22867f043f"
+    },
+    {
+      "url": "https://aureliuswu.github.io/News/sw.js",
+      "status": 200,
+      "content_type": "application/javascript; charset=utf-8",
+      "elapsed_ms": 331,
+      "bytes": 2497,
+      "sha256": "64ef7767c79d31067de99a617b519a8b24a0005ea9cd73684a50b4ebb581bc83"
+    },
+    {
+      "url": "https://aureliuswu.github.io/News/registerSW.js",
+      "status": 200,
+      "content_type": "application/javascript; charset=utf-8",
+      "elapsed_ms": 337,
+      "bytes": 144,
+      "sha256": "210066bb21533cffe41b4bbc6243bcf34aacf80dc61ac80e8be69bbfc6c6c91d"
+    },
+    {
+      "url": "https://aureliuswu.github.io/News/placeholder.html",
+      "status": 200,
+      "content_type": "text/html; charset=utf-8",
+      "elapsed_ms": 318,
+      "bytes": 70,
+      "sha256": "5df00d2ec638ba2e3140022f2c5cbe97fb57212a3b90b8b76fb82a7307cb37b8"
+    },
+    {
+      "url": "https://aureliuswu.github.io/News/index.html",
+      "status": 200,
+      "content_type": "text/html; charset=utf-8",
+      "elapsed_ms": 313,
+      "bytes": 686,
+      "sha256": "2ae6ff3221f99206ccccb21b331b42a7be948472d3f72640b75fdf98a0b27616"
+    },
+    {
+      "url": "https://aureliuswu.github.io/News/assets/main-efOZvREm.js",
+      "status": 200,
+      "content_type": "application/javascript; charset=utf-8",
+      "elapsed_ms": 339,
+      "bytes": 114151,
+      "sha256": "1bda2ce4bbb4aba233fb5e29da70d03bebb0ee6d1411ca286437e92766de293a"
+    },
+    {
+      "url": "https://aureliuswu.github.io/News/assets/main-CHtS8VTz.css",
+      "status": 200,
+      "content_type": "text/css; charset=utf-8",
+      "elapsed_ms": 340,
+      "bytes": 30447,
+      "sha256": "456b7dcc08ac0ff4dc629fd67542f974237bd4c4aef6548e633d713037da6b9a"
+    },
+    {
+      "url": "https://aureliuswu.github.io/News/assets/index-CDEoXoMp.js",
+      "status": 200,
+      "content_type": "application/javascript; charset=utf-8",
+      "elapsed_ms": 358,
+      "bytes": 15140,
+      "sha256": "f4dbb70b09cdcda10524ad00f217bb0868579969991cac1da06279bad7610aee"
+    },
+    {
+      "url": "https://aureliuswu.github.io/News/assets/index-B4ExFm1u.css",
+      "status": 200,
+      "content_type": "text/css; charset=utf-8",
+      "elapsed_ms": 323,
+      "bytes": 599,
+      "sha256": "d084ce090348423d820235761427d1a67cdd7744aa464a726be8e1232a81df9c"
+    },
+    {
+      "url": "https://aureliuswu.github.io/News/assets/SourcesView-BgH4mXyB.js",
+      "status": 200,
+      "content_type": "application/javascript; charset=utf-8",
+      "elapsed_ms": 329,
+      "bytes": 4723,
+      "sha256": "e1588fb4b8d3fb57d87ba272f361203a9bb2e76151c18c4b104663d85cba81d8"
+    },
+    {
+      "url": "https://aureliuswu.github.io/News/assets/LibraryView-BndMs2bm.js",
+      "status": 200,
+      "content_type": "application/javascript; charset=utf-8",
+      "elapsed_ms": 313,
+      "bytes": 4122,
+      "sha256": "f55fc0afae393909a8f9288921cee8fa0b89ea316a5e6435db71d11d9c168a64"
+    },
+    {
+      "url": "https://aureliuswu.github.io/News/assets/EventsView-mRSJhYw0.js",
+      "status": 200,
+      "content_type": "application/javascript; charset=utf-8",
+      "elapsed_ms": 314,
+      "bytes": 15396,
+      "sha256": "638e2679fefdf41cfc28074ac4d54b3a512a9866cf7b684665315ed283f245d0"
+    },
+    {
+      "url": "https://aureliuswu.github.io/News/assets/EventsView-83jjtbIs.css",
+      "status": 200,
+      "content_type": "text/css; charset=utf-8",
+      "elapsed_ms": 313,
+      "bytes": 580,
+      "sha256": "2a2f2cd35810ed2b587ba291f7f50f629ce6c70953c3dbc292eea60295f801a4"
+    },
+    {
+      "url": "https://aureliuswu.github.io/News/favicon.svg",
+      "status": 200,
+      "content_type": "image/svg+xml",
+      "elapsed_ms": 314,
+      "bytes": 217,
+      "sha256": "69b473db79a2035e1ba5c92e88aaa05a360233f1d6f2b6b804a2181b1d3bd67e"
+    },
+    {
+      "url": "https://aureliuswu.github.io/News/robots.txt",
+      "status": 200,
+      "content_type": "text/plain; charset=utf-8",
+      "elapsed_ms": 345,
+      "bytes": 24,
+      "sha256": "e5c4b84484ee4216e9373be99380320c25dd94805f99f0a805846f087636553f"
+    },
+    {
+      "url": "https://aureliuswu.github.io/News/icons/icon-192.png",
+      "status": 200,
+      "content_type": "image/png",
+      "elapsed_ms": 313,
+      "bytes": 127,
+      "sha256": "14f075ad3cbbc0c2452df2013ccecbd4c1cdd6875dfed4d06f18b36c201a04c2"
+    },
+    {
+      "url": "https://aureliuswu.github.io/News/icons/icon-512.png",
+      "status": 200,
+      "content_type": "image/png",
+      "elapsed_ms": 317,
+      "bytes": 127,
+      "sha256": "14f075ad3cbbc0c2452df2013ccecbd4c1cdd6875dfed4d06f18b36c201a04c2"
+    },
+    {
+      "url": "https://aureliuswu.github.io/News/manifest.webmanifest",
+      "status": 200,
+      "content_type": "application/manifest+json; charset=utf-8",
+      "elapsed_ms": 312,
+      "bytes": 471,
+      "sha256": "1f9e4a8a9ed38aa89af9fa3ad922ce4665c7f37e846891f168a5cfa2dd5bc925"
+    },
+    {
+      "url": "https://aureliuswu.github.io/News/favicon.svg",
+      "status": 200,
+      "content_type": "image/svg+xml",
+      "elapsed_ms": 83,
+      "bytes": 217,
+      "sha256": "69b473db79a2035e1ba5c92e88aaa05a360233f1d6f2b6b804a2181b1d3bd67e"
+    },
+    {
+      "url": "https://aureliuswu.github.io/News/manifest.webmanifest",
+      "status": 200,
+      "content_type": "application/manifest+json; charset=utf-8",
+      "elapsed_ms": 94,
+      "bytes": 471,
+      "sha256": "1f9e4a8a9ed38aa89af9fa3ad922ce4665c7f37e846891f168a5cfa2dd5bc925"
+    },
+    {
+      "url": "https://aureliuswu.github.io/News/assets/index-CDEoXoMp.js",
+      "status": 200,
+      "content_type": "application/javascript; charset=utf-8",
+      "elapsed_ms": 87,
+      "bytes": 15140,
+      "sha256": "f4dbb70b09cdcda10524ad00f217bb0868579969991cac1da06279bad7610aee"
+    },
+    {
+      "url": "https://aureliuswu.github.io/News/assets/index-B4ExFm1u.css",
+      "status": 200,
+      "content_type": "text/css; charset=utf-8",
+      "elapsed_ms": 84,
+      "bytes": 599,
+      "sha256": "d084ce090348423d820235761427d1a67cdd7744aa464a726be8e1232a81df9c"
+    },
+    {
+      "url": "https://aureliuswu.github.io/News/registerSW.js",
+      "status": 200,
+      "content_type": "application/javascript; charset=utf-8",
+      "elapsed_ms": 83,
+      "bytes": 144,
+      "sha256": "210066bb21533cffe41b4bbc6243bcf34aacf80dc61ac80e8be69bbfc6c6c91d"
+    },
+    {
+      "url": "https://aureliuswu.github.io/News/events/e_49f80c7c9078c0c789d20d64",
+      "status": 404,
+      "content_type": "text/html; charset=utf-8",
+      "elapsed_ms": 1027,
+      "bytes": 686,
+      "sha256": "2ae6ff3221f99206ccccb21b331b42a7be948472d3f72640b75fdf98a0b27616"
+    },
+    {
+      "url": "https://aureliuswu.github.io/News/data/__verification_missing__.json",
+      "status": 404,
+      "content_type": "text/html; charset=utf-8",
+      "elapsed_ms": 320,
+      "bytes": 686,
+      "sha256": "2ae6ff3221f99206ccccb21b331b42a7be948472d3f72640b75fdf98a0b27616"
+    }
+  ],
+  "verdict": "PASS_WITH_WARNINGS",
+  "scope": "Actual public HTTP and byte equality with the tested CI frontend. Browser interaction evidence is recorded separately; this is not physical-phone or seven-day acceptance."
+}

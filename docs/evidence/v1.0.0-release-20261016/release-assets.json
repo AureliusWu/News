@@ -1,0 +1,50 @@
+[
+  {
+    "name": "v1.0.0-verification-evidence.zip",
+    "id": 646028830,
+    "bytes": 5979476,
+    "sha256": "7122f5b03cc7716897312e22b10bbeb460cdcfd55fbf6c05a09b2436db536da6",
+    "github_digest": "sha256:7122f5b03cc7716897312e22b10bbeb460cdcfd55fbf6c05a09b2436db536da6",
+    "url": "https://github.com/AureliusWu/News/releases/download/v1.0.0/v1.0.0-verification-evidence.zip"
+  },
+  {
+    "name": "v1.0.0-prerelease-browser-failure-evidence.zip",
+    "id": 646028898,
+    "bytes": 4569892,
+    "sha256": "66bde02a73d8b46b344f482af2ad1074b6a6c6986697e9b31c635faf5fef956f",
+    "github_digest": "sha256:66bde02a73d8b46b344f482af2ad1074b6a6c6986697e9b31c635faf5fef956f",
+    "url": "https://github.com/AureliusWu/News/releases/download/v1.0.0/v1.0.0-prerelease-browser-failure-evidence.zip"
+  },
+  {
+    "name": "pre-v1.0.0-rollback-pages-38702292514.zip",
+    "id": 646028920,
+    "bytes": 2084216,
+    "sha256": "d8137b04c25a39dce22ae7bb67d33e97d9fe4d8c66d51a2e116eb75203c0360d",
+    "github_digest": "sha256:d8137b04c25a39dce22ae7bb67d33e97d9fe4d8c66d51a2e116eb75203c0360d",
+    "url": "https://github.com/AureliusWu/News/releases/download/v1.0.0/pre-v1.0.0-rollback-pages-38702292514.zip"
+  },
+  {
+    "name": "v1.0.0-published-pages-38844955158.zip",
+    "id": 646028975,
+    "bytes": 2059224,
+    "sha256": "5c0b94fdd4704e44880c2d314e2c36f968183415272d34117b455ef08ac6d839",
+    "github_digest": "sha256:5c0b94fdd4704e44880c2d314e2c36f968183415272d34117b455ef08ac6d839",
+    "url": "https://github.com/AureliusWu/News/releases/download/v1.0.0/v1.0.0-published-pages-38844955158.zip"
+  },
+  {
+    "name": "v1.0.0-public-smoke.json",
+    "id": 646029015,
+    "bytes": 22399,
+    "sha256": "40f503b628e7b69478119a9c3bd8c42cad2c5cc88d5020e21e37fd5758959be0",
+    "github_digest": "sha256:40f503b628e7b69478119a9c3bd8c42cad2c5cc88d5020e21e37fd5758959be0",
+    "url": "https://github.com/AureliusWu/News/releases/download/v1.0.0/v1.0.0-public-smoke.json"
+  },
+  {
+    "name": "v1.0.0-release-acceptance.json",
+    "id": 646029049,
+    "bytes": 2732,
+    "sha256": "76a4d1d680bba77507d03b7ad00828c85678ee9db20a95dafcd4a8b49b7fab66",
+    "github_digest": "sha256:76a4d1d680bba77507d03b7ad00828c85678ee9db20a95dafcd4a8b49b7fab66",
+    "url": "https://github.com/AureliusWu/News/releases/download/v1.0.0/v1.0.0-release-acceptance.json"
+  }
+]

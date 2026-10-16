@@ -1,0 +1,88 @@
+{
+  "schema_version": 1,
+  "version": "1.0.0",
+  "stage": "V1.0.0-with-waivers",
+  "formal_release": true,
+  "release_status": "RELEASED_WITH_WARNINGS",
+  "acceptance": {
+    "mode": "owner-approved-release-with-warnings",
+    "accepted_by": "repository-owner",
+    "accepted_on": "2026-10-15",
+    "waivers": [
+      {
+        "id": "seven-day-freshness-and-scheduling",
+        "disposition": "WAIVED_FOR_THIS_RELEASE",
+        "observed_status": "FAIL",
+        "limitation": "Last complete calculation: 16/336 passing slots (4.76%), below 95%. Reliable half-hour publication and independent observation coverage remain unresolved; updates may be delayed.",
+        "evidence": [
+          "docs/V1_M5_STARTUP_WARMUP_20261015.md",
+          "docs/V1_M5_CI_BROWSER_20261015.md"
+        ]
+      },
+      {
+        "id": "production-first-screen-and-interaction-performance",
+        "disposition": "WAIVED_FOR_THIS_RELEASE",
+        "observed_status": "NOT_PASSED",
+        "limitation": "Public mobile simulated LCP worst sample was 3267.856 ms against the unchanged 3000 ms budget. Real interaction latency remains unmeasured. Loopback diagnostics do not replace public performance evidence.",
+        "evidence": [
+          "docs/V1_M5_STARTUP_WARMUP_20261015.md",
+          "docs/V1_M5_PERFORMANCE_RETEST_20261015.md"
+        ]
+      },
+      {
+        "id": "physical-phone-acceptance",
+        "disposition": "WAIVED_FOR_THIS_RELEASE",
+        "observed_status": "NOT_RUN",
+        "limitation": "No unambiguous physical-device model, browser and operation receipt. Desktop 390px checks are not physical-phone acceptance.",
+        "evidence": [
+          "docs/V1_M5_CI_BROWSER_20261015.md",
+          "docs/V1_M5_DESKTOP_BROWSER_20261015.md"
+        ]
+      },
+      {
+        "id": "complete-legacy-client-upgrade-matrix",
+        "disposition": "WAIVED_FOR_THIS_RELEASE",
+        "observed_status": "PARTIAL",
+        "limitation": "A real automated older-candidate transition covers only its exact browser and version pair; the full historical-version, installed-PWA and cross-browser offline matrix is not established.",
+        "evidence": [
+          "docs/V1_M5_CI_BROWSER_PLAN_20261015.md",
+          "docs/V1.0_ACCEPTANCE.md"
+        ]
+      },
+      {
+        "id": "windows-full-start-stop-fault-injection",
+        "disposition": "WAIVED_FOR_THIS_RELEASE",
+        "observed_status": "NOT_RUN",
+        "limitation": "The earlier Windows host-level full start/stop and fault-injection command was blocked by execution policy. Isolated Linux CI tests do not close that Windows acceptance scope.",
+        "evidence": [
+          "docs/V1_M5_STARTUP_WARMUP_20261015.md",
+          "docs/V1.0_ACCEPTANCE.md"
+        ]
+      }
+    ],
+    "record": "https://github.com/AureliusWu/News/blob/main/docs/V1.0.0_RELEASE_WAIVERS.md"
+  },
+  "source_revision": "31cf95d6ae471bb961eb5b85a334ec78f4cce260",
+  "built_at": "2026-10-16T03:20:54.215Z",
+  "data_schema_version": 1,
+  "ai_content_generation": {
+    "schema_version": 1,
+    "scope": "content-generation",
+    "enabled": false,
+    "translation_enabled": false,
+    "summary_enabled": false,
+    "disabled_reason": "no-verified-free-quota",
+    "max_cost_usd": 0,
+    "max_requests_per_day": 0,
+    "max_cache_entries": 0,
+    "source_citations_required": true,
+    "original_switch_required": true,
+    "external_content_is_untrusted": true
+  },
+  "app_bundle_sha256": "59562dff12e7ea2ca87dfa18289b8cfc7cb0b4aa5e9dc871bf1c726a6254851f",
+  "base_path": "/News/",
+  "event_method_version": "lexical-complete-link-v1",
+  "event_matcher_version": "title-summary-v4",
+  "event_alias_schema_version": 1,
+  "asset_count": 20
+}

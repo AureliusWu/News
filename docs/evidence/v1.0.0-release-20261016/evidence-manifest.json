@@ -1,0 +1,128 @@
+{
+  "schema_version": 1,
+  "source_revision": "31cf95d6ae471bb961eb5b85a334ec78f4cce260",
+  "release": "v1.0.0",
+  "entries": [
+    {
+      "file": "verification-summary.json",
+      "bytes": 18044,
+      "sha256": "50e9d45ef450fe4a03894999682456c2fc89ecd7653491722cc6b6b3301a75ee"
+    },
+    {
+      "file": "verification-run.json",
+      "bytes": 13153,
+      "sha256": "d3dfdf542817cfc6cdc0202cccd952a7a3459b0367b4ba4815e2a0d90341afc4"
+    },
+    {
+      "file": "verification-jobs.json",
+      "bytes": 6413,
+      "sha256": "34182e0a94c4abaa760dce9c8a661302efd1f0d31313e7bd0186f97cccb71a05"
+    },
+    {
+      "file": "deployment-run.json",
+      "bytes": 13130,
+      "sha256": "339034fe62d84f72cb2dde85e4e57ebdc58a6df7bb04b56eb073de806c6ccae0"
+    },
+    {
+      "file": "deployment-jobs.json",
+      "bytes": 8213,
+      "sha256": "7b4189546512986142a0f4611f8694fd80631af4bad4f3018c4eacaa11fd156d"
+    },
+    {
+      "file": "public-http-smoke.json",
+      "bytes": 22399,
+      "sha256": "40f503b628e7b69478119a9c3bd8c42cad2c5cc88d5020e21e37fd5758959be0"
+    },
+    {
+      "file": "public-browser.json",
+      "bytes": 1150,
+      "sha256": "5d906a6740157f6f4dcc948acbb0fe58ed1bc3c736257543e1dbf752e63746d3"
+    },
+    {
+      "file": "public-release.json",
+      "bytes": 3688,
+      "sha256": "8e11ebdbe527b6b36b11510cfed4f4035d3bf5c5393bf7c67b61bd237392673d"
+    },
+    {
+      "file": "tag-verification.json",
+      "bytes": 307,
+      "sha256": "80bd38895f50952d6deea717f1bd434b1130fc2fe439fe357942143f48cb6873"
+    },
+    {
+      "file": "release-assets.json",
+      "bytes": 2340,
+      "sha256": "cdd902871968958dbbe8f5329bd2ea575bb5d8f4c6a4a2df2f2990045e9c8cb9"
+    },
+    {
+      "file": "preflight.json",
+      "bytes": 2219,
+      "sha256": "91e7975bbb8c60f7e064377c05eb3ec43b2de91c0bb9f78aa075255c6bed5575"
+    },
+    {
+      "file": "public-observation.json",
+      "bytes": 27713,
+      "sha256": "1cc5c913b98c1dd1c94cccc35864b77c1c40dd46505910716516fcfc052973b5"
+    },
+    {
+      "file": "freshness-report.json",
+      "bytes": 691,
+      "sha256": "85c4153c60be5b9fa92315c7dd1efec3f8b2bec37caf3517d343867a9bc485fc"
+    },
+    {
+      "file": "freshness-history.json",
+      "bytes": 17873,
+      "sha256": "ad570e507e90ed8b141c997e57246ca2f680b023266a99eff52fffe7d139bfdd"
+    },
+    {
+      "file": "dependency-conflict-run.json",
+      "bytes": 13154,
+      "sha256": "f836ced8c6561c6cbaccc71f36f811a83bf418beb7dac0a6dc98956e8f1908ef"
+    },
+    {
+      "file": "dependency-conflict.log",
+      "bytes": 56759,
+      "sha256": "d93a37b6a1d385651696bc5eab5b760221ad19f5a86500466043b391fcc2ac47"
+    },
+    {
+      "file": "sandbox-browser-failure.log",
+      "bytes": 41617,
+      "sha256": "7b8e201df19396364527113a94aa0565525b13e0dbc98e54dc6e3ee8ac000729"
+    },
+    {
+      "file": "public-event.jpg",
+      "bytes": 70978,
+      "sha256": "8fb2580f7a03d06db5b59f22c0019099c4a2967516b68602d559d17f28caed85"
+    },
+    {
+      "file": "node.txt",
+      "bytes": 4411,
+      "sha256": "fdd9031e9875c5d9b0eb35b08e6d34cd57c660e9c5a4ac97c083b684f0789e8b"
+    },
+    {
+      "file": "frontend.txt",
+      "bytes": 1662,
+      "sha256": "818fcc578473bf48ad62fa92ce34fe112ed4f604a18b013e46b024b988aa3515"
+    },
+    {
+      "file": "typecheck.txt",
+      "bytes": 119,
+      "sha256": "bcba1e4e3b67e44fc810fc89b170c7439055bd587d85a33fc1f5215dc2697fb7"
+    },
+    {
+      "file": "backend.txt",
+      "bytes": 748,
+      "sha256": "a75652164fe2d3e8c994f5ce322bf08a3a74437a95fc58bcafb14b80c4bd0f13"
+    },
+    {
+      "file": "snapshot.txt",
+      "bytes": 7821,
+      "sha256": "bef69279e39162999dc793db1081c771132ad7ecf7ea57db09722646eaee40c7"
+    },
+    {
+      "file": "restore.txt",
+      "bytes": 2247,
+      "sha256": "811f5177d7cd163ae53fbec3e24debecb0c7a2ddd8c756df780fc954f57ddd32"
+    }
+  ],
+  "large_archives": "See release-assets.json; raw CI, failed-run, published Pages and prior paired rollback bytes are attached to the GitHub Release."
+}

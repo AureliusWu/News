@@ -1,0 +1,72 @@
+{
+  "observed_at": "2026-10-16T03:11:22.164Z",
+  "public": [
+    {
+      "url": "https://aureliuswu.github.io/News/release.json",
+      "status": 200,
+      "sha256": "cb99517a3e64a3ddfdecd77c254798803887f3defa406fc1580bb3fe0a9d4367",
+      "version": "0.9.0-alpha.1",
+      "formal_release": false,
+      "source_revision": "3a3e0dcf0baf39ceacd0d4a65e015a80b3761333"
+    },
+    {
+      "url": "https://aureliuswu.github.io/News/data/news.json",
+      "status": 200,
+      "sha256": "088da18918f98554d744b6083a6df2de93ca09f3c8572a34391d5fb119c29e1f",
+      "snapshot_id": "2df73516a8984781af6eb8fa",
+      "generated_at": "2026-10-15T23:54:09.221069Z",
+      "article_count": 785
+    },
+    {
+      "url": "https://aureliuswu.github.io/News/data/source-health.json",
+      "status": 200,
+      "sha256": "225b21753439e944dff28ce33c980b20541992255c5f52cceaeddca80f86fb18",
+      "snapshot_id": "2df73516a8984781af6eb8fa",
+      "checked_at": "2026-10-15T23:54:09.221069Z"
+    }
+  ],
+  "tag": {
+    "status": 404,
+    "data": {
+      "message": "Not Found",
+      "documentation_url": "https://docs.github.com/rest/git/refs#get-a-reference",
+      "status": "404"
+    }
+  },
+  "release": {
+    "status": 404,
+    "data": {
+      "message": "Not Found",
+      "documentation_url": "https://docs.github.com/rest/releases/releases#get-a-release-by-tag-name",
+      "status": "404"
+    }
+  },
+  "variables": {
+    "status": 200,
+    "data": [
+      {
+        "name": "PAGES_DATA_MODE",
+        "value": "snapshot",
+        "created_at": "2026-09-21T09:42:58Z",
+        "updated_at": "2026-09-21T09:42:58Z"
+      },
+      {
+        "name": "PAGES_DEPLOY_ENABLED",
+        "value": "true",
+        "created_at": "2026-09-17T04:12:13Z",
+        "updated_at": "2026-10-03T04:39:49Z"
+      }
+    ]
+  },
+  "rollback": {
+    "source_run_id": 38702292514,
+    "artifact_id": 11957270479,
+    "bytes": 2084216,
+    "sha256": "d8137b04c25a39dce22ae7bb67d33e97d9fe4d8c66d51a2e116eb75203c0360d",
+    "restore_workflow": "restore-pages.yml",
+    "restore_input": {
+      "source_run_id": "38702292514"
+    },
+    "scope": "Exact previous Pages app+data artifact, not recollected news. Restoring is not performed by this preflight."
+  }
+}

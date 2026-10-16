@@ -1,0 +1,555 @@
+{
+  "regression": {
+    "node": [
+      "# Subtest: enabled features, cost, credentials, missing guards cannot pass policy",
+      "ok 8 - enabled features, cost, credentials, missing guards cannot pass policy",
+      "# Subtest: current reports without checked_at fail closed",
+      "ok 20 - current reports without checked_at fail closed",
+      "# Subtest: invalid dates, IDs and non-object inputs fail closed",
+      "ok 21 - invalid dates, IDs and non-object inputs fail closed",
+      "# tests 23",
+      "# pass 23",
+      "# fail 0"
+    ],
+    "frontend": [
+      "\u001b[2m Test Files \u001b[22m \u001b[1m\u001b[32m10 passed\u001b[39m\u001b[22m\u001b[90m (10)\u001b[39m",
+      "\u001b[2m      Tests \u001b[22m \u001b[1m\u001b[32m136 passed\u001b[39m\u001b[22m\u001b[90m (136)\u001b[39m",
+      "\u001b[2m   Duration \u001b[22m 5.49s\u001b[2m (transform 1.18s, setup 1.42s, collect 2.75s, tests 1.83s, environment 6.12s, prepare 1.56s)\u001b[22m"
+    ],
+    "typecheck": [],
+    "backend": [
+      "=============================== warnings summary ===============================",
+      "-- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html",
+      "121 passed, 1 warning in 2.17s"
+    ],
+    "snapshot": [
+      "test_insufficient_labels_fail (test_review_events.ReviewTests.test_insufficient_labels_fail) ... ok",
+      "test_unreviewed_and_unnamed_packets_cannot_pass (test_review_events.ReviewTests.test_unreviewed_and_unnamed_packets_cannot_pass) ... ok",
+      "Ran 60 tests in 0.089s",
+      "OK"
+    ],
+    "restore": [
+      "Ran 16 tests in 0.043s",
+      "OK"
+    ]
+  },
+  "source_revision": "31cf95d6ae471bb961eb5b85a334ec78f4cce260",
+  "snapshot_id": "2df73516a8984781af6eb8fa",
+  "article_count": 785,
+  "playwright_stats": {
+    "startTime": "2026-10-16T03:11:40.305Z",
+    "duration": 23263.716,
+    "expected": 8,
+    "skipped": 2,
+    "unexpected": 0,
+    "flaky": 0
+  },
+  "tests": [
+    {
+      "title": "news bookmark survives reload and is visible in the library",
+      "project": "chrome",
+      "status": "expected",
+      "results": [
+        {
+          "status": "passed",
+          "duration": 2125
+        }
+      ],
+      "receipt": {
+        "browser": "155.0.8059.39",
+        "snapshot_id": "2df73516a8984781af6eb8fa",
+        "revision": "31cf95d6ae471bb961eb5b85a334ec78f4cce260"
+      }
+    },
+    {
+      "title": "news bookmark survives reload and is visible in the library",
+      "project": "firefox",
+      "status": "expected",
+      "results": [
+        {
+          "status": "passed",
+          "duration": 2536
+        }
+      ],
+      "receipt": {
+        "browser": "157.0",
+        "snapshot_id": "2df73516a8984781af6eb8fa",
+        "revision": "31cf95d6ae471bb961eb5b85a334ec78f4cce260"
+      }
+    },
+    {
+      "title": "event navigation and direct detail reload render the selected title",
+      "project": "chrome",
+      "status": "expected",
+      "results": [
+        {
+          "status": "passed",
+          "duration": 1536
+        }
+      ]
+    },
+    {
+      "title": "event navigation and direct detail reload render the selected title",
+      "project": "firefox",
+      "status": "expected",
+      "results": [
+        {
+          "status": "passed",
+          "duration": 1591
+        }
+      ]
+    },
+    {
+      "title": "390px layout has no horizontal overflow",
+      "project": "chrome",
+      "status": "expected",
+      "results": [
+        {
+          "status": "passed",
+          "duration": 1093
+        }
+      ],
+      "receipt": {
+        "client": 390,
+        "scroll": 390,
+        "cards": [
+          {
+            "left": 15,
+            "right": 375
+          },
+          {
+            "left": 15,
+            "right": 375
+          },
+          {
+            "left": 15,
+            "right": 375
+          },
+          {
+            "left": 15,
+            "right": 375
+          },
+          {
+            "left": 15,
+            "right": 375
+          }
+        ]
+      }
+    },
+    {
+      "title": "390px layout has no horizontal overflow",
+      "project": "firefox",
+      "status": "expected",
+      "results": [
+        {
+          "status": "passed",
+          "duration": 1113
+        }
+      ],
+      "receipt": {
+        "client": 390,
+        "scroll": 390,
+        "cards": [
+          {
+            "left": 15,
+            "right": 375
+          },
+          {
+            "left": 15,
+            "right": 375
+          },
+          {
+            "left": 15,
+            "right": 375
+          },
+          {
+            "left": 15,
+            "right": 375
+          },
+          {
+            "left": 15,
+            "right": 375
+          }
+        ]
+      }
+    },
+    {
+      "title": "cached client reloads news and bookmarks while offline",
+      "project": "chrome",
+      "status": "expected",
+      "results": [
+        {
+          "status": "passed",
+          "duration": 1865
+        }
+      ]
+    },
+    {
+      "title": "cached client reloads news and bookmarks while offline",
+      "project": "firefox",
+      "status": "skipped",
+      "results": [
+        {
+          "status": "skipped",
+          "duration": 781
+        }
+      ]
+    },
+    {
+      "title": "older candidate upgrades on the same origin without losing its bookmark",
+      "project": "chrome",
+      "status": "expected",
+      "results": [
+        {
+          "status": "passed",
+          "duration": 6085
+        }
+      ],
+      "receipt": {
+        "from": {
+          "root": "/home/runner/work/News/News/verification-inputs/baseline",
+          "dist": "/home/runner/work/News/News/artifacts/ci-browser-verification/builds/baseline",
+          "revision": "5e55cf7d5a5014bc4c55b7f9aad18bbede966380",
+          "entry": "/News/assets/index-BBTt6J6j.js",
+          "html_sha256": "f8a6c7937c26be3c8729d10a9deb686883d9e4d32221912d60b7405ff6931d0b",
+          "entry_sha256": "b8e8218855139bde49feabee4bd41685076fb202a5c595ae9351b8e5151daa9e",
+          "sw_sha256": "8283cc9f8c387e0a43b2f1e52efe4628b68812da02a36a3cc26f26f7f1eb42ec"
+        },
+        "to": {
+          "root": "/home/runner/work/News/News/verification-inputs/candidate",
+          "dist": "/home/runner/work/News/News/artifacts/ci-browser-verification/builds/candidate",
+          "revision": "31cf95d6ae471bb961eb5b85a334ec78f4cce260",
+          "entry": "/News/assets/index-CDEoXoMp.js",
+          "html_sha256": "2ae6ff3221f99206ccccb21b331b42a7be948472d3f72640b75fdf98a0b27616",
+          "entry_sha256": "f4dbb70b09cdcda10524ad00f217bb0868579969991cac1da06279bad7610aee",
+          "sw_sha256": "64ef7767c79d31067de99a617b519a8b24a0005ea9cd73684a50b4ebb581bc83"
+        },
+        "trigger": "registration.update followed by reload; no forced skipWaiting or cleared client storage",
+        "snapshot_id": "2df73516a8984781af6eb8fa",
+        "limitation": "One real older M5 candidate, not an exhaustive legacy-version matrix or physical device."
+      }
+    },
+    {
+      "title": "older candidate upgrades on the same origin without losing its bookmark",
+      "project": "firefox",
+      "status": "skipped",
+      "results": [
+        {
+          "status": "skipped",
+          "duration": 798
+        }
+      ]
+    }
+  ],
+  "release": {
+    "schema_version": 1,
+    "version": "1.0.0",
+    "stage": "V1.0.0-with-waivers",
+    "formal_release": true,
+    "release_status": "RELEASED_WITH_WARNINGS",
+    "acceptance": {
+      "mode": "owner-approved-release-with-warnings",
+      "accepted_by": "repository-owner",
+      "accepted_on": "2026-10-15",
+      "waivers": [
+        {
+          "id": "seven-day-freshness-and-scheduling",
+          "disposition": "WAIVED_FOR_THIS_RELEASE",
+          "observed_status": "FAIL",
+          "limitation": "Last complete calculation: 16/336 passing slots (4.76%), below 95%. Reliable half-hour publication and independent observation coverage remain unresolved; updates may be delayed.",
+          "evidence": [
+            "docs/V1_M5_STARTUP_WARMUP_20261015.md",
+            "docs/V1_M5_CI_BROWSER_20261015.md"
+          ]
+        },
+        {
+          "id": "production-first-screen-and-interaction-performance",
+          "disposition": "WAIVED_FOR_THIS_RELEASE",
+          "observed_status": "NOT_PASSED",
+          "limitation": "Public mobile simulated LCP worst sample was 3267.856 ms against the unchanged 3000 ms budget. Real interaction latency remains unmeasured. Loopback diagnostics do not replace public performance evidence.",
+          "evidence": [
+            "docs/V1_M5_STARTUP_WARMUP_20261015.md",
+            "docs/V1_M5_PERFORMANCE_RETEST_20261015.md"
+          ]
+        },
+        {
+          "id": "physical-phone-acceptance",
+          "disposition": "WAIVED_FOR_THIS_RELEASE",
+          "observed_status": "NOT_RUN",
+          "limitation": "No unambiguous physical-device model, browser and operation receipt. Desktop 390px checks are not physical-phone acceptance.",
+          "evidence": [
+            "docs/V1_M5_CI_BROWSER_20261015.md",
+            "docs/V1_M5_DESKTOP_BROWSER_20261015.md"
+          ]
+        },
+        {
+          "id": "complete-legacy-client-upgrade-matrix",
+          "disposition": "WAIVED_FOR_THIS_RELEASE",
+          "observed_status": "PARTIAL",
+          "limitation": "A real automated older-candidate transition covers only its exact browser and version pair; the full historical-version, installed-PWA and cross-browser offline matrix is not established.",
+          "evidence": [
+            "docs/V1_M5_CI_BROWSER_PLAN_20261015.md",
+            "docs/V1.0_ACCEPTANCE.md"
+          ]
+        },
+        {
+          "id": "windows-full-start-stop-fault-injection",
+          "disposition": "WAIVED_FOR_THIS_RELEASE",
+          "observed_status": "NOT_RUN",
+          "limitation": "The earlier Windows host-level full start/stop and fault-injection command was blocked by execution policy. Isolated Linux CI tests do not close that Windows acceptance scope.",
+          "evidence": [
+            "docs/V1_M5_STARTUP_WARMUP_20261015.md",
+            "docs/V1.0_ACCEPTANCE.md"
+          ]
+        }
+      ],
+      "record": "https://github.com/AureliusWu/News/blob/main/docs/V1.0.0_RELEASE_WAIVERS.md"
+    },
+    "source_revision": "31cf95d6ae471bb961eb5b85a334ec78f4cce260",
+    "built_at": "2026-10-16T03:11:30.876Z",
+    "data_schema_version": 1,
+    "ai_content_generation": {
+      "schema_version": 1,
+      "scope": "content-generation",
+      "enabled": false,
+      "translation_enabled": false,
+      "summary_enabled": false,
+      "disabled_reason": "no-verified-free-quota",
+      "max_cost_usd": 0,
+      "max_requests_per_day": 0,
+      "max_cache_entries": 0,
+      "source_citations_required": true,
+      "original_switch_required": true,
+      "external_content_is_untrusted": true
+    }
+  },
+  "performance": {
+    "all_samples_valid": true,
+    "diagnostic_budget_status": "EXCEEDS_LAB_BUDGET",
+    "groups": {
+      "desktop": {
+        "baseline": {
+          "samples": 3,
+          "median_lcp_ms": 920.805775,
+          "worst_lcp_ms": 924.9686999999999
+        },
+        "candidate": {
+          "samples": 3,
+          "median_lcp_ms": 913.335875,
+          "worst_lcp_ms": 915.199
+        },
+        "candidate_median_change_fraction": -0.008112351380507032
+      },
+      "mobile": {
+        "baseline": {
+          "samples": 3,
+          "median_lcp_ms": 3925.2774,
+          "worst_lcp_ms": 3929.0859999999993
+        },
+        "candidate": {
+          "samples": 3,
+          "median_lcp_ms": 3717.1318749999996,
+          "worst_lcp_ms": 3721.04375
+        },
+        "candidate_median_change_fraction": -0.05302695931757595
+      }
+    },
+    "controls_match": true,
+    "presets": [
+      {
+        "preset": "desktop",
+        "settings": {
+          "output": [
+            "json"
+          ],
+          "maxWaitForFcp": 30000,
+          "maxWaitForLoad": 45000,
+          "pauseAfterFcpMs": 1000,
+          "pauseAfterLoadMs": 1000,
+          "networkQuietThresholdMs": 1000,
+          "cpuQuietThresholdMs": 1000,
+          "formFactor": "desktop",
+          "throttling": {
+            "rttMs": 40,
+            "throughputKbps": 10240,
+            "requestLatencyMs": 0,
+            "downloadThroughputKbps": 0,
+            "uploadThroughputKbps": 0,
+            "cpuSlowdownMultiplier": 1
+          },
+          "throttlingMethod": "simulate",
+          "screenEmulation": {
+            "mobile": false,
+            "width": 1350,
+            "height": 940,
+            "deviceScaleFactor": 1,
+            "disabled": false
+          },
+          "emulatedUserAgent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/136.0.0.0 Safari/537.36",
+          "auditMode": false,
+          "gatherMode": false,
+          "clearStorageTypes": [
+            "file_systems",
+            "shader_cache",
+            "service_workers",
+            "cache_storage"
+          ],
+          "disableStorageReset": false,
+          "debugNavigation": false,
+          "channel": "cli",
+          "usePassiveGathering": false,
+          "disableFullPageScreenshot": false,
+          "skipAboutBlank": false,
+          "blankPage": "about:blank",
+          "ignoreStatusCode": false,
+          "locale": "en-US",
+          "blockedUrlPatterns": [
+            "https://*"
+          ],
+          "additionalTraceCategories": null,
+          "extraHeaders": null,
+          "precomputedLanternData": null,
+          "onlyAudits": null,
+          "onlyCategories": [
+            "performance"
+          ],
+          "skipAudits": null
+        }
+      },
+      {
+        "preset": "mobile",
+        "settings": {
+          "output": [
+            "json"
+          ],
+          "maxWaitForFcp": 30000,
+          "maxWaitForLoad": 45000,
+          "pauseAfterFcpMs": 1000,
+          "pauseAfterLoadMs": 1000,
+          "networkQuietThresholdMs": 1000,
+          "cpuQuietThresholdMs": 1000,
+          "formFactor": "mobile",
+          "throttling": {
+            "rttMs": 150,
+            "throughputKbps": 1638.4,
+            "requestLatencyMs": 562.5,
+            "downloadThroughputKbps": 1474.5600000000002,
+            "uploadThroughputKbps": 675,
+            "cpuSlowdownMultiplier": 4
+          },
+          "throttlingMethod": "simulate",
+          "screenEmulation": {
+            "mobile": true,
+            "width": 412,
+            "height": 823,
+            "deviceScaleFactor": 1.75,
+            "disabled": false
+          },
+          "emulatedUserAgent": "Mozilla/5.0 (Linux; Android 11; moto g power (2022)) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/136.0.0.0 Mobile Safari/537.36",
+          "auditMode": false,
+          "gatherMode": false,
+          "clearStorageTypes": [
+            "file_systems",
+            "shader_cache",
+            "service_workers",
+            "cache_storage"
+          ],
+          "disableStorageReset": false,
+          "debugNavigation": false,
+          "channel": "cli",
+          "usePassiveGathering": false,
+          "disableFullPageScreenshot": false,
+          "skipAboutBlank": false,
+          "blankPage": "about:blank",
+          "ignoreStatusCode": false,
+          "locale": "en-US",
+          "blockedUrlPatterns": [
+            "https://*"
+          ],
+          "additionalTraceCategories": null,
+          "extraHeaders": null,
+          "precomputedLanternData": null,
+          "onlyAudits": null,
+          "onlyCategories": [
+            "performance"
+          ],
+          "skipAudits": null
+        }
+      }
+    ],
+    "raw_reports": [
+      {
+        "name": "desktop-1-baseline",
+        "sha256": "bfccbc5ebb7c9625dd67983d346274091d9fdc53676823f26ac4ab1faa51c773",
+        "lcp_ms": 924.9686999999999,
+        "controls_match": true
+      },
+      {
+        "name": "desktop-1-candidate",
+        "sha256": "3605c23736da6074b6ec8afef86b9d24e4f9bc3128231173f319a32a25d2e607",
+        "lcp_ms": 911.910125,
+        "controls_match": true
+      },
+      {
+        "name": "desktop-2-candidate",
+        "sha256": "4efb47df47f6d185b2b6d118f6c850fee860eccb45b51b737dec2afcf540f417",
+        "lcp_ms": 913.335875,
+        "controls_match": true
+      },
+      {
+        "name": "desktop-2-baseline",
+        "sha256": "61779d568d6618f9caec3ba7797de8752b0754f3a4d3e2049452264eff8c8f76",
+        "lcp_ms": 918.8496,
+        "controls_match": true
+      },
+      {
+        "name": "desktop-3-baseline",
+        "sha256": "c815b5dd7ef467decf03c0cd331dd04a5886eb47906f982ca934d86de5d7777a",
+        "lcp_ms": 920.805775,
+        "controls_match": true
+      },
+      {
+        "name": "desktop-3-candidate",
+        "sha256": "eefa63adb7815b4877cc3c5ad7edaae1276d146fc5b47d2eb5a2480052774ddf",
+        "lcp_ms": 915.199,
+        "controls_match": true
+      },
+      {
+        "name": "mobile-1-candidate",
+        "sha256": "21d701a4b9fc9995d3b42859c0c55ecc5bf727298c90ae218dd4225bd1a2fcd5",
+        "lcp_ms": 3714.804625,
+        "controls_match": true
+      },
+      {
+        "name": "mobile-1-baseline",
+        "sha256": "f12c9e8cd93ac1a747387cfd19c0539f760f6ae29f329bc070b3497a2fa08838",
+        "lcp_ms": 3911.4748,
+        "controls_match": true
+      },
+      {
+        "name": "mobile-2-baseline",
+        "sha256": "148833ba1a747796dcd4f08f5013771b717099c376725a8d2f85ffefd0e5e21d",
+        "lcp_ms": 3925.2774,
+        "controls_match": true
+      },
+      {
+        "name": "mobile-2-candidate",
+        "sha256": "e468a706a9c556e74c72cff578d764906db26de07086a0d56d5d8dcf92419d51",
+        "lcp_ms": 3721.04375,
+        "controls_match": true
+      },
+      {
+        "name": "mobile-3-candidate",
+        "sha256": "3548084ac74b1fbcbac5c9d677baf8683856d1954e0e04a018ab1d658111e461",
+        "lcp_ms": 3717.1318749999996,
+        "controls_match": true
+      },
+      {
+        "name": "mobile-3-baseline",
+        "sha256": "0b1854f34231f5ba89c5d9020c06ae0d5828248f7706d85d5cae8d5959c70826",
+        "lcp_ms": 3929.0859999999993,
+        "controls_match": true
+      }
+    ]
+  }
+}

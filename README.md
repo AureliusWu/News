@@ -1,4 +1,6 @@
-> 当前状态（2026-10-03）：公开站点采用 GitHub Pages + Actions 定时快照模式，当前候选版本为 `0.9.0-alpha.1`，已部署用于 V1.0 的 M5 观察与验收。事件、趋势、地区/来源筛选和搜索已进入候选；V1.0.0 **尚未正式发布**，七天独立新鲜度观察、完整回滚/前滚、真实设备/PWA 升级与性能门禁仍需关闭。最新事实与恢复顺序以 [V1.0 交接](docs/V1.0_HANDOFF.md) 和 M5 文档为准；下文较早版本记录仅作历史参考。
+> 当前状态（2026-10-16）：**V1.0.0 已正式发布，状态为 RELEASED_WITH_WARNINGS（用户明确批准本次发布豁免）**。这不代表原始验收门槛全部通过：七天覆盖、生产性能与真实交互、真实手机、完整旧客户端/PWA 矩阵和 Windows 完整启停/故障注入仍按原始结果记录。356 项自动化回归、8 项浏览器测试及公网资源一致性检查已通过，另有 2 项 Firefox 离线/升级测试按范围跳过。网站继续使用 GitHub Pages 定时快照，不需要常驻公网 API 或 Docker。
+>
+> [访问网站](https://aureliuswu.github.io/News/) · [V1.0.0 发布与原始证据附件](https://github.com/AureliusWu/News/releases/tag/v1.0.0) · [最终交接](docs/V1.0.0_HANDOFF.md) · [发布豁免清单](docs/V1.0.0_RELEASE_WAIVERS.md)。标签、已测和已部署代码均为 `31cf95d6ae471bb961eb5b85a334ec78f4cce260`。下文较早版本记录仅作历史参考。
 
 # Global News
 

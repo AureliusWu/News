@@ -1,0 +1,209 @@
+browser	Browser, offline and same-origin upgrade tests	﻿2026-10-15T08:47:34.7223098Z ##[group]Run npm test
+browser	Browser, offline and same-origin upgrade tests	2026-10-15T08:47:34.7223264Z ^[[36;1mnpm test^[[0m
+browser	Browser, offline and same-origin upgrade tests	2026-10-15T08:47:34.7274578Z shell: /usr/bin/bash -e {0}
+browser	Browser, offline and same-origin upgrade tests	2026-10-15T08:47:34.7274710Z env:
+browser	Browser, offline and same-origin upgrade tests	2026-10-15T08:47:34.7274898Z   VERIFICATION_OUTPUT: /home/runner/work/News/News/artifacts/ci-browser-verification
+browser	Browser, offline and same-origin upgrade tests	2026-10-15T08:47:34.7275177Z   BASELINE_ROOT: /home/runner/work/News/News/verification-inputs/baseline
+browser	Browser, offline and same-origin upgrade tests	2026-10-15T08:47:34.7275429Z   CANDIDATE_ROOT: /home/runner/work/News/News/verification-inputs/candidate
+browser	Browser, offline and same-origin upgrade tests	2026-10-15T08:47:34.7275625Z ##[endgroup]
+browser	Browser, offline and same-origin upgrade tests	2026-10-15T08:47:34.7888983Z 
+browser	Browser, offline and same-origin upgrade tests	2026-10-15T08:47:34.7889166Z > test
+browser	Browser, offline and same-origin upgrade tests	2026-10-15T08:47:34.7889402Z > playwright test
+browser	Browser, offline and same-origin upgrade tests	2026-10-15T08:47:34.7889522Z 
+browser	Browser, offline and same-origin upgrade tests	2026-10-15T08:47:35.1896899Z 
+browser	Browser, offline and same-origin upgrade tests	2026-10-15T08:47:35.1897546Z Running 10 tests using 1 worker
+browser	Browser, offline and same-origin upgrade tests	2026-10-15T08:47:35.1899915Z 
+browser	Browser, offline and same-origin upgrade tests	2026-10-15T08:47:35.4218209Z [1/10] [chromium] › acceptance.spec.mjs:49:1 › news bookmark survives reload and is visible in the library
+browser	Browser, offline and same-origin upgrade tests	2026-10-15T08:47:35.6369164Z   1) [chromium] › acceptance.spec.mjs:49:1 › news bookmark survives reload and is visible in the library 
+browser	Browser, offline and same-origin upgrade tests	2026-10-15T08:47:35.6369747Z 
+browser	Browser, offline and same-origin upgrade tests	2026-10-15T08:47:35.6370281Z     Error: browserType.launch: Target page, context or browser has been closed
+browser	Browser, offline and same-origin upgrade tests	2026-10-15T08:47:35.6370924Z     Browser logs:
+browser	Browser, offline and same-origin upgrade tests	2026-10-15T08:47:35.6371345Z     Chromium sandboxing failed!
+browser	Browser, offline and same-origin upgrade tests	2026-10-15T08:47:35.6381937Z     ================================
+browser	Browser, offline and same-origin upgrade tests	2026-10-15T08:47:35.6383217Z     To avoid the sandboxing issue, do either of the following:
+browser	Browser, offline and same-origin upgrade tests	2026-10-15T08:47:35.6384108Z       - (preferred): Configure your environment to support sandboxing
+browser	Browser, offline and same-origin upgrade tests	2026-10-15T08:47:35.6385180Z       - (alternative): Launch Chromium without sandbox using 'chromiumSandbox: false' option
+browser	Browser, offline and same-origin upgrade tests	2026-10-15T08:47:35.6385707Z     ================================
+browser	Browser, offline and same-origin upgrade tests	2026-10-15T08:47:35.6385988Z 
+browser	Browser, offline and same-origin upgrade tests	2026-10-15T08:47:35.6386202Z     Call log:
+browser	Browser, offline and same-origin upgrade tests	2026-10-15T08:47:35.6394652Z       - <launching> /home/runner/.cache/ms-playwright/chromium_headless_shell-1248/chrome-headless-shell-linux64/chrome-headless-shell --disable-field-trial-config --disable-background-networking --disable-background-timer-throttling --disable-backgrounding-occluded-windows --disable-back-forward-cache --disable-breakpad --disable-client-side-phishing-detection --disable-component-extensions-with-background-pages --disable-component-update --no-default-browser-check --disable-default-apps --disable-dev-shm-usage --disable-edgeupdater --disable-extensions --disable-features=AvoidUnnecessaryBeforeUnloadCheckSync,DestroyProfileOnBrowserClose,DialMediaRouteProvider,GlobalMediaControls,HttpsUpgrades,LensOverlay,MediaRouter,PaintHolding,ThirdPartyStoragePartitioning,BlockOriginHeaderModificationOnRedirect,AvoidCorsURLLoaderRestartOnRedirect,Translate,AutoDeElevate,OptimizationHints,NetworkTimeServiceQuerying,AimEnabled,msForceBrowserSignIn,msEdgeUpdateLaunchServicesPreferredVersion --enable-features=CDPScreenshotNewSurface --allow-pre-commit-input --disable-hang-monitor --disable-ipc-flooding-protection --disable-popup-blocking --disable-prompt-on-repost --disable-renderer-backgrounding --disable-updater-scheduler --force-color-profile=srgb --metrics-recording-only --no-first-run --password-store=basic --use-mock-keychain --no-service-autorun --export-tagged-pdf --disable-search-engine-choice-screen --unsafely-disable-devtools-self-xss-warnings --edge-skip-compat-layer-relaunch --disable-infobars --disable-search-engine-choice-screen --disable-sync --enable-unsafe-swiftshader --headless --hide-scrollbars --mute-audio --blink-settings=primaryHoverType=2,availableHoverTypes=2,primaryPointerType=4,availablePointerTypes=4 --user-data-dir=/tmp/playwright_chromiumdev_profile-WDvn8N --remote-debugging-pipe --no-startup-window
+browser	Browser, offline and same-origin upgrade tests	2026-10-15T08:47:35.6402534Z       - <launched> pid=4035
+browser	Browser, offline and same-origin upgrade tests	2026-10-15T08:47:35.6404773Z       - [pid=4035][err] [1015/084735.466886:FATAL:content/browser/zygote_host/zygote_host_impl_linux.cc:130] No usable sandbox! If you are running on Ubuntu 23.10+ or another Linux distro that has disabled unprivileged user namespaces with AppArmor, see https://chromium.googlesource.com/chromium/src/+/main/docs/security/apparmor-userns-restrictions.md. Otherwise see https://chromium.googlesource.com/chromium/src/+/main/docs/linux/suid_sandbox_development.md for more information on developing with the (older) SUID sandbox. If you want to live dangerously and need an immediate workaround, you can try using --no-sandbox.
+browser	Browser, offline and same-origin upgrade tests	2026-10-15T08:47:35.6407162Z       - [pid=4035] <gracefully close start>
+browser	Browser, offline and same-origin upgrade tests	2026-10-15T08:47:35.6407525Z       - [pid=4035] <kill>
+browser	Browser, offline and same-origin upgrade tests	2026-10-15T08:47:35.6407868Z       - [pid=4035] <will force kill>
+browser	Browser, offline and same-origin upgrade tests	2026-10-15T08:47:35.6408300Z       - [pid=4035] <process did exit: exitCode=null, signal=SIGTRAP>
+browser	Browser, offline and same-origin upgrade tests	2026-10-15T08:47:35.6408787Z       - [pid=4035] starting temporary directories cleanup
+browser	Browser, offline and same-origin upgrade tests	2026-10-15T08:47:35.6409233Z       - [pid=4035] finished temporary directories cleanup
+browser	Browser, offline and same-origin upgrade tests	2026-10-15T08:47:35.6409645Z       - [pid=4035] <gracefully close end>
+browser	Browser, offline and same-origin upgrade tests	2026-10-15T08:47:35.6409925Z 
+browser	Browser, offline and same-origin upgrade tests	2026-10-15T08:47:35.6410061Z 
+browser	Browser, offline and same-origin upgrade tests	2026-10-15T08:47:35.6410688Z     Error Context: ../../artifacts/ci-browser-verification/test-results/acceptance-news-bookmark-s-e0ae3-d-is-visible-in-the-library-chromium/error-context.md
+browser	Browser, offline and same-origin upgrade tests	2026-10-15T08:47:35.6411341Z 
+browser	Browser, offline and same-origin upgrade tests	2026-10-15T08:47:35.6411795Z     attachment #2: trace (application/zip) ─────────────────────────────────────────────────────────
+browser	Browser, offline and same-origin upgrade tests	2026-10-15T08:47:35.6412597Z     ../../artifacts/ci-browser-verification/test-results/acceptance-news-bookmark-s-e0ae3-d-is-visible-in-the-library-chromium/trace.zip
+browser	Browser, offline and same-origin upgrade tests	2026-10-15T08:47:35.6413264Z     Usage:
+browser	Browser, offline and same-origin upgrade tests	2026-10-15T08:47:35.6413493Z 
+browser	Browser, offline and same-origin upgrade tests	2026-10-15T08:47:35.6414175Z         npx playwright show-trace ../../artifacts/ci-browser-verification/test-results/acceptance-news-bookmark-s-e0ae3-d-is-visible-in-the-library-chromium/trace.zip
+browser	Browser, offline and same-origin upgrade tests	2026-10-15T08:47:35.6414775Z 
+browser	Browser, offline and same-origin upgrade tests	2026-10-15T08:47:35.6415327Z     ────────────────────────────────────────────────────────────────────────────────────────────────
+browser	Browser, offline and same-origin upgrade tests	2026-10-15T08:47:35.6415671Z 
+browser	Browser, offline and same-origin upgrade tests	2026-10-15T08:47:35.6415985Z 
+browser	Browser, offline and same-origin upgrade tests	2026-10-15T08:47:35.9067699Z [2/10] [chromium] › acceptance.spec.mjs:64:1 › event navigation and direct detail reload render the selected title
+browser	Browser, offline and same-origin upgrade tests	2026-10-15T08:47:36.0663963Z   2) [chromium] › acceptance.spec.mjs:64:1 › event navigation and direct detail reload render the selected title 
+browser	Browser, offline and same-origin upgrade tests	2026-10-15T08:47:36.0664388Z 
+browser	Browser, offline and same-origin upgrade tests	2026-10-15T08:47:36.0664637Z     Error: browserType.launch: Target page, context or browser has been closed
+browser	Browser, offline and same-origin upgrade tests	2026-10-15T08:47:36.0665011Z     Browser logs:
+browser	Browser, offline and same-origin upgrade tests	2026-10-15T08:47:36.0665214Z     Chromium sandboxing failed!
+browser	Browser, offline and same-origin upgrade tests	2026-10-15T08:47:36.0665466Z     ================================
+browser	Browser, offline and same-origin upgrade tests	2026-10-15T08:47:36.0665793Z     To avoid the sandboxing issue, do either of the following:
+browser	Browser, offline and same-origin upgrade tests	2026-10-15T08:47:36.0666213Z       - (preferred): Configure your environment to support sandboxing
+browser	Browser, offline and same-origin upgrade tests	2026-10-15T08:47:36.0666882Z       - (alternative): Launch Chromium without sandbox using 'chromiumSandbox: false' option
+browser	Browser, offline and same-origin upgrade tests	2026-10-15T08:47:36.0667233Z     ================================
+browser	Browser, offline and same-origin upgrade tests	2026-10-15T08:47:36.0667364Z 
+browser	Browser, offline and same-origin upgrade tests	2026-10-15T08:47:36.0667465Z     Call log:
+browser	Browser, offline and same-origin upgrade tests	2026-10-15T08:47:36.0675446Z       - <launching> /home/runner/.cache/ms-playwright/chromium_headless_shell-1248/chrome-headless-shell-linux64/chrome-headless-shell --disable-field-trial-config --disable-background-networking --disable-background-timer-throttling --disable-backgrounding-occluded-windows --disable-back-forward-cache --disable-breakpad --disable-client-side-phishing-detection --disable-component-extensions-with-background-pages --disable-component-update --no-default-browser-check --disable-default-apps --disable-dev-shm-usage --disable-edgeupdater --disable-extensions --disable-features=AvoidUnnecessaryBeforeUnloadCheckSync,DestroyProfileOnBrowserClose,DialMediaRouteProvider,GlobalMediaControls,HttpsUpgrades,LensOverlay,MediaRouter,PaintHolding,ThirdPartyStoragePartitioning,BlockOriginHeaderModificationOnRedirect,AvoidCorsURLLoaderRestartOnRedirect,Translate,AutoDeElevate,OptimizationHints,NetworkTimeServiceQuerying,AimEnabled,msForceBrowserSignIn,msEdgeUpdateLaunchServicesPreferredVersion --enable-features=CDPScreenshotNewSurface --allow-pre-commit-input --disable-hang-monitor --disable-ipc-flooding-protection --disable-popup-blocking --disable-prompt-on-repost --disable-renderer-backgrounding --disable-updater-scheduler --force-color-profile=srgb --metrics-recording-only --no-first-run --password-store=basic --use-mock-keychain --no-service-autorun --export-tagged-pdf --disable-search-engine-choice-screen --unsafely-disable-devtools-self-xss-warnings --edge-skip-compat-layer-relaunch --disable-infobars --disable-search-engine-choice-screen --disable-sync --enable-unsafe-swiftshader --headless --hide-scrollbars --mute-audio --blink-settings=primaryHoverType=2,availableHoverTypes=2,primaryPointerType=4,availablePointerTypes=4 --user-data-dir=/tmp/playwright_chromiumdev_profile-AMHeht --remote-debugging-pipe --no-startup-window
+browser	Browser, offline and same-origin upgrade tests	2026-10-15T08:47:36.0683441Z       - <launched> pid=4064
+browser	Browser, offline and same-origin upgrade tests	2026-10-15T08:47:36.0686330Z       - [pid=4064][err] [1015/084735.948459:FATAL:content/browser/zygote_host/zygote_host_impl_linux.cc:130] No usable sandbox! If you are running on Ubuntu 23.10+ or another Linux distro that has disabled unprivileged user namespaces with AppArmor, see https://chromium.googlesource.com/chromium/src/+/main/docs/security/apparmor-userns-restrictions.md. Otherwise see https://chromium.googlesource.com/chromium/src/+/main/docs/linux/suid_sandbox_development.md for more information on developing with the (older) SUID sandbox. If you want to live dangerously and need an immediate workaround, you can try using --no-sandbox.
+browser	Browser, offline and same-origin upgrade tests	2026-10-15T08:47:36.0687902Z       - [pid=4064] <gracefully close start>
+browser	Browser, offline and same-origin upgrade tests	2026-10-15T08:47:36.0688068Z       - [pid=4064] <kill>
+browser	Browser, offline and same-origin upgrade tests	2026-10-15T08:47:36.0688217Z       - [pid=4064] <will force kill>
+browser	Browser, offline and same-origin upgrade tests	2026-10-15T08:47:36.0688419Z       - [pid=4064] <process did exit: exitCode=null, signal=SIGTRAP>
+browser	Browser, offline and same-origin upgrade tests	2026-10-15T08:47:36.0688652Z       - [pid=4064] starting temporary directories cleanup
+browser	Browser, offline and same-origin upgrade tests	2026-10-15T08:47:36.0688863Z       - [pid=4064] finished temporary directories cleanup
+browser	Browser, offline and same-origin upgrade tests	2026-10-15T08:47:36.0689231Z       - [pid=4064] <gracefully close end>
+browser	Browser, offline and same-origin upgrade tests	2026-10-15T08:47:36.0689337Z 
+browser	Browser, offline and same-origin upgrade tests	2026-10-15T08:47:36.0689348Z 
+browser	Browser, offline and same-origin upgrade tests	2026-10-15T08:47:36.0689680Z     Error Context: ../../artifacts/ci-browser-verification/test-results/acceptance-event-navigatio-f26af-d-render-the-selected-title-chromium/error-context.md
+browser	Browser, offline and same-origin upgrade tests	2026-10-15T08:47:36.0690009Z 
+browser	Browser, offline and same-origin upgrade tests	2026-10-15T08:47:36.0690303Z     attachment #2: trace (application/zip) ─────────────────────────────────────────────────────────
+browser	Browser, offline and same-origin upgrade tests	2026-10-15T08:47:36.0690771Z     ../../artifacts/ci-browser-verification/test-results/acceptance-event-navigatio-f26af-d-render-the-selected-title-chromium/trace.zip
+browser	Browser, offline and same-origin upgrade tests	2026-10-15T08:47:36.0691108Z     Usage:
+browser	Browser, offline and same-origin upgrade tests	2026-10-15T08:47:36.0691171Z 
+browser	Browser, offline and same-origin upgrade tests	2026-10-15T08:47:36.0691501Z         npx playwright show-trace ../../artifacts/ci-browser-verification/test-results/acceptance-event-navigatio-f26af-d-render-the-selected-title-chromium/trace.zip
+browser	Browser, offline and same-origin upgrade tests	2026-10-15T08:47:36.0691837Z 
+browser	Browser, offline and same-origin upgrade tests	2026-10-15T08:47:36.0692023Z     ────────────────────────────────────────────────────────────────────────────────────────────────
+browser	Browser, offline and same-origin upgrade tests	2026-10-15T08:47:36.0692184Z 
+browser	Browser, offline and same-origin upgrade tests	2026-10-15T08:47:36.0692188Z 
+browser	Browser, offline and same-origin upgrade tests	2026-10-15T08:47:36.3105070Z [3/10] [chromium] › acceptance.spec.mjs:79:1 › 390px layout has no horizontal overflow
+browser	Browser, offline and same-origin upgrade tests	2026-10-15T08:47:36.4779884Z   3) [chromium] › acceptance.spec.mjs:79:1 › 390px layout has no horizontal overflow ───────────────
+browser	Browser, offline and same-origin upgrade tests	2026-10-15T08:47:36.4780291Z 
+browser	Browser, offline and same-origin upgrade tests	2026-10-15T08:47:36.4780510Z     Error: browserType.launch: Target page, context or browser has been closed
+browser	Browser, offline and same-origin upgrade tests	2026-10-15T08:47:36.4780742Z     Browser logs:
+browser	Browser, offline and same-origin upgrade tests	2026-10-15T08:47:36.4780881Z     Chromium sandboxing failed!
+browser	Browser, offline and same-origin upgrade tests	2026-10-15T08:47:36.4781029Z     ================================
+browser	Browser, offline and same-origin upgrade tests	2026-10-15T08:47:36.4781223Z     To avoid the sandboxing issue, do either of the following:
+browser	Browser, offline and same-origin upgrade tests	2026-10-15T08:47:36.4781474Z       - (preferred): Configure your environment to support sandboxing
+browser	Browser, offline and same-origin upgrade tests	2026-10-15T08:47:36.4781769Z       - (alternative): Launch Chromium without sandbox using 'chromiumSandbox: false' option
+browser	Browser, offline and same-origin upgrade tests	2026-10-15T08:47:36.4782005Z     ================================
+browser	Browser, offline and same-origin upgrade tests	2026-10-15T08:47:36.4782129Z 
+browser	Browser, offline and same-origin upgrade tests	2026-10-15T08:47:36.4782182Z     Call log:
+browser	Browser, offline and same-origin upgrade tests	2026-10-15T08:47:36.4787025Z       - <launching> /home/runner/.cache/ms-playwright/chromium_headless_shell-1248/chrome-headless-shell-linux64/chrome-headless-shell --disable-field-trial-config --disable-background-networking --disable-background-timer-throttling --disable-backgrounding-occluded-windows --disable-back-forward-cache --disable-breakpad --disable-client-side-phishing-detection --disable-component-extensions-with-background-pages --disable-component-update --no-default-browser-check --disable-default-apps --disable-dev-shm-usage --disable-edgeupdater --disable-extensions --disable-features=AvoidUnnecessaryBeforeUnloadCheckSync,DestroyProfileOnBrowserClose,DialMediaRouteProvider,GlobalMediaControls,HttpsUpgrades,LensOverlay,MediaRouter,PaintHolding,ThirdPartyStoragePartitioning,BlockOriginHeaderModificationOnRedirect,AvoidCorsURLLoaderRestartOnRedirect,Translate,AutoDeElevate,OptimizationHints,NetworkTimeServiceQuerying,AimEnabled,msForceBrowserSignIn,msEdgeUpdateLaunchServicesPreferredVersion --enable-features=CDPScreenshotNewSurface --allow-pre-commit-input --disable-hang-monitor --disable-ipc-flooding-protection --disable-popup-blocking --disable-prompt-on-repost --disable-renderer-backgrounding --disable-updater-scheduler --force-color-profile=srgb --metrics-recording-only --no-first-run --password-store=basic --use-mock-keychain --no-service-autorun --export-tagged-pdf --disable-search-engine-choice-screen --unsafely-disable-devtools-self-xss-warnings --edge-skip-compat-layer-relaunch --disable-infobars --disable-search-engine-choice-screen --disable-sync --enable-unsafe-swiftshader --headless --hide-scrollbars --mute-audio --blink-settings=primaryHoverType=2,availableHoverTypes=2,primaryPointerType=4,availablePointerTypes=4 --user-data-dir=/tmp/playwright_chromiumdev_profile-Ex5ZHW --remote-debugging-pipe --no-startup-window
+browser	Browser, offline and same-origin upgrade tests	2026-10-15T08:47:36.4791933Z       - <launched> pid=4092
+browser	Browser, offline and same-origin upgrade tests	2026-10-15T08:47:36.4793187Z       - [pid=4092][err] [1015/084736.345873:FATAL:content/browser/zygote_host/zygote_host_impl_linux.cc:130] No usable sandbox! If you are running on Ubuntu 23.10+ or another Linux distro that has disabled unprivileged user namespaces with AppArmor, see https://chromium.googlesource.com/chromium/src/+/main/docs/security/apparmor-userns-restrictions.md. Otherwise see https://chromium.googlesource.com/chromium/src/+/main/docs/linux/suid_sandbox_development.md for more information on developing with the (older) SUID sandbox. If you want to live dangerously and need an immediate workaround, you can try using --no-sandbox.
+browser	Browser, offline and same-origin upgrade tests	2026-10-15T08:47:36.4794307Z       - [pid=4092] <gracefully close start>
+browser	Browser, offline and same-origin upgrade tests	2026-10-15T08:47:36.4794466Z       - [pid=4092] <kill>
+browser	Browser, offline and same-origin upgrade tests	2026-10-15T08:47:36.4794609Z       - [pid=4092] <will force kill>
+browser	Browser, offline and same-origin upgrade tests	2026-10-15T08:47:36.4794802Z       - [pid=4092] <process did exit: exitCode=null, signal=SIGTRAP>
+browser	Browser, offline and same-origin upgrade tests	2026-10-15T08:47:36.4795027Z       - [pid=4092] starting temporary directories cleanup
+browser	Browser, offline and same-origin upgrade tests	2026-10-15T08:47:36.4795233Z       - [pid=4092] finished temporary directories cleanup
+browser	Browser, offline and same-origin upgrade tests	2026-10-15T08:47:36.4795414Z       - [pid=4092] <gracefully close end>
+browser	Browser, offline and same-origin upgrade tests	2026-10-15T08:47:36.4795516Z 
+browser	Browser, offline and same-origin upgrade tests	2026-10-15T08:47:36.4795521Z 
+browser	Browser, offline and same-origin upgrade tests	2026-10-15T08:47:36.4795815Z     Error Context: ../../artifacts/ci-browser-verification/test-results/acceptance-390px-layout-has-no-horizontal-overflow-chromium/error-context.md
+browser	Browser, offline and same-origin upgrade tests	2026-10-15T08:47:36.4796117Z 
+browser	Browser, offline and same-origin upgrade tests	2026-10-15T08:47:36.4796351Z     attachment #2: trace (application/zip) ─────────────────────────────────────────────────────────
+browser	Browser, offline and same-origin upgrade tests	2026-10-15T08:47:36.4796889Z     ../../artifacts/ci-browser-verification/test-results/acceptance-390px-layout-has-no-horizontal-overflow-chromium/trace.zip
+browser	Browser, offline and same-origin upgrade tests	2026-10-15T08:47:36.4797193Z     Usage:
+browser	Browser, offline and same-origin upgrade tests	2026-10-15T08:47:36.4797256Z 
+browser	Browser, offline and same-origin upgrade tests	2026-10-15T08:47:36.4797550Z         npx playwright show-trace ../../artifacts/ci-browser-verification/test-results/acceptance-390px-layout-has-no-horizontal-overflow-chromium/trace.zip
+browser	Browser, offline and same-origin upgrade tests	2026-10-15T08:47:36.4797858Z 
+browser	Browser, offline and same-origin upgrade tests	2026-10-15T08:47:36.4798054Z     ────────────────────────────────────────────────────────────────────────────────────────────────
+browser	Browser, offline and same-origin upgrade tests	2026-10-15T08:47:36.4798196Z 
+browser	Browser, offline and same-origin upgrade tests	2026-10-15T08:47:36.4798302Z 
+browser	Browser, offline and same-origin upgrade tests	2026-10-15T08:47:36.7237478Z [4/10] [chromium] › acceptance.spec.mjs:99:1 › cached client reloads news and bookmarks while offline
+browser	Browser, offline and same-origin upgrade tests	2026-10-15T08:47:36.9047088Z   4) [chromium] › acceptance.spec.mjs:99:1 › cached client reloads news and bookmarks while offline 
+browser	Browser, offline and same-origin upgrade tests	2026-10-15T08:47:36.9047524Z 
+browser	Browser, offline and same-origin upgrade tests	2026-10-15T08:47:36.9047690Z     Error: browserType.launch: Target page, context or browser has been closed
+browser	Browser, offline and same-origin upgrade tests	2026-10-15T08:47:36.9047913Z     Browser logs:
+browser	Browser, offline and same-origin upgrade tests	2026-10-15T08:47:36.9048050Z     Chromium sandboxing failed!
+browser	Browser, offline and same-origin upgrade tests	2026-10-15T08:47:36.9048196Z     ================================
+browser	Browser, offline and same-origin upgrade tests	2026-10-15T08:47:36.9048395Z     To avoid the sandboxing issue, do either of the following:
+browser	Browser, offline and same-origin upgrade tests	2026-10-15T08:47:36.9048651Z       - (preferred): Configure your environment to support sandboxing
+browser	Browser, offline and same-origin upgrade tests	2026-10-15T08:47:36.9048946Z       - (alternative): Launch Chromium without sandbox using 'chromiumSandbox: false' option
+browser	Browser, offline and same-origin upgrade tests	2026-10-15T08:47:36.9049447Z     ================================
+browser	Browser, offline and same-origin upgrade tests	2026-10-15T08:47:36.9049540Z 
+browser	Browser, offline and same-origin upgrade tests	2026-10-15T08:47:36.9049599Z     Call log:
+browser	Browser, offline and same-origin upgrade tests	2026-10-15T08:47:36.9054474Z       - <launching> /home/runner/.cache/ms-playwright/chromium_headless_shell-1248/chrome-headless-shell-linux64/chrome-headless-shell --disable-field-trial-config --disable-background-networking --disable-background-timer-throttling --disable-backgrounding-occluded-windows --disable-back-forward-cache --disable-breakpad --disable-client-side-phishing-detection --disable-component-extensions-with-background-pages --disable-component-update --no-default-browser-check --disable-default-apps --disable-dev-shm-usage --disable-edgeupdater --disable-extensions --disable-features=AvoidUnnecessaryBeforeUnloadCheckSync,DestroyProfileOnBrowserClose,DialMediaRouteProvider,GlobalMediaControls,HttpsUpgrades,LensOverlay,MediaRouter,PaintHolding,ThirdPartyStoragePartitioning,BlockOriginHeaderModificationOnRedirect,AvoidCorsURLLoaderRestartOnRedirect,Translate,AutoDeElevate,OptimizationHints,NetworkTimeServiceQuerying,AimEnabled,msForceBrowserSignIn,msEdgeUpdateLaunchServicesPreferredVersion --enable-features=CDPScreenshotNewSurface --allow-pre-commit-input --disable-hang-monitor --disable-ipc-flooding-protection --disable-popup-blocking --disable-prompt-on-repost --disable-renderer-backgrounding --disable-updater-scheduler --force-color-profile=srgb --metrics-recording-only --no-first-run --password-store=basic --use-mock-keychain --no-service-autorun --export-tagged-pdf --disable-search-engine-choice-screen --unsafely-disable-devtools-self-xss-warnings --edge-skip-compat-layer-relaunch --disable-infobars --disable-search-engine-choice-screen --disable-sync --enable-unsafe-swiftshader --headless --hide-scrollbars --mute-audio --blink-settings=primaryHoverType=2,availableHoverTypes=2,primaryPointerType=4,availablePointerTypes=4 --user-data-dir=/tmp/playwright_chromiumdev_profile-0Ah7Kc --remote-debugging-pipe --no-startup-window
+browser	Browser, offline and same-origin upgrade tests	2026-10-15T08:47:36.9059796Z       - <launched> pid=4120
+browser	Browser, offline and same-origin upgrade tests	2026-10-15T08:47:36.9061187Z       - [pid=4120][err] [1015/084736.759826:FATAL:content/browser/zygote_host/zygote_host_impl_linux.cc:130] No usable sandbox! If you are running on Ubuntu 23.10+ or another Linux distro that has disabled unprivileged user namespaces with AppArmor, see https://chromium.googlesource.com/chromium/src/+/main/docs/security/apparmor-userns-restrictions.md. Otherwise see https://chromium.googlesource.com/chromium/src/+/main/docs/linux/suid_sandbox_development.md for more information on developing with the (older) SUID sandbox. If you want to live dangerously and need an immediate workaround, you can try using --no-sandbox.
+browser	Browser, offline and same-origin upgrade tests	2026-10-15T08:47:36.9062347Z       - [pid=4120] <gracefully close start>
+browser	Browser, offline and same-origin upgrade tests	2026-10-15T08:47:36.9062510Z       - [pid=4120] <kill>
+browser	Browser, offline and same-origin upgrade tests	2026-10-15T08:47:36.9062652Z       - [pid=4120] <will force kill>
+browser	Browser, offline and same-origin upgrade tests	2026-10-15T08:47:36.9062874Z       - [pid=4120] <process did exit: exitCode=null, signal=SIGTRAP>
+browser	Browser, offline and same-origin upgrade tests	2026-10-15T08:47:36.9063126Z       - [pid=4120] starting temporary directories cleanup
+browser	Browser, offline and same-origin upgrade tests	2026-10-15T08:47:36.9063359Z       - [pid=4120] finished temporary directories cleanup
+browser	Browser, offline and same-origin upgrade tests	2026-10-15T08:47:36.9063739Z       - [pid=4120] <gracefully close end>
+browser	Browser, offline and same-origin upgrade tests	2026-10-15T08:47:36.9063843Z 
+browser	Browser, offline and same-origin upgrade tests	2026-10-15T08:47:36.9063851Z 
+browser	Browser, offline and same-origin upgrade tests	2026-10-15T08:47:36.9064176Z     Error Context: ../../artifacts/ci-browser-verification/test-results/acceptance-cached-client-r-1cdce-and-bookmarks-while-offline-chromium/error-context.md
+browser	Browser, offline and same-origin upgrade tests	2026-10-15T08:47:36.9064529Z 
+browser	Browser, offline and same-origin upgrade tests	2026-10-15T08:47:36.9065072Z     attachment #2: trace (application/zip) ─────────────────────────────────────────────────────────
+browser	Browser, offline and same-origin upgrade tests	2026-10-15T08:47:36.9065742Z     ../../artifacts/ci-browser-verification/test-results/acceptance-cached-client-r-1cdce-and-bookmarks-while-offline-chromium/trace.zip
+browser	Browser, offline and same-origin upgrade tests	2026-10-15T08:47:36.9066074Z     Usage:
+browser	Browser, offline and same-origin upgrade tests	2026-10-15T08:47:36.9066133Z 
+browser	Browser, offline and same-origin upgrade tests	2026-10-15T08:47:36.9066565Z         npx playwright show-trace ../../artifacts/ci-browser-verification/test-results/acceptance-cached-client-r-1cdce-and-bookmarks-while-offline-chromium/trace.zip
+browser	Browser, offline and same-origin upgrade tests	2026-10-15T08:47:36.9067010Z 
+browser	Browser, offline and same-origin upgrade tests	2026-10-15T08:47:36.9067271Z     ────────────────────────────────────────────────────────────────────────────────────────────────
+browser	Browser, offline and same-origin upgrade tests	2026-10-15T08:47:36.9067471Z 
+browser	Browser, offline and same-origin upgrade tests	2026-10-15T08:47:36.9067475Z 
+browser	Browser, offline and same-origin upgrade tests	2026-10-15T08:47:37.1507015Z [5/10] [chromium] › acceptance.spec.mjs:116:1 › older candidate upgrades on the same origin without losing its bookmark
+browser	Browser, offline and same-origin upgrade tests	2026-10-15T08:47:37.3148483Z   5) [chromium] › acceptance.spec.mjs:116:1 › older candidate upgrades on the same origin without losing its bookmark 
+browser	Browser, offline and same-origin upgrade tests	2026-10-15T08:47:37.3149005Z 
+browser	Browser, offline and same-origin upgrade tests	2026-10-15T08:47:37.3149266Z     Error: browserType.launch: Target page, context or browser has been closed
+browser	Browser, offline and same-origin upgrade tests	2026-10-15T08:47:37.3149618Z     Browser logs:
+browser	Browser, offline and same-origin upgrade tests	2026-10-15T08:47:37.3149860Z     Chromium sandboxing failed!
+browser	Browser, offline and same-origin upgrade tests	2026-10-15T08:47:37.3150102Z     ================================
+browser	Browser, offline and same-origin upgrade tests	2026-10-15T08:47:37.3150439Z     To avoid the sandboxing issue, do either of the following:
+browser	Browser, offline and same-origin upgrade tests	2026-10-15T08:47:37.3150857Z       - (preferred): Configure your environment to support sandboxing
+browser	Browser, offline and same-origin upgrade tests	2026-10-15T08:47:37.3151401Z       - (alternative): Launch Chromium without sandbox using 'chromiumSandbox: false' option
+browser	Browser, offline and same-origin upgrade tests	2026-10-15T08:47:37.3151797Z     ================================
+browser	Browser, offline and same-origin upgrade tests	2026-10-15T08:47:37.3151941Z 
+browser	Browser, offline and same-origin upgrade tests	2026-10-15T08:47:37.3152018Z     Call log:
+browser	Browser, offline and same-origin upgrade tests	2026-10-15T08:47:37.3160520Z       - <launching> /home/runner/.cache/ms-playwright/chromium_headless_shell-1248/chrome-headless-shell-linux64/chrome-headless-shell --disable-field-trial-config --disable-background-networking --disable-background-timer-throttling --disable-backgrounding-occluded-windows --disable-back-forward-cache --disable-breakpad --disable-client-side-phishing-detection --disable-component-extensions-with-background-pages --disable-component-update --no-default-browser-check --disable-default-apps --disable-dev-shm-usage --disable-edgeupdater --disable-extensions --disable-features=AvoidUnnecessaryBeforeUnloadCheckSync,DestroyProfileOnBrowserClose,DialMediaRouteProvider,GlobalMediaControls,HttpsUpgrades,LensOverlay,MediaRouter,PaintHolding,ThirdPartyStoragePartitioning,BlockOriginHeaderModificationOnRedirect,AvoidCorsURLLoaderRestartOnRedirect,Translate,AutoDeElevate,OptimizationHints,NetworkTimeServiceQuerying,AimEnabled,msForceBrowserSignIn,msEdgeUpdateLaunchServicesPreferredVersion --enable-features=CDPScreenshotNewSurface --allow-pre-commit-input --disable-hang-monitor --disable-ipc-flooding-protection --disable-popup-blocking --disable-prompt-on-repost --disable-renderer-backgrounding --disable-updater-scheduler --force-color-profile=srgb --metrics-recording-only --no-first-run --password-store=basic --use-mock-keychain --no-service-autorun --export-tagged-pdf --disable-search-engine-choice-screen --unsafely-disable-devtools-self-xss-warnings --edge-skip-compat-layer-relaunch --disable-infobars --disable-search-engine-choice-screen --disable-sync --enable-unsafe-swiftshader --headless --hide-scrollbars --mute-audio --blink-settings=primaryHoverType=2,availableHoverTypes=2,primaryPointerType=4,availablePointerTypes=4 --user-data-dir=/tmp/playwright_chromiumdev_profile-2pXicw --remote-debugging-pipe --no-startup-window
+browser	Browser, offline and same-origin upgrade tests	2026-10-15T08:47:37.3168557Z       - <launched> pid=4148
+browser	Browser, offline and same-origin upgrade tests	2026-10-15T08:47:37.3170748Z       - [pid=4148][err] [1015/084737.193544:FATAL:content/browser/zygote_host/zygote_host_impl_linux.cc:130] No usable sandbox! If you are running on Ubuntu 23.10+ or another Linux distro that has disabled unprivileged user namespaces with AppArmor, see https://chromium.googlesource.com/chromium/src/+/main/docs/security/apparmor-userns-restrictions.md. Otherwise see https://chromium.googlesource.com/chromium/src/+/main/docs/linux/suid_sandbox_development.md for more information on developing with the (older) SUID sandbox. If you want to live dangerously and need an immediate workaround, you can try using --no-sandbox.
+browser	Browser, offline and same-origin upgrade tests	2026-10-15T08:47:37.3172689Z       - [pid=4148] <gracefully close start>
+browser	Browser, offline and same-origin upgrade tests	2026-10-15T08:47:37.3172933Z       - [pid=4148] <kill>
+browser	Browser, offline and same-origin upgrade tests	2026-10-15T08:47:37.3173157Z       - [pid=4148] <will force kill>
+browser	Browser, offline and same-origin upgrade tests	2026-10-15T08:47:37.3173624Z       - [pid=4148] <process did exit: exitCode=null, signal=SIGTRAP>
+browser	Browser, offline and same-origin upgrade tests	2026-10-15T08:47:37.3173986Z       - [pid=4148] starting temporary directories cleanup
+browser	Browser, offline and same-origin upgrade tests	2026-10-15T08:47:37.3174332Z       - [pid=4148] finished temporary directories cleanup
+browser	Browser, offline and same-origin upgrade tests	2026-10-15T08:47:37.3174629Z       - [pid=4148] <gracefully close end>
+browser	Browser, offline and same-origin upgrade tests	2026-10-15T08:47:37.3174787Z 
+browser	Browser, offline and same-origin upgrade tests	2026-10-15T08:47:37.3174794Z 
+browser	Browser, offline and same-origin upgrade tests	2026-10-15T08:47:37.3175345Z     Error Context: ../../artifacts/ci-browser-verification/test-results/acceptance-older-candidate-dba73-without-losing-its-bookmark-chromium/error-context.md
+browser	Browser, offline and same-origin upgrade tests	2026-10-15T08:47:37.3175904Z 
+browser	Browser, offline and same-origin upgrade tests	2026-10-15T08:47:37.3176281Z     attachment #2: trace (application/zip) ─────────────────────────────────────────────────────────
+browser	Browser, offline and same-origin upgrade tests	2026-10-15T08:47:37.3178264Z     ../../artifacts/ci-browser-verification/test-results/acceptance-older-candidate-dba73-without-losing-its-bookmark-chromium/trace.zip
+browser	Browser, offline and same-origin upgrade tests	2026-10-15T08:47:37.3178843Z     Usage:
+browser	Browser, offline and same-origin upgrade tests	2026-10-15T08:47:37.3178943Z 
+browser	Browser, offline and same-origin upgrade tests	2026-10-15T08:47:37.3179501Z         npx playwright show-trace ../../artifacts/ci-browser-verification/test-results/acceptance-older-candidate-dba73-without-losing-its-bookmark-chromium/trace.zip
+browser	Browser, offline and same-origin upgrade tests	2026-10-15T08:47:37.3180072Z 
+browser	Browser, offline and same-origin upgrade tests	2026-10-15T08:47:37.3180398Z     ────────────────────────────────────────────────────────────────────────────────────────────────
+browser	Browser, offline and same-origin upgrade tests	2026-10-15T08:47:37.3180631Z 
+browser	Browser, offline and same-origin upgrade tests	2026-10-15T08:47:37.3180636Z 
+browser	Browser, offline and same-origin upgrade tests	2026-10-15T08:47:37.5645902Z [6/10] [firefox] › acceptance.spec.mjs:49:1 › news bookmark survives reload and is visible in the library
+browser	Browser, offline and same-origin upgrade tests	2026-10-15T08:47:40.6287068Z [7/10] [firefox] › acceptance.spec.mjs:64:1 › event navigation and direct detail reload render the selected title
+browser	Browser, offline and same-origin upgrade tests	2026-10-15T08:47:41.6045285Z [8/10] [firefox] › acceptance.spec.mjs:79:1 › 390px layout has no horizontal overflow
+browser	Browser, offline and same-origin upgrade tests	2026-10-15T08:47:42.2296372Z [9/10] [firefox] › acceptance.spec.mjs:99:1 › cached client reloads news and bookmarks while offline
+browser	Browser, offline and same-origin upgrade tests	2026-10-15T08:47:42.6715633Z [10/10] [firefox] › acceptance.spec.mjs:116:1 › older candidate upgrades on the same origin without losing its bookmark
+browser	Browser, offline and same-origin upgrade tests	2026-10-15T08:47:43.3506590Z   5 failed
+browser	Browser, offline and same-origin upgrade tests	2026-10-15T08:47:43.3507503Z     [chromium] › acceptance.spec.mjs:49:1 › news bookmark survives reload and is visible in the library 
+browser	Browser, offline and same-origin upgrade tests	2026-10-15T08:47:43.3508620Z     [chromium] › acceptance.spec.mjs:64:1 › event navigation and direct detail reload render the selected title 
+browser	Browser, offline and same-origin upgrade tests	2026-10-15T08:47:43.3509344Z     [chromium] › acceptance.spec.mjs:79:1 › 390px layout has no horizontal overflow ────────────────
+browser	Browser, offline and same-origin upgrade tests	2026-10-15T08:47:43.3509948Z     [chromium] › acceptance.spec.mjs:99:1 › cached client reloads news and bookmarks while offline ─
+browser	Browser, offline and same-origin upgrade tests	2026-10-15T08:47:43.3510621Z     [chromium] › acceptance.spec.mjs:116:1 › older candidate upgrades on the same origin without losing its bookmark 
+browser	Browser, offline and same-origin upgrade tests	2026-10-15T08:47:43.3511087Z   2 skipped
+browser	Browser, offline and same-origin upgrade tests	2026-10-15T08:47:43.3511276Z   3 passed (8.2s)
+browser	Browser, offline and same-origin upgrade tests	2026-10-15T08:47:43.3834646Z ##[error]Process completed with exit code 1.

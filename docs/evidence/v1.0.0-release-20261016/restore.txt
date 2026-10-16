@@ -1,0 +1,21 @@
+test_cross_generation_data_rejected (test_pages_restore.PagesRestoreTests.test_cross_generation_data_rejected) ... ok
+test_current_missing_check_timestamp_rejected (test_pages_restore.PagesRestoreTests.test_current_missing_check_timestamp_rejected) ... ok
+test_current_missing_id_rejected (test_pages_restore.PagesRestoreTests.test_current_missing_id_rejected) ... ok
+test_current_pair_restored_verbatim_without_snapshot_only_report_fields (test_pages_restore.PagesRestoreTests.test_current_pair_restored_verbatim_without_snapshot_only_report_fields) ... ok
+test_current_wrong_check_timestamp_rejected (test_pages_restore.PagesRestoreTests.test_current_wrong_check_timestamp_rejected) ... ok
+test_current_wrong_id_rejected (test_pages_restore.PagesRestoreTests.test_current_wrong_id_rejected) ... ok
+test_existing_output_not_overwritten (test_pages_restore.PagesRestoreTests.test_existing_output_not_overwritten) ... ok
+test_foreign_output_rejected (test_pages_restore.PagesRestoreTests.test_foreign_output_rejected) ... ok
+test_frozen_capsule_restores_only_exact_original_files (test_pages_restore.PagesRestoreTests.test_frozen_capsule_restores_only_exact_original_files) ... ok
+test_frozen_changed_file_receipt_rejected (test_pages_restore.PagesRestoreTests.test_frozen_changed_file_receipt_rejected) ... ok
+test_frozen_changed_generation_rejected (test_pages_restore.PagesRestoreTests.test_frozen_changed_generation_rejected) ... ok
+test_frozen_wrong_archive_rejected_before_extraction (test_pages_restore.PagesRestoreTests.test_frozen_wrong_archive_rejected_before_extraction) ... ok
+test_malformed_and_cross_schema_pairs_fail_closed (test_pages_restore.PagesRestoreTests.test_malformed_and_cross_schema_pairs_fail_closed) ... ok
+test_only_successful_main_publisher_allowed (test_pages_restore.PagesRestoreTests.test_only_successful_main_publisher_allowed) ... ok
+test_pair_restored_verbatim_without_recollection (test_pages_restore.PagesRestoreTests.test_pair_restored_verbatim_without_recollection) ... ok
+test_unsafe_paths_rejected_before_extraction (test_pages_restore.PagesRestoreTests.test_unsafe_paths_rejected_before_extraction) ... ok
+
+----------------------------------------------------------------------
+Ran 16 tests in 0.043s
+
+OK

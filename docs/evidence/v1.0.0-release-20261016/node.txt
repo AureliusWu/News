@@ -1,0 +1,148 @@
+TAP version 13
+# Subtest: prerelease versions remain candidates without a formal approval
+ok 1 - prerelease versions remain candidates without a formal approval
+  ---
+  duration_ms: 0.951942
+  type: 'test'
+  ...
+# Subtest: stable releases fail closed without explicit approval
+ok 2 - stable releases fail closed without explicit approval
+  ---
+  duration_ms: 0.446651
+  type: 'test'
+  ...
+# Subtest: approval for one version cannot authorize another release
+ok 3 - approval for one version cannot authorize another release
+  ---
+  duration_ms: 0.15604
+  type: 'test'
+  ...
+# Subtest: waived failures retain their actual status
+ok 4 - waived failures retain their actual status
+  ---
+  duration_ms: 0.173082
+  type: 'test'
+  ...
+# Subtest: empty, duplicate, or passing waivers are rejected
+ok 5 - empty, duplicate, or passing waivers are rejected
+  ---
+  duration_ms: 1.033985
+  type: 'test'
+  ...
+# Subtest: missing owner, limitation or evidence is rejected
+ok 6 - missing owner, limitation or evidence is rejected
+  ---
+  duration_ms: 0.312593
+  type: 'test'
+  ...
+# Subtest: content AI is disabled and has zero budgets
+ok 7 - content AI is disabled and has zero budgets
+  ---
+  duration_ms: 1.510012
+  type: 'test'
+  ...
+# Subtest: enabled features, cost, credentials, missing guards cannot pass policy
+ok 8 - enabled features, cost, credentials, missing guards cannot pass policy
+  ---
+  duration_ms: 0.729508
+  type: 'test'
+  ...
+# Subtest: complete synthetic week passes only the predicate, not production acceptance
+ok 9 - complete synthetic week passes only the predicate, not production acceptance
+  ---
+  duration_ms: 5.446141
+  type: 'test'
+  ...
+# Subtest: one sample and duplicate samples cannot manufacture seven days
+ok 10 - one sample and duplicate samples cannot manufacture seven days
+  ---
+  duration_ms: 1.820159
+  type: 'test'
+  ...
+# Subtest: missing slots count as failed coverage
+ok 11 - missing slots count as failed coverage
+  ---
+  duration_ms: 2.132942
+  type: 'test'
+  ...
+# Subtest: stale and contradictory retry cannot be hidden
+ok 12 - stale and contradictory retry cannot be hidden
+  ---
+  duration_ms: 1.846178
+  type: 'test'
+  ...
+# Subtest: future generation, report mismatch, failed transport reduce valid observations
+ok 13 - future generation, report mismatch, failed transport reduce valid observations
+  ---
+  duration_ms: 5.119553
+  type: 'test'
+  ...
+# Subtest: another deployed version does not qualify the candidate
+ok 14 - another deployed version does not qualify the candidate
+  ---
+  duration_ms: 2.033164
+  type: 'test'
+  ...
+# Subtest: compaction retains timestamps and failures, not action success statistics
+ok 15 - compaction retains timestamps and failures, not action success statistics
+  ---
+  duration_ms: 0.627558
+  type: 'test'
+  ...
+# Subtest: current reports bind by snapshot_id and checked_at without snapshot-only fields
+ok 16 - current reports bind by snapshot_id and checked_at without snapshot-only fields
+  ---
+  duration_ms: 0.634842
+  type: 'test'
+  ...
+# Subtest: legacy reports retain the timestamp binding
+ok 17 - legacy reports retain the timestamp binding
+  ---
+  duration_ms: 0.302132
+  type: 'test'
+  ...
+# Subtest: equal IDs cannot hide a different check timestamp
+ok 18 - equal IDs cannot hide a different check timestamp
+  ---
+  duration_ms: 0.120555
+  type: 'test'
+  ...
+# Subtest: equal timestamps cannot hide a missing or wrong current ID
+ok 19 - equal timestamps cannot hide a missing or wrong current ID
+  ---
+  duration_ms: 0.123711
+  type: 'test'
+  ...
+# Subtest: current reports without checked_at fail closed
+ok 20 - current reports without checked_at fail closed
+  ---
+  duration_ms: 0.099244
+  type: 'test'
+  ...
+# Subtest: invalid dates, IDs and non-object inputs fail closed
+ok 21 - invalid dates, IDs and non-object inputs fail closed
+  ---
+  duration_ms: 0.194502
+  type: 'test'
+  ...
+# Subtest: a current report cannot be paired with an unidentified legacy snapshot
+ok 22 - a current report cannot be paired with an unidentified legacy snapshot
+  ---
+  duration_ms: 0.097562
+  type: 'test'
+  ...
+# Subtest: correction never erases a historic failed sample or contradictory retry
+ok 23 - correction never erases a historic failed sample or contradictory retry
+  ---
+  duration_ms: 1.888978
+  type: 'test'
+  ...
+1..23
+# tests 23
+# suites 0
+# pass 23
+# fail 0
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 99.781542

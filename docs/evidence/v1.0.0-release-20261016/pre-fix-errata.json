@@ -1,0 +1,22 @@
+{
+  "recorded_on": "2026-10-16",
+  "run_id": 38708078006,
+  "source_revision": "fe2b21f",
+  "browser_result": {
+    "firefox_online_passed": 3,
+    "firefox_service_worker_skipped": 2,
+    "chromium_launch_failed": 5,
+    "reason": "Bundled Chromium had no usable sandbox in the runner. No sandbox was disabled; later runs selected the supported installed Chrome channel."
+  },
+  "performance_correction": {
+    "original_all_samples_valid_flag": true,
+    "flag_was_insufficient_for_device_configuration": true,
+    "desktop_labeled_samples_actually_used_mobile_settings": true,
+    "original_reports_and_labels_preserved": true,
+    "desktop_comparison_not_accepted": true,
+    "cause": "Lighthouse --config-path overrides --preset; the original script supplied both.",
+    "corrected_run_id": 38844143633,
+    "corrected_controls_match": true
+  },
+  "archive": "https://github.com/AureliusWu/News/releases/download/v1.0.0/v1.0.0-prerelease-browser-failure-evidence.zip"
+}

@@ -1,0 +1,29 @@
+{
+  "recorded_at": "2026-10-16T03:40:36.592Z",
+  "source": "Live in-app browser CUA DOM observations",
+  "home": {
+    "alerts": [],
+    "banner": "定时快照 | 快照更新：2026/10/16 GMT+8 11:20:27 | 可用来源：32/38 | 计划约每 30 分钟更新，非实时，可能延迟。\n刷新快照",
+    "footer": "全球新闻 / Global News\nV1.0.0\n新闻内容及图片版权归原发布媒体所有。",
+    "news_cards": 30,
+    "title": "全球新闻 | Global News",
+    "url": "https://aureliuswu.github.io/News/"
+  },
+  "upgrade": {
+    "before": "V0.9.0-alpha.1",
+    "after": "V1.0.0",
+    "method": "Normal page-update control; no cache, Service Worker or bookmark deletion"
+  },
+  "event_detail": {
+    "url": "https://aureliuswu.github.io/News/events/e_49f80c7c9078c0c789d20d64",
+    "direct_navigation_rendered": true,
+    "original_source_link_visible": true,
+    "footer": "V1.0.0"
+  },
+  "compatibility_warning": {
+    "in_app_event_click_changed_route": false,
+    "chrome_and_firefox_ci_navigation_passed": true,
+    "root_cause": "Not determined; no speculative routing change"
+  },
+  "console_errors_captured_on_detail": 0
+}

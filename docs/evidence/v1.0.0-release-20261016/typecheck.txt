@@ -1,0 +1,4 @@
+
+> global-news-frontend@1.0.0 typecheck
+> vue-tsc --noEmit -p tsconfig.app.json && tsc --noEmit -p tsconfig.node.json
+

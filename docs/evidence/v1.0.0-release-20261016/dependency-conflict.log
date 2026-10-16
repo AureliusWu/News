@@ -1,0 +1,542 @@
+browser	UNKNOWN STEP	﻿2026-10-15T09:09:02.3273857Z Current runner version: '2.337.0'
+browser	UNKNOWN STEP	2026-10-15T09:09:02.3299219Z ##[group]Runner Image Provisioner
+browser	UNKNOWN STEP	2026-10-15T09:09:02.3300147Z Hosted Compute Agent
+browser	UNKNOWN STEP	2026-10-15T09:09:02.3300693Z Version: 20261012.601
+browser	UNKNOWN STEP	2026-10-15T09:09:02.3301266Z Commit: f3dc54e1fb89da6852db922499a0233137369e1d
+browser	UNKNOWN STEP	2026-10-15T09:09:02.3302010Z Build Date: 2026-10-12T17:48:21Z
+browser	UNKNOWN STEP	2026-10-15T09:09:02.3302647Z Worker ID: {b807fdf5-6e60-4d54-954f-87aafee3c6b0}
+browser	UNKNOWN STEP	2026-10-15T09:09:02.3303301Z Region: westus3
+browser	UNKNOWN STEP	2026-10-15T09:09:02.3303817Z Cloud: Azure
+browser	UNKNOWN STEP	2026-10-15T09:09:02.3304319Z ##[endgroup]
+browser	UNKNOWN STEP	2026-10-15T09:09:02.3305704Z ##[group]Operating System
+browser	UNKNOWN STEP	2026-10-15T09:09:02.3306464Z Ubuntu
+browser	UNKNOWN STEP	2026-10-15T09:09:02.3307012Z 24.04.5
+browser	UNKNOWN STEP	2026-10-15T09:09:02.3307508Z LTS
+browser	UNKNOWN STEP	2026-10-15T09:09:02.3308003Z ##[endgroup]
+browser	UNKNOWN STEP	2026-10-15T09:09:02.3308902Z ##[group]Runner Image
+browser	UNKNOWN STEP	2026-10-15T09:09:02.3309736Z Image: ubuntu-24.04
+browser	UNKNOWN STEP	2026-10-15T09:09:02.3310391Z Version: 20261012.334.1
+browser	UNKNOWN STEP	2026-10-15T09:09:02.3311635Z Included Software: https://github.com/actions/runner-images/blob/ubuntu24/20261012.334/images/ubuntu/Ubuntu2404-Readme.md
+browser	UNKNOWN STEP	2026-10-15T09:09:02.3313111Z Image Release: https://github.com/actions/runner-images/releases/tag/ubuntu24%2F20261012.334
+browser	UNKNOWN STEP	2026-10-15T09:09:02.3314007Z ##[endgroup]
+browser	UNKNOWN STEP	2026-10-15T09:09:02.3315079Z ##[group]GITHUB_TOKEN Permissions
+browser	UNKNOWN STEP	2026-10-15T09:09:02.3317514Z Contents: read
+browser	UNKNOWN STEP	2026-10-15T09:09:02.3318091Z Metadata: read
+browser	UNKNOWN STEP	2026-10-15T09:09:02.3318661Z ##[endgroup]
+browser	UNKNOWN STEP	2026-10-15T09:09:02.3320681Z Secret source: Actions
+browser	UNKNOWN STEP	2026-10-15T09:09:02.3321579Z Cache mode: write
+browser	UNKNOWN STEP	2026-10-15T09:09:02.3322429Z Prepare workflow directory
+browser	UNKNOWN STEP	2026-10-15T09:09:02.3865007Z Prepare all required actions
+browser	UNKNOWN STEP	2026-10-15T09:09:02.3915433Z Getting action download info
+browser	UNKNOWN STEP	2026-10-15T09:09:02.7387559Z Download action repository 'actions/checkout@v4' (SHA:11d5960a326750d5838078e36cf38b85af677262)
+browser	UNKNOWN STEP	2026-10-15T09:09:02.8448636Z Download action repository 'actions/setup-node@v4' (SHA:49933ea5288caeca8642d1e84afbd3f7d6820020)
+browser	UNKNOWN STEP	2026-10-15T09:09:02.9740466Z Download action repository 'actions/setup-python@v5' (SHA:a26af69be951a213d495a4c3e4e4022e16d87065)
+browser	UNKNOWN STEP	2026-10-15T09:09:03.0736557Z Download action repository 'actions/upload-artifact@v4' (SHA:ea165f8d65b6e75b540449e92b4886f43607fa02)
+browser	UNKNOWN STEP	2026-10-15T09:09:03.3547280Z Complete job name: browser
+browser	UNKNOWN STEP	2026-10-15T09:09:03.4392220Z ##[group]Run actions/checkout@v4
+browser	UNKNOWN STEP	2026-10-15T09:09:03.4393679Z with:
+browser	UNKNOWN STEP	2026-10-15T09:09:03.4394616Z   persist-credentials: false
+browser	UNKNOWN STEP	2026-10-15T09:09:03.4395748Z   repository: AureliusWu/News
+browser	UNKNOWN STEP	2026-10-15T09:09:03.4405153Z   token: ***
+browser	UNKNOWN STEP	2026-10-15T09:09:03.4406214Z   ssh-strict: true
+browser	UNKNOWN STEP	2026-10-15T09:09:03.4407195Z   ssh-user: git
+browser	UNKNOWN STEP	2026-10-15T09:09:03.4408095Z   clean: true
+browser	UNKNOWN STEP	2026-10-15T09:09:03.4409037Z   sparse-checkout-cone-mode: true
+browser	UNKNOWN STEP	2026-10-15T09:09:03.4410103Z   fetch-depth: 1
+browser	UNKNOWN STEP	2026-10-15T09:09:03.4411013Z   fetch-tags: false
+browser	UNKNOWN STEP	2026-10-15T09:09:03.4411937Z   show-progress: true
+browser	UNKNOWN STEP	2026-10-15T09:09:03.4412839Z   lfs: false
+browser	UNKNOWN STEP	2026-10-15T09:09:03.4413752Z   submodules: false
+browser	UNKNOWN STEP	2026-10-15T09:09:03.4414698Z   set-safe-directory: true
+browser	UNKNOWN STEP	2026-10-15T09:09:03.4415750Z   allow-unsafe-pr-checkout: false
+browser	UNKNOWN STEP	2026-10-15T09:09:03.4417248Z env:
+browser	UNKNOWN STEP	2026-10-15T09:09:03.4418594Z   VERIFICATION_OUTPUT: /home/runner/work/News/News/artifacts/ci-browser-verification
+browser	UNKNOWN STEP	2026-10-15T09:09:03.4420675Z   BASELINE_ROOT: /home/runner/work/News/News/verification-inputs/baseline
+browser	UNKNOWN STEP	2026-10-15T09:09:03.4422507Z   CANDIDATE_ROOT: /home/runner/work/News/News/verification-inputs/candidate
+browser	UNKNOWN STEP	2026-10-15T09:09:03.4423936Z ##[endgroup]
+browser	UNKNOWN STEP	2026-10-15T09:09:03.5479080Z Syncing repository: AureliusWu/News
+browser	UNKNOWN STEP	2026-10-15T09:09:03.5481794Z ##[group]Getting Git version info
+browser	UNKNOWN STEP	2026-10-15T09:09:03.5483010Z Working directory is '/home/runner/work/News/News'
+browser	UNKNOWN STEP	2026-10-15T09:09:03.5484947Z [command]/usr/bin/git version
+browser	UNKNOWN STEP	2026-10-15T09:09:03.5519676Z git version 2.55.0
+browser	UNKNOWN STEP	2026-10-15T09:09:03.5540957Z ##[endgroup]
+browser	UNKNOWN STEP	2026-10-15T09:09:03.5552982Z Temporarily overriding HOME='/home/runner/work/_temp/c68697c1-cc7d-4bef-954e-df378e8f04c1' before making global git config changes
+browser	UNKNOWN STEP	2026-10-15T09:09:03.5557361Z Adding repository directory to the temporary git global config as a safe directory
+browser	UNKNOWN STEP	2026-10-15T09:09:03.5561164Z [command]/usr/bin/git config --global --add safe.directory /home/runner/work/News/News
+browser	UNKNOWN STEP	2026-10-15T09:09:03.5608067Z Deleting the contents of '/home/runner/work/News/News'
+browser	UNKNOWN STEP	2026-10-15T09:09:03.5612733Z ##[group]Initializing the repository
+browser	UNKNOWN STEP	2026-10-15T09:09:03.5616638Z [command]/usr/bin/git init /home/runner/work/News/News
+browser	UNKNOWN STEP	2026-10-15T09:09:03.5710219Z hint: Using 'master' as the name for the initial branch. This default branch name
+browser	UNKNOWN STEP	2026-10-15T09:09:03.5712460Z hint: will change to "main" in Git 3.0. To configure the initial branch name
+browser	UNKNOWN STEP	2026-10-15T09:09:03.5714392Z hint: to use in all of your new repositories, which will suppress this warning,
+browser	UNKNOWN STEP	2026-10-15T09:09:03.5715872Z hint: call:
+browser	UNKNOWN STEP	2026-10-15T09:09:03.5716951Z hint:
+browser	UNKNOWN STEP	2026-10-15T09:09:03.5718046Z hint: 	git config --global init.defaultBranch <name>
+browser	UNKNOWN STEP	2026-10-15T09:09:03.5719281Z hint:
+browser	UNKNOWN STEP	2026-10-15T09:09:03.5720507Z hint: Names commonly chosen instead of 'master' are 'main', 'trunk' and
+browser	UNKNOWN STEP	2026-10-15T09:09:03.5722333Z hint: 'development'. The just-created branch can be renamed via this command:
+browser	UNKNOWN STEP	2026-10-15T09:09:03.5723865Z hint:
+browser	UNKNOWN STEP	2026-10-15T09:09:03.5724741Z hint: 	git branch -m <name>
+browser	UNKNOWN STEP	2026-10-15T09:09:03.5725675Z hint:
+browser	UNKNOWN STEP	2026-10-15T09:09:03.5727133Z hint: Disable this message with "git config set advice.defaultBranchName false"
+browser	UNKNOWN STEP	2026-10-15T09:09:03.5733492Z Initialized empty Git repository in /home/runner/work/News/News/.git/
+browser	UNKNOWN STEP	2026-10-15T09:09:03.5752338Z [command]/usr/bin/git remote add origin https://github.com/AureliusWu/News
+browser	UNKNOWN STEP	2026-10-15T09:09:03.5829700Z ##[endgroup]
+browser	UNKNOWN STEP	2026-10-15T09:09:03.5832179Z ##[group]Disabling automatic garbage collection
+browser	UNKNOWN STEP	2026-10-15T09:09:03.5834557Z [command]/usr/bin/git config --local gc.auto 0
+browser	UNKNOWN STEP	2026-10-15T09:09:03.5873717Z ##[endgroup]
+browser	UNKNOWN STEP	2026-10-15T09:09:03.5876196Z ##[group]Setting up auth
+browser	UNKNOWN STEP	2026-10-15T09:09:03.5879086Z [command]/usr/bin/git config --local --name-only --get-regexp core\.sshCommand
+browser	UNKNOWN STEP	2026-10-15T09:09:03.5911702Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'core\.sshCommand' && git config --local --unset-all 'core.sshCommand' || :"
+browser	UNKNOWN STEP	2026-10-15T09:09:03.6237355Z [command]/usr/bin/git config --local --name-only --get-regexp http\.https\:\/\/github\.com\/\.extraheader
+browser	UNKNOWN STEP	2026-10-15T09:09:03.6271239Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'http\.https\:\/\/github\.com\/\.extraheader' && git config --local --unset-all 'http.https://github.com/.extraheader' || :"
+browser	UNKNOWN STEP	2026-10-15T09:09:03.6489420Z [command]/usr/bin/git config --local --name-only --get-regexp ^includeIf\.gitdir:
+browser	UNKNOWN STEP	2026-10-15T09:09:03.6520984Z [command]/usr/bin/git submodule foreach --recursive git config --local --show-origin --name-only --get-regexp remote.origin.url
+browser	UNKNOWN STEP	2026-10-15T09:09:03.6705446Z [command]/usr/bin/git config --local http.https://github.com/.extraheader AUTHORIZATION: basic ***
+browser	UNKNOWN STEP	2026-10-15T09:09:03.6763703Z ##[endgroup]
+browser	UNKNOWN STEP	2026-10-15T09:09:03.6765418Z ##[group]Fetching the repository
+browser	UNKNOWN STEP	2026-10-15T09:09:03.6773273Z [command]/usr/bin/git -c protocol.version=2 fetch --no-tags --prune --no-recurse-submodules --depth=1 origin +774a3a90ce3612380c6f6d40a29d30fbb6699e15:refs/remotes/origin/main
+browser	UNKNOWN STEP	2026-10-15T09:09:05.1730129Z From https://github.com/AureliusWu/News
+browser	UNKNOWN STEP	2026-10-15T09:09:05.1731240Z  * [new ref]         774a3a90ce3612380c6f6d40a29d30fbb6699e15 -> origin/main
+browser	UNKNOWN STEP	2026-10-15T09:09:05.1734527Z ##[endgroup]
+browser	UNKNOWN STEP	2026-10-15T09:09:05.1735837Z ##[group]Determining the checkout info
+browser	UNKNOWN STEP	2026-10-15T09:09:05.1737298Z ##[endgroup]
+browser	UNKNOWN STEP	2026-10-15T09:09:05.1743230Z [command]/usr/bin/git sparse-checkout disable
+browser	UNKNOWN STEP	2026-10-15T09:09:05.1792313Z [command]/usr/bin/git config --local --unset-all extensions.worktreeConfig
+browser	UNKNOWN STEP	2026-10-15T09:09:05.1822851Z ##[group]Checking out the ref
+browser	UNKNOWN STEP	2026-10-15T09:09:05.1827436Z [command]/usr/bin/git checkout --progress --force -B main refs/remotes/origin/main
+browser	UNKNOWN STEP	2026-10-15T09:09:05.2401694Z Switched to a new branch 'main'
+browser	UNKNOWN STEP	2026-10-15T09:09:05.2402899Z branch 'main' set up to track 'origin/main'.
+browser	UNKNOWN STEP	2026-10-15T09:09:05.2411553Z ##[endgroup]
+browser	UNKNOWN STEP	2026-10-15T09:09:05.2450279Z [command]/usr/bin/git log -1 --format=%H
+browser	UNKNOWN STEP	2026-10-15T09:09:05.2473439Z 774a3a90ce3612380c6f6d40a29d30fbb6699e15
+browser	UNKNOWN STEP	2026-10-15T09:09:05.2482423Z ##[group]Removing auth
+browser	UNKNOWN STEP	2026-10-15T09:09:05.2486631Z [command]/usr/bin/git config --local --name-only --get-regexp core\.sshCommand
+browser	UNKNOWN STEP	2026-10-15T09:09:05.2514250Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'core\.sshCommand' && git config --local --unset-all 'core.sshCommand' || :"
+browser	UNKNOWN STEP	2026-10-15T09:09:05.2701279Z [command]/usr/bin/git config --local --name-only --get-regexp http\.https\:\/\/github\.com\/\.extraheader
+browser	UNKNOWN STEP	2026-10-15T09:09:05.2727515Z http.https://github.com/.extraheader
+browser	UNKNOWN STEP	2026-10-15T09:09:05.2734136Z [command]/usr/bin/git config --local --unset-all http.https://github.com/.extraheader
+browser	UNKNOWN STEP	2026-10-15T09:09:05.2764905Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'http\.https\:\/\/github\.com\/\.extraheader' && git config --local --unset-all 'http.https://github.com/.extraheader' || :"
+browser	UNKNOWN STEP	2026-10-15T09:09:05.2948406Z [command]/usr/bin/git config --local --name-only --get-regexp ^includeIf\.gitdir:
+browser	UNKNOWN STEP	2026-10-15T09:09:05.2975341Z [command]/usr/bin/git submodule foreach --recursive git config --local --show-origin --name-only --get-regexp remote.origin.url
+browser	UNKNOWN STEP	2026-10-15T09:09:05.3152412Z ##[endgroup]
+browser	UNKNOWN STEP	2026-10-15T09:09:05.3418746Z ##[group]Run actions/checkout@v4
+browser	UNKNOWN STEP	2026-10-15T09:09:05.3419349Z with:
+browser	UNKNOWN STEP	2026-10-15T09:09:05.3419832Z   ref: 5e55cf7d5a5014bc4c55b7f9aad18bbede966380
+browser	UNKNOWN STEP	2026-10-15T09:09:05.3420423Z   path: verification-inputs/baseline
+browser	UNKNOWN STEP	2026-10-15T09:09:05.3420961Z   persist-credentials: false
+browser	UNKNOWN STEP	2026-10-15T09:09:05.3421495Z   repository: AureliusWu/News
+browser	UNKNOWN STEP	2026-10-15T09:09:05.3424345Z   token: ***
+browser	UNKNOWN STEP	2026-10-15T09:09:05.3424818Z   ssh-strict: true
+browser	UNKNOWN STEP	2026-10-15T09:09:05.3425296Z   ssh-user: git
+browser	UNKNOWN STEP	2026-10-15T09:09:05.3425742Z   clean: true
+browser	UNKNOWN STEP	2026-10-15T09:09:05.3426369Z   sparse-checkout-cone-mode: true
+browser	UNKNOWN STEP	2026-10-15T09:09:05.3426915Z   fetch-depth: 1
+browser	UNKNOWN STEP	2026-10-15T09:09:05.3427365Z   fetch-tags: false
+browser	UNKNOWN STEP	2026-10-15T09:09:05.3427865Z   show-progress: true
+browser	UNKNOWN STEP	2026-10-15T09:09:05.3428319Z   lfs: false
+browser	UNKNOWN STEP	2026-10-15T09:09:05.3428734Z   submodules: false
+browser	UNKNOWN STEP	2026-10-15T09:09:05.3429244Z   set-safe-directory: true
+browser	UNKNOWN STEP	2026-10-15T09:09:05.3429780Z   allow-unsafe-pr-checkout: false
+browser	UNKNOWN STEP	2026-10-15T09:09:05.3430280Z env:
+browser	UNKNOWN STEP	2026-10-15T09:09:05.3430964Z   VERIFICATION_OUTPUT: /home/runner/work/News/News/artifacts/ci-browser-verification
+browser	UNKNOWN STEP	2026-10-15T09:09:05.3431730Z   BASELINE_ROOT: /home/runner/work/News/News/verification-inputs/baseline
+browser	UNKNOWN STEP	2026-10-15T09:09:05.3432419Z   CANDIDATE_ROOT: /home/runner/work/News/News/verification-inputs/candidate
+browser	UNKNOWN STEP	2026-10-15T09:09:05.3433013Z ##[endgroup]
+browser	UNKNOWN STEP	2026-10-15T09:09:05.4256958Z Syncing repository: AureliusWu/News
+browser	UNKNOWN STEP	2026-10-15T09:09:05.4267286Z ##[group]Getting Git version info
+browser	UNKNOWN STEP	2026-10-15T09:09:05.4285330Z Working directory is '/home/runner/work/News/News/verification-inputs/baseline'
+browser	UNKNOWN STEP	2026-10-15T09:09:05.4309542Z [command]/usr/bin/git version
+browser	UNKNOWN STEP	2026-10-15T09:09:05.4347899Z git version 2.55.0
+browser	UNKNOWN STEP	2026-10-15T09:09:05.4367542Z ##[endgroup]
+browser	UNKNOWN STEP	2026-10-15T09:09:05.4381250Z Temporarily overriding HOME='/home/runner/work/_temp/95ba0760-e750-497e-a0bd-c99f994e53ee' before making global git config changes
+browser	UNKNOWN STEP	2026-10-15T09:09:05.4383202Z Adding repository directory to the temporary git global config as a safe directory
+browser	UNKNOWN STEP	2026-10-15T09:09:05.4385899Z [command]/usr/bin/git config --global --add safe.directory /home/runner/work/News/News/verification-inputs/baseline
+browser	UNKNOWN STEP	2026-10-15T09:09:05.4438251Z ##[group]Initializing the repository
+browser	UNKNOWN STEP	2026-10-15T09:09:05.4439592Z [command]/usr/bin/git init /home/runner/work/News/News/verification-inputs/baseline
+browser	UNKNOWN STEP	2026-10-15T09:09:05.4464987Z hint: Using 'master' as the name for the initial branch. This default branch name
+browser	UNKNOWN STEP	2026-10-15T09:09:05.4466587Z hint: will change to "main" in Git 3.0. To configure the initial branch name
+browser	UNKNOWN STEP	2026-10-15T09:09:05.4468093Z hint: to use in all of your new repositories, which will suppress this warning,
+browser	UNKNOWN STEP	2026-10-15T09:09:05.4469247Z hint: call:
+browser	UNKNOWN STEP	2026-10-15T09:09:05.4470104Z hint:
+browser	UNKNOWN STEP	2026-10-15T09:09:05.4471403Z hint: 	git config --global init.defaultBranch <name>
+browser	UNKNOWN STEP	2026-10-15T09:09:05.4472339Z hint:
+browser	UNKNOWN STEP	2026-10-15T09:09:05.4473319Z hint: Names commonly chosen instead of 'master' are 'main', 'trunk' and
+browser	UNKNOWN STEP	2026-10-15T09:09:05.4474697Z hint: 'development'. The just-created branch can be renamed via this command:
+browser	UNKNOWN STEP	2026-10-15T09:09:05.4475809Z hint:
+browser	UNKNOWN STEP	2026-10-15T09:09:05.4476939Z hint: 	git branch -m <name>
+browser	UNKNOWN STEP	2026-10-15T09:09:05.4477766Z hint:
+browser	UNKNOWN STEP	2026-10-15T09:09:05.4479036Z hint: Disable this message with "git config set advice.defaultBranchName false"
+browser	UNKNOWN STEP	2026-10-15T09:09:05.4481069Z Initialized empty Git repository in /home/runner/work/News/News/verification-inputs/baseline/.git/
+browser	UNKNOWN STEP	2026-10-15T09:09:05.4484450Z [command]/usr/bin/git remote add origin https://github.com/AureliusWu/News
+browser	UNKNOWN STEP	2026-10-15T09:09:05.4516476Z ##[endgroup]
+browser	UNKNOWN STEP	2026-10-15T09:09:05.4517663Z ##[group]Disabling automatic garbage collection
+browser	UNKNOWN STEP	2026-10-15T09:09:05.4519267Z [command]/usr/bin/git config --local gc.auto 0
+browser	UNKNOWN STEP	2026-10-15T09:09:05.4549072Z ##[endgroup]
+browser	UNKNOWN STEP	2026-10-15T09:09:05.4550416Z ##[group]Setting up auth
+browser	UNKNOWN STEP	2026-10-15T09:09:05.4554946Z [command]/usr/bin/git config --local --name-only --get-regexp core\.sshCommand
+browser	UNKNOWN STEP	2026-10-15T09:09:05.4585570Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'core\.sshCommand' && git config --local --unset-all 'core.sshCommand' || :"
+browser	UNKNOWN STEP	2026-10-15T09:09:05.4791411Z [command]/usr/bin/git config --local --name-only --get-regexp http\.https\:\/\/github\.com\/\.extraheader
+browser	UNKNOWN STEP	2026-10-15T09:09:05.4822055Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'http\.https\:\/\/github\.com\/\.extraheader' && git config --local --unset-all 'http.https://github.com/.extraheader' || :"
+browser	UNKNOWN STEP	2026-10-15T09:09:05.5060148Z [command]/usr/bin/git config --local --name-only --get-regexp ^includeIf\.gitdir:
+browser	UNKNOWN STEP	2026-10-15T09:09:05.5118291Z [command]/usr/bin/git submodule foreach --recursive git config --local --show-origin --name-only --get-regexp remote.origin.url
+browser	UNKNOWN STEP	2026-10-15T09:09:05.5307691Z [command]/usr/bin/git config --local http.https://github.com/.extraheader AUTHORIZATION: basic ***
+browser	UNKNOWN STEP	2026-10-15T09:09:05.5350320Z ##[endgroup]
+browser	UNKNOWN STEP	2026-10-15T09:09:05.5351515Z ##[group]Fetching the repository
+browser	UNKNOWN STEP	2026-10-15T09:09:05.5369827Z [command]/usr/bin/git -c protocol.version=2 fetch --no-tags --prune --no-recurse-submodules --depth=1 origin 5e55cf7d5a5014bc4c55b7f9aad18bbede966380
+browser	UNKNOWN STEP	2026-10-15T09:09:06.5186969Z From https://github.com/AureliusWu/News
+browser	UNKNOWN STEP	2026-10-15T09:09:06.5188045Z  * branch            5e55cf7d5a5014bc4c55b7f9aad18bbede966380 -> FETCH_HEAD
+browser	UNKNOWN STEP	2026-10-15T09:09:06.5191021Z ##[endgroup]
+browser	UNKNOWN STEP	2026-10-15T09:09:06.5191862Z ##[group]Determining the checkout info
+browser	UNKNOWN STEP	2026-10-15T09:09:06.5193407Z ##[endgroup]
+browser	UNKNOWN STEP	2026-10-15T09:09:06.5199711Z [command]/usr/bin/git sparse-checkout disable
+browser	UNKNOWN STEP	2026-10-15T09:09:06.5240972Z [command]/usr/bin/git config --local --unset-all extensions.worktreeConfig
+browser	UNKNOWN STEP	2026-10-15T09:09:06.5269215Z ##[group]Checking out the ref
+browser	UNKNOWN STEP	2026-10-15T09:09:06.5281421Z [command]/usr/bin/git checkout --progress --force 5e55cf7d5a5014bc4c55b7f9aad18bbede966380
+browser	UNKNOWN STEP	2026-10-15T09:09:06.5603155Z Note: switching to '5e55cf7d5a5014bc4c55b7f9aad18bbede966380'.
+browser	UNKNOWN STEP	2026-10-15T09:09:06.5603673Z 
+browser	UNKNOWN STEP	2026-10-15T09:09:06.5604057Z You are in 'detached HEAD' state. You can look around, make experimental
+browser	UNKNOWN STEP	2026-10-15T09:09:06.5605152Z changes and commit them, and you can discard any commits you make in this
+browser	UNKNOWN STEP	2026-10-15T09:09:06.5605695Z state without impacting any branches by switching back to a branch.
+browser	UNKNOWN STEP	2026-10-15T09:09:06.5606206Z 
+browser	UNKNOWN STEP	2026-10-15T09:09:06.5606491Z If you want to create a new branch to retain commits you create, you may
+browser	UNKNOWN STEP	2026-10-15T09:09:06.5607180Z do so (now or later) by using -c with the switch command. Example:
+browser	UNKNOWN STEP	2026-10-15T09:09:06.5607593Z 
+browser	UNKNOWN STEP	2026-10-15T09:09:06.5607865Z   git switch -c <new-branch-name>
+browser	UNKNOWN STEP	2026-10-15T09:09:06.5608106Z 
+browser	UNKNOWN STEP	2026-10-15T09:09:06.5608364Z Or undo this operation with:
+browser	UNKNOWN STEP	2026-10-15T09:09:06.5608618Z 
+browser	UNKNOWN STEP	2026-10-15T09:09:06.5608817Z   git switch -
+browser	UNKNOWN STEP	2026-10-15T09:09:06.5609074Z 
+browser	UNKNOWN STEP	2026-10-15T09:09:06.5609696Z Turn off this advice by setting config variable advice.detachedHead to false
+browser	UNKNOWN STEP	2026-10-15T09:09:06.5610214Z 
+browser	UNKNOWN STEP	2026-10-15T09:09:06.5610521Z HEAD is now at 5e55cf7 fix: keep snapshot cache persistence off the render path
+browser	UNKNOWN STEP	2026-10-15T09:09:06.5612684Z ##[endgroup]
+browser	UNKNOWN STEP	2026-10-15T09:09:06.5652586Z [command]/usr/bin/git log -1 --format=%H
+browser	UNKNOWN STEP	2026-10-15T09:09:06.5686711Z 5e55cf7d5a5014bc4c55b7f9aad18bbede966380
+browser	UNKNOWN STEP	2026-10-15T09:09:06.5688591Z ##[group]Removing auth
+browser	UNKNOWN STEP	2026-10-15T09:09:06.5689286Z [command]/usr/bin/git config --local --name-only --get-regexp core\.sshCommand
+browser	UNKNOWN STEP	2026-10-15T09:09:06.5715904Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'core\.sshCommand' && git config --local --unset-all 'core.sshCommand' || :"
+browser	UNKNOWN STEP	2026-10-15T09:09:06.5899487Z [command]/usr/bin/git config --local --name-only --get-regexp http\.https\:\/\/github\.com\/\.extraheader
+browser	UNKNOWN STEP	2026-10-15T09:09:06.5919986Z http.https://github.com/.extraheader
+browser	UNKNOWN STEP	2026-10-15T09:09:06.5925761Z [command]/usr/bin/git config --local --unset-all http.https://github.com/.extraheader
+browser	UNKNOWN STEP	2026-10-15T09:09:06.5954728Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'http\.https\:\/\/github\.com\/\.extraheader' && git config --local --unset-all 'http.https://github.com/.extraheader' || :"
+browser	UNKNOWN STEP	2026-10-15T09:09:06.6134568Z [command]/usr/bin/git config --local --name-only --get-regexp ^includeIf\.gitdir:
+browser	UNKNOWN STEP	2026-10-15T09:09:06.6160094Z [command]/usr/bin/git submodule foreach --recursive git config --local --show-origin --name-only --get-regexp remote.origin.url
+browser	UNKNOWN STEP	2026-10-15T09:09:06.6340519Z ##[endgroup]
+browser	UNKNOWN STEP	2026-10-15T09:09:06.6521858Z ##[group]Run actions/checkout@v4
+browser	UNKNOWN STEP	2026-10-15T09:09:06.6522286Z with:
+browser	UNKNOWN STEP	2026-10-15T09:09:06.6522692Z   ref: 774a3a90ce3612380c6f6d40a29d30fbb6699e15
+browser	UNKNOWN STEP	2026-10-15T09:09:06.6523107Z   path: verification-inputs/candidate
+browser	UNKNOWN STEP	2026-10-15T09:09:06.6523496Z   persist-credentials: false
+browser	UNKNOWN STEP	2026-10-15T09:09:06.6523843Z   repository: AureliusWu/News
+browser	UNKNOWN STEP	2026-10-15T09:09:06.6526982Z   token: ***
+browser	UNKNOWN STEP	2026-10-15T09:09:06.6527295Z   ssh-strict: true
+browser	UNKNOWN STEP	2026-10-15T09:09:06.6527609Z   ssh-user: git
+browser	UNKNOWN STEP	2026-10-15T09:09:06.6527919Z   clean: true
+browser	UNKNOWN STEP	2026-10-15T09:09:06.6528241Z   sparse-checkout-cone-mode: true
+browser	UNKNOWN STEP	2026-10-15T09:09:06.6528638Z   fetch-depth: 1
+browser	UNKNOWN STEP	2026-10-15T09:09:06.6528944Z   fetch-tags: false
+browser	UNKNOWN STEP	2026-10-15T09:09:06.6529358Z   show-progress: true
+browser	UNKNOWN STEP	2026-10-15T09:09:06.6529710Z   lfs: false
+browser	UNKNOWN STEP	2026-10-15T09:09:06.6530038Z   submodules: false
+browser	UNKNOWN STEP	2026-10-15T09:09:06.6530393Z   set-safe-directory: true
+browser	UNKNOWN STEP	2026-10-15T09:09:06.6530738Z   allow-unsafe-pr-checkout: false
+browser	UNKNOWN STEP	2026-10-15T09:09:06.6531066Z env:
+browser	UNKNOWN STEP	2026-10-15T09:09:06.6531649Z   VERIFICATION_OUTPUT: /home/runner/work/News/News/artifacts/ci-browser-verification
+browser	UNKNOWN STEP	2026-10-15T09:09:06.6532261Z   BASELINE_ROOT: /home/runner/work/News/News/verification-inputs/baseline
+browser	UNKNOWN STEP	2026-10-15T09:09:06.6532889Z   CANDIDATE_ROOT: /home/runner/work/News/News/verification-inputs/candidate
+browser	UNKNOWN STEP	2026-10-15T09:09:06.6533358Z ##[endgroup]
+browser	UNKNOWN STEP	2026-10-15T09:09:06.7393622Z Syncing repository: AureliusWu/News
+browser	UNKNOWN STEP	2026-10-15T09:09:06.7394898Z ##[group]Getting Git version info
+browser	UNKNOWN STEP	2026-10-15T09:09:06.7395883Z Working directory is '/home/runner/work/News/News/verification-inputs/candidate'
+browser	UNKNOWN STEP	2026-10-15T09:09:06.7426301Z [command]/usr/bin/git version
+browser	UNKNOWN STEP	2026-10-15T09:09:06.7463053Z git version 2.55.0
+browser	UNKNOWN STEP	2026-10-15T09:09:06.7488509Z ##[endgroup]
+browser	UNKNOWN STEP	2026-10-15T09:09:06.7492179Z Temporarily overriding HOME='/home/runner/work/_temp/3b1db9f7-1ac5-49b9-bcb9-5857f57c5582' before making global git config changes
+browser	UNKNOWN STEP	2026-10-15T09:09:06.7493623Z Adding repository directory to the temporary git global config as a safe directory
+browser	UNKNOWN STEP	2026-10-15T09:09:06.7497530Z [command]/usr/bin/git config --global --add safe.directory /home/runner/work/News/News/verification-inputs/candidate
+browser	UNKNOWN STEP	2026-10-15T09:09:06.7543248Z ##[group]Initializing the repository
+browser	UNKNOWN STEP	2026-10-15T09:09:06.7544559Z [command]/usr/bin/git init /home/runner/work/News/News/verification-inputs/candidate
+browser	UNKNOWN STEP	2026-10-15T09:09:06.7574843Z hint: Using 'master' as the name for the initial branch. This default branch name
+browser	UNKNOWN STEP	2026-10-15T09:09:06.7583216Z hint: will change to "main" in Git 3.0. To configure the initial branch name
+browser	UNKNOWN STEP	2026-10-15T09:09:06.7584449Z hint: to use in all of your new repositories, which will suppress this warning,
+browser	UNKNOWN STEP	2026-10-15T09:09:06.7585448Z hint: call:
+browser	UNKNOWN STEP	2026-10-15T09:09:06.7586211Z hint:
+browser	UNKNOWN STEP	2026-10-15T09:09:06.7587181Z hint: 	git config --global init.defaultBranch <name>
+browser	UNKNOWN STEP	2026-10-15T09:09:06.7587823Z hint:
+browser	UNKNOWN STEP	2026-10-15T09:09:06.7588380Z hint: Names commonly chosen instead of 'master' are 'main', 'trunk' and
+browser	UNKNOWN STEP	2026-10-15T09:09:06.7589600Z hint: 'development'. The just-created branch can be renamed via this command:
+browser	UNKNOWN STEP	2026-10-15T09:09:06.7590404Z hint:
+browser	UNKNOWN STEP	2026-10-15T09:09:06.7590854Z hint: 	git branch -m <name>
+browser	UNKNOWN STEP	2026-10-15T09:09:06.7591300Z hint:
+browser	UNKNOWN STEP	2026-10-15T09:09:06.7592040Z hint: Disable this message with "git config set advice.defaultBranchName false"
+browser	UNKNOWN STEP	2026-10-15T09:09:06.7592976Z Initialized empty Git repository in /home/runner/work/News/News/verification-inputs/candidate/.git/
+browser	UNKNOWN STEP	2026-10-15T09:09:06.7594612Z [command]/usr/bin/git remote add origin https://github.com/AureliusWu/News
+browser	UNKNOWN STEP	2026-10-15T09:09:06.7619961Z ##[endgroup]
+browser	UNKNOWN STEP	2026-10-15T09:09:06.7620700Z ##[group]Disabling automatic garbage collection
+browser	UNKNOWN STEP	2026-10-15T09:09:06.7622938Z [command]/usr/bin/git config --local gc.auto 0
+browser	UNKNOWN STEP	2026-10-15T09:09:06.7654913Z ##[endgroup]
+browser	UNKNOWN STEP	2026-10-15T09:09:06.7655910Z ##[group]Setting up auth
+browser	UNKNOWN STEP	2026-10-15T09:09:06.7661051Z [command]/usr/bin/git config --local --name-only --get-regexp core\.sshCommand
+browser	UNKNOWN STEP	2026-10-15T09:09:06.7689512Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'core\.sshCommand' && git config --local --unset-all 'core.sshCommand' || :"
+browser	UNKNOWN STEP	2026-10-15T09:09:06.7887180Z [command]/usr/bin/git config --local --name-only --get-regexp http\.https\:\/\/github\.com\/\.extraheader
+browser	UNKNOWN STEP	2026-10-15T09:09:06.7916379Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'http\.https\:\/\/github\.com\/\.extraheader' && git config --local --unset-all 'http.https://github.com/.extraheader' || :"
+browser	UNKNOWN STEP	2026-10-15T09:09:06.8125841Z [command]/usr/bin/git config --local --name-only --get-regexp ^includeIf\.gitdir:
+browser	UNKNOWN STEP	2026-10-15T09:09:06.8160194Z [command]/usr/bin/git submodule foreach --recursive git config --local --show-origin --name-only --get-regexp remote.origin.url
+browser	UNKNOWN STEP	2026-10-15T09:09:06.8369508Z [command]/usr/bin/git config --local http.https://github.com/.extraheader AUTHORIZATION: basic ***
+browser	UNKNOWN STEP	2026-10-15T09:09:06.8417616Z ##[endgroup]
+browser	UNKNOWN STEP	2026-10-15T09:09:06.8418749Z ##[group]Fetching the repository
+browser	UNKNOWN STEP	2026-10-15T09:09:06.8428582Z [command]/usr/bin/git -c protocol.version=2 fetch --no-tags --prune --no-recurse-submodules --depth=1 origin 774a3a90ce3612380c6f6d40a29d30fbb6699e15
+browser	UNKNOWN STEP	2026-10-15T09:09:08.2690105Z From https://github.com/AureliusWu/News
+browser	UNKNOWN STEP	2026-10-15T09:09:08.2690850Z  * branch            774a3a90ce3612380c6f6d40a29d30fbb6699e15 -> FETCH_HEAD
+browser	UNKNOWN STEP	2026-10-15T09:09:08.2695306Z ##[endgroup]
+browser	UNKNOWN STEP	2026-10-15T09:09:08.2695862Z ##[group]Determining the checkout info
+browser	UNKNOWN STEP	2026-10-15T09:09:08.2697670Z ##[endgroup]
+browser	UNKNOWN STEP	2026-10-15T09:09:08.2703766Z [command]/usr/bin/git sparse-checkout disable
+browser	UNKNOWN STEP	2026-10-15T09:09:08.2748122Z [command]/usr/bin/git config --local --unset-all extensions.worktreeConfig
+browser	UNKNOWN STEP	2026-10-15T09:09:08.2779349Z ##[group]Checking out the ref
+browser	UNKNOWN STEP	2026-10-15T09:09:08.2784423Z [command]/usr/bin/git checkout --progress --force 774a3a90ce3612380c6f6d40a29d30fbb6699e15
+browser	UNKNOWN STEP	2026-10-15T09:09:08.3341933Z Note: switching to '774a3a90ce3612380c6f6d40a29d30fbb6699e15'.
+browser	UNKNOWN STEP	2026-10-15T09:09:08.3342287Z 
+browser	UNKNOWN STEP	2026-10-15T09:09:08.3342558Z You are in 'detached HEAD' state. You can look around, make experimental
+browser	UNKNOWN STEP	2026-10-15T09:09:08.3343104Z changes and commit them, and you can discard any commits you make in this
+browser	UNKNOWN STEP	2026-10-15T09:09:08.3343779Z state without impacting any branches by switching back to a branch.
+browser	UNKNOWN STEP	2026-10-15T09:09:08.3344233Z 
+browser	UNKNOWN STEP	2026-10-15T09:09:08.3344494Z If you want to create a new branch to retain commits you create, you may
+browser	UNKNOWN STEP	2026-10-15T09:09:08.3345170Z do so (now or later) by using -c with the switch command. Example:
+browser	UNKNOWN STEP	2026-10-15T09:09:08.3346130Z 
+browser	UNKNOWN STEP	2026-10-15T09:09:08.3346315Z   git switch -c <new-branch-name>
+browser	UNKNOWN STEP	2026-10-15T09:09:08.3346629Z 
+browser	UNKNOWN STEP	2026-10-15T09:09:08.3346820Z Or undo this operation with:
+browser	UNKNOWN STEP	2026-10-15T09:09:08.3347112Z 
+browser	UNKNOWN STEP	2026-10-15T09:09:08.3347310Z   git switch -
+browser	UNKNOWN STEP	2026-10-15T09:09:08.3347500Z 
+browser	UNKNOWN STEP	2026-10-15T09:09:08.3347869Z Turn off this advice by setting config variable advice.detachedHead to false
+browser	UNKNOWN STEP	2026-10-15T09:09:08.3348260Z 
+browser	UNKNOWN STEP	2026-10-15T09:09:08.3348679Z HEAD is now at 774a3a9 release: prepare V1.0.0 with explicit owner-approved waivers [skip ci]
+browser	UNKNOWN STEP	2026-10-15T09:09:08.3350163Z ##[endgroup]
+browser	UNKNOWN STEP	2026-10-15T09:09:08.3388734Z [command]/usr/bin/git log -1 --format=%H
+browser	UNKNOWN STEP	2026-10-15T09:09:08.3413603Z 774a3a90ce3612380c6f6d40a29d30fbb6699e15
+browser	UNKNOWN STEP	2026-10-15T09:09:08.3427372Z ##[group]Removing auth
+browser	UNKNOWN STEP	2026-10-15T09:09:08.3428092Z [command]/usr/bin/git config --local --name-only --get-regexp core\.sshCommand
+browser	UNKNOWN STEP	2026-10-15T09:09:08.3456735Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'core\.sshCommand' && git config --local --unset-all 'core.sshCommand' || :"
+browser	UNKNOWN STEP	2026-10-15T09:09:08.3647642Z [command]/usr/bin/git config --local --name-only --get-regexp http\.https\:\/\/github\.com\/\.extraheader
+browser	UNKNOWN STEP	2026-10-15T09:09:08.3668836Z http.https://github.com/.extraheader
+browser	UNKNOWN STEP	2026-10-15T09:09:08.3673996Z [command]/usr/bin/git config --local --unset-all http.https://github.com/.extraheader
+browser	UNKNOWN STEP	2026-10-15T09:09:08.3704422Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'http\.https\:\/\/github\.com\/\.extraheader' && git config --local --unset-all 'http.https://github.com/.extraheader' || :"
+browser	UNKNOWN STEP	2026-10-15T09:09:08.3891153Z [command]/usr/bin/git config --local --name-only --get-regexp ^includeIf\.gitdir:
+browser	UNKNOWN STEP	2026-10-15T09:09:08.3916597Z [command]/usr/bin/git submodule foreach --recursive git config --local --show-origin --name-only --get-regexp remote.origin.url
+browser	UNKNOWN STEP	2026-10-15T09:09:08.4096743Z ##[endgroup]
+browser	UNKNOWN STEP	2026-10-15T09:09:08.4245433Z ##[group]Run actions/setup-node@v4
+browser	UNKNOWN STEP	2026-10-15T09:09:08.4245817Z with:
+browser	UNKNOWN STEP	2026-10-15T09:09:08.4246404Z   node-version: 22
+browser	UNKNOWN STEP	2026-10-15T09:09:08.4246680Z   cache: npm
+browser	UNKNOWN STEP	2026-10-15T09:09:08.4247414Z   cache-dependency-path: scripts/browser/package-lock.json
+browser	UNKNOWN STEP	verification-inputs/baseline/frontend/package-lock.json
+browser	UNKNOWN STEP	verification-inputs/candidate/frontend/package-lock.json
+browser	UNKNOWN STEP	
+browser	UNKNOWN STEP	2026-10-15T09:09:08.4248163Z   always-auth: false
+browser	UNKNOWN STEP	2026-10-15T09:09:08.4248472Z   check-latest: false
+browser	UNKNOWN STEP	2026-10-15T09:09:08.4250835Z   token: ***
+browser	UNKNOWN STEP	2026-10-15T09:09:08.4251099Z env:
+browser	UNKNOWN STEP	2026-10-15T09:09:08.4251525Z   VERIFICATION_OUTPUT: /home/runner/work/News/News/artifacts/ci-browser-verification
+browser	UNKNOWN STEP	2026-10-15T09:09:08.4252087Z   BASELINE_ROOT: /home/runner/work/News/News/verification-inputs/baseline
+browser	UNKNOWN STEP	2026-10-15T09:09:08.4252628Z   CANDIDATE_ROOT: /home/runner/work/News/News/verification-inputs/candidate
+browser	UNKNOWN STEP	2026-10-15T09:09:08.4253056Z ##[endgroup]
+browser	UNKNOWN STEP	2026-10-15T09:09:08.5647221Z Found in cache @ /opt/hostedtoolcache/node/22.23.3/x64
+browser	UNKNOWN STEP	2026-10-15T09:09:08.5651074Z (node:2621) [DEP0040] DeprecationWarning: The `punycode` module is deprecated. Please use a userland alternative instead.
+browser	UNKNOWN STEP	2026-10-15T09:09:08.5651792Z (Use `node --trace-deprecation ...` to show where the warning was created)
+browser	UNKNOWN STEP	2026-10-15T09:09:08.5652861Z ##[group]Environment details
+browser	UNKNOWN STEP	2026-10-15T09:09:08.9418929Z node: v22.23.3
+browser	UNKNOWN STEP	2026-10-15T09:09:08.9419439Z npm: 10.9.9
+browser	UNKNOWN STEP	2026-10-15T09:09:08.9419819Z yarn: 1.22.22
+browser	UNKNOWN STEP	2026-10-15T09:09:08.9420843Z ##[endgroup]
+browser	UNKNOWN STEP	2026-10-15T09:09:08.9482610Z [command]/opt/hostedtoolcache/node/22.23.3/x64/bin/npm config get cache
+browser	UNKNOWN STEP	2026-10-15T09:09:09.0507314Z /home/runner/.npm
+browser	UNKNOWN STEP	2026-10-15T09:09:09.2850824Z npm cache is not found
+browser	UNKNOWN STEP	2026-10-15T09:09:09.2979758Z ##[group]Run npm ci --prefix scripts/browser
+browser	UNKNOWN STEP	2026-10-15T09:09:09.2980260Z ^[[36;1mnpm ci --prefix scripts/browser^[[0m
+browser	UNKNOWN STEP	2026-10-15T09:09:09.2981081Z ^[[36;1mnpm ci --prefix verification-inputs/baseline/frontend^[[0m
+browser	UNKNOWN STEP	2026-10-15T09:09:09.2981562Z ^[[36;1mnpm ci --prefix verification-inputs/candidate/frontend^[[0m
+browser	UNKNOWN STEP	2026-10-15T09:09:09.3165498Z shell: /usr/bin/bash -e {0}
+browser	UNKNOWN STEP	2026-10-15T09:09:09.3166401Z env:
+browser	UNKNOWN STEP	2026-10-15T09:09:09.3166894Z   VERIFICATION_OUTPUT: /home/runner/work/News/News/artifacts/ci-browser-verification
+browser	UNKNOWN STEP	2026-10-15T09:09:09.3167502Z   BASELINE_ROOT: /home/runner/work/News/News/verification-inputs/baseline
+browser	UNKNOWN STEP	2026-10-15T09:09:09.3168113Z   CANDIDATE_ROOT: /home/runner/work/News/News/verification-inputs/candidate
+browser	UNKNOWN STEP	2026-10-15T09:09:09.3168601Z ##[endgroup]
+browser	UNKNOWN STEP	2026-10-15T09:09:15.2922609Z 
+browser	UNKNOWN STEP	2026-10-15T09:09:15.2932146Z added 117 packages, and audited 118 packages in 6s
+browser	UNKNOWN STEP	2026-10-15T09:09:15.2932989Z 
+browser	UNKNOWN STEP	2026-10-15T09:09:15.2933326Z 19 packages are looking for funding
+browser	UNKNOWN STEP	2026-10-15T09:09:15.2934058Z   run `npm fund` for details
+browser	UNKNOWN STEP	2026-10-15T09:09:15.2934356Z 
+browser	UNKNOWN STEP	2026-10-15T09:09:15.2934607Z found 0 vulnerabilities
+browser	UNKNOWN STEP	2026-10-15T09:09:16.9425352Z npm warn deprecated whatwg-encoding@3.1.1: Use @exodus/bytes instead for a more spec-conformant and faster implementation
+browser	UNKNOWN STEP	2026-10-15T09:09:29.3886285Z 
+browser	UNKNOWN STEP	2026-10-15T09:09:29.3887583Z added 505 packages, and audited 506 packages in 14s
+browser	UNKNOWN STEP	2026-10-15T09:09:29.4005242Z 
+browser	UNKNOWN STEP	2026-10-15T09:09:29.4005967Z 133 packages are looking for funding
+browser	UNKNOWN STEP	2026-10-15T09:09:29.4006817Z   run `npm fund` for details
+browser	UNKNOWN STEP	2026-10-15T09:09:29.4007069Z 
+browser	UNKNOWN STEP	2026-10-15T09:09:29.4007595Z 8 vulnerabilities (1 low, 3 moderate, 2 high, 2 critical)
+browser	UNKNOWN STEP	2026-10-15T09:09:29.4007967Z 
+browser	UNKNOWN STEP	2026-10-15T09:09:29.4008294Z To address issues that do not require attention, run:
+browser	UNKNOWN STEP	2026-10-15T09:09:29.4008856Z   npm audit fix
+browser	UNKNOWN STEP	2026-10-15T09:09:29.4009097Z 
+browser	UNKNOWN STEP	2026-10-15T09:09:29.4009446Z To address all issues (including breaking changes), run:
+browser	UNKNOWN STEP	2026-10-15T09:09:29.4009983Z   npm audit fix --force
+browser	UNKNOWN STEP	2026-10-15T09:09:29.4010207Z 
+browser	UNKNOWN STEP	2026-10-15T09:09:29.4010474Z Run `npm audit` for details.
+browser	UNKNOWN STEP	2026-10-15T09:09:31.0742830Z npm warn deprecated whatwg-encoding@3.1.1: Use @exodus/bytes instead for a more spec-conformant and faster implementation
+browser	UNKNOWN STEP	2026-10-15T09:09:32.6870418Z 
+browser	UNKNOWN STEP	2026-10-15T09:09:32.6871574Z added 505 packages, and audited 506 packages in 3s
+browser	UNKNOWN STEP	2026-10-15T09:09:32.6873068Z 
+browser	UNKNOWN STEP	2026-10-15T09:09:32.6873553Z 133 packages are looking for funding
+browser	UNKNOWN STEP	2026-10-15T09:09:32.6874209Z   run `npm fund` for details
+browser	UNKNOWN STEP	2026-10-15T09:09:32.6991566Z 
+browser	UNKNOWN STEP	2026-10-15T09:09:32.6992724Z 8 vulnerabilities (1 low, 3 moderate, 2 high, 2 critical)
+browser	UNKNOWN STEP	2026-10-15T09:09:32.6993341Z 
+browser	UNKNOWN STEP	2026-10-15T09:09:32.6994126Z To address issues that do not require attention, run:
+browser	UNKNOWN STEP	2026-10-15T09:09:32.6994906Z   npm audit fix
+browser	UNKNOWN STEP	2026-10-15T09:09:32.6995281Z 
+browser	UNKNOWN STEP	2026-10-15T09:09:32.6995916Z To address all issues (including breaking changes), run:
+browser	UNKNOWN STEP	2026-10-15T09:09:32.6998870Z   npm audit fix --force
+browser	UNKNOWN STEP	2026-10-15T09:09:32.6999592Z 
+browser	UNKNOWN STEP	2026-10-15T09:09:32.6999934Z Run `npm audit` for details.
+browser	UNKNOWN STEP	2026-10-15T09:09:32.7252064Z ##[group]Run actions/setup-python@v5
+browser	UNKNOWN STEP	2026-10-15T09:09:32.7252454Z with:
+browser	UNKNOWN STEP	2026-10-15T09:09:32.7252773Z   python-version: 3.12
+browser	UNKNOWN STEP	2026-10-15T09:09:32.7253135Z   check-latest: false
+browser	UNKNOWN STEP	2026-10-15T09:09:32.7255732Z   token: ***
+browser	UNKNOWN STEP	2026-10-15T09:09:32.7256153Z   update-environment: true
+browser	UNKNOWN STEP	2026-10-15T09:09:32.7256518Z   allow-prereleases: false
+browser	UNKNOWN STEP	2026-10-15T09:09:32.7256848Z   freethreaded: false
+browser	UNKNOWN STEP	2026-10-15T09:09:32.7257196Z env:
+browser	UNKNOWN STEP	2026-10-15T09:09:32.7257627Z   VERIFICATION_OUTPUT: /home/runner/work/News/News/artifacts/ci-browser-verification
+browser	UNKNOWN STEP	2026-10-15T09:09:32.7258210Z   BASELINE_ROOT: /home/runner/work/News/News/verification-inputs/baseline
+browser	UNKNOWN STEP	2026-10-15T09:09:32.7258773Z   CANDIDATE_ROOT: /home/runner/work/News/News/verification-inputs/candidate
+browser	UNKNOWN STEP	2026-10-15T09:09:32.7259260Z ##[endgroup]
+browser	UNKNOWN STEP	2026-10-15T09:09:32.8599263Z ##[group]Installed versions
+browser	UNKNOWN STEP	2026-10-15T09:09:32.8694410Z (node:2741) [DEP0040] DeprecationWarning: The `punycode` module is deprecated. Please use a userland alternative instead.
+browser	UNKNOWN STEP	2026-10-15T09:09:32.8695758Z (Use `node --trace-deprecation ...` to show where the warning was created)
+browser	UNKNOWN STEP	2026-10-15T09:09:32.8696656Z Successfully set up CPython (3.12.15)
+browser	UNKNOWN STEP	2026-10-15T09:09:32.8697288Z ##[endgroup]
+browser	UNKNOWN STEP	2026-10-15T09:09:32.8817486Z ##[group]Run python -m pip install -r verification-inputs/candidate/backend/requirements.txt -r verification-inputs/candidate/scripts/snapshot/requirements.txt
+browser	UNKNOWN STEP	2026-10-15T09:09:32.8818617Z ^[[36;1mpython -m pip install -r verification-inputs/candidate/backend/requirements.txt -r verification-inputs/candidate/scripts/snapshot/requirements.txt^[[0m
+browser	UNKNOWN STEP	2026-10-15T09:09:32.8867641Z shell: /usr/bin/bash -e {0}
+browser	UNKNOWN STEP	2026-10-15T09:09:32.8868031Z env:
+browser	UNKNOWN STEP	2026-10-15T09:09:32.8868609Z   VERIFICATION_OUTPUT: /home/runner/work/News/News/artifacts/ci-browser-verification
+browser	UNKNOWN STEP	2026-10-15T09:09:32.8869254Z   BASELINE_ROOT: /home/runner/work/News/News/verification-inputs/baseline
+browser	UNKNOWN STEP	2026-10-15T09:09:32.8869826Z   CANDIDATE_ROOT: /home/runner/work/News/News/verification-inputs/candidate
+browser	UNKNOWN STEP	2026-10-15T09:09:32.8870357Z   pythonLocation: /opt/hostedtoolcache/Python/3.12.15/x64
+browser	UNKNOWN STEP	2026-10-15T09:09:32.8870862Z   PKG_CONFIG_PATH: /opt/hostedtoolcache/Python/3.12.15/x64/lib/pkgconfig
+browser	UNKNOWN STEP	2026-10-15T09:09:32.8871522Z   Python_ROOT_DIR: /opt/hostedtoolcache/Python/3.12.15/x64
+browser	UNKNOWN STEP	2026-10-15T09:09:32.8871980Z   Python2_ROOT_DIR: /opt/hostedtoolcache/Python/3.12.15/x64
+browser	UNKNOWN STEP	2026-10-15T09:09:32.8872473Z   Python3_ROOT_DIR: /opt/hostedtoolcache/Python/3.12.15/x64
+browser	UNKNOWN STEP	2026-10-15T09:09:32.8872955Z   LD_LIBRARY_PATH: /opt/hostedtoolcache/Python/3.12.15/x64/lib
+browser	UNKNOWN STEP	2026-10-15T09:09:32.8873349Z ##[endgroup]
+browser	UNKNOWN STEP	2026-10-15T09:09:34.7330437Z Collecting fastapi==0.116.0 (from -r verification-inputs/candidate/backend/requirements.txt (line 1))
+browser	UNKNOWN STEP	2026-10-15T09:09:34.7936455Z   Downloading fastapi-0.116.0-py3-none-any.whl.metadata (28 kB)
+browser	UNKNOWN STEP	2026-10-15T09:09:34.8245050Z Collecting uvicorn==0.35.0 (from uvicorn[standard]==0.35.0->-r verification-inputs/candidate/backend/requirements.txt (line 2))
+browser	UNKNOWN STEP	2026-10-15T09:09:34.8282973Z   Downloading uvicorn-0.35.0-py3-none-any.whl.metadata (6.5 kB)
+browser	UNKNOWN STEP	2026-10-15T09:09:35.0815077Z Collecting sqlalchemy==2.0.42 (from -r verification-inputs/candidate/backend/requirements.txt (line 3))
+browser	UNKNOWN STEP	2026-10-15T09:09:35.0868789Z   Downloading sqlalchemy-2.0.42-cp312-cp312-manylinux_2_17_x86_64.manylinux2014_x86_64.whl.metadata (9.6 kB)
+browser	UNKNOWN STEP	2026-10-15T09:09:35.2155620Z Collecting greenlet==3.2.4 (from -r verification-inputs/candidate/backend/requirements.txt (line 4))
+browser	UNKNOWN STEP	2026-10-15T09:09:35.2195128Z   Downloading greenlet-3.2.4-cp312-cp312-manylinux_2_24_x86_64.manylinux_2_28_x86_64.whl.metadata (4.1 kB)
+browser	UNKNOWN STEP	2026-10-15T09:09:35.2927518Z Collecting alembic==1.16.5 (from -r verification-inputs/candidate/backend/requirements.txt (line 5))
+browser	UNKNOWN STEP	2026-10-15T09:09:35.2971072Z   Downloading alembic-1.16.5-py3-none-any.whl.metadata (7.3 kB)
+browser	UNKNOWN STEP	2026-10-15T09:09:35.3320245Z Collecting asyncpg==0.31.0 (from -r verification-inputs/candidate/backend/requirements.txt (line 6))
+browser	UNKNOWN STEP	2026-10-15T09:09:35.3356452Z   Downloading asyncpg-0.31.0-cp312-cp312-manylinux_2_28_x86_64.whl.metadata (4.4 kB)
+browser	UNKNOWN STEP	2026-10-15T09:09:35.3480129Z Collecting pydantic-settings==2.10.0 (from -r verification-inputs/candidate/backend/requirements.txt (line 7))
+browser	UNKNOWN STEP	2026-10-15T09:09:35.3524284Z   Downloading pydantic_settings-2.10.0-py3-none-any.whl.metadata (3.4 kB)
+browser	UNKNOWN STEP	2026-10-15T09:09:35.3665596Z Collecting httpx==0.28.1 (from -r verification-inputs/candidate/backend/requirements.txt (line 8))
+browser	UNKNOWN STEP	2026-10-15T09:09:35.3702975Z   Downloading httpx-0.28.1-py3-none-any.whl.metadata (7.1 kB)
+browser	UNKNOWN STEP	2026-10-15T09:09:35.3917099Z Collecting pytest==8.4.1 (from -r verification-inputs/candidate/backend/requirements.txt (line 9))
+browser	UNKNOWN STEP	2026-10-15T09:09:35.3952320Z   Downloading pytest-8.4.1-py3-none-any.whl.metadata (7.7 kB)
+browser	UNKNOWN STEP	2026-10-15T09:09:35.4111162Z Collecting pytest-asyncio==0.24.0 (from -r verification-inputs/candidate/backend/requirements.txt (line 10))
+browser	UNKNOWN STEP	2026-10-15T09:09:35.4144207Z   Downloading pytest_asyncio-0.24.0-py3-none-any.whl.metadata (3.9 kB)
+browser	UNKNOWN STEP	2026-10-15T09:09:35.4433493Z Collecting PyYAML==6.0.2 (from -r verification-inputs/candidate/backend/requirements.txt (line 11))
+browser	UNKNOWN STEP	2026-10-15T09:09:35.4468092Z   Downloading PyYAML-6.0.2-cp312-cp312-manylinux_2_17_x86_64.manylinux2014_x86_64.whl.metadata (2.1 kB)
+browser	UNKNOWN STEP	2026-10-15T09:09:35.4575149Z Collecting aiosqlite==0.21.0 (from -r verification-inputs/candidate/backend/requirements.txt (line 12))
+browser	UNKNOWN STEP	2026-10-15T09:09:35.4607651Z   Downloading aiosqlite-0.21.0-py3-none-any.whl.metadata (4.3 kB)
+browser	UNKNOWN STEP	2026-10-15T09:09:35.4731164Z Collecting feedparser==6.0.12 (from -r verification-inputs/candidate/scripts/snapshot/requirements.txt (line 2))
+browser	UNKNOWN STEP	2026-10-15T09:09:35.4773004Z   Downloading feedparser-6.0.12-py3-none-any.whl.metadata (2.7 kB)
+browser	UNKNOWN STEP	2026-10-15T09:09:35.4901964Z Collecting beautifulsoup4==4.14.3 (from -r verification-inputs/candidate/scripts/snapshot/requirements.txt (line 3))
+browser	UNKNOWN STEP	2026-10-15T09:09:35.4933650Z   Downloading beautifulsoup4-4.14.3-py3-none-any.whl.metadata (3.8 kB)
+browser	UNKNOWN STEP	2026-10-15T09:09:35.4974491Z ERROR: Cannot install PyYAML==6.0.2 and PyYAML==6.0.3 because these package versions have conflicting dependencies.
+browser	UNKNOWN STEP	2026-10-15T09:09:35.4978600Z 
+browser	UNKNOWN STEP	2026-10-15T09:09:35.4978929Z The conflict is caused by:
+browser	UNKNOWN STEP	2026-10-15T09:09:35.4979317Z     The user requested PyYAML==6.0.2
+browser	UNKNOWN STEP	2026-10-15T09:09:35.4979768Z     The user requested PyYAML==6.0.3
+browser	UNKNOWN STEP	2026-10-15T09:09:35.4980054Z 
+browser	UNKNOWN STEP	2026-10-15T09:09:35.4980805Z Additionally, some packages in these conflicts have no matching distributions available for your environment:
+browser	UNKNOWN STEP	2026-10-15T09:09:35.4982106Z ERROR: ResolutionImpossible: for help visit https://pip.pypa.io/en/latest/topics/dependency-resolution/#dealing-with-dependency-conflicts
+browser	UNKNOWN STEP	2026-10-15T09:09:35.4982802Z     pyyaml
+browser	UNKNOWN STEP	2026-10-15T09:09:35.4983032Z 
+browser	UNKNOWN STEP	2026-10-15T09:09:35.4983292Z To fix this you could try to:
+browser	UNKNOWN STEP	2026-10-15T09:09:35.4984034Z 1. loosen the range of package versions you've specified
+browser	UNKNOWN STEP	2026-10-15T09:09:35.4984710Z 2. remove package versions to allow pip to attempt to solve the dependency conflict
+browser	UNKNOWN STEP	2026-10-15T09:09:35.4985070Z 
+browser	UNKNOWN STEP	2026-10-15T09:09:35.5655327Z ##[error]Process completed with exit code 1.
+browser	UNKNOWN STEP	2026-10-15T09:09:35.5757501Z ##[group]Run actions/upload-artifact@v4
+browser	UNKNOWN STEP	2026-10-15T09:09:35.5757885Z with:
+browser	UNKNOWN STEP	2026-10-15T09:09:35.5758258Z   name: isolated-browser-verification-38710803356-1
+browser	UNKNOWN STEP	2026-10-15T09:09:35.5758705Z   path: artifacts/ci-browser-verification/
+browser	UNKNOWN STEP	2026-10-15T09:09:35.5759130Z   retention-days: 14
+browser	UNKNOWN STEP	2026-10-15T09:09:35.5759475Z   if-no-files-found: warn
+browser	UNKNOWN STEP	2026-10-15T09:09:35.5759810Z   compression-level: 6
+browser	UNKNOWN STEP	2026-10-15T09:09:35.5760145Z   overwrite: false
+browser	UNKNOWN STEP	2026-10-15T09:09:35.5760482Z   include-hidden-files: false
+browser	UNKNOWN STEP	2026-10-15T09:09:35.5760821Z env:
+browser	UNKNOWN STEP	2026-10-15T09:09:35.5761280Z   VERIFICATION_OUTPUT: /home/runner/work/News/News/artifacts/ci-browser-verification
+browser	UNKNOWN STEP	2026-10-15T09:09:35.5761863Z   BASELINE_ROOT: /home/runner/work/News/News/verification-inputs/baseline
+browser	UNKNOWN STEP	2026-10-15T09:09:35.5762495Z   CANDIDATE_ROOT: /home/runner/work/News/News/verification-inputs/candidate
+browser	UNKNOWN STEP	2026-10-15T09:09:35.5763027Z   pythonLocation: /opt/hostedtoolcache/Python/3.12.15/x64
+browser	UNKNOWN STEP	2026-10-15T09:09:35.5763663Z   PKG_CONFIG_PATH: /opt/hostedtoolcache/Python/3.12.15/x64/lib/pkgconfig
+browser	UNKNOWN STEP	2026-10-15T09:09:35.5764169Z   Python_ROOT_DIR: /opt/hostedtoolcache/Python/3.12.15/x64
+browser	UNKNOWN STEP	2026-10-15T09:09:35.5764660Z   Python2_ROOT_DIR: /opt/hostedtoolcache/Python/3.12.15/x64
+browser	UNKNOWN STEP	2026-10-15T09:09:35.5765126Z   Python3_ROOT_DIR: /opt/hostedtoolcache/Python/3.12.15/x64
+browser	UNKNOWN STEP	2026-10-15T09:09:35.5765582Z   LD_LIBRARY_PATH: /opt/hostedtoolcache/Python/3.12.15/x64/lib
+browser	UNKNOWN STEP	2026-10-15T09:09:35.5766189Z ##[endgroup]
+browser	UNKNOWN STEP	2026-10-15T09:09:35.7381448Z (node:2772) [DEP0040] DeprecationWarning: The `punycode` module is deprecated. Please use a userland alternative instead.
+browser	UNKNOWN STEP	2026-10-15T09:09:35.7382339Z (Use `node --trace-deprecation ...` to show where the warning was created)
+browser	UNKNOWN STEP	2026-10-15T09:09:35.7414726Z ##[warning]No files were found with the provided path: artifacts/ci-browser-verification/. No artifacts will be uploaded.
+browser	UNKNOWN STEP	2026-10-15T09:09:35.7623144Z Post job cleanup.
+browser	UNKNOWN STEP	2026-10-15T09:09:35.8504159Z [command]/usr/bin/git version
+browser	UNKNOWN STEP	2026-10-15T09:09:35.8542618Z git version 2.55.0
+browser	UNKNOWN STEP	2026-10-15T09:09:35.8577950Z Temporarily overriding HOME='/home/runner/work/_temp/317dffd7-5abc-4d61-998a-e0a65725a2c4' before making global git config changes
+browser	UNKNOWN STEP	2026-10-15T09:09:35.8579430Z Adding repository directory to the temporary git global config as a safe directory
+browser	UNKNOWN STEP	2026-10-15T09:09:35.8582811Z [command]/usr/bin/git config --global --add safe.directory /home/runner/work/News/News/verification-inputs/candidate
+browser	UNKNOWN STEP	2026-10-15T09:09:35.8622204Z [command]/usr/bin/git config --local --name-only --get-regexp core\.sshCommand
+browser	UNKNOWN STEP	2026-10-15T09:09:35.8652656Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'core\.sshCommand' && git config --local --unset-all 'core.sshCommand' || :"
+browser	UNKNOWN STEP	2026-10-15T09:09:35.8930018Z [command]/usr/bin/git config --local --name-only --get-regexp http\.https\:\/\/github\.com\/\.extraheader
+browser	UNKNOWN STEP	2026-10-15T09:09:35.8990719Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'http\.https\:\/\/github\.com\/\.extraheader' && git config --local --unset-all 'http.https://github.com/.extraheader' || :"
+browser	UNKNOWN STEP	2026-10-15T09:09:35.9229689Z [command]/usr/bin/git config --local --name-only --get-regexp ^includeIf\.gitdir:
+browser	UNKNOWN STEP	2026-10-15T09:09:35.9271797Z [command]/usr/bin/git submodule foreach --recursive git config --local --show-origin --name-only --get-regexp remote.origin.url
+browser	UNKNOWN STEP	2026-10-15T09:09:35.9797102Z Post job cleanup.
+browser	UNKNOWN STEP	2026-10-15T09:09:36.0654521Z [command]/usr/bin/git version
+browser	UNKNOWN STEP	2026-10-15T09:09:36.0693607Z git version 2.55.0
+browser	UNKNOWN STEP	2026-10-15T09:09:36.0728842Z Temporarily overriding HOME='/home/runner/work/_temp/016267fe-49d6-4816-8fbd-ac9c40439397' before making global git config changes
+browser	UNKNOWN STEP	2026-10-15T09:09:36.0730426Z Adding repository directory to the temporary git global config as a safe directory
+browser	UNKNOWN STEP	2026-10-15T09:09:36.0734323Z [command]/usr/bin/git config --global --add safe.directory /home/runner/work/News/News/verification-inputs/baseline
+browser	UNKNOWN STEP	2026-10-15T09:09:36.0771793Z [command]/usr/bin/git config --local --name-only --get-regexp core\.sshCommand
+browser	UNKNOWN STEP	2026-10-15T09:09:36.0805341Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'core\.sshCommand' && git config --local --unset-all 'core.sshCommand' || :"
+browser	UNKNOWN STEP	2026-10-15T09:09:36.1033263Z [command]/usr/bin/git config --local --name-only --get-regexp http\.https\:\/\/github\.com\/\.extraheader
+browser	UNKNOWN STEP	2026-10-15T09:09:36.1064735Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'http\.https\:\/\/github\.com\/\.extraheader' && git config --local --unset-all 'http.https://github.com/.extraheader' || :"
+browser	UNKNOWN STEP	2026-10-15T09:09:36.1279378Z [command]/usr/bin/git config --local --name-only --get-regexp ^includeIf\.gitdir:
+browser	UNKNOWN STEP	2026-10-15T09:09:36.1311829Z [command]/usr/bin/git submodule foreach --recursive git config --local --show-origin --name-only --get-regexp remote.origin.url
+browser	UNKNOWN STEP	2026-10-15T09:09:36.1722765Z Post job cleanup.
+browser	UNKNOWN STEP	2026-10-15T09:09:36.2686880Z [command]/usr/bin/git version
+browser	UNKNOWN STEP	2026-10-15T09:09:36.2723894Z git version 2.55.0
+browser	UNKNOWN STEP	2026-10-15T09:09:36.2759066Z Temporarily overriding HOME='/home/runner/work/_temp/61731c29-7321-43c3-a203-97dd398df798' before making global git config changes
+browser	UNKNOWN STEP	2026-10-15T09:09:36.2760404Z Adding repository directory to the temporary git global config as a safe directory
+browser	UNKNOWN STEP	2026-10-15T09:09:36.2764451Z [command]/usr/bin/git config --global --add safe.directory /home/runner/work/News/News
+browser	UNKNOWN STEP	2026-10-15T09:09:36.2802637Z [command]/usr/bin/git config --local --name-only --get-regexp core\.sshCommand
+browser	UNKNOWN STEP	2026-10-15T09:09:36.2837529Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'core\.sshCommand' && git config --local --unset-all 'core.sshCommand' || :"
+browser	UNKNOWN STEP	2026-10-15T09:09:36.3061216Z [command]/usr/bin/git config --local --name-only --get-regexp http\.https\:\/\/github\.com\/\.extraheader
+browser	UNKNOWN STEP	2026-10-15T09:09:36.3094420Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'http\.https\:\/\/github\.com\/\.extraheader' && git config --local --unset-all 'http.https://github.com/.extraheader' || :"
+browser	UNKNOWN STEP	2026-10-15T09:09:36.3322884Z [command]/usr/bin/git config --local --name-only --get-regexp ^includeIf\.gitdir:
+browser	UNKNOWN STEP	2026-10-15T09:09:36.3360266Z [command]/usr/bin/git submodule foreach --recursive git config --local --show-origin --name-only --get-regexp remote.origin.url
+browser	UNKNOWN STEP	2026-10-15T09:09:36.3726872Z Cleaning up orphan processes
+browser	UNKNOWN STEP	2026-10-15T09:09:36.3990164Z ##[warning]Node.js 20 is deprecated. The following actions target Node.js 20 but are being forced to run on Node.js 24: actions/checkout@v4, actions/setup-node@v4, actions/setup-python@v5, actions/upload-artifact@v4. For more information see: https://github.blog/changelog/2025-09-19-deprecation-of-node-20-on-github-actions-runners/
