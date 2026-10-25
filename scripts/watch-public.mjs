@@ -3,7 +3,7 @@ import {mkdirSync, readFileSync, writeFileSync} from 'node:fs';
 import {resolve, sep} from 'node:path';
 import {setTimeout as delay} from 'node:timers/promises';
 import {mergeObservations, evaluateFreshness} from './freshness-gate.mjs';
-import {shouldRecover,isRecoveryRef} from './observation-recovery.mjs';
+import {shouldRecover,isRecoveryRef,publisherBlocksRecovery} from './observation-recovery.mjs';
 
 const directory=resolve(process.env.NEWS_OBSERVER_OUTPUT || 'artifacts/v1-cloud-observer');
 if(!directory.startsWith(resolve('artifacts')+sep)) throw new Error('Observer output must remain inside workspace artifacts.');
@@ -57,9 +57,7 @@ for(let sample=0;sample<(continuous?11:1);sample++) {
       const tag=api(`git/ref/tags/${recoveryRef}`);
       if(tag.object?.type!=='commit' || tag.object.sha!==expectedRevision) throw new Error('Recovery tag is not the pinned application source.');
       const runs=api('actions/workflows/deploy-gh-pages.yml/runs?per_page=10').workflow_runs;
-      const busy=runs.some(run=>['queued','in_progress','waiting','pending'].includes(run.status));
-      const recent=runs.some(run=>run.event==='workflow_dispatch' && run.head_sha===expectedRevision && Date.parse(run.created_at)>now-3600000);
-      if(!busy && !recent) {
+      if(!publisherBlocksRecovery(runs,{revision:expectedRevision,ref:recoveryRef,now})) {
         lastAttempt=now;
         execFileSync('gh',['workflow','run','deploy-gh-pages.yml','--repo','AureliusWu/News','--ref','main','-f',`source_ref=${recoveryRef}`,'-f','publish=true','-f','data_only=true'],{encoding:'utf8',timeout:30000});
         recovery.dispatched=true;

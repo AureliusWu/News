@@ -5,8 +5,9 @@ import {join, resolve} from 'node:path';
 
 // These process/network tests belong to an isolated runner, not the user's PC.
 export function requireIsolatedCI() {
-  if (process.env.GITHUB_ACTIONS !== 'true' || process.platform !== 'linux') {
-    throw new Error('This harness runs only on isolated Linux GitHub Actions runners.');
+  if (process.env.GITHUB_ACTIONS !== 'true' || process.env.GITHUB_REPOSITORY !== 'AureliusWu/News' ||
+      !['linux','win32'].includes(process.platform)) {
+    throw new Error('This harness runs only on this repository isolated Linux/Windows GitHub Actions runners.');
   }
 }
 

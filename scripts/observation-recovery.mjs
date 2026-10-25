@@ -3,6 +3,12 @@ export function isRecoveryRef(version, ref) {
     new RegExp(`^v${version.replaceAll('.','\\.')}-(?:rc|alpha)\\.\\d+$`).test(ref));
 }
 
+export function publisherBlocksRecovery(runs, {revision, ref, now}) {
+  return runs.some(run=>['queued','in_progress','waiting','pending'].includes(run.status) ||
+    (run.event==='workflow_dispatch' && Date.parse(run.created_at)>now-3600000 &&
+      (run.head_sha===revision || run.display_title?.startsWith(`News Pages ${ref} - `))));
+}
+
 export function shouldRecover(row, {version, revision, now, lastAttempt = 0, publisherBusy = false}) {
   return !publisherBusy && Number.isFinite(now) && now - lastAttempt >= 3600000 &&
     row?.base_url === 'https://aureliuswu.github.io/News/' &&

@@ -1,8 +1,8 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
-import {shouldRecover,isRecoveryRef} from './observation-recovery.mjs';
+import {shouldRecover,isRecoveryRef,publisherBlocksRecovery} from './observation-recovery.mjs';
 const now=Date.parse('2026-10-25T12:00:00Z');
-const options={version:'1.1.0-alpha.1',revision:'a'.repeat(40),now};
+const options={version:'1.1.0',revision:'a'.repeat(40),now};
 const row=()=>({base_url:'https://aureliuswu.github.io/News/',observed_at:new Date(now).toISOString(),
   release:{version:options.version,source_revision:options.revision},source_health:{same_generation:true},
   snapshot:{collector_gate_pass:true,age_hours:1.5}});
@@ -27,4 +27,15 @@ test('fresh data, active publishing, and hourly cooldown do not trigger duplicat
 test('observed generation mismatch is recoverable without claiming a passing observation',()=>{
   const broken=row();broken.snapshot.age_hours=0.2;broken.source_health.same_generation=false;
   assert.equal(shouldRecover(broken,options),true);assert.equal(broken.source_health.same_generation,false);
+});
+
+test('main-workflow source tags retain hourly cooldown across documentation commits',()=>{
+  const params={revision:options.revision,ref:'v1.1.0-rc.1',now};
+  const run={status:'completed',event:'workflow_dispatch',head_sha:'b'.repeat(40),
+    created_at:new Date(now-1000).toISOString(),display_title:'News Pages v1.1.0-rc.1 - data-only'};
+  assert.equal(publisherBlocksRecovery([run],params),true);
+  assert.equal(publisherBlocksRecovery([{...run,created_at:new Date(now-3600001).toISOString()}],params),false);
+  assert.equal(publisherBlocksRecovery([{...run,display_title:'News Pages v1.0.0 - data-only'}],params),false);
+  assert.equal(publisherBlocksRecovery([{...run,display_title:'unrelated',status:'waiting'}],params),true);
+  assert.equal(publisherBlocksRecovery([{...run,display_title:'legacy',head_sha:params.revision}],params),true);
 });

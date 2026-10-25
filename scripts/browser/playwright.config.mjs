@@ -13,9 +13,10 @@ export default defineConfig({
     ['html', {outputFolder: join(output, 'playwright-report'), open: 'never'}]],
   use: {baseURL: siteURL, viewport: {width: 1350, height: 940},
     trace: 'retain-on-failure', screenshot: 'only-on-failure', serviceWorkers: 'allow'},
-  projects: [
-    {name: 'chrome', use: {browserName: 'chromium', channel: 'chrome', launchOptions: {chromiumSandbox: true}}},
+  projects: process.platform === 'win32' ? [
     {name: 'edge', use: {browserName: 'chromium', channel: 'msedge', launchOptions: {chromiumSandbox: true}}},
+  ] : [
+    {name: 'chrome', use: {browserName: 'chromium', channel: 'chrome', launchOptions: {chromiumSandbox: true}}},
     {name: 'firefox', use: {browserName: 'firefox'}},
   ],
 });

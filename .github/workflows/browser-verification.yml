@@ -82,9 +82,6 @@ jobs:
         working-directory: scripts/browser
         run: |
           npx --no-install playwright install --with-deps chromium firefox
-          if ! command -v microsoft-edge >/dev/null; then
-            npx --no-install playwright install --with-deps msedge
-          fi
       - name: Freeze bound public news and build both revisions
         id: prepare
         run: |
@@ -107,6 +104,60 @@ jobs:
         uses: actions/upload-artifact@v4
         with:
           name: isolated-browser-verification-${{ github.run_id }}-${{ github.run_attempt }}
+          path: artifacts/ci-browser-verification/
+          retention-days: 14
+          if-no-files-found: warn
+
+  edge:
+    needs: browser
+    if: ${{ !cancelled() }}
+    runs-on: windows-2025
+    timeout-minutes: 20
+    env:
+      VERIFICATION_OUTPUT: ${{ github.workspace }}/artifacts/ci-browser-verification
+      BASELINE_ROOT: ${{ github.workspace }}/verification-inputs/baseline
+      CANDIDATE_ROOT: ${{ github.workspace }}/verification-inputs/candidate
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+      - uses: actions/checkout@v4
+        with:
+          ref: ${{ inputs.baseline_ref }}
+          path: verification-inputs/baseline
+          persist-credentials: false
+      - uses: actions/checkout@v4
+        with:
+          ref: ${{ inputs.candidate_ref }}
+          path: verification-inputs/candidate
+          persist-credentials: false
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+          cache-dependency-path: |
+            scripts/browser/package-lock.json
+            verification-inputs/baseline/frontend/package-lock.json
+            verification-inputs/candidate/frontend/package-lock.json
+      - name: Install isolated browser and preview dependencies
+        run: |
+          npm ci --prefix scripts/browser
+          npm ci --prefix verification-inputs/baseline/frontend
+          npm ci --prefix verification-inputs/candidate/frontend
+      - uses: actions/download-artifact@v4
+        with:
+          name: isolated-browser-verification-${{ github.run_id }}-${{ github.run_attempt }}
+          path: artifacts/ci-browser-verification
+      - name: Validate and adopt the identical Linux-built application pair
+        run: node scripts/browser/adopt-builds.mjs
+      - name: Native Windows Edge browser, offline and upgrade tests
+        working-directory: scripts/browser
+        run: npm test
+      - name: Preserve Windows scope and every failure trace
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: windows-edge-verification-${{ github.run_id }}-${{ github.run_attempt }}
           path: artifacts/ci-browser-verification/
           retention-days: 14
           if-no-files-found: warn
