@@ -39,14 +39,19 @@ try {
   await page.getByRole('link',{name:'事件聚合',exact:true}).click();
   const link=page.locator('a[href*="/events/e_"]').first();
   await link.waitFor({state:'visible'});const title=(await link.innerText()).trim();
-  await link.click();await page.getByRole('heading',{name:title,exact:true}).first().waitFor({state:'visible'});
+  await link.click();
+  await page.waitForURL(/\/News\/events\/e_[a-f0-9]{24}(?:\?.*)?$/,{waitUntil:'domcontentloaded'});
+  await page.getByRole('heading',{name:title,exact:true}).first().waitFor({state:'visible'});
   smoke.event_url=page.url();const response=await page.reload({waitUntil:'domcontentloaded'});
   await page.getByRole('heading',{name:title,exact:true}).first().waitFor({state:'visible'});
+  if(page.url()!==smoke.event_url) throw new Error('Direct event reload changed its URL.');
   smoke.deep_link_status=response.status(); // Pages 404 plus rendered SPA remain distinct.
   if(smoke.page_errors.length) throw new Error('Unexpected public application JavaScript error.');
 } finally {
   await browser.close();await writeFile(join(directory,'smoke.json'),JSON.stringify(smoke,null,2)+'\n');
 }
+await identity();
+if(process.env.RUN_PUBLIC_PERFORMANCE==='false') process.exit(0);
 const samples=[];
 for(const preset of ['desktop','mobile']) for(let sample=1;sample<=5;sample++) {
   const before=await identity();const name=`${preset}-${sample}`;const path=join(directory,`${name}.json`);

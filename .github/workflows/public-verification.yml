@@ -6,6 +6,10 @@ on:
         description: Exact deployed candidate application source
         required: true
         type: string
+      run_performance:
+        description: Preserve ten separate cold startup samples in addition to navigation
+        type: boolean
+        default: true
 permissions:
   contents: read
 concurrency:
@@ -17,6 +21,7 @@ jobs:
     timeout-minutes: 25
     env:
       EXPECTED_REVISION: ${{ inputs.expected_revision }}
+      RUN_PUBLIC_PERFORMANCE: ${{ inputs.run_performance }}
     steps:
       - uses: actions/checkout@v4
         with:
