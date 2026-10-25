@@ -38,9 +38,10 @@ async function assertSaved(page, saved) {
 async function readyOffline(page) {
   await page.waitForFunction(() => !!navigator.serviceWorker.controller);
   await expect.poll(() => page.evaluate(async () => {
-    const url = new URL('data/news.json', new URL('/News/', location.href)).href;
+    const urls = ['data/news.json','data/news.home.json'].map(path=>new URL(path,new URL('/News/',location.href)).href);
     for (const name of await caches.keys()) {
-      if (await (await caches.open(name)).match(url)) return true;
+      const cache=await caches.open(name);
+      for(const url of urls) if(await cache.match(url)) return true;
     }
     return false;
   })).toBe(true);

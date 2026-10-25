@@ -2,7 +2,7 @@ import './snapshot.css';
 import {ui} from '../locales/zh-CN';
 import {formatDateTime} from '../utils/time';
 import type {NewsArticle, NewsSource} from '../types/news';
-import {expandCompact} from './compact';
+import {expandCompact, expandHomePreview} from './compact';
 
 type Source = NewsSource;
 type Article = NewsArticle;
@@ -17,10 +17,11 @@ export type Snapshot = {
   };
   health: { configured: number; healthy: number; failed: number; gate_pass: boolean };
 };
-type Loaded = { snapshot: Snapshot; cached: boolean; checkedAt: number };
+type Loaded = { snapshot: Snapshot; cached: boolean; checkedAt: number; previewTotal?: number };
 type Options = {
   origin: string; basePath: string; now?: () => number; storage?: CacheStorage;
   compact?: boolean;
+  homePreview?: boolean;
   onState?: (state: Loaded | { error: string }) => void;
 };
 const MAX_AGE = 72 * 60 * 60 * 1000;
@@ -71,9 +72,9 @@ const decodeCursor = (value: string) => {
   return JSON.parse(new TextDecoder().decode(Uint8Array.from(atob(raw.padEnd(Math.ceil(raw.length / 4) * 4, '=')), c => c.charCodeAt(0))));
 };
 
-export function querySnapshot(snapshot: Snapshot, endpoint: string, params: URLSearchParams, cached = false): Response {
+export function querySnapshot(snapshot: Snapshot, endpoint: string, params: URLSearchParams, cached = false, previewTotal?: number): Response {
   if (endpoint === 'snapshot') return json(snapshot, 200, cached);
-  if (endpoint === 'meta') return json(snapshot.meta, 200, cached);
+  if (endpoint === 'meta') return json({...snapshot.meta,article_count:previewTotal ?? snapshot.meta.article_count}, 200, cached);
   if (endpoint === 'sources') return json(snapshot.sources, 200, cached);
   if (endpoint === 'health') return json({
     status: 'snapshot', mode: 'snapshot', version: snapshot.meta.version,
@@ -102,9 +103,10 @@ export function querySnapshot(snapshot: Snapshot, endpoint: string, params: URLS
     } catch { return json({ detail: 'Invalid snapshot cursor.' }, 400); }
   }
   const end = offset + limit;
+  const total = previewTotal ?? items.length;
   return json({
-    items: items.slice(offset, end), has_more: end < items.length,
-    next_cursor: end < items.length ? encodeCursor({ v: 1, g: snapshot.content_sha256, f: signature, o: end }) : null,
+    items: items.slice(offset, end), has_more: end < total,
+    next_cursor: end < total ? encodeCursor({ v: 1, g: snapshot.content_sha256, f: signature, o: end }) : null,
   }, 200, cached);
 }
 
@@ -123,13 +125,16 @@ export function createSnapshotFetch(nativeFetch: typeof fetch, options: Options)
   const base = `/${options.basePath.replace(/^\/+|\/+$/g, '')}${options.basePath.replace(/\//g, '') ? '/' : ''}`;
   const dataUrl = new URL(`${base}data/news.json`, options.origin).href;
   const compactUrl = new URL(`${base}data/news.compact.json`, options.origin).href;
+  const homeUrl = new URL(`${base}data/news.home.json`, options.origin).href;
   const preferCompact = options.compact ?? (import.meta.env.VITE_NEWS_MODE === 'snapshot');
+  const preferHome = options.homePreview ?? (import.meta.env.VITE_NEWS_MODE === 'snapshot');
   let memory: Loaded | undefined;
   let pending: Promise<Loaded> | undefined;
+  let pendingPreview = false;
   let cacheWriteRunning = false;
-  let nextCacheWrite: { snapshot: Snapshot; cache: Promise<Cache | undefined> } | undefined;
-  const persist = (snapshot: Snapshot, cache: Promise<Cache | undefined>) => {
-    nextCacheWrite = { snapshot, cache };
+  let nextCacheWrite: { body: unknown; url: string; cache: Promise<Cache | undefined> } | undefined;
+  const persist = (body: unknown, cache: Promise<Cache | undefined>, url = dataUrl) => {
+    nextCacheWrite = { body, cache, url };
     if (cacheWriteRunning) return;
     cacheWriteRunning = true;
     void (async () => {
@@ -139,46 +144,59 @@ export function createSnapshotFetch(nativeFetch: typeof fetch, options: Options)
           nextCacheWrite = undefined;
           try {
             const target = await write.cache;
-            await target?.put(dataUrl, json(write.snapshot));
+            await target?.put(write.url, json(write.body));
           } catch { /* Best-effort persistence must not block online news. */ }
         }
       } finally { cacheWriteRunning = false; }
     })();
   };
-  const load = (): Promise<Loaded> => {
-    if (memory && now() - memory.checkedAt < 60000) return Promise.resolve(memory);
-    if (pending) return pending;
+  const load = (allowPreview: boolean): Promise<Loaded> => {
+    if (memory && (!memory.previewTotal || allowPreview) && now() - memory.checkedAt < 60000) return Promise.resolve(memory);
+    if (pending) return !allowPreview && pendingPreview ? pending.then(() => load(false), () => load(false)) : pending;
+    pendingPreview = allowPreview;
     pending = (async () => {
       const controller = new AbortController();
       const timeout = setTimeout(() => controller.abort(), 12000);
       const cache = Promise.resolve().then(() => options.storage?.open(`global-news-snapshot-v1:${base}`))
         .catch(() => undefined);
       try {
+        let preview = allowPreview;
         let compact = preferCompact;
-        let response = await nativeFetch(compact ? compactUrl : dataUrl, { cache: 'no-store', credentials: 'omit', signal: controller.signal });
+        let response = await nativeFetch(preview ? homeUrl : compact ? compactUrl : dataUrl, { cache: 'no-store', credentials: 'omit', signal: controller.signal });
+        if (preview && response.status === 404) {
+          preview = false;
+          response = await nativeFetch(compact ? compactUrl : dataUrl, {cache:'no-store',credentials:'omit',signal:controller.signal});
+        }
         if (compact && response.status === 404) {
           compact = false;
           response = await nativeFetch(dataUrl, { cache: 'no-store', credentials: 'omit', signal: controller.signal });
         }
         if (!response.ok) throw new Error(`Snapshot download failed (${response.status}).`);
         const body = await response.json();
-        const snapshot = validateSnapshot(compact ? expandCompact(body) : body, now());
-        memory = { snapshot, cached: false, checkedAt: now() };
-        persist(snapshot, cache);
+        const subset = preview ? expandHomePreview(body) : undefined;
+        const snapshot = validateSnapshot(subset?.snapshot ?? (compact ? expandCompact(body) : body), now());
+        memory = { snapshot, cached: false, checkedAt: now(), ...(subset ? {previewTotal:subset.total} : {}) };
+        persist(preview ? body : snapshot, cache, preview ? homeUrl : dataUrl);
       } catch (error) {
-        let fallback: Snapshot | undefined;
+        let fallback: Pick<Loaded,'snapshot'|'previewTotal'> | undefined;
         try {
-          if (memory) fallback = validateSnapshot(memory.snapshot, now());
+          if (memory && (!memory.previewTotal || allowPreview)) fallback = {...memory,snapshot:validateSnapshot(memory.snapshot, now())};
           else {
             const saved = await (await cache)?.match(dataUrl);
-            if (saved) fallback = validateSnapshot(await saved.json(), now());
+            if (saved) fallback = {snapshot:validateSnapshot(await saved.json(), now())};
           }
         } catch { /* Expired or invalid cached data is not displayed. */ }
+        if (!fallback && allowPreview) {
+          try {
+            const saved = await (await cache)?.match(homeUrl);
+            if (saved) { const subset=expandHomePreview(await saved.json()); fallback={snapshot:validateSnapshot(subset.snapshot,now()),previewTotal:subset.total}; }
+          } catch { /* A partial cache is never used for full-data requests. */ }
+        }
         if (!fallback) {
           options.onState?.({ error: ui.snapshot.unavailable });
           throw error;
         }
-        memory = { snapshot: fallback, cached: true, checkedAt: now() };
+        memory = { ...fallback, cached: true, checkedAt: now() };
       } finally { clearTimeout(timeout); }
       options.onState?.(memory!);
       return memory!;
@@ -193,8 +211,13 @@ export function createSnapshotFetch(nativeFetch: typeof fetch, options: Options)
     if ((init?.method || request?.method || 'GET').toUpperCase() !== 'GET') return json({ detail: 'Snapshot mode is read-only.' }, 405);
     const signal = init?.signal || request?.signal;
     if (signal?.aborted) throw new DOMException('Aborted', 'AbortError');
-    const loaded = await abortable(load(), signal);
-    const response = querySnapshot(loaded.snapshot, url.pathname.slice(prefix.length).replace(/\/$/, ''), url.searchParams, loaded.cached);
+    const endpoint = url.pathname.slice(prefix.length).replace(/\/$/, '');
+    const limit = Number(url.searchParams.get('limit') || '20');
+    const preview = preferHome && (['meta','sources','health'].includes(endpoint) || endpoint === 'news'
+      && !['q','region','category','language','source','cursor'].some(key => url.searchParams.get(key))
+      && Number.isInteger(limit) && limit > 0 && limit <= 30);
+    const loaded = await abortable(load(preview), signal);
+    const response = querySnapshot(loaded.snapshot, endpoint, url.searchParams, loaded.cached, loaded.previewTotal);
     response.headers.set('X-News-Generated-At', loaded.snapshot.generated_at);
     return response;
   };
@@ -220,6 +243,7 @@ export function installSnapshotTransport(basePath: string, installGlobalFetch = 
       cached ? ui.snapshot.cached : stale ? ui.snapshot.delayed : ui.snapshot.normal,
       formatDateTime(snapshot.generated_at), snapshot.health.healthy, snapshot.health.configured
     );
+    if (cached && last.previewTotal) status.textContent += ` 当前仅保存最近 ${snapshot.articles.length} 条，更多报道和筛选需要联网更新。`;
   };
   let storage: CacheStorage | undefined;
   try { storage = window.caches; } catch { /* Private browsing can deny storage. */ }

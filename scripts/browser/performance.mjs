@@ -57,7 +57,7 @@ for (const preset of ['desktop', 'mobile']) {
           score: report.categories.performance.score,
           runtime_error: report.runtimeError || null, warnings: report.runWarnings || [],
           news_requests: (report.audits['network-requests']?.details?.items || [])
-            .filter(item => /\/News\/data\/news(?:\.compact)?\.json$/.test(item.url)),
+            .filter(item => /\/News\/data\/news(?:\.(?:compact|home))?\.json$/.test(item.url)),
         };
       } catch (error) { result.read_error = String(error); }
       samples.push(result);
@@ -83,7 +83,7 @@ await writeFile(join(directory, 'summary.json'), JSON.stringify({
   diagnostic_budget_status: ['desktop', 'mobile'].every(preset => groups[preset].candidate.worst_lcp_ms <= 3000)
     ? 'WITHIN_LAB_BUDGET' : 'EXCEEDS_LAB_BUDGET',
   baseline: data.baseline, candidate: data.candidate, inputs: data.inputs,
-  design: '5 cold runs per arm and device; alternating AB/BA; same runner/browser and identical decoded frozen news; candidate lossless source dictionary; third-party HTTPS resources blocked in BOTH arms.',
+  design: '5 cold runs per arm and device; alternating AB/BA; same runner/browser and frozen original news. Candidate first page contains exactly the same first 30 articles and bound total; full data loads on filters/pagination/events. Third-party HTTPS blocked in BOTH arms.',
   interpretation: 'Controlled application-startup diagnostic only. Loopback delivery and excluded third-party images do not close production first-screen, interaction or phone gates. No sample removal or retries.',
   formal_release: false,
 }, null, 2) + '\n');

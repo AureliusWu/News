@@ -16,3 +16,14 @@ export function expandCompact(value: unknown): unknown {
     return {...fields, source: snapshot.sources[source_index as number]};
   })};
 }
+
+export function expandHomePreview(value: unknown) {
+  const envelope = value as {view?: string; total_articles?: number};
+  const snapshot = expandCompact(value) as Snapshot;
+  const total = envelope.total_articles;
+  if (envelope.view !== 'home-preview-v1' || !Number.isSafeInteger(total) || (total as number) < 1
+      || (total as number) > 5000 || snapshot.meta?.article_count !== total
+      || snapshot.articles.length !== Math.min(30, total as number)) throw new Error('Invalid home preview coverage.');
+  // Internal subset is explicit; public total and full generation remain separately bound.
+  return {snapshot:{...snapshot,meta:{...snapshot.meta,article_count:snapshot.articles.length}},total:total as number};
+}

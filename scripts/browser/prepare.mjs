@@ -85,6 +85,9 @@ for (const name of ['baseline', 'candidate']) {
       return {...fields, source_index};
     })}};
     await writeFile(join(dist, 'data', 'news.compact.json'), JSON.stringify(compact));
+    const preview = {...compact,view:'home-preview-v1',total_articles:news.json.articles.length,
+      snapshot:{...compact.snapshot,articles:compact.snapshot.articles.slice(0,30)}};
+    await writeFile(join(dist,'data','news.home.json'),JSON.stringify(preview));
   }
   const html = await readFile(join(dist, 'index.html'), 'utf8');
   const entry = html.match(/<script\b[^>]*type="module"[^>]*src="([^"]+)"/)?.[1];

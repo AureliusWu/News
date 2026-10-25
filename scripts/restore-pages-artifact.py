@@ -7,6 +7,7 @@ import os
 from pathlib import Path, PurePosixPath
 import re
 import subprocess
+import time
 import tarfile
 import zipfile
 from datetime import datetime
@@ -89,8 +90,18 @@ def unpack_pages(payload, output, workspace, baseline=None):
     return report
 
 
+def github_read(arguments, timeout=30):
+    for attempt in range(3):
+        try:
+            return subprocess.check_output(arguments, timeout=timeout)
+        except (subprocess.CalledProcessError, subprocess.TimeoutExpired):
+            if attempt == 2:
+                raise
+            time.sleep(attempt + 1)
+
+
 def api(repository, suffix):
-    return json.loads(subprocess.check_output(['gh', 'api', f'repos/{repository}/{suffix}'], timeout=30))
+    return json.loads(github_read(['gh', 'api', f'repos/{repository}/{suffix}']))
 
 
 def release_asset(release, pin):
@@ -103,6 +114,15 @@ def release_asset(release, pin):
     return assets[0]
 
 
+def save_archive(payload, path, workspace):
+    target = path.resolve()
+    if not target.is_relative_to(workspace.resolve() / 'artifacts') or target.exists() or len(payload) > MAX_ZIP:
+        raise ValueError('Archive backup requires a new bounded file inside workspace artifacts.')
+    target.parent.mkdir(parents=True, exist_ok=True)
+    with target.open('xb') as output:
+        output.write(payload)
+
+
 def main():
     parser = argparse.ArgumentParser()
     source = parser.add_mutually_exclusive_group(required=True)
@@ -111,6 +131,7 @@ def main():
     source.add_argument('--release', help='Committed release archive pin, independent of Actions artifact retention.')
     parser.add_argument('--output', type=Path, required=True)
     parser.add_argument('--report', type=Path, required=True)
+    parser.add_argument('--save-archive', type=Path, help='Keep the verified original archive bytes in a new artifacts file.')
     args = parser.parse_args()
     if args.run is not None and args.run <= 0:
         raise ValueError('Invalid source run ID.')
@@ -123,7 +144,7 @@ def main():
         if not isinstance(pin, dict):
             raise ValueError('Unknown release rollback pin.')
         item = release_asset(api(repository, f'releases/tags/{args.release}'), pin)
-        payload = subprocess.check_output(['gh', 'api', '--header', 'Accept: application/octet-stream',
+        payload = github_read(['gh', 'api', '--header', 'Accept: application/octet-stream',
             f'repos/{repository}/releases/assets/{item["id"]}'], timeout=120)
         if hashlib.sha256(payload).hexdigest() != pin['archive_sha256']:
             raise ValueError('Downloaded release archive checksum differs from the committed pin.')
@@ -136,6 +157,8 @@ def main():
             raise ValueError('Archived application differs from the pinned source and version.')
         report.update(source_run_id=pin['source_run_id'], source_revision=pin['source_revision'],
                       release_tag=args.release, release_asset_id=item['id'], capsule_repacked=False)
+        if args.save_archive:
+            save_archive(payload, args.save_archive, workspace)
         args.report.parent.mkdir(parents=True, exist_ok=True)
         args.report.write_text(json.dumps(report, indent=2) + '\n', encoding='utf-8')
         print(json.dumps({key: value for key, value in report.items() if key != 'file_sha256'}))
@@ -156,7 +179,7 @@ def main():
         assets = [item for item in release['assets'] if item['name'] == baseline['asset_name']]
         if release.get('draft') or len(assets) != 1 or assets[0]['size'] > MAX_ZIP:
             raise ValueError('No unique bounded published frozen capsule.')
-        payload = subprocess.check_output(['gh', 'api', '--header', 'Accept: application/octet-stream',
+        payload = github_read(['gh', 'api', '--header', 'Accept: application/octet-stream',
             f'repos/{repository}/releases/assets/{assets[0]["id"]}'], timeout=120)
         artifact_id = baseline['source_artifact_id']
     else:
@@ -164,7 +187,7 @@ def main():
         pages = [item for item in artifacts if item['name'] == 'github-pages' and not item['expired']]
         if len(pages) != 1 or pages[0]['size_in_bytes'] > MAX_ZIP:
             raise ValueError('No unique unexpired bounded Pages artifact; never substitute recollected data.')
-        payload = subprocess.check_output(['gh', 'api', f'repos/{repository}/actions/artifacts/{pages[0]["id"]}/zip'], timeout=120)
+        payload = github_read(['gh', 'api', f'repos/{repository}/actions/artifacts/{pages[0]["id"]}/zip'], timeout=120)
         artifact_id = pages[0]['id']
     workspace = Path(os.environ.get('GITHUB_WORKSPACE', Path.cwd())).resolve()
     report_path = args.report.resolve()
@@ -172,6 +195,8 @@ def main():
         raise ValueError('Restore report must stay inside this workspace artifacts directory.')
     report = unpack_pages(payload, args.output, workspace, baseline)
     report.update(source_run_id=source_run_id, source_revision=run['head_sha'], source_artifact_id=artifact_id)
+    if args.save_archive:
+        save_archive(payload, args.save_archive, workspace)
     if baseline:
         report.update(frozen_capsule=args.baseline, release_asset_id=assets[0]['id'],
             original_archive_sha256=baseline['original_archive_sha256'], capsule_repacked=True)

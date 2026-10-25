@@ -16,5 +16,13 @@ def compact_snapshot(snapshot):
     return {'wire_schema_version': 1, 'snapshot': {**snapshot, 'articles': articles}}
 
 
+def home_preview(wire):
+    return {**wire, 'view': 'home-preview-v1', 'total_articles': len(wire['snapshot']['articles']),
+            'snapshot': {**wire['snapshot'], 'articles': wire['snapshot']['articles'][:30]}}
+
+
 def write_compact(snapshot, path):
-    path.write_text(json.dumps(compact_snapshot(snapshot), ensure_ascii=False, separators=(',', ':')), encoding='utf-8')
+    wire = compact_snapshot(snapshot)
+    path.write_text(json.dumps(wire, ensure_ascii=False, separators=(',', ':')), encoding='utf-8')
+    preview = home_preview(wire)
+    path.with_name('news.home.json').write_text(json.dumps(preview, ensure_ascii=False, separators=(',', ':')), encoding='utf-8')

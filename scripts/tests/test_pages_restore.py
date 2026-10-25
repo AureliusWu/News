@@ -6,6 +6,7 @@ from pathlib import Path
 import tarfile
 import tempfile
 import unittest
+from unittest.mock import patch
 import zipfile
 
 ROOT = Path(__file__).resolve().parents[2]
@@ -44,6 +45,30 @@ def current_archive(health=None):
 
 
 class PagesRestoreTests(unittest.TestCase):
+    def test_transient_read_retries_without_reissuing_a_write(self):
+        failure = restore.subprocess.CalledProcessError(1, ['gh', 'api'])
+        with patch.object(restore.subprocess, 'check_output', side_effect=[failure, b'{"ok":true}']) as command, patch.object(restore.time, 'sleep'):
+            self.assertEqual(restore.api('AureliusWu/News', 'synthetic'), {'ok': True})
+            self.assertEqual(command.call_count, 2)
+
+    def test_read_retry_exhaustion_is_bounded(self):
+        failure = restore.subprocess.CalledProcessError(1, ['gh', 'api'])
+        with patch.object(restore.subprocess, 'check_output', side_effect=failure) as command, patch.object(restore.time, 'sleep'):
+            with self.assertRaises(restore.subprocess.CalledProcessError):
+                restore.github_read(['gh', 'api', 'synthetic'])
+            self.assertEqual(command.call_count, 3)
+    def test_archive_backup_preserves_original_bytes_and_never_overwrites(self):
+        target = self.workspace / 'artifacts/original.zip'
+        payload, _ = archive()
+        restore.save_archive(payload, target, self.workspace)
+        self.assertEqual(target.read_bytes(), payload)
+        with self.assertRaises(ValueError):
+            restore.save_archive(b'changed', target, self.workspace)
+        self.assertEqual(target.read_bytes(), payload)
+
+    def test_archive_backup_cannot_escape_workspace_artifacts(self):
+        with self.assertRaises(ValueError):
+            restore.save_archive(b'original', self.workspace / 'foreign.zip', self.workspace)
     def test_release_asset_requires_committed_digest_and_published_version(self):
         pin = {'version': '1.0.0', 'asset_name': 'original.zip', 'archive_sha256': 'a' * 64}
         item = {'id': 1, 'name': 'original.zip', 'size': 100, 'digest': 'sha256:' + 'a' * 64}
