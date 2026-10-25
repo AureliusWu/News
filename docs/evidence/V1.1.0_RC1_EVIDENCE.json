@@ -1,0 +1,108 @@
+{
+  "schema_version": 1,
+  "version": "1.1.0",
+  "source_revision": "20e630e20727dc3c243747c27b0101d9ac9e336e",
+  "candidate_tag": "v1.1.0-rc.1",
+  "formal_release": false,
+  "verified_assets": [
+    {
+      "name": "ci-40175310882.zip",
+      "size": 9709137,
+      "digest": "sha256:b52242da8f5a98141f85e3ec00c76acc58407828c2081a31d8b96e204c8d5e67",
+      "browser_download_url": "https://github.com/AureliusWu/News/releases/download/v1.1.0-rc.1/ci-40175310882.zip"
+    },
+    {
+      "name": "data-only-public.json",
+      "size": 479,
+      "digest": "sha256:61c904d6899f2341a072fb119c89b71808a187aad5ac182fefc864cc66ee2231",
+      "browser_download_url": "https://github.com/AureliusWu/News/releases/download/v1.1.0-rc.1/data-only-public.json"
+    },
+    {
+      "name": "edge-40175310882.zip",
+      "size": 8705943,
+      "digest": "sha256:b154ad62bf988051ce70f9e4f7101f7d85a429e2ff1ffbd2230b0054c18db558",
+      "browser_download_url": "https://github.com/AureliusWu/News/releases/download/v1.1.0-rc.1/edge-40175310882.zip"
+    },
+    {
+      "name": "legacy-40175411434.zip",
+      "size": 4194972,
+      "digest": "sha256:9869af1649c3a4d1f91df419146fa627d90a23078275efb9f39c63e5b39f8b71",
+      "browser_download_url": "https://github.com/AureliusWu/News/releases/download/v1.1.0-rc.1/legacy-40175411434.zip"
+    },
+    {
+      "name": "legacy-edge-40175411434.zip",
+      "size": 3191383,
+      "digest": "sha256:eed6667b87c7be9da8292d195205efcfd0643596c000ccd2416b79712caf5421",
+      "browser_download_url": "https://github.com/AureliusWu/News/releases/download/v1.1.0-rc.1/legacy-edge-40175411434.zip"
+    },
+    {
+      "name": "observer-40177261180.zip",
+      "size": 2175,
+      "digest": "sha256:68c7fb63dead35f2e649a623a0fb76061a64ef7e0aa728a8e579fd2f90e607ec",
+      "browser_download_url": "https://github.com/AureliusWu/News/releases/download/v1.1.0-rc.1/observer-40177261180.zip"
+    },
+    {
+      "name": "pre-v1.1-pages-40174030284.zip",
+      "size": 2055601,
+      "digest": "sha256:b647e709252bbdc1f54333b2e097de178fd9fcf85aa595f685bb5fae38c1061f",
+      "browser_download_url": "https://github.com/AureliusWu/News/releases/download/v1.1.0-rc.1/pre-v1.1-pages-40174030284.zip"
+    },
+    {
+      "name": "public-40176276341.zip",
+      "size": 3227114,
+      "digest": "sha256:626393eef59f84cdb934ec815511a92cf32f9cf65798146da2b6fa803b7eab99",
+      "browser_download_url": "https://github.com/AureliusWu/News/releases/download/v1.1.0-rc.1/public-40176276341.zip"
+    },
+    {
+      "name": "public-candidate-home.png",
+      "size": 56313,
+      "digest": "sha256:243cb09c93369280918589092561a5e959f666d0581bd7427315c209e6abc8b7",
+      "browser_download_url": "https://github.com/AureliusWu/News/releases/download/v1.1.0-rc.1/public-candidate-home.png"
+    },
+    {
+      "name": "public-navigation-40177074254.zip",
+      "size": 572363,
+      "digest": "sha256:e9dd00afab63e576dbd960347df398032f662f709b2c2957b6b24ddf5375a3cb",
+      "browser_download_url": "https://github.com/AureliusWu/News/releases/download/v1.1.0-rc.1/public-navigation-40177074254.zip"
+    },
+    {
+      "name": "v1.1.0-rc.1-published-pages-40176017524.zip",
+      "size": 2273751,
+      "digest": "sha256:a96dd9b56a70e85afaa93e440a472ff1f4d29830c3028dfe1405fabc678a3917",
+      "browser_download_url": "https://github.com/AureliusWu/News/releases/download/v1.1.0-rc.1/v1.1.0-rc.1-published-pages-40176017524.zip"
+    }
+  ],
+  "test_runs": [
+    40175310882,
+    40175411434
+  ],
+  "regression_passed": 411,
+  "browser_passed": 56,
+  "browser_skipped": 4,
+  "pending": [
+    "candidate-bound seven-day freshness",
+    "Android Chrome and iPhone Safari device receipts",
+    "installed PWA device receipt"
+  ],
+  "waivers": [],
+  "public_performance_run": 40176276341,
+  "corrected_public_navigation_run": 40177074254,
+  "public_detail_http_status": 404,
+  "public_detail_rendered": true,
+  "rollback_run": 40176755668,
+  "rollforward_run": 40176960448,
+  "data_only_run": 40177045300,
+  "observer_first_run": 40177261180,
+  "observer_continuous_run": 40177377208,
+  "first_independent_observation": "2026-10-25T08:36:10.340Z",
+  "freshness_status": "WARMING_UP",
+  "freshness_gate_pass": false,
+  "emulator": {
+    "name": "MuMu",
+    "installed_version": "6.8.7.0",
+    "status": "BLOCKED_DESKTOP_LOCKED",
+    "ui_error": "failed to activate captured window",
+    "tests_passed": false
+  },
+  "heartbeat_id": "news-v1-1"
+}
