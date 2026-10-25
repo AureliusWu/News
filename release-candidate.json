@@ -1,0 +1,7 @@
+{
+  "schema_version": 1,
+  "version": "1.1.0",
+  "status": "CANDIDATE",
+  "plan": "docs/V1.1.0_PLAN.md",
+  "note": "The version number does not authorize a formal release. Observe this version/source before promotion; all verified gates or a new explicit version-specific waiver are required."
+}

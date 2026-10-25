@@ -1,3 +1,10 @@
+export function validateReleaseCandidate(version, candidate) {
+  if (candidate?.schema_version !== 1 || candidate.version !== version || candidate.status !== 'CANDIDATE'
+      || typeof candidate.plan !== 'string' || !candidate.plan.startsWith('docs/'))
+    throw new Error('Candidate declaration must explicitly match this version and cannot grant a formal release.');
+  return true;
+}
+
 export function validateReleaseApproval(version, approval) {
   if (!/^\d+\.\d+\.\d+$/.test(version)) return null;
   if (approval?.approval === 'verified-release') {

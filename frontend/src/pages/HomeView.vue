@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import ReadingToolbar from '../components/ReadingToolbar.vue';
 import {watch as watchReaderQuery} from 'vue';
-import {computed, onBeforeUnmount, onMounted, ref} from "vue";
+import {computed, nextTick, onBeforeUnmount, onMounted, ref} from "vue";
 import NewsCard from "../components/NewsCard.vue";
 import {useNews} from "../composables/useNews";
 import {getMeta, getSources} from "../api/client";
@@ -40,7 +40,14 @@ onMounted(() => {
   void getSources().then(data => { sources.value = data; }).catch(() => {});
   if (typeof IntersectionObserver !== "undefined") {
     observer = new IntersectionObserver(entries => {
-      if (entries.some(entry => entry.isIntersecting) && items.value.length && !error.value) void load("more");
+      if (entries.some(entry => entry.isIntersecting) && items.value.length && !error.value) {
+        // A queued skeleton-era intersection can arrive after data resolves. Check the actual rendered list.
+        void nextTick(() => {
+          const bounds=sentinel.value?.getBoundingClientRect();
+          if(bounds && bounds.top<=window.innerHeight+400 && bounds.bottom>=-400 && items.value.length && !error.value)
+            void load('more');
+        });
+      }
     }, {rootMargin: "400px"});
     if (sentinel.value) observer.observe(sentinel.value);
   }

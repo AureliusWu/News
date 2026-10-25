@@ -52,16 +52,22 @@ def unpack(payload, directory, expected_digest):
             target.write_bytes(archive.read(entry))
 
 
-def restore(directory):
+def restore(directory, expected_revision=None):
     base = 'https://aureliuswu.github.io/News/'
     with httpx.Client(timeout=25, follow_redirects=False) as client:
         response = client.get(base + 'release.json', headers={'Cache-Control': 'no-cache'})
-        if response.status_code == 404: return False
+        if response.status_code == 404:
+            if expected_revision is not None: raise ValueError('Pinned deployed metadata is missing; do not rebuild a candidate in its place.')
+            return False
         response.raise_for_status()
         if len(response.content) > 16384: raise ValueError('Application metadata exceeds its bound.')
         release = response.json()
-        if not release.get('app_bundle_sha256'): return False
-        if release.get('event_alias_schema_version') is None: return False
+        if expected_revision is not None and release.get('source_revision') != expected_revision:
+            raise ValueError('Data-only refresh must preserve the pinned deployed application source.')
+        if not release.get('app_bundle_sha256') or release.get('event_alias_schema_version') is None:
+            if expected_revision is not None or release.get('formal_release') is True:
+                raise ValueError('Verified deployed code archive is missing; do not rebuild a candidate over a formal release.')
+            return False
         if release.get('event_alias_schema_version') != 1 or release.get('event_matcher_version') != 'title-summary-v4':
             raise ValueError('Published code is incompatible with reviewed event aliases.')
         if release.get('data_schema_version') != 1 or release.get('base_path') != '/News/' or release.get('event_method_version') != 'lexical-complete-link-v1':
@@ -80,12 +86,13 @@ if __name__ == '__main__':
     parser.add_argument('operation', choices=['pack', 'restore', 'overlay'])
     parser.add_argument('--directory', type=Path, default=Path('frontend/dist'))
     parser.add_argument('--base', default='/News/')
+    parser.add_argument('--expected-revision')
     args = parser.parse_args()
     if args.operation == 'pack': pack(args.directory, args.base)
     elif args.operation == 'overlay':
         shutil.copytree('frontend/public/data', args.directory / 'data', dirs_exist_ok=True)
     else:
-        restored = restore(args.directory)
+        restored = restore(args.directory, args.expected_revision)
         if os.environ.get('GITHUB_OUTPUT'):
             with open(os.environ['GITHUB_OUTPUT'], 'a', encoding='utf-8') as output: output.write(f'restored={str(restored).lower()}\n')
         print(json.dumps({'restored': restored, 'fallback_to_full_build': not restored}))

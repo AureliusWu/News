@@ -24,6 +24,11 @@ function report(s: Snapshot) {
 const json = (data: unknown) => new Response(JSON.stringify(data), {headers: {"content-type": "application/json"}});
 afterEach(() => vi.unstubAllGlobals());
 describe("explicit providers", () => {
+  it('does not wait for unresponsive optional cache when a bound online report is available',async()=>{
+    const s=fixture();const storage={open:()=>new Promise(()=>{})} as unknown as CacheStorage;
+    const provider=createSnapshotProvider(vi.fn(async()=>json(report(s))) as typeof fetch,{origin:'https://example.org',basePath:'/News/',storage});
+    expect(validateEventIndex(await provider.asset(s,s.events_file!),s).events).toHaveLength(1);
+  });
   it("keeps API origin separate and validates response MIME", async () => {
     const mocked = vi.fn(async (_input: RequestInfo | URL, _init?: RequestInit) => json({items: [], has_more: false, next_cursor: null})); vi.stubGlobal("fetch", mocked);
     await new ApiProvider("https://api.example.org").request("news");

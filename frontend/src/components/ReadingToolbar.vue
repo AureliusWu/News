@@ -7,6 +7,7 @@ import {readingLibrary as library, type FontSize} from "../reading/library";
 import {FILTER_KEYS, filtersFromQuery, queryFromFilters} from "../reading/filterLocation";
 import "../reading/reading.css";
 import packageInfo from "../../package.json";
+const isCandidate = import.meta.env.VITE_RELEASE_CHANNEL === 'candidate';
 
 const props = defineProps<{filters: NewsFilters; sources?: NewsSource[]}>();
 const router = inject(routerKey, null);
@@ -91,7 +92,7 @@ async function updatePage() {
     <SavedFilters :filters="filters" :sources="sources" />
     <details>
       <summary>页面更新与本地收藏</summary>
-      <p>V{{ packageInfo.version }} · 功能预览</p>
+      <p>V{{ packageInfo.version }} · {{ isCandidate ? '候选版，验收进行中' : '正式版' }}</p>
       <p>计划每 30 分钟采集，但免费调度可能延迟数小时；以快照时间为准。收藏仅存于本机浏览器，不会自动跨设备同步。</p>
       <button type="button" :disabled="updating" @click="updatePage">{{ updating ? '正在检查' : '检查页面更新' }}</button>
     </details>

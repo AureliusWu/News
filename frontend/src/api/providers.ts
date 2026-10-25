@@ -1,4 +1,5 @@
 import {createSnapshotFetch, installSnapshotTransport, validateSnapshot, type Snapshot} from "../snapshot/transport";
+import {openOptionalCache} from '../utils/optionalCache';
 
 export interface NewsProvider {
   mode: "api" | "snapshot";
@@ -48,14 +49,13 @@ export class SnapshotProvider implements NewsProvider {
       throw new Error("快照未提供兼容的版本化报告。");
     }
     const url = new URL(`${this.base}data/${name}`, this.origin).href;
-    let cache: Cache | undefined;
-    try { cache = await this.storage?.open(`global-news-reports-v1:${this.base}`); } catch { /* Optional storage. */ }
+    const cache = openOptionalCache(this.storage,`global-news-reports-v1:${this.base}`);
     let response: Response;
     try {
       response = checked(await this.nativeFetch(url, {cache: "no-store", credentials: "omit", signal: timeout(signal)}));
     } catch (error) {
       if (signal?.aborted) throw error;
-      const saved = await cache?.match(url);
+      const saved = await (await cache)?.match(url);
       if (!saved) throw error;
       response = saved;
     }
@@ -64,11 +64,13 @@ export class SnapshotProvider implements NewsProvider {
     const value = JSON.parse(raw);
     if (value.snapshot_id !== snapshot.snapshot_id || value.generated_at && value.generated_at !== snapshot.generated_at
         || value.content_sha256 && value.content_sha256 !== snapshot.content_sha256) throw new Error("报告与新闻快照不属于同一版本，请刷新后重试。");
-    try {
-      await cache?.put(url, new Response(raw, {headers: {"content-type": "application/json"}}));
-      const keys = await cache?.keys();
-      for (const old of (keys || []).slice(0, Math.max(0, (keys?.length || 0) - 6))) await cache?.delete(old);
-    } catch { /* A full cache cannot block online reading. */ }
+    void cache.then(async target => {
+      try {
+        await target?.put(url, new Response(raw, {headers: {"content-type": "application/json"}}));
+        const keys = await target?.keys();
+        for (const old of (keys || []).slice(0, Math.max(0, (keys?.length || 0) - 6))) await target?.delete(old);
+      } catch { /* A full cache cannot block online reading. */ }
+    });
     return value;
   }
 }

@@ -1,11 +1,15 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
-import {shouldRecover} from './observation-recovery.mjs';
+import {shouldRecover,isRecoveryRef} from './observation-recovery.mjs';
 const now=Date.parse('2026-10-25T12:00:00Z');
 const options={version:'1.1.0-alpha.1',revision:'a'.repeat(40),now};
 const row=()=>({base_url:'https://aureliuswu.github.io/News/',observed_at:new Date(now).toISOString(),
   release:{version:options.version,source_revision:options.revision},source_health:{same_generation:true},
   snapshot:{collector_gate_pass:true,age_hours:1.5}});
+test('recovery accepts only this version tag or its explicit candidate tag',()=>{
+  for(const ref of ['v1.1.0','v1.1.0-rc.1','v1.1.0-alpha.2']) assert.equal(isRecoveryRef('1.1.0',ref),true);
+  for(const ref of ['main','v1.0.0','v1x1x0-rc.1','v1.1.0-rc.1/other']) assert.equal(isRecoveryRef('1.1.0',ref),false);
+});
 test('recovery is limited to the currently observed pinned source and version',()=>{
   assert.equal(shouldRecover(row(),options),true);
   for(const change of [value=>value.release.version='1.0.0',value=>value.release.source_revision='b'.repeat(40),

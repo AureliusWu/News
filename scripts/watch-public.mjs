@@ -3,7 +3,7 @@ import {mkdirSync, readFileSync, writeFileSync} from 'node:fs';
 import {resolve, sep} from 'node:path';
 import {setTimeout as delay} from 'node:timers/promises';
 import {mergeObservations, evaluateFreshness} from './freshness-gate.mjs';
-import {shouldRecover} from './observation-recovery.mjs';
+import {shouldRecover,isRecoveryRef} from './observation-recovery.mjs';
 
 const directory=resolve(process.env.NEWS_OBSERVER_OUTPUT || 'artifacts/v1-cloud-observer');
 if(!directory.startsWith(resolve('artifacts')+sep)) throw new Error('Observer output must remain inside workspace artifacts.');
@@ -16,7 +16,8 @@ const recoveryRef=process.env.NEWS_RECOVERY_REF || '';
 if (!expectedVersion || !/^[a-f0-9]{40}$/.test(expectedRevision || '')) throw new Error('Observer requires a pinned version and full application SHA.');
 if ((continuous || canRecover) && (process.platform!=='linux' || process.env.GITHUB_ACTIONS!=='true'
     || process.env.GITHUB_REPOSITORY!=='AureliusWu/News')) throw new Error('Continuous monitoring and bounded recovery run only in this repository Actions job.');
-if (canRecover && recoveryRef!==`v${expectedVersion}`) throw new Error('Recovery requires the observed version tag, never an arbitrary branch.');
+if (canRecover && !isRecoveryRef(expectedVersion,recoveryRef))
+  throw new Error('Recovery requires the observed version or its explicit candidate tag, never an arbitrary branch.');
 const historyPath=resolve(directory,'history.json');
 const bytes=readFileSync(historyPath);
 const history=JSON.parse(bytes);
@@ -60,7 +61,7 @@ for(let sample=0;sample<(continuous?11:1);sample++) {
       const recent=runs.some(run=>run.event==='workflow_dispatch' && run.head_sha===expectedRevision && Date.parse(run.created_at)>now-3600000);
       if(!busy && !recent) {
         lastAttempt=now;
-        execFileSync('gh',['workflow','run','deploy-gh-pages.yml','--repo','AureliusWu/News','--ref',recoveryRef,'-f','publish=true'],{encoding:'utf8',timeout:30000});
+        execFileSync('gh',['workflow','run','deploy-gh-pages.yml','--repo','AureliusWu/News','--ref','main','-f',`source_ref=${recoveryRef}`,'-f','publish=true','-f','data_only=true'],{encoding:'utf8',timeout:30000});
         recovery.dispatched=true;
       } else recovery.skipped='Publisher active or a pinned manual attempt is less than one hour old.';
     } catch(error) { recovery.error=String(error.message).slice(0,500); lastAttempt=now; }

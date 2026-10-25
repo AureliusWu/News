@@ -14,6 +14,22 @@ function home(snapshot=full()) {const wire=compact(snapshot);return {...wire,vie
 const options={origin:'https://news.test',basePath:'/News/',compact:true,homePreview:true,now:()=>now};
 const url=(path:string)=>`https://news.test/api/v1/${path}`;
 describe('bound first-page snapshot',()=>{
+  it('does not wait forever for a blocked cache during offline fallback',async()=>{
+    vi.useFakeTimers();
+    try {
+      const storage={open:()=>new Promise(()=>{})} as unknown as CacheStorage;
+      const request=createSnapshotFetch(vi.fn(async()=>{throw new Error('Offline');}) as typeof fetch,{...options,storage});
+      const rejected=expect(request(url('meta'))).rejects.toThrow();
+      await vi.advanceTimersByTimeAsync(2000);await rejected;
+    } finally {vi.useRealTimers();}
+  });
+  it('prefers a newer partial generation to an older valid full cache for unfiltered offline reading',async()=>{
+    const previous={...full(),generated_at:'2026-10-25T06:00:00Z'};
+    const storage={open:async()=>({match:async(key:string)=>Response.json(key.endsWith('news.home.json')?home():previous)})} as unknown as CacheStorage;
+    const request=createSnapshotFetch(vi.fn(async()=>{throw new Error('Offline');}) as typeof fetch,{...options,storage});
+    const response=await request(url('news?limit=30'));expect(response.headers.get('X-News-Generated-At')).toBe(full().generated_at);
+    expect((await response.json()).items).toEqual(full().articles.slice(0,30));
+  });
   it('shares one small request for first page, metadata and sources while preserving total and cursor',async()=>{
     const native=vi.fn(async(_input:RequestInfo|URL)=>Response.json(home()));const request=createSnapshotFetch(native as typeof fetch,options);
     const results=await Promise.all([request(url('meta')),request(url('news?limit=30')),request(url('sources'))]);

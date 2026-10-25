@@ -1,6 +1,6 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
-import {validateReleaseApproval} from './release-approval.mjs';
+import {validateReleaseApproval, validateReleaseCandidate} from './release-approval.mjs';
 
 function approval() {
   return {schema_version: 1, version: '1.0.0', approval: 'owner-approved-release-with-warnings',
@@ -8,6 +8,14 @@ function approval() {
     waivers: [{id: 'synthetic-open-gate', disposition: 'WAIVED_FOR_THIS_RELEASE', observed_status: 'FAIL',
       limitation: 'Synthetic failed gate, not a production receipt.', evidence: ['synthetic evidence']}]};
 }
+
+test('numeric stable candidate is explicitly declared and grants no formal approval', () => {
+  const candidate={schema_version:1,version:'1.1.0',status:'CANDIDATE',plan:'docs/V1.1.0_PLAN.md'};
+  assert.equal(validateReleaseCandidate('1.1.0',candidate),true);
+  for(const bad of [undefined,{...candidate,version:'1.0.0'},{...candidate,status:'RELEASED'}])
+    assert.throws(()=>validateReleaseCandidate('1.1.0',bad));
+  assert.throws(()=>validateReleaseApproval('1.1.0',approval()));
+});
 
 test('verified release requires complete version/source-bound passing gates', () => {
   const source_revision = 'a'.repeat(40);

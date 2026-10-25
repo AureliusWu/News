@@ -2,6 +2,7 @@
 import {RouterLink, RouterView} from "vue-router";
 import {ui} from "./locales/zh-CN";
 import packageInfo from "../package.json";
+const isCandidate = import.meta.env.VITE_RELEASE_CHANNEL === 'candidate';
 </script>
 <template>
   <div class="app-shell">
@@ -11,6 +12,6 @@ import packageInfo from "../package.json";
       <div class="header-links"><span class="edition">{{ ui.navigation.edition }}</span><RouterLink to="/about">{{ ui.navigation.about }}</RouterLink></div>
     </nav></header>
     <main id="main-content" class="main-content"><RouterView /></main>
-    <footer class="site-footer">{{ ui.brand.full }} <span>V{{ packageInfo.version }}</span> <span>{{ ui.navigation.copyright }}</span></footer>
+    <footer class="site-footer">{{ ui.brand.full }} <span>V{{ packageInfo.version }}{{ isCandidate ? ' · 候选版' : '' }}</span> <span>{{ ui.navigation.copyright }}</span></footer>
   </div>
 </template>

@@ -1,3 +1,8 @@
+export function isRecoveryRef(version, ref) {
+  return /^\d+\.\d+\.\d+$/.test(version) && (ref === `v${version}` ||
+    new RegExp(`^v${version.replaceAll('.','\\.')}-(?:rc|alpha)\\.\\d+$`).test(ref));
+}
+
 export function shouldRecover(row, {version, revision, now, lastAttempt = 0, publisherBusy = false}) {
   return !publisherBusy && Number.isFinite(now) && now - lastAttempt >= 3600000 &&
     row?.base_url === 'https://aureliuswu.github.io/News/' &&

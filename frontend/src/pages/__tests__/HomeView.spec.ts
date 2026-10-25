@@ -36,6 +36,14 @@ afterEach(() => { wrapper?.unmount(); wrapper = undefined; vi.unstubAllGlobals()
 async function render() { wrapper = mount(HomeView); await flushPromises(); return wrapper; }
 
 describe("News timeline", () => {
+  it('ignores a stale skeleton intersection when the populated sentinel is outside the viewport',async()=>{
+    news=async()=>json(page([article()], 'next-page'));
+    const view=await render();
+    vi.spyOn(view.find('.load-more').element,'getBoundingClientRect').mockReturnValue({top:9000,bottom:9050,left:0,right:100,width:100,height:50,x:0,y:9000,toJSON:()=>({})} as DOMRect);
+    observerCallback([{isIntersecting:true} as IntersectionObserverEntry],{} as IntersectionObserver);
+    await flushPromises();
+    expect(fetchMock.mock.calls.filter(([url])=>String(url).includes('/api/v1/news?'))).toHaveLength(1);
+  });
   it("loads real API shape and shows a publisher and original link", async () => {
     const view = await render();
     expect(view.findAll("article")).toHaveLength(1);
@@ -158,6 +166,7 @@ describe("News timeline", () => {
     await render();
     observerCallback([{isIntersecting: true} as IntersectionObserverEntry], {} as IntersectionObserver);
     observerCallback([{isIntersecting: true} as IntersectionObserverEntry], {} as IntersectionObserver);
+    await flushPromises();
     expect(count).toBe(1);
   });
 });

@@ -15,6 +15,7 @@ export default defineConfig({
     trace: 'retain-on-failure', screenshot: 'only-on-failure', serviceWorkers: 'allow'},
   projects: [
     {name: 'chrome', use: {browserName: 'chromium', channel: 'chrome', launchOptions: {chromiumSandbox: true}}},
+    {name: 'edge', use: {browserName: 'chromium', channel: 'msedge', launchOptions: {chromiumSandbox: true}}},
     {name: 'firefox', use: {browserName: 'firefox'}},
   ],
 });

@@ -2,10 +2,15 @@ import {defineConfig} from "vitest/config";
 import vue from "@vitejs/plugin-vue";
 import {VitePWA} from "vite-plugin-pwa";
 import {preloadStartup} from './build/preload-entry';
+import {existsSync,readFileSync} from 'node:fs';
 
 const basePath = (process.env.BASE_PATH || "/").replace(/\/?$/, "/");
+const metadataPath = new URL('./public/release.json',import.meta.url);
+const metadata = existsSync(metadataPath) ? JSON.parse(readFileSync(metadataPath,'utf8')) : null;
+const version = JSON.parse(readFileSync(new URL('./package.json',import.meta.url),'utf8')).version;
 export default defineConfig({
   base: basePath,
+  define:{'import.meta.env.VITE_RELEASE_CHANNEL':JSON.stringify(metadata?.version===version && metadata.formal_release===true ? 'formal' : 'candidate')},
   plugins: [
     vue(),
     preloadStartup(),

@@ -3,6 +3,7 @@ import {ui} from '../locales/zh-CN';
 import {formatDateTime} from '../utils/time';
 import type {NewsArticle, NewsSource} from '../types/news';
 import {expandCompact, expandHomePreview} from './compact';
+import {openOptionalCache} from '../utils/optionalCache';
 
 type Source = NewsSource;
 type Article = NewsArticle;
@@ -157,8 +158,7 @@ export function createSnapshotFetch(nativeFetch: typeof fetch, options: Options)
     pending = (async () => {
       const controller = new AbortController();
       const timeout = setTimeout(() => controller.abort(), 12000);
-      const cache = Promise.resolve().then(() => options.storage?.open(`global-news-snapshot-v1:${base}`))
-        .catch(() => undefined);
+      const cache = openOptionalCache(options.storage,`global-news-snapshot-v1:${base}`);
       try {
         let preview = allowPreview;
         let compact = preferCompact;
@@ -186,10 +186,14 @@ export function createSnapshotFetch(nativeFetch: typeof fetch, options: Options)
             if (saved) fallback = {snapshot:validateSnapshot(await saved.json(), now())};
           }
         } catch { /* Expired or invalid cached data is not displayed. */ }
-        if (!fallback && allowPreview) {
+        if (allowPreview) {
           try {
             const saved = await (await cache)?.match(homeUrl);
-            if (saved) { const subset=expandHomePreview(await saved.json()); fallback={snapshot:validateSnapshot(subset.snapshot,now()),previewTotal:subset.total}; }
+            if (saved) {
+              const subset=expandHomePreview(await saved.json());
+              const snapshot=validateSnapshot(subset.snapshot,now());
+              if(!fallback || Date.parse(snapshot.generated_at)>Date.parse(fallback.snapshot.generated_at)) fallback={snapshot,previewTotal:subset.total};
+            }
           } catch { /* A partial cache is never used for full-data requests. */ }
         }
         if (!fallback) {

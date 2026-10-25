@@ -80,7 +80,11 @@ jobs:
           python -m unittest discover -s scripts/tests -p 'test_*.py' -v 2>&1 | tee "$VERIFICATION_OUTPUT/regression/restore.txt"
       - name: Install real browser engines
         working-directory: scripts/browser
-        run: npx --no-install playwright install --with-deps chromium firefox
+        run: |
+          npx --no-install playwright install --with-deps chromium firefox
+          if ! command -v microsoft-edge >/dev/null; then
+            npx --no-install playwright install --with-deps msedge
+          fi
       - name: Freeze bound public news and build both revisions
         id: prepare
         run: |
