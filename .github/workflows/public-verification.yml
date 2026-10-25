@@ -1,0 +1,40 @@
+name: Public candidate verification
+on:
+  workflow_dispatch:
+    inputs:
+      expected_revision:
+        description: Exact deployed candidate application source
+        required: true
+        type: string
+permissions:
+  contents: read
+concurrency:
+  group: news-public-verification
+  cancel-in-progress: false
+jobs:
+  verify:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 25
+    env:
+      EXPECTED_REVISION: ${{ inputs.expected_revision }}
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+          cache-dependency-path: scripts/browser/package-lock.json
+      - run: npm ci --prefix scripts/browser
+      - name: Actual public browser and ten cold startup samples
+        run: |
+          export CHROME_PATH="$(command -v google-chrome)"
+          node scripts/browser/public.mjs
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: public-verification-${{ github.run_id }}-${{ github.run_attempt }}
+          path: artifacts/public-verification/
+          retention-days: 14
+          if-no-files-found: error
