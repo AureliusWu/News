@@ -106,8 +106,9 @@ test('event navigation and direct detail reload render the selected title', asyn
   await expect(page.locator('a[href^="https://"][target="_blank"]').first()).toBeVisible();
 });
 
-test('390px layout has no horizontal overflow', async ({page, site}, testInfo) => {
-  await page.setViewportSize({width: 390, height: 844});
+test('320, 390 and 768px layouts have no horizontal overflow', async ({page, site}, testInfo) => {
+  for (const width of [320,390,768]) {
+  await page.setViewportSize({width, height: 844});
   await home(page);
   const dimensions = await page.evaluate(() => ({
     client: document.documentElement.clientWidth,
@@ -122,8 +123,25 @@ test('390px layout has no horizontal overflow', async ({page, site}, testInfo) =
     expect(card.left).toBeGreaterThanOrEqual(0);
     expect(card.right).toBeLessThanOrEqual(dimensions.client);
   }
-  await testInfo.attach('mobile-width.png', {body: await page.screenshot(), contentType: 'image/png'});
-  await testInfo.attach('dimensions', {body: JSON.stringify(dimensions), contentType: 'application/json'});
+  await testInfo.attach(`width-${width}.png`, {body: await page.screenshot(), contentType: 'image/png'});
+  await testInfo.attach(`dimensions-${width}`, {body: JSON.stringify(dimensions), contentType: 'application/json'});
+  }
+});
+
+test('keyboard activates search, event navigation and follow controls',async({page,site})=>{
+  await home(page);
+  const input=page.locator('.search-form input');
+  await input.focus(); await input.fill('climate');
+  await input.press('Tab');
+  await expect(page.locator('.search-form button')).toBeFocused();
+  await page.keyboard.press('Enter');
+  await expect(page).toHaveURL(/q=climate/);
+  const events=page.getByRole('link',{name:'事件聚合',exact:true});
+  await events.focus(); await page.keyboard.press('Enter');
+  await expect(page).toHaveURL(/\/events/);
+  const follow=page.getByRole('button',{name:'关注事件',exact:true}).first();
+  await follow.focus(); await page.keyboard.press('Space');
+  await expect(page.getByRole('button',{name:'取消关注事件',exact:true}).first()).toHaveAttribute('aria-pressed','true');
 });
 
 test('cached client reloads news and bookmarks while offline', async ({page, context, browserName, site}, testInfo) => {
@@ -149,6 +167,8 @@ test('older candidate upgrades on the same origin without losing its bookmark', 
   await home(page);
   await expect(page.locator('script[type="module"][src]').first()).toHaveAttribute('src', site.data.baseline.entry);
   const saved = await saveFirst(page);
+  await page.locator('.news-card').first().getByRole('button',{name:/^标为已读：/}).click();
+  await page.getByRole('combobox',{name:'阅读字号',exact:true}).selectOption('large');
   await readyOffline(page);
   await site.switchTo('candidate');
   await page.evaluate(async () => { await (await navigator.serviceWorker.ready).update(); });
@@ -161,6 +181,9 @@ test('older candidate upgrades on the same origin without losing its bookmark', 
   await page.reload({waitUntil: 'domcontentloaded'});
   await expect(page.locator('script[type="module"][src]').first()).toHaveAttribute('src', site.data.candidate.entry);
   await assertSaved(page, saved);
+  await expect(page.locator('.news-card').first().getByRole('button',{name:/^标为未读：/})).toHaveAttribute('aria-pressed','true');
+  await expect(page.getByRole('combobox',{name:'阅读字号',exact:true})).toHaveValue('large');
+  await expect(page.locator('html')).toHaveAttribute('data-reading-font','large');
   await readyOffline(page);
   try {
     await context.setOffline(true);
@@ -168,11 +191,14 @@ test('older candidate upgrades on the same origin without losing its bookmark', 
     expect(response?.fromServiceWorker()).toBe(true);
     await expect(page.locator('script[type="module"][src]').first()).toHaveAttribute('src', site.data.candidate.entry);
     await assertSaved(page, saved);
+    await expect(page.locator('.news-card').first().getByRole('button',{name:/^标为未读：/})).toHaveAttribute('aria-pressed','true');
+    await expect(page.getByRole('combobox',{name:'阅读字号',exact:true})).toHaveValue('large');
   } finally { await context.setOffline(false); }
   await testInfo.attach('upgrade-pair', {body: JSON.stringify({
     from: site.data.baseline, to: site.data.candidate,
     trigger: 'registration.update followed by reload; no forced skipWaiting or cleared client storage',
     snapshot_id: site.data.snapshot_id,
-    limitation: 'One real older M5 candidate, not an exhaustive legacy-version matrix or physical device.',
+    preserved: ['nonempty bookmarks','nonempty read history','large font setting'],
+    limitation: 'The exact selected baseline only; not an exhaustive legacy-version matrix or physical device.',
   }), contentType: 'application/json'});
 });
