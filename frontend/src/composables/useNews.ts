@@ -1,11 +1,11 @@
-import {onBeforeUnmount, reactive, ref, watch} from "vue";
+import {onBeforeUnmount, reactive, ref, shallowRef, watch} from "vue";
 import {getNews} from "../api/client";
 import type {NewsArticle, NewsFilters} from "../types/news";
 import {ui} from "../locales/zh-CN";
 
 export function useNews() {
   const filters = reactive<NewsFilters>({region: "", category: "", language: "", source: "", q: ""});
-  const items = ref<NewsArticle[]>([]);
+  const items = shallowRef<NewsArticle[]>([]);
   const loading = ref(false);
   const error = ref("");
   const hasMore = ref(false);

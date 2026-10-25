@@ -7,6 +7,7 @@ import type {Snapshot} from "../snapshot/transport";
 import {formatDateTime} from "../utils/time";
 import NewsCard from "../components/NewsCard.vue";
 import {readingLibrary} from "../reading/library";
+import {continuity} from '../reading/continuity';
 import {filtersFromQuery, queryFromFilters} from "../reading/filterLocation";
 import "../reading/reading.css";
 import {buildTrends, qualityGate} from "../events/trends";
@@ -30,6 +31,9 @@ const trends = computed(() => {
 });
 const trendById = computed(() => new Map(trends.value.report?.events.map(e => [e.event_id, e]) || []));
 const selectedTrend = computed(() => selected.value ? trendById.value.get(selected.value.event_id) : undefined);
+function follow(event: NonNullable<typeof selected.value>) {
+  try { continuity.toggleFollow(event); } catch(e) { error.value = e instanceof Error ? e.message : '关注失败。'; }
+}
 const aiAccepted = computed(() => index.value?.matcher_version === qualityGate.matcher_version
   && index.value?.acceptance_status === qualityGate.acceptance_status);
 const filtered = computed(() => {
@@ -52,7 +56,7 @@ watch(() => readingLibrary.state.font, font => { document.documentElement.datase
 async function load() {
   if (loading.value) return;
   loading.value = true; error.value = "";
-  try { const result = await getEvents(controller.signal); index.value = result.index; snapshot.value = result.snapshot; }
+  try { const result = await getEvents(controller.signal); index.value = result.index; snapshot.value = result.snapshot; continuity.synchronize(result.index); }
   catch (e) { if (!controller.signal.aborted) error.value = e instanceof Error ? e.message : "事件暂时无法加载。"; }
   finally { loading.value = false; }
 }
@@ -75,12 +79,15 @@ onMounted(load); onBeforeUnmount(() => controller.abort());
     <p v-if="trends.error" role="status">{{ trends.error }}</p>
     <p v-if="trends.report && !trends.report.promotions_enabled" role="status">数据时间异常或已超过 2 小时，暂停规则推荐；热度仍是快照时点的历史值。</p>
     <p v-if="loading" role="status">正在加载事件报道。</p>
+    <p v-if="continuity.state.warning" role="alert">{{ continuity.state.warning }}</p>
     <p v-if="error" role="alert">{{ error }} <button type="button" @click="load">重试</button></p>
     <template v-if="index && route.params.eventId">
       <RouterLink :to="{name:'events',query:route.query}">返回事件列表</RouterLink>
       <template v-if="selected">
         <p v-if="selected.event_id !== route.params.eventId">该历史事件链接已合并到以下报道，旧链接仍可使用。</p>
         <h2 :lang="selected.language">{{ selected.title }}</h2>
+        <button type="button" :aria-pressed="continuity.isFollowing(selected.event_id)" @click="follow(selected)">{{ continuity.isFollowing(selected.event_id) ? '取消关注事件' : '关注事件' }}</button>
+        <p v-if="continuity.isFollowing(selected.event_id)">新增收录 {{ continuity.newCount(selected) }} 篇，前往收藏页可标为已阅。</p>
         <p>{{ selected.article_count }} 篇报道 · {{ selected.publisher_count }} 个发布机构。同机构不同订阅源只计一次；不同机构转载同稿的独立性尚未确认。</p>
         <p>最早原文：{{ formatDateTime(selected.first_published_at) }} · 最近原文：{{ formatDateTime(selected.last_published_at) }}</p>
         <p v-if="selectedTrend">快照热度：{{ selectedTrend.score ?? '暂不可计分' }}<span v-if="selectedTrend.score !== null"> / 100。增长 {{ selectedTrend.components.activity }} · 机构多样性 {{ selectedTrend.components.diversity }} · 新鲜度 {{ selectedTrend.components.recency }}</span></p>
@@ -99,6 +106,7 @@ onMounted(load); onBeforeUnmount(() => controller.abort());
         <h2 :lang="event.language"><RouterLink :to="{name:'event-detail',params:{eventId:event.event_id},query:route.query}">{{ event.title }}</RouterLink></h2>
         <p>{{ event.article_count }} 篇报道 · {{ event.publisher_count }} 个发布机构 · {{ formatDateTime(event.last_published_at) }}</p>
         <p>{{ event.source_names.join('、') }}</p>
+        <button type="button" :aria-pressed="continuity.isFollowing(event.event_id)" @click="follow(event)">{{ continuity.isFollowing(event.event_id) ? '取消关注事件' : '关注事件' }}</button>
         <p v-if="order === 'hot' && trendById.get(event.event_id)" class="heat-evidence">快照热度 {{ trendById.get(event.event_id)!.score ?? '暂不可计分' }} / 100 · 最近 6 小时 {{ trendById.get(event.event_id)!.counts.recent_reports }} 篇报道 / {{ trendById.get(event.event_id)!.counts.recent_publishers }} 个机构</p>
         <p v-if="order === 'hot' && trendById.get(event.event_id)?.pin">规则推荐：{{ trendById.get(event.event_id)!.pin!.reason }}；引用：{{ trendById.get(event.event_id)!.pin!.reference }}；失效：{{ formatDateTime(trendById.get(event.event_id)!.pin!.expires_at) }}</p>
       </article>

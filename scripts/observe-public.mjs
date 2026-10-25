@@ -16,14 +16,21 @@ async function get(path, optional = false) {
 const observation = {schema_version:1, observed_at:observedAt.toISOString(), base_url:base.href,
   acceptance:{seven_day_gate:"NOT_EVALUATED",browser_gate:"NOT_EVALUATED",physical_device_gate:"NOT_EVALUATED"}};
 try {
+  // Identify the deployed candidate even when a subsequent data request fails.
+  const releaseResponse = await get("release.json",true);
+  const release = releaseResponse.status===200 ? JSON.parse(releaseResponse.body) : null;
+  observation.release = {status:releaseResponse.status,version:release?.version??null,
+    source_revision:release?.source_revision??null,formal_release:release?.formal_release??null};
   const html = await get("");
   observation.html = {status:html.status,elapsed_ms:html.elapsed_ms,language_zh_cn:/lang=["']zh-CN["']/.test(html.body),
     scripts:[...html.body.matchAll(/assets\/[^"' ]+\.js/g)].map(m=>m[0])};
   const news = await get("data/news.json"), data = JSON.parse(news.body);
-  const health = await get("data/source-health.json"), sourceHealth = JSON.parse(health.body);
+  const healthFile = data.source_health_file;
+  if (healthFile && healthFile !== `source-health.${data.snapshot_id}.json`) throw new Error('Invalid bound health filename');
+  const health = await get(`data/${healthFile || 'source-health.json'}`), sourceHealth = JSON.parse(health.body);
   const age = (observedAt.getTime()-Date.parse(data.generated_at))/3600000;
   observation.snapshot = {status:news.status,elapsed_ms:news.elapsed_ms,bytes:news.bytes,
-    generated_at:data.generated_at,snapshot_id:data.snapshot_id,version:data.meta?.version,
+    generated_at:data.generated_at,snapshot_id:data.snapshot_id,schema_version:data.schema_version,version:data.meta?.version,
     content_sha256:data.content_sha256,article_count:data.articles?.length,
     age_hours:Number.isFinite(age)?age:null,freshness_2h_pass:Number.isFinite(age)&&age>=-5/60&&age<=2,
     collector_gate_pass:data.health?.gate_pass===true};
@@ -31,10 +38,6 @@ try {
     snapshot_id:sourceHealth.snapshot_id,
     same_generation:isSnapshotPair(data, sourceHealth),
     summary:sourceHealth.summary??sourceHealth.health};
-  const releaseResponse = await get("release.json",true);
-  const release = releaseResponse.status===200 ? JSON.parse(releaseResponse.body) : null;
-  observation.release = {status:releaseResponse.status,version:release?.version??null,
-    source_revision:release?.source_revision??null,formal_release:release?.formal_release??null};
   let history=[],historyError=null;
   try {
     history=JSON.parse(execFileSync("gh",["run","list","--repo","AureliusWu/News","--workflow","deploy-gh-pages.yml","--limit","100",

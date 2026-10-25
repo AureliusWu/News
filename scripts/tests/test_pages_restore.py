@@ -44,6 +44,15 @@ def current_archive(health=None):
 
 
 class PagesRestoreTests(unittest.TestCase):
+    def test_release_asset_requires_committed_digest_and_published_version(self):
+        pin = {'version': '1.0.0', 'asset_name': 'original.zip', 'archive_sha256': 'a' * 64}
+        item = {'id': 1, 'name': 'original.zip', 'size': 100, 'digest': 'sha256:' + 'a' * 64}
+        release = {'draft': False, 'prerelease': False, 'tag_name': 'v1.0.0', 'assets': [item]}
+        self.assertEqual(restore.release_asset(release, pin), item)
+        for change in ({'draft': True}, {'prerelease': True}, {'tag_name': 'v1.1.0'},
+                       {'assets': [item, item]}, {'assets': [{**item, 'digest': 'sha256:' + 'b' * 64}]}):
+            with self.assertRaises(ValueError):
+                restore.release_asset({**release, **change}, pin)
     def setUp(self):
         self.parent = (ROOT / 'artifacts/v1-m5-restore-unit-tests').resolve()
         self.parent.mkdir(parents=True, exist_ok=True)

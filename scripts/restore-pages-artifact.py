@@ -93,11 +93,22 @@ def api(repository, suffix):
     return json.loads(subprocess.check_output(['gh', 'api', f'repos/{repository}/{suffix}'], timeout=30))
 
 
+def release_asset(release, pin):
+    assets = [item for item in release.get('assets', []) if item.get('name') == pin['asset_name']]
+    if (release.get('draft') is not False or release.get('prerelease') is not False
+            or release.get('tag_name') != 'v' + pin['version']
+            or len(assets) != 1 or not 0 < assets[0].get('size', 0) <= MAX_ZIP
+            or assets[0].get('digest') != 'sha256:' + pin['archive_sha256']):
+        raise ValueError('Release archive does not match the committed checksum and version pin.')
+    return assets[0]
+
+
 def main():
     parser = argparse.ArgumentParser()
     source = parser.add_mutually_exclusive_group(required=True)
     source.add_argument('--run', type=int)
     source.add_argument('--baseline', help='Committed frozen release capsule name; never an arbitrary URL.')
+    source.add_argument('--release', help='Committed release archive pin, independent of Actions artifact retention.')
     parser.add_argument('--output', type=Path, required=True)
     parser.add_argument('--report', type=Path, required=True)
     args = parser.parse_args()
@@ -106,6 +117,29 @@ def main():
     repository = os.environ.get('GITHUB_REPOSITORY', 'AureliusWu/News')
     if repository.casefold() != 'aureliuswu/news':
         raise ValueError('This restore is restricted to the News repository.')
+    if args.release:
+        pins = json.loads(Path(__file__).with_name('release-rollback-pins.json').read_text(encoding='utf-8'))
+        pin = pins.get(args.release)
+        if not isinstance(pin, dict):
+            raise ValueError('Unknown release rollback pin.')
+        item = release_asset(api(repository, f'releases/tags/{args.release}'), pin)
+        payload = subprocess.check_output(['gh', 'api', '--header', 'Accept: application/octet-stream',
+            f'repos/{repository}/releases/assets/{item["id"]}'], timeout=120)
+        if hashlib.sha256(payload).hexdigest() != pin['archive_sha256']:
+            raise ValueError('Downloaded release archive checksum differs from the committed pin.')
+        workspace = Path(os.environ.get('GITHUB_WORKSPACE', Path.cwd())).resolve()
+        if not args.report.resolve().is_relative_to(workspace / 'artifacts'):
+            raise ValueError('Restore report must stay inside workspace artifacts.')
+        report = unpack_pages(payload, args.output, workspace)
+        metadata = json.loads((args.output / 'release.json').read_text(encoding='utf-8'))
+        if metadata.get('version') != pin['version'] or metadata.get('source_revision') != pin['source_revision']:
+            raise ValueError('Archived application differs from the pinned source and version.')
+        report.update(source_run_id=pin['source_run_id'], source_revision=pin['source_revision'],
+                      release_tag=args.release, release_asset_id=item['id'], capsule_repacked=False)
+        args.report.parent.mkdir(parents=True, exist_ok=True)
+        args.report.write_text(json.dumps(report, indent=2) + '\n', encoding='utf-8')
+        print(json.dumps({key: value for key, value in report.items() if key != 'file_sha256'}))
+        return
     baseline = None
     if args.baseline:
         registry = json.loads(Path(__file__).with_name('rollback-baselines.json').read_text(encoding='utf-8'))

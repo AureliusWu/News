@@ -36,6 +36,7 @@ h1{font:700 34px/1.15 var(--font-title);letter-spacing:-.7px;margin:0}
 .news-list{background:var(--paper);border:1px solid var(--line);border-radius:12px;overflow:hidden}
 .news-card{display:flex;align-items:flex-start;gap:20px;padding:23px 24px;border-bottom:1px solid var(--line)}
 .news-card:last-child{border-bottom:0}
+.news-card:nth-child(n+4){content-visibility:auto;contain-intrinsic-block-size:auto 260px}
 .time-rail{flex:0 0 60px;font-size:11px;color:var(--muted);padding-top:2px;font-variant-numeric:tabular-nums;position:relative}
 .time-rail::before{content:"";position:absolute;left:-25px;top:5px;width:3px;height:20px;background:var(--accent);border-radius:3px}
 .news-body{flex:1;min-width:0}.news-byline{display:flex;flex-wrap:wrap;gap:7px 12px;align-items:center;margin-bottom:5px;font-size:11px}

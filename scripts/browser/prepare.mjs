@@ -75,6 +75,17 @@ for (const name of ['baseline', 'candidate']) {
       throw new Error(`Frozen bytes changed in ${name}/${file}.`);
     }
   }
+  if (name === 'candidate') {
+    // Candidate wire optimization uses exactly the frozen baseline articles and metadata.
+    const lookup = new Map(news.json.sources.map((source, index) => [source.slug, index]));
+    const compact = {wire_schema_version: 1, snapshot: {...news.json, articles: news.json.articles.map(article => {
+      const {source, ...fields} = article;
+      const source_index = lookup.get(source.slug);
+      if (JSON.stringify(source) !== JSON.stringify(news.json.sources[source_index])) throw new Error('Compact input source mismatch.');
+      return {...fields, source_index};
+    })}};
+    await writeFile(join(dist, 'data', 'news.compact.json'), JSON.stringify(compact));
+  }
   const html = await readFile(join(dist, 'index.html'), 'utf8');
   const entry = html.match(/<script\b[^>]*type="module"[^>]*src="([^"]+)"/)?.[1];
   if (!entry?.startsWith('/News/assets/')) throw new Error(`Missing built entry for ${name}.`);

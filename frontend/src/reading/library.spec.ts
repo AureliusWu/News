@@ -67,6 +67,8 @@ describe("reading library", () => {
     const disk = storage(); disk.setItem("broken", "{bad");
     const a = createReadingLibrary(disk, "broken");
     expect(a.state.warning).not.toBe(""); expect(disk.getItem("broken")).toBe("{bad");
+    a.toggleBookmark(article); a.setFont("large"); a.toggleRead(article.url);
+    expect(disk.getItem("broken")).toBe("{bad"); expect(a.state.warning).toContain("阻止覆盖");
   });
   it("persists font and explicit read/unread state", () => {
     const disk = storage(); const a = createReadingLibrary(disk);

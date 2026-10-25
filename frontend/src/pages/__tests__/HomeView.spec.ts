@@ -84,7 +84,7 @@ describe("News timeline", () => {
   it("searches only when submitted", async () => {
     const view = await render();
     await view.find('input[type="search"]').setValue("climate");
-    await view.find("form").trigger("submit");
+    await view.find('form[role="search"]').trigger("submit");
     await flushPromises();
     expect(fetchMock.mock.calls.some(([url]) => String(url).includes("q=climate"))).toBe(true);
   });

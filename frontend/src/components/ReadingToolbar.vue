@@ -1,13 +1,14 @@
 <script setup lang="ts">
 import {computed, inject, ref, watch} from "vue";
 import {routerKey} from "vue-router";
-import type {NewsFilters} from "../types/news";
+import type {NewsFilters, NewsSource} from "../types/news";
+import SavedFilters from './SavedFilters.vue';
 import {readingLibrary as library, type FontSize} from "../reading/library";
 import {FILTER_KEYS, filtersFromQuery, queryFromFilters} from "../reading/filterLocation";
 import "../reading/reading.css";
 import packageInfo from "../../package.json";
 
-const props = defineProps<{filters: NewsFilters}>();
+const props = defineProps<{filters: NewsFilters; sources?: NewsSource[]}>();
 const router = inject(routerKey, null);
 const message = ref("");
 const updating = ref(false);
@@ -87,6 +88,7 @@ async function updatePage() {
       <button type="button" @click="share">分享筛选</button>
       <label>阅读字号 <select aria-label="阅读字号" :value="library.state.font" @change="library.setFont(($event.target as HTMLSelectElement).value as FontSize)"><option value="normal">标准</option><option value="large">大</option><option value="larger">特大</option></select></label>
     </div>
+    <SavedFilters :filters="filters" :sources="sources" />
     <details>
       <summary>页面更新与本地收藏</summary>
       <p>V{{ packageInfo.version }} · 功能预览</p>

@@ -16,6 +16,9 @@
 .reading-import{display:flex;gap:8px;align-items:center;flex-wrap:wrap;max-width:100%}
 .reading-import input{max-width:100%;font:inherit}
 .reading-source-list{list-style:none;padding:0}
+.saved-filters form{margin-top:12px}.reading-toolbar input[type=text]{font:inherit;color:inherit;border:1px solid var(--reader-border);border-radius:4px;padding:8px;min-height:44px;max-width:100%;box-sizing:border-box}
+.saved-filters label,.saved-filters select{max-width:100%;min-width:0}.saved-filters input{width:min(220px,100%)}
+.following-panel{margin-top:32px;padding-top:24px;border-top:1px solid var(--reader-border)}.following-card{padding:16px 0;border-bottom:1px solid var(--reader-border)}.following-card h3{overflow-wrap:anywhere}
 .reading-source-list li{border-bottom:1px solid var(--reader-border);padding:16px 0}
 html[data-reading-font=large] .news-card h2,html[data-reading-font=large] .reading-bookmark h2{font-size:1.4rem}
 html[data-reading-font=large] .news-card p,html[data-reading-font=large] .reading-bookmark p{font-size:1.1rem}

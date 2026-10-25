@@ -5,6 +5,7 @@ import {filtersFromQuery, queryFromFilters} from "../reading/filterLocation";
 import {readingLibrary as library, MAX_IMPORT_BYTES, type FontSize} from "../reading/library";
 import {formatDateTime} from "../utils/time";
 import "../reading/reading.css";
+import FollowingPanel from '../components/FollowingPanel.vue';
 
 const query = ref("");
 const unreadOnly = ref(false);
@@ -62,5 +63,6 @@ async function importFile(event: Event) {
         <button type="button" :aria-label="`移除收藏：${b.title}`" @click="library.removeBookmark(b.url)">移除收藏</button>
       </div>
     </article>
+    <FollowingPanel />
   </section>
 </template>

@@ -62,6 +62,7 @@ export function parseImport(raw: string): Bookmark[] {
 }
 
 export function createReadingLibrary(storage: StorageLike | null, key = LIBRARY_KEY) {
+  let preserveOriginal = false;
   const state = reactive<StoredLibrary & {warning: string}>({
     schema_version: 1, bookmarks: [], read: [], font: "normal", warning: ""
   });
@@ -78,11 +79,16 @@ export function createReadingLibrary(storage: StorageLike | null, key = LIBRARY_
     }
     if (!storage) state.warning = "浏览器存储不可用，本次操作仅在当前页面有效。请导出收藏备份。";
   } catch {
+    preserveOriginal = true;
     state.warning = "本地阅读数据无法读取，原始记录未被删除。导出或恢复前请勿清理浏览器数据。";
   }
 
   function persist() {
     if (!storage) return;
+    if (preserveOriginal) {
+      state.warning = "原始阅读记录无法解析，已阻止覆盖。本次修改仅在当前页面有效，请先备份浏览器中的原始记录。";
+      return;
+    }
     try {
       const data: StoredLibrary = {schema_version: 1, bookmarks: state.bookmarks, read: state.read, font: state.font};
       storage.setItem(key, JSON.stringify(data));
@@ -136,6 +142,7 @@ export function createReadingLibrary(storage: StorageLike | null, key = LIBRARY_
     state.bookmarks = other.state.bookmarks;
     state.read = other.state.read;
     state.font = other.state.font;
+    preserveOriginal = false;
     state.warning = "";
   }
   return {state, toggleBookmark, removeBookmark, toggleRead, setFont, importBookmarks, exportBookmarks, reload};

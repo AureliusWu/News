@@ -15,6 +15,14 @@ on:
         options:
           - ''
           - v0.2-20261001
+      release_version:
+        description: Exact published app and data archive with a committed SHA-256 pin
+        required: false
+        type: choice
+        default: ''
+        options:
+          - ''
+          - v1.0.0
 
 permissions:
   contents: read
@@ -34,6 +42,7 @@ jobs:
       GH_TOKEN: ${{ github.token }}
       SOURCE_RUN_ID: ${{ inputs.source_run_id }}
       FROZEN_BASELINE: ${{ inputs.frozen_baseline }}
+      RELEASE_VERSION: ${{ inputs.release_version }}
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-python@v5
@@ -43,9 +52,11 @@ jobs:
         run: python -m unittest discover -s scripts/tests -p 'test_*.py' -v
       - name: Recover the original application and original data without collecting
         run: |
-          if [[ -n "$SOURCE_RUN_ID" && -z "$FROZEN_BASELINE" ]]; then
+          if [[ -n "$RELEASE_VERSION" && -z "$SOURCE_RUN_ID" && -z "$FROZEN_BASELINE" ]]; then
+            python scripts/restore-pages-artifact.py --release "$RELEASE_VERSION" --output artifacts/restored-pages --report artifacts/restore-report.json
+          elif [[ -n "$SOURCE_RUN_ID" && -z "$FROZEN_BASELINE" && -z "$RELEASE_VERSION" ]]; then
             python scripts/restore-pages-artifact.py --run "$SOURCE_RUN_ID" --output artifacts/restored-pages --report artifacts/restore-report.json
-          elif [[ -n "$FROZEN_BASELINE" && -z "$SOURCE_RUN_ID" ]]; then
+          elif [[ -n "$FROZEN_BASELINE" && -z "$SOURCE_RUN_ID" && -z "$RELEASE_VERSION" ]]; then
             python scripts/restore-pages-artifact.py --baseline "$FROZEN_BASELINE" --output artifacts/restored-pages --report artifacts/restore-report.json
           else
             echo 'Choose exactly one verified source run or committed frozen baseline.' >&2

@@ -18,6 +18,7 @@ import feedparser
 import httpx
 from bs4 import BeautifulSoup
 import yaml
+from compact_wire import write_compact
 
 UTC = timezone.utc
 sys.path.insert(0, str(Path(__file__).resolve().parents[2] / 'backend'))
@@ -256,6 +257,7 @@ def main() -> int:
     temporary.write_bytes(payload)
     temporary.replace(output / 'news.json')
     (output / f'news.{snapshot_id}.json').write_bytes(payload)
+    write_compact(snapshot, output / 'news.compact.json')
     (output / snapshot['events_file']).write_text(json.dumps(event_index, ensure_ascii=False, separators=(',', ':')), encoding='utf-8')
     (output / snapshot['source_health_file']).write_text(json.dumps(report, ensure_ascii=False, separators=(',', ':')), encoding='utf-8')
     registry_payload = json.dumps(registry, ensure_ascii=False, separators=(',', ':'))

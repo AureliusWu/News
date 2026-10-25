@@ -63,7 +63,7 @@ watchReaderQuery(() => filters.q, value => { query.value = value; }, {immediate:
 </script>
 
 <template>
-  <ReadingToolbar :filters="filters" />
+  <ReadingToolbar :filters="filters" :sources="sources" />
   <section class="timeline" :aria-label="ui.home.timeline">
     <div class="timeline-heading">
       <div><p class="eyebrow">{{ ui.home.eyebrow }}</p><h1>{{ ui.home.title }}</h1></div>

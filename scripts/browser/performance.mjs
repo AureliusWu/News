@@ -24,7 +24,7 @@ function controlsMatch(settings, preset) {
 }
 const samples = [];
 for (const preset of ['desktop', 'mobile']) {
-  for (let sample = 1; sample <= 3; sample++) {
+  for (let sample = 1; sample <= 5; sample++) {
     const order = (sample + (preset === 'mobile' ? 1 : 0)) % 2 ? ['baseline', 'candidate'] : ['candidate', 'baseline'];
     for (const variant of order) {
       const name = `${preset}-${sample}-${variant}`;
@@ -57,7 +57,7 @@ for (const preset of ['desktop', 'mobile']) {
           score: report.categories.performance.score,
           runtime_error: report.runtimeError || null, warnings: report.runWarnings || [],
           news_requests: (report.audits['network-requests']?.details?.items || [])
-            .filter(item => item.url.endsWith('/News/data/news.json')),
+            .filter(item => /\/News\/data\/news(?:\.compact)?\.json$/.test(item.url)),
         };
       } catch (error) { result.read_error = String(error); }
       samples.push(result);
@@ -76,14 +76,14 @@ for (const preset of ['desktop', 'mobile']) {
   }
   groups[preset].candidate_median_change_fraction = groups[preset].candidate.median_lcp_ms / groups[preset].baseline.median_lcp_ms - 1;
 }
-const valid = samples.length === 12 && samples.every(row => row.exit_code === 0 && !row.runtime_error &&
+const valid = samples.length === 20 && samples.every(row => row.exit_code === 0 && !row.runtime_error &&
   row.controls_match && Number.isFinite(row.lcp_ms) && row.news_requests.length === 1 && row.news_requests[0].statusCode === 200);
 await writeFile(join(directory, 'summary.json'), JSON.stringify({
   observed_at: new Date().toISOString(), all_samples_valid: valid, groups,
   diagnostic_budget_status: ['desktop', 'mobile'].every(preset => groups[preset].candidate.worst_lcp_ms <= 3000)
     ? 'WITHIN_LAB_BUDGET' : 'EXCEEDS_LAB_BUDGET',
   baseline: data.baseline, candidate: data.candidate, inputs: data.inputs,
-  design: '3 cold runs per arm and device; alternating AB/BA order; same runner/browser and exact frozen JSON; third-party HTTPS resources blocked in BOTH arms.',
+  design: '5 cold runs per arm and device; alternating AB/BA; same runner/browser and identical decoded frozen news; candidate lossless source dictionary; third-party HTTPS resources blocked in BOTH arms.',
   interpretation: 'Controlled application-startup diagnostic only. Loopback delivery and excluded third-party images do not close production first-screen, interaction or phone gates. No sample removal or retries.',
   formal_release: false,
 }, null, 2) + '\n');

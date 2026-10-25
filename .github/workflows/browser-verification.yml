@@ -6,11 +6,11 @@ on:
       baseline_ref:
         description: Previous application revision
         required: true
-        default: 5e55cf7d5a5014bc4c55b7f9aad18bbede966380
+        default: 31cf95d6ae471bb961eb5b85a334ec78f4cce260
       candidate_ref:
         description: Candidate application revision
         required: true
-        default: 3a3e0dcf0baf39ceacd0d4a65e015a80b3761333
+        default: main
       run_performance:
         description: Run the separate frozen-input performance diagnostic
         type: boolean
@@ -26,7 +26,7 @@ concurrency:
 jobs:
   browser:
     runs-on: ubuntu-24.04
-    timeout-minutes: 25
+    timeout-minutes: 40
     env:
       VERIFICATION_OUTPUT: ${{ github.workspace }}/artifacts/ci-browser-verification
       BASELINE_ROOT: ${{ github.workspace }}/verification-inputs/baseline

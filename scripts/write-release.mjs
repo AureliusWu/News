@@ -7,11 +7,15 @@ const {version} = JSON.parse(readFileSync(new URL("frontend/package.json", root)
 const aiPolicy = readAiPolicy(root);
 const approval = validateReleaseApproval(version, /^\d+\.\d+\.\d+$/.test(version)
   ? JSON.parse(readFileSync(new URL("release-acceptance.json", root), "utf8")) : undefined);
-const release = {schema_version: 1, version, stage: approval ? "V1.0.0-with-waivers" : version.startsWith("0.9.") ? "M5-candidate" : version.startsWith("0.5.") ? "M3-preview" : version.startsWith("0.4.") ? "M2-preview" : "M1-preview", formal_release: Boolean(approval),
-  release_status: approval ? "RELEASED_WITH_WARNINGS" : "CANDIDATE",
+if (approval?.approval === 'verified-release' && approval.source_revision !== process.env.GITHUB_SHA)
+  throw new Error('Verified release receipt must match the actual build source SHA.');
+const waived = approval?.approval === 'owner-approved-release-with-warnings';
+const release = {schema_version: 1, version, stage: `V${version}${approval ? waived ? '-with-waivers' : '' : '-candidate'}`, formal_release: Boolean(approval),
+  release_status: approval ? waived ? "RELEASED_WITH_WARNINGS" : "RELEASED" : "CANDIDATE",
   acceptance: approval ? {mode: approval.approval, accepted_by: approval.accepted_by,
     accepted_on: approval.accepted_on, waivers: approval.waivers,
-    record: "https://github.com/AureliusWu/News/blob/main/docs/V1.0.0_RELEASE_WAIVERS.md"} : null,
+    gates: approval.gates,
+    record: `https://github.com/AureliusWu/News/blob/main/docs/V${version}_${waived ? 'RELEASE_WAIVERS' : 'HANDOFF'}.md`} : null,
   source_revision: process.env.GITHUB_SHA || "local-uncommitted", built_at: new Date().toISOString(), data_schema_version: 1,
   ai_content_generation: aiPolicy};
 mkdirSync(new URL("frontend/public/", root), {recursive: true});

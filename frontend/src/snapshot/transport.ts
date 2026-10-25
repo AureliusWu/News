@@ -2,6 +2,7 @@ import './snapshot.css';
 import {ui} from '../locales/zh-CN';
 import {formatDateTime} from '../utils/time';
 import type {NewsArticle, NewsSource} from '../types/news';
+import {expandCompact} from './compact';
 
 type Source = NewsSource;
 type Article = NewsArticle;
@@ -19,6 +20,7 @@ export type Snapshot = {
 type Loaded = { snapshot: Snapshot; cached: boolean; checkedAt: number };
 type Options = {
   origin: string; basePath: string; now?: () => number; storage?: CacheStorage;
+  compact?: boolean;
   onState?: (state: Loaded | { error: string }) => void;
 };
 const MAX_AGE = 72 * 60 * 60 * 1000;
@@ -120,6 +122,8 @@ export function createSnapshotFetch(nativeFetch: typeof fetch, options: Options)
   const now = options.now || Date.now;
   const base = `/${options.basePath.replace(/^\/+|\/+$/g, '')}${options.basePath.replace(/\//g, '') ? '/' : ''}`;
   const dataUrl = new URL(`${base}data/news.json`, options.origin).href;
+  const compactUrl = new URL(`${base}data/news.compact.json`, options.origin).href;
+  const preferCompact = options.compact ?? (import.meta.env.VITE_NEWS_MODE === 'snapshot');
   let memory: Loaded | undefined;
   let pending: Promise<Loaded> | undefined;
   let cacheWriteRunning = false;
@@ -150,9 +154,15 @@ export function createSnapshotFetch(nativeFetch: typeof fetch, options: Options)
       const cache = Promise.resolve().then(() => options.storage?.open(`global-news-snapshot-v1:${base}`))
         .catch(() => undefined);
       try {
-        const response = await nativeFetch(dataUrl, { cache: 'no-store', credentials: 'omit', signal: controller.signal });
+        let compact = preferCompact;
+        let response = await nativeFetch(compact ? compactUrl : dataUrl, { cache: 'no-store', credentials: 'omit', signal: controller.signal });
+        if (compact && response.status === 404) {
+          compact = false;
+          response = await nativeFetch(dataUrl, { cache: 'no-store', credentials: 'omit', signal: controller.signal });
+        }
         if (!response.ok) throw new Error(`Snapshot download failed (${response.status}).`);
-        const snapshot = validateSnapshot(await response.json(), now());
+        const body = await response.json();
+        const snapshot = validateSnapshot(compact ? expandCompact(body) : body, now());
         memory = { snapshot, cached: false, checkedAt: now() };
         persist(snapshot, cache);
       } catch (error) {

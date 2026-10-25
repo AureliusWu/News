@@ -1,7 +1,7 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
 import {readAiPolicy, validateAiPolicy} from './ai-feature-policy.mjs';
-import {evaluateFreshness, compactObservation} from './freshness-gate.mjs';
+import {evaluateFreshness, compactObservation, mergeObservations} from './freshness-gate.mjs';
 import {isSnapshotPair} from './snapshot-pair.mjs';
 
 const now = Date.parse('2026-10-08T16:00:00Z');
@@ -13,6 +13,21 @@ function observation(time) {
 }
 function week() {return Array.from({length:337},(_,i)=>observation(now - 336*slot + i*slot));}
 const options = {now,expectedVersion:'0.9.0-alpha.1'};
+
+test('different timestamp text for one UTC instant counts once without changing its receipt', () => {
+  const first = observation(now - slot);
+  const alias = structuredClone(first); alias.observed_at = first.observed_at.replace('.000Z', '+00:00');
+  assert.equal(mergeObservations([first, alias], now).length, 1);
+  assert.equal(mergeObservations([alias, first], now)[0].observed_at, alias.observed_at);
+  alias.transport_error = 'synthetic failure';
+  assert.throws(() => mergeObservations([first, alias], now), /Conflicting/);
+});
+test('candidate observations are bound to source as well as version', () => {
+  const rows = week(); rows[10].release.source_revision = 'another-source';
+  const report = evaluateFreshness(rows, {...options, expectedRevision:'synthetic-test'});
+  assert.equal(report.missing_slots, 1); assert.equal(report.passing_slots, 335);
+  assert.equal(report.candidate_revision_bound, true);
+});
 
 test('content AI is disabled and has zero budgets',()=>{
   const policy=readAiPolicy(); assert.equal(policy.enabled,false); assert.equal(policy.max_cost_usd,0);

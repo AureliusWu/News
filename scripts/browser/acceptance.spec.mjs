@@ -46,6 +46,35 @@ async function readyOffline(page) {
   })).toBe(true);
 }
 
+test('saved filter survives reload and restores the URL query', async ({page, site}) => {
+  await home(page);
+  await page.locator('.search-form input').fill('climate');
+  await page.locator('.search-form button').click();
+  await page.locator('.saved-filters summary').click();
+  await page.getByRole('textbox',{name:'方案名称',exact:true}).fill('Climate reading');
+  await page.getByRole('button',{name:'保存当前筛选',exact:true}).click();
+  await page.goto(siteURL,{waitUntil:'domcontentloaded'});
+  await page.locator('.saved-filters summary').click();
+  await page.getByRole('combobox',{name:'已存筛选方案',exact:true}).selectOption({label:'Climate reading'});
+  await page.getByRole('button',{name:'应用方案',exact:true}).click();
+  await expect(page.locator('.search-form input')).toHaveValue('climate');
+  await expect(page).toHaveURL(/q=climate/);
+});
+
+test('followed event survives direct library reload and preserves its identity', async ({page, site}) => {
+  await page.goto(new URL('events',siteURL).href,{waitUntil:'domcontentloaded'});
+  const card=page.locator('.reading-bookmark').first();
+  const title=await card.locator('h2').innerText();
+  await card.getByRole('button',{name:'关注事件',exact:true}).click();
+  await expect(card.getByRole('button',{name:'取消关注事件',exact:true})).toHaveAttribute('aria-pressed','true');
+  await page.goto(new URL('library',siteURL).href,{waitUntil:'domcontentloaded'});
+  const followed=page.locator('.following-card').filter({hasText:title});
+  await expect(followed).toBeVisible();
+  await expect(followed).toContainText('新增收录 0 篇');
+  await page.reload({waitUntil:'domcontentloaded'});
+  await expect(page.locator('.following-card').filter({hasText:title})).toBeVisible();
+});
+
 test('news bookmark survives reload and is visible in the library', async ({page, browser, site}, testInfo) => {
   const errors = [];
   page.on('pageerror', error => errors.push(error.message));
