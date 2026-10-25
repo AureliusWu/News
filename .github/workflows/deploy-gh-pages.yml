@@ -36,7 +36,7 @@ jobs:
           cache: npm
           cache-dependency-path: frontend/package-lock.json
       - name: Check disabled AI policy and independent release-gate rules
-        run: node --test scripts/release-gates.test.mjs scripts/release-approval.test.mjs
+        run: node --test scripts/release-gates.test.mjs scripts/release-approval.test.mjs scripts/observation-recovery.test.mjs
       - name: Setup Python for free snapshot publishing
         if: env.PAGES_DATA_MODE == 'snapshot'
         uses: actions/setup-python@v5

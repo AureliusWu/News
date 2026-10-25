@@ -1,14 +1,17 @@
 import {defineConfig} from "vitest/config";
 import vue from "@vitejs/plugin-vue";
 import {VitePWA} from "vite-plugin-pwa";
+import {preloadStartup} from './build/preload-entry';
 
 const basePath = (process.env.BASE_PATH || "/").replace(/\/?$/, "/");
 export default defineConfig({
   base: basePath,
   plugins: [
     vue(),
+    preloadStartup(),
     VitePWA({
       registerType: "autoUpdate",
+      injectRegister: 'script-defer',
       includeAssets: ["favicon.svg", "robots.txt"],
       manifest: {
         name: "全球新闻 | Global News", short_name: "全球新闻", lang: "zh-CN",
@@ -21,6 +24,9 @@ export default defineConfig({
         ]
       },
       workbox: {
+        // Explicit registration mode otherwise disables the plugin's autoUpdate defaults.
+        skipWaiting: true,
+        clientsClaim: true,
         // Resolve against the service worker URL, including a CLI --base override.
         navigateFallback: "index.html",
         navigateFallbackDenylist: [/\/api\//],

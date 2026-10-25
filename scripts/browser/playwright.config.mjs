@@ -4,7 +4,7 @@ import {output, requireIsolatedCI, siteURL} from './server.mjs';
 
 requireIsolatedCI();
 export default defineConfig({
-  testDir: '.', testMatch: 'acceptance.spec.mjs',
+  testDir: '.', testMatch: ['acceptance.spec.mjs','interactions.spec.mjs'],
   fullyParallel: false, workers: 1, retries: 0,
   timeout: 90000, globalTimeout: 10 * 60 * 1000,
   expect: {timeout: 20000},

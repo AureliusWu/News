@@ -59,7 +59,8 @@ test('stale and contradictory retry cannot be hidden',()=>{
 });
 test('future generation, report mismatch, failed transport reduce valid observations',()=>{
   for(const change of [r=>r.snapshot.generated_at=new Date(Date.parse(r.observed_at)+600000).toISOString(),
-    r=>r.source_health.same_generation=false,r=>r.transport_error='synthetic',r=>r.snapshot.collector_gate_pass=false]) {
+    r=>r.source_health.same_generation=false,r=>r.transport_error='synthetic',r=>r.snapshot.collector_gate_pass=false,
+    r=>r.snapshot.schema_version=2]) {
     const rows=week(); change(rows[2]); assert.equal(evaluateFreshness(rows,options).failed_slots,1);
   }
 });

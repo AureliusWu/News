@@ -71,7 +71,7 @@ jobs:
         run: |
           mkdir -p "$VERIFICATION_OUTPUT/regression"
           set -o pipefail
-          node --test scripts/release-gates.test.mjs scripts/release-approval.test.mjs 2>&1 | tee "$VERIFICATION_OUTPUT/regression/node.txt"
+          node --test scripts/release-gates.test.mjs scripts/release-approval.test.mjs scripts/observation-recovery.test.mjs 2>&1 | tee "$VERIFICATION_OUTPUT/regression/node.txt"
           npm --prefix verification-inputs/candidate/frontend test 2>&1 | tee "$VERIFICATION_OUTPUT/regression/frontend.txt"
           npm --prefix verification-inputs/candidate/frontend run typecheck 2>&1 | tee "$VERIFICATION_OUTPUT/regression/typecheck.txt"
           cd verification-inputs/candidate
