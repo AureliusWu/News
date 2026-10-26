@@ -1,0 +1,286 @@
+{
+  "schema_version": 1,
+  "version": "1.1.0",
+  "source_revision": "20e630e20727dc3c243747c27b0101d9ac9e336e",
+  "formal_tag": "v1.1.0",
+  "formal_release": true,
+  "release_status": "RELEASED_WITH_WARNINGS",
+  "release_id": 423958903,
+  "published_at": "2026-10-26T07:32:30Z",
+  "release_control_revision": "c3fd98426a0946ff28ab2df449c62cbfccb36cb6",
+  "approval_sha256": "cfff6d6563c3154d89c73b24414898c9df92c7d9f80d241e951307001ad7c72b",
+  "approval": {
+    "schema_version": 1,
+    "version": "1.1.0",
+    "source_revision": "20e630e20727dc3c243747c27b0101d9ac9e336e",
+    "approval": "owner-approved-release-with-warnings",
+    "accepted_by": "repository-owner",
+    "accepted_on": "2026-10-26",
+    "authorization_source": "Explicit human owner message in this Codex conversation on 2026-10-26 choosing risk-accepted V1.1.0 publication, disclosing unfinished seven-day observation and device acceptance, and continuing monitoring.",
+    "disclaimer": "This approval applies only to V1.1.0 at the pinned application source. Waived does not mean passed. Original thresholds, failures and missing evidence remain unchanged. No permission to bypass execution or security restrictions is granted.",
+    "waivers": [
+      {
+        "id": "seven-day-freshness-and-scheduling",
+        "disposition": "WAIVED_FOR_THIS_RELEASE",
+        "observed_status": "NOT_PASSED",
+        "limitation": "Last archived evaluation at 2026-10-26T04:38:47.224Z: 40/336 passing closed half-hour slots (11.905%), 0 failed, 296 missing, observation span 20.042 hours; WARMING_UP and gate_pass=false. The unchanged threshold requires at least 168 real hours and at least 320/336 valid slots with snapshot age at most two hours. Subsequent in-progress observations are not pre-counted. Free scheduling can be delayed; monitoring and bounded data-only recovery continue.",
+        "evidence": [
+          "https://github.com/AureliusWu/News/actions/runs/40243625656",
+          "docs/V1.1.0_RELEASE_WAIVERS.md",
+          "docs/V1.1_OBSERVATION_20261026.md",
+          "artifacts/v1.1-formal-20261026/observer-before-release-retry/report.json"
+        ]
+      },
+      {
+        "id": "device-and-installed-pwa-acceptance",
+        "disposition": "WAIVED_FOR_THIS_RELEASE",
+        "observed_status": "NOT_RUN",
+        "limitation": "Complete physical Android Chrome and iPhone Safari receipts, including model, OS, browser and operation results, are missing. Installed-PWA device installation, update and offline acceptance are incomplete. Existing MuMu 6.8.7 was started at the owner's request, but Windows was locked and its window could not be activated; no emulator browser or functional PASS is claimed. CI browsers and viewport simulation are separate evidence, not physical-device acceptance. Remaining device checks continue when the environment is available.",
+        "evidence": [
+          "docs/V1.1.0_HANDOFF.md",
+          "docs/V1.1_EXECUTION.md",
+          "docs/V1.1.0_RELEASE_WAIVERS.md"
+        ]
+      }
+    ]
+  },
+  "regression": {
+    "passed": 417,
+    "backend": 121,
+    "frontend": 171,
+    "snapshot": 66,
+    "restore": 21,
+    "node": 38
+  },
+  "browser_upgrade": {
+    "run_id": 40284783950,
+    "passed": 28,
+    "skipped": 2,
+    "unexpected": 0,
+    "physical_device_acceptance": false
+  },
+  "public_verification": {
+    "run_id": 40286695628,
+    "performance": {
+      "observed_at": "2026-10-26T07:38:12.868Z",
+      "revision": "20e630e20727dc3c243747c27b0101d9ac9e336e",
+      "all_samples_valid": true,
+      "groups": {
+        "desktop": {
+          "samples": 5,
+          "median_lcp_ms": 499.8185,
+          "worst_lcp_ms": 517.3695
+        },
+        "mobile": {
+          "samples": 5,
+          "median_lcp_ms": 1215.1819999999998,
+          "worst_lcp_ms": 1278.055
+        }
+      },
+      "public_budget_status": "WITHIN_PUBLIC_SAMPLE_BUDGET",
+      "scope": "Actual public HTTPS site, standard runner, third-party images included, five cold runs per device. Separate from frozen-input comparison and physical phone acceptance.",
+      "formal_release": true,
+      "release_status": "RELEASED_WITH_WARNINGS"
+    },
+    "smoke": {
+      "observed_at": "2026-10-26T07:36:17.785Z",
+      "revision": "20e630e20727dc3c243747c27b0101d9ac9e336e",
+      "release_status": "RELEASED_WITH_WARNINGS",
+      "browser": "155.0.8059.39",
+      "widths": [
+        {
+          "width": 320,
+          "status": 200,
+          "client": 320,
+          "scroll": 320,
+          "cards": 30,
+          "footer": "全球新闻 / Global News V1.1.0 新闻内容及图片版权归原发布媒体所有。"
+        },
+        {
+          "width": 390,
+          "status": 200,
+          "client": 390,
+          "scroll": 390,
+          "cards": 30,
+          "footer": "全球新闻 / Global News V1.1.0 新闻内容及图片版权归原发布媒体所有。"
+        },
+        {
+          "width": 768,
+          "status": 200,
+          "client": 768,
+          "scroll": 768,
+          "cards": 30,
+          "footer": "全球新闻 / Global News V1.1.0 新闻内容及图片版权归原发布媒体所有。"
+        },
+        {
+          "width": 1350,
+          "status": 200,
+          "client": 1350,
+          "scroll": 1350,
+          "cards": 30,
+          "footer": "全球新闻 / Global News V1.1.0 新闻内容及图片版权归原发布媒体所有。"
+        }
+      ],
+      "page_errors": [],
+      "visible_channel": "页面更新与本地收藏\n\nV1.1.0 · 正式版\n\n计划每 30 分钟采集，但免费调度可能延迟数小时；以快照时间为准。收藏仅存于本机浏览器，不会自动跨设备同步。\n\n检查页面更新",
+      "bookmark_persisted": true,
+      "event_url": "https://aureliuswu.github.io/News/events/e_329a6ce20e59132e6cf0b3e0",
+      "deep_link_status": 200,
+      "event_follow_persisted": true,
+      "missing_event": {
+        "status": 200,
+        "handled": true
+      }
+    }
+  },
+  "producer_run_id": 40284913845,
+  "deployment_run_id": 40285498969,
+  "subsequent_data_only_run_id": 40286256001,
+  "after_data_only": {
+    "observed_at": "2026-10-26T07:33:31.674Z",
+    "version": "1.1.0",
+    "source_revision": "20e630e20727dc3c243747c27b0101d9ac9e336e",
+    "formal_release": true,
+    "release_status": "RELEASED_WITH_WARNINGS",
+    "original_metadata_unchanged": true,
+    "html_unchanged": true,
+    "waivers_preserved": true,
+    "snapshot_id": "4edc014f19ffbcde2661a176",
+    "generated_at": "2026-10-26T07:31:35.917496Z",
+    "article_count": 787,
+    "same_generation": true,
+    "raw_detail_http_status": 404
+  },
+  "persistent_restore": {
+    "schema_version": 1,
+    "archive_sha256": "b2bdd5d758729ca4238db2ea0983fea0486c32753357ad9da77224a809bcad2d",
+    "version": "1.1.0",
+    "generated_at": "2026-10-26T07:18:21.753022Z",
+    "snapshot_id": "c495c53d690a4040b4b551ee",
+    "articles": 786,
+    "recollection_performed": false,
+    "timestamps_rewritten": false,
+    "source_run_id": 40284913845,
+    "source_revision": "20e630e20727dc3c243747c27b0101d9ac9e336e",
+    "release_tag": "v1.1.0",
+    "release_asset_id": 677376180,
+    "capsule_repacked": false
+  },
+  "verified_assets": [
+    {
+      "name": "formal-upgrade-40283839684.zip",
+      "size": 6599380,
+      "digest": "sha256:85789ede1a5d9584bd86877d7684805356f47d9ee00e54f01eb4a897ef84eab2",
+      "browser_download_url": "https://github.com/AureliusWu/News/releases/download/v1.1.0/formal-upgrade-40283839684.zip"
+    },
+    {
+      "name": "observer-before-release-retry.zip",
+      "size": 3505,
+      "digest": "sha256:87af314285271d35b698524c4ac40fb872a3b44510f716ebe3164eb7f6c1961f",
+      "browser_download_url": "https://github.com/AureliusWu/News/releases/download/v1.1.0/observer-before-release-retry.zip"
+    },
+    {
+      "name": "public-40285777219.zip",
+      "size": 3412054,
+      "digest": "sha256:d237d6d84dfaa693414ba947fd09b9d4656da624e3e45652405fc7a3f90c7148",
+      "browser_download_url": "https://github.com/AureliusWu/News/releases/download/v1.1.0/public-40285777219.zip"
+    },
+    {
+      "name": "public-cjk-40286695628.zip",
+      "size": 4433102,
+      "digest": "sha256:e0dc1135dfe266903520654243654710ad23834f3bb68473a1bbe2cbf15bc26c",
+      "browser_download_url": "https://github.com/AureliusWu/News/releases/download/v1.1.0/public-cjk-40286695628.zip"
+    },
+    {
+      "name": "public-release-channel-initial-fonts-missing.png",
+      "size": 275620,
+      "digest": "sha256:84f523a303d919cea50c4b5167740448535179bf64e512871bfff1559b869145",
+      "browser_download_url": "https://github.com/AureliusWu/News/releases/download/v1.1.0/public-release-channel-initial-fonts-missing.png"
+    },
+    {
+      "name": "public-release-channel.png",
+      "size": 359254,
+      "digest": "sha256:e53bc8704c1030acd52288a763a26afd6ed95ce2601b9448c7e21a9219647542",
+      "browser_download_url": "https://github.com/AureliusWu/News/releases/download/v1.1.0/public-release-channel.png"
+    },
+    {
+      "name": "upgrade-40284783950.zip",
+      "size": 4521875,
+      "digest": "sha256:2d19e908eeaffbe2c171d1c7b4681b89ac3a2b2c6abda0f651dac82c72390395",
+      "browser_download_url": "https://github.com/AureliusWu/News/releases/download/v1.1.0/upgrade-40284783950.zip"
+    },
+    {
+      "name": "upgrade-edge-40284783950.zip",
+      "size": 3453585,
+      "digest": "sha256:78feb0b9e42934d0a0eddb78ce1b7ae32a5f6a7e14e79e6dfa3ad2fdce7fbcb0",
+      "browser_download_url": "https://github.com/AureliusWu/News/releases/download/v1.1.0/upgrade-edge-40284783950.zip"
+    },
+    {
+      "name": "v1.1.0-published-pages-40284913845.zip",
+      "size": 2262811,
+      "digest": "sha256:b2bdd5d758729ca4238db2ea0983fea0486c32753357ad9da77224a809bcad2d",
+      "browser_download_url": "https://github.com/AureliusWu/News/releases/download/v1.1.0/v1.1.0-published-pages-40284913845.zip"
+    },
+    {
+      "name": "v1.1.0-rc.1-before-formal-pages-40278145520.zip",
+      "size": 2255918,
+      "digest": "sha256:8c6b09223544f961b76f3f33faab8e30f2f737c784c265691ba19a892f4f0d98",
+      "browser_download_url": "https://github.com/AureliusWu/News/releases/download/v1.1.0/v1.1.0-rc.1-before-formal-pages-40278145520.zip"
+    },
+    {
+      "name": "V1.1.0_ACCEPTANCE.json",
+      "size": 2491,
+      "digest": "sha256:cfff6d6563c3154d89c73b24414898c9df92c7d9f80d241e951307001ad7c72b",
+      "browser_download_url": "https://github.com/AureliusWu/News/releases/download/v1.1.0/V1.1.0_ACCEPTANCE.json"
+    }
+  ],
+  "freshness": {
+    "status": "WARMING_UP",
+    "gate_pass": false,
+    "last_archived_report": {
+      "schema_version": 1,
+      "evaluated_at": "2026-10-26T04:38:47.224Z",
+      "window_start": "2026-10-19T04:30:00.000Z",
+      "window_end": "2026-10-26T04:30:00.000Z",
+      "expected_version": "1.1.0",
+      "expected_revision": "20e630e20727dc3c243747c27b0101d9ac9e336e",
+      "interval_minutes": 30,
+      "expected_slots": 336,
+      "observed_slots": 40,
+      "passing_slots": 40,
+      "failed_slots": 0,
+      "missing_slots": 296,
+      "passing_fraction": 0.11904761904761904,
+      "observation_span_hours": 20.04201638888889,
+      "minimum_span_hours": 168,
+      "required_fraction": 0.95,
+      "status": "WARMING_UP",
+      "gate_pass": false,
+      "candidate_version_bound": true,
+      "candidate_revision_bound": true,
+      "formal_release": false,
+      "caveat": "Direct HTTP observations only. Missing slots count as failures; Actions run success rates are not freshness evidence."
+    }
+  },
+  "device_acceptance": {
+    "observed_status": "NOT_RUN",
+    "waived_for_this_release": true,
+    "emulator_functional_pass": false
+  },
+  "known_limits": [
+    "Direct Pages event deep links can return HTTP 404 while the SPA renders; a Service Worker reload may return 200.",
+    "Optional native Windows backend lifecycle was not certified.",
+    "Six of 38 sources were unhealthy at publication."
+  ],
+  "continuing_monitoring": {
+    "automation_id": "news-v1-1",
+    "status": "ACTIVE",
+    "interval_hours": 6,
+    "source_revision": "20e630e20727dc3c243747c27b0101d9ac9e336e",
+    "recovery_ref": "v1.1.0-rc.1"
+  },
+  "preserved_initial_runs": [
+    40283839684,
+    40285777219
+  ]
+}

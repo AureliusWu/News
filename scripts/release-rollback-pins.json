@@ -5,5 +5,13 @@
     "source_run_id": 38844955158,
     "asset_name": "v1.0.0-published-pages-38844955158.zip",
     "archive_sha256": "5c0b94fdd4704e44880c2d314e2c36f968183415272d34117b455ef08ac6d839"
+  },
+  "v1.1.0": {
+    "version": "1.1.0",
+    "source_revision": "20e630e20727dc3c243747c27b0101d9ac9e336e",
+    "source_run_id": 40284913845,
+    "published_by_run_id": 40285498969,
+    "asset_name": "v1.1.0-published-pages-40284913845.zip",
+    "archive_sha256": "b2bdd5d758729ca4238db2ea0983fea0486c32753357ad9da77224a809bcad2d"
   }
 }
