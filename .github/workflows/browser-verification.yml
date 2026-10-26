@@ -15,6 +15,10 @@ on:
         description: Run the separate frozen-input performance diagnostic
         type: boolean
         default: true
+      formal_candidate:
+        description: Build the candidate using the committed version/source-bound formal receipt
+        type: boolean
+        default: false
 
 permissions:
   contents: read
@@ -71,7 +75,7 @@ jobs:
         run: |
           mkdir -p "$VERIFICATION_OUTPUT/regression"
           set -o pipefail
-          node --test scripts/release-gates.test.mjs scripts/release-approval.test.mjs scripts/observation-recovery.test.mjs 2>&1 | tee "$VERIFICATION_OUTPUT/regression/node.txt"
+          node --test scripts/release-gates.test.mjs scripts/release-approval.test.mjs scripts/observation-recovery.test.mjs scripts/release-receipt.test.mjs 2>&1 | tee "$VERIFICATION_OUTPUT/regression/node.txt"
           npm --prefix verification-inputs/candidate/frontend test 2>&1 | tee "$VERIFICATION_OUTPUT/regression/frontend.txt"
           npm --prefix verification-inputs/candidate/frontend run typecheck 2>&1 | tee "$VERIFICATION_OUTPUT/regression/typecheck.txt"
           cd verification-inputs/candidate
@@ -87,7 +91,14 @@ jobs:
         run: |
           for variant in baseline candidate; do
             root="$GITHUB_WORKSPACE/verification-inputs/$variant"
-            GITHUB_SHA="$(git -C "$root" rev-parse HEAD)" node "$root/scripts/write-release.mjs"
+            source="$(git -C "$root" rev-parse HEAD)"
+            if [[ "$variant" == 'candidate' && "${{ inputs.formal_candidate }}" == 'true' ]]; then
+              version="$(node -p "require('$root/frontend/package.json').version")"
+              node scripts/release-receipt.mjs --receipt "docs/releases/V${version}_ACCEPTANCE.json" --version "$version" --revision "$source" --output "$VERIFICATION_OUTPUT/formal-receipt.json"
+              NEWS_RELEASE_ACCEPTANCE_FILE="$VERIFICATION_OUTPUT/formal-receipt.json" GITHUB_SHA="$source" node "$root/scripts/write-release.mjs"
+            else
+              GITHUB_SHA="$source" node "$root/scripts/write-release.mjs"
+            fi
           done
           node scripts/browser/prepare.mjs
       - name: Browser, offline and same-origin upgrade tests

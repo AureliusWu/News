@@ -18,6 +18,10 @@ on:
         description: Exact application tag/ref to check out while deployment remains on the protected main workflow
         type: string
         default: ''
+      formal_release:
+        description: Build the fixed application with its separately approved version/source-bound receipt
+        type: boolean
+        default: false
   schedule:
     - cron: '17,47 * * * *'
 
@@ -42,12 +46,30 @@ jobs:
           ref: ${{ inputs.source_ref || github.ref }}
       - name: Record actual checked-out application source
         run: echo "NEWS_SOURCE_REVISION=$(git rev-parse HEAD)" >> "$GITHUB_ENV"
+      - name: Checkout the reviewed release control record
+        if: inputs.formal_release
+        uses: actions/checkout@v4
+        with:
+          ref: ${{ github.sha }}
+          path: artifacts/release-control
+          persist-credentials: false
+          sparse-checkout: |
+            scripts
+            docs/releases
       - name: Setup Node.js
         uses: actions/setup-node@v4
         with:
           node-version: '22'
           cache: npm
           cache-dependency-path: frontend/package-lock.json
+      - name: Validate the separately approved formal release receipt
+        if: inputs.formal_release
+        run: |
+          test "${{ inputs.data_only }}" != 'true'
+          version="$(node -p "require('./frontend/package.json').version")"
+          node --test artifacts/release-control/scripts/release-receipt.test.mjs
+          node artifacts/release-control/scripts/release-receipt.mjs --receipt "artifacts/release-control/docs/releases/V${version}_ACCEPTANCE.json" --version "$version" --revision "$NEWS_SOURCE_REVISION" --output artifacts/release-acceptance.json
+          echo "NEWS_RELEASE_ACCEPTANCE_FILE=$GITHUB_WORKSPACE/artifacts/release-acceptance.json" >> "$GITHUB_ENV"
       - name: Check disabled AI policy and independent release-gate rules
         run: |
           tests=(scripts/release-gates.test.mjs scripts/release-approval.test.mjs)
@@ -139,6 +161,19 @@ jobs:
       - name: Overlay fresh data on the verified application
         if: steps.cached_app.outputs.restored == 'true'
         run: python scripts/snapshot/app_bundle.py overlay
+      - name: Verify formal metadata against the approved receipt
+        if: inputs.formal_release
+        run: |
+          version="$(node -p "require('./frontend/package.json').version")"
+          node artifacts/release-control/scripts/release-receipt.mjs --receipt artifacts/release-acceptance.json --version "$version" --revision "$NEWS_SOURCE_REVISION" --public frontend/dist/release.json --release-status RELEASED_WITH_WARNINGS
+      - name: Preserve the exact release acceptance record
+        if: always() && inputs.formal_release
+        uses: actions/upload-artifact@v4
+        with:
+          name: formal-release-acceptance
+          path: artifacts/release-acceptance.json
+          retention-days: 14
+          if-no-files-found: warn
       - name: Upload source-health evidence
         if: always() && env.PAGES_DATA_MODE == 'snapshot'
         uses: actions/upload-artifact@v4

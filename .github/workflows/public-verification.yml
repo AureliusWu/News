@@ -1,4 +1,4 @@
-name: Public candidate verification
+name: Public News release verification
 on:
   workflow_dispatch:
     inputs:
@@ -10,6 +10,14 @@ on:
         description: Preserve ten separate cold startup samples in addition to navigation
         type: boolean
         default: true
+      expected_release_status:
+        description: Exact public channel; formal status requires its committed approval receipt
+        type: choice
+        options:
+          - CANDIDATE
+          - RELEASED_WITH_WARNINGS
+          - RELEASED
+        default: CANDIDATE
 permissions:
   contents: read
 concurrency:
@@ -22,6 +30,7 @@ jobs:
     env:
       EXPECTED_REVISION: ${{ inputs.expected_revision }}
       RUN_PUBLIC_PERFORMANCE: ${{ inputs.run_performance }}
+      EXPECTED_RELEASE_STATUS: ${{ inputs.expected_release_status }}
     steps:
       - uses: actions/checkout@v4
         with:

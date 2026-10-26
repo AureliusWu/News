@@ -1,0 +1,35 @@
+{
+  "schema_version": 1,
+  "version": "1.1.0",
+  "source_revision": "20e630e20727dc3c243747c27b0101d9ac9e336e",
+  "approval": "owner-approved-release-with-warnings",
+  "accepted_by": "repository-owner",
+  "accepted_on": "2026-10-26",
+  "authorization_source": "Explicit human owner message in this Codex conversation on 2026-10-26 choosing risk-accepted V1.1.0 publication, disclosing unfinished seven-day observation and device acceptance, and continuing monitoring.",
+  "disclaimer": "This approval applies only to V1.1.0 at the pinned application source. Waived does not mean passed. Original thresholds, failures and missing evidence remain unchanged. No permission to bypass execution or security restrictions is granted.",
+  "waivers": [
+    {
+      "id": "seven-day-freshness-and-scheduling",
+      "disposition": "WAIVED_FOR_THIS_RELEASE",
+      "observed_status": "NOT_PASSED",
+      "limitation": "Last archived evaluation at 2026-10-26T04:38:47.224Z: 40/336 passing closed half-hour slots (11.905%), 0 failed, 296 missing, observation span 20.042 hours; WARMING_UP and gate_pass=false. The unchanged threshold requires at least 168 real hours and at least 320/336 valid slots with snapshot age at most two hours. Subsequent in-progress observations are not pre-counted. Free scheduling can be delayed; monitoring and bounded data-only recovery continue.",
+      "evidence": [
+        "https://github.com/AureliusWu/News/actions/runs/40243625656",
+        "docs/V1.1.0_RELEASE_WAIVERS.md",
+        "docs/V1.1_OBSERVATION_20261026.md",
+        "artifacts/v1.1-formal-20261026/observer-before-release-retry/report.json"
+      ]
+    },
+    {
+      "id": "device-and-installed-pwa-acceptance",
+      "disposition": "WAIVED_FOR_THIS_RELEASE",
+      "observed_status": "NOT_RUN",
+      "limitation": "Complete physical Android Chrome and iPhone Safari receipts, including model, OS, browser and operation results, are missing. Installed-PWA device installation, update and offline acceptance are incomplete. Existing MuMu 6.8.7 was started at the owner's request, but Windows was locked and its window could not be activated; no emulator browser or functional PASS is claimed. CI browsers and viewport simulation are separate evidence, not physical-device acceptance. Remaining device checks continue when the environment is available.",
+      "evidence": [
+        "docs/V1.1.0_HANDOFF.md",
+        "docs/V1.1_EXECUTION.md",
+        "docs/V1.1.0_RELEASE_WAIVERS.md"
+      ]
+    }
+  ]
+}
