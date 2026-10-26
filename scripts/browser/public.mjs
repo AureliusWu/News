@@ -38,6 +38,14 @@ try {
     if(response.status()!==200 || layout.scroll>layout.client || !layout.footer?.includes('V1.1.0') ||
         layout.footer.includes('候选')!==(expectedStatus==='CANDIDATE')) throw new Error('Public layout or release label failed.');
   }
+  const updateSummary=page.getByText('页面更新与本地收藏',{exact:true});
+  await updateSummary.click();
+  const channelText=await page.locator('.reading-toolbar details').filter({hasText:'页面更新与本地收藏'}).innerText();
+  if(!channelText.includes('V1.1.0') || channelText.includes('候选')!==(expectedStatus==='CANDIDATE'))
+    throw new Error('Visible release channel differs from the expected metadata.');
+  smoke.visible_channel=channelText;
+  await page.screenshot({path:join(directory,'public-release-channel.png')});
+  await updateSummary.click();
   const first=page.locator('.news-card').first();
   const savedTitle=await first.locator('h2 a').innerText();
   await first.getByRole('button',{name:/^收藏：/}).click();
