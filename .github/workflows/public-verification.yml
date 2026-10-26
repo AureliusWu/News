@@ -41,6 +41,11 @@ jobs:
           cache: npm
           cache-dependency-path: scripts/browser/package-lock.json
       - run: npm ci --prefix scripts/browser
+      - name: Install Chinese fonts for faithful public rendering
+        run: |
+          sudo apt-get update
+          sudo apt-get install --no-install-recommends -y fonts-noto-cjk
+          fc-match -f '%{family}: %{file}\n' ':lang=zh-cn:charset=4e2d'
       - name: Actual public browser and ten cold startup samples
         run: |
           export CHROME_PATH="$(command -v google-chrome)"
