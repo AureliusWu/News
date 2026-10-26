@@ -61,6 +61,9 @@ try {
   await page.reload({waitUntil:'domcontentloaded'});
   await page.getByRole('button',{name:'取消关注事件',exact:true}).waitFor({state:'visible'});
   smoke.event_follow_persisted=true;
+  const missing=await page.goto(new URL('events/e_000000000000000000000000',site).href,{waitUntil:'domcontentloaded'});
+  await page.getByText('当前快照中没有该事件的近期报道。事件链接可能已超出数据保留期。',{exact:true}).waitFor({state:'visible'});
+  smoke.missing_event={status:missing.status(),handled:true};
   if(smoke.page_errors.length) throw new Error('Unexpected public application JavaScript error.');
 } finally {
   await browser.close();await writeFile(join(directory,'smoke.json'),JSON.stringify(smoke,null,2)+'\n');

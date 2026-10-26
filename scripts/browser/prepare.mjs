@@ -1,5 +1,6 @@
 import {execFileSync} from 'node:child_process';
 import {createHash} from 'node:crypto';
+import {existsSync} from 'node:fs';
 import {copyFile, mkdir, readFile, writeFile} from 'node:fs/promises';
 import {join, resolve} from 'node:path';
 import {output, requireIsolatedCI} from './server.mjs';
@@ -75,7 +76,7 @@ for (const name of ['baseline', 'candidate']) {
       throw new Error(`Frozen bytes changed in ${name}/${file}.`);
     }
   }
-  if (name === 'candidate') {
+  if (existsSync(join(root,'scripts/snapshot/compact_wire.py'))) {
     // Candidate wire optimization uses exactly the frozen baseline articles and metadata.
     const lookup = new Map(news.json.sources.map((source, index) => [source.slug, index]));
     const compact = {wire_schema_version: 1, snapshot: {...news.json, articles: news.json.articles.map(article => {
