@@ -6,6 +6,10 @@
 
 # Global News
 
+<!-- project-badges:start -->
+[![Version](https://img.shields.io/github/v/tag/AureliusWu/News?sort=semver&style=flat-square&label=version)](https://github.com/AureliusWu/News/tags) [![Build](https://github.com/AureliusWu/News/actions/workflows/deploy-gh-pages.yml/badge.svg?branch=main)](https://github.com/AureliusWu/News/actions/workflows/deploy-gh-pages.yml) [![Last commit](https://img.shields.io/github/last-commit/AureliusWu/News?style=flat-square)](https://github.com/AureliusWu/News/commits/main) [![License](https://img.shields.io/github/license/AureliusWu/News?style=flat-square)](LICENSE)
+<!-- project-badges:end -->
+
 Global News 是一个移动端优先的全球新闻聚合 PWA。当前公开形态以静态应用包 + 定时新闻快照运行，不依赖公网常驻实时 API。
 
 ## Product snapshot
