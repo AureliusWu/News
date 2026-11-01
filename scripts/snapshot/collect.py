@@ -12,7 +12,7 @@ from pathlib import Path
 import re
 import time
 import sys
-from urllib.parse import parse_qsl, urlencode, urljoin, urlsplit, urlunsplit
+from urllib.parse import parse_qsl, unquote, urlencode, urljoin, urlsplit, urlunsplit
 
 import feedparser
 import httpx
@@ -24,6 +24,9 @@ UTC = timezone.utc
 sys.path.insert(0, str(Path(__file__).resolve().parents[2] / 'backend'))
 from app.services.event_index import build_event_index, publisher_identity, validate_registry
 MAX_FEED_BYTES = 4 * 1024 * 1024
+MAX_PUBLICATION_LOOKUPS = 8
+PUBLICATION_LOOKUP_BUDGET = 25
+PUBLICATION_REQUEST_TIMEOUT = 8
 TRACKING = {'fbclid', 'gclid', 'mc_cid', 'mc_eid', 'at_medium', 'at_campaign', 'traffic_source'}
 
 
@@ -106,11 +109,18 @@ def normalize(entry: dict, source: dict, feed_url: str, now: datetime) -> dict |
     }
 
 
-def download(client: httpx.Client, url: str) -> tuple[bytes, str]:
+def download(client: httpx.Client, url: str, *, allowed_host: str | None = None,
+             request_timeout: float | None = None, accept: str | None = None) -> tuple[bytes, str]:
     for _ in range(6):
         if not safe_url(url):
             raise ValueError('Unsafe feed or redirect URL')
-        with client.stream('GET', url) as response:
+        if allowed_host is not None and (urlsplit(url).scheme != 'https' or urlsplit(url).hostname != allowed_host
+                                         or urlsplit(url).port not in (None, 443)):
+            raise ValueError('Publication metadata must remain on the configured HTTPS publisher host')
+        options = {'timeout': request_timeout} if request_timeout is not None else {}
+        if accept is not None:
+            options['headers'] = {'Accept': accept}
+        with client.stream('GET', url, **options) as response:
             if response.is_redirect:
                 url = urljoin(str(response.url), response.headers.get('location', ''))
                 continue
@@ -123,6 +133,123 @@ def download(client: httpx.Client, url: str) -> tuple[bytes, str]:
                 chunks.append(chunk)
             return b''.join(chunks), str(response.url)
     raise ValueError('Too many feed redirects')
+
+
+def metadata_article_identity(value: str, base: str = '') -> tuple | None:
+    """Compare article identities without changing the collected URL or its ID."""
+    url = safe_url(value, base, https_only=True)
+    if not url:
+        return None
+    parts = urlsplit(url)
+    # DW uses maca as an RSS campaign marker; query article IDs still matter.
+    query = tuple(sorted((key, val) for key, val in parse_qsl(parts.query, keep_blank_values=True)
+                         if key.lower() != 'maca'))
+    return parts.scheme, parts.netloc, unquote(parts.path), query
+
+
+def original_publication_from_html(data: bytes, article_url: str) -> datetime | None:
+    """Use the matching article's datePublished, never dc:date/dateModified."""
+    expected = metadata_article_identity(article_url)
+    if expected is None:
+        return None
+    soup = BeautifulSoup(data, 'html.parser')
+    canonical = [metadata_article_identity(tag.get('href', ''), article_url)
+                 for tag in soup.find_all('link', rel='canonical')]
+    if canonical and any(value != expected for value in canonical):
+        return None
+    candidates = set()
+    for tag in soup.find_all('script', type='application/ld+json'):
+        try:
+            document = json.loads(tag.string or tag.get_text())
+        except (ValueError, TypeError):
+            continue
+        pending = [(item, False) for item in (document if isinstance(document, list) else [document])]
+        while pending:
+            item, page_bound = pending.pop()
+            if not isinstance(item, dict):
+                continue
+            graph = item.get('@graph')
+            if isinstance(graph, list):
+                pending.extend((node, False) for node in graph)
+            kinds = item.get('@type')
+            kinds = {kind for kind in (kinds if isinstance(kinds, list) else [kinds]) if isinstance(kind, str)}
+            if 'WebPage' in kinds and canonical and isinstance(item.get('mainEntity'), dict):
+                page_ids = [value for value in (item.get('url'), item.get('@id')) if value]
+                if all(isinstance(value, str) and metadata_article_identity(value, article_url) == expected for value in page_ids):
+                    pending.append((item['mainEntity'], True))
+            if not kinds & {'Article', 'NewsArticle', 'ScholarlyArticle'}:
+                continue
+            entity = item.get('mainEntityOfPage')
+            entity = entity.get('@id') if isinstance(entity, dict) else entity
+            identities = [value for value in (item.get('url'), item.get('@id'), entity) if value]
+            if (not identities and not page_bound) or any(not isinstance(value, str) or metadata_article_identity(value, article_url) != expected
+                                                        for value in identities):
+                continue
+            value = item.get('datePublished')
+            # Require the publisher's explicit time and timezone, including when
+            # that publisher itself declares midnight. Never invent either.
+            if not isinstance(value, str) or not re.fullmatch(r'\d{4}-\d{2}-\d{2}T\d{2}:\d{2}:\d{2}(?:\.\d+)?(?:Z|[+-]\d{2}:\d{2})', value):
+                continue
+            try:
+                candidates.add(datetime.fromisoformat(value.replace('Z', '+00:00')).astimezone(UTC))
+            except ValueError:
+                continue
+    return next(iter(candidates)) if len(candidates) == 1 else None
+
+
+def normalize_feed_entries(client: httpx.Client, parsed: dict, raw: dict, source: dict,
+                           final_url: str, now: datetime, row: dict) -> list[dict]:
+    profile = raw.get('publication_metadata')
+    if profile not in (None, 'json_ld_date_published'):
+        raise ValueError('Unknown publication metadata profile')
+    host = urlsplit(safe_url(source['homepage'], https_only=True) or '').hostname
+    deadline = time.monotonic() + PUBLICATION_LOOKUP_BUDGET
+    lookups = accepted = errors = 0
+    failure_reasons = {}
+    articles = []
+    for entry in parsed.entries[:300]:
+        article = normalize(entry, source, final_url, now)
+        # A present original publication field keeps its original result,
+        # including rejection for an old, future or invalid timestamp.
+        if (article is None and profile and host and not entry.get('published')
+                and not entry.get('published_parsed') and lookups < MAX_PUBLICATION_LOOKUPS
+                and time.monotonic() < deadline):
+            url = safe_url(entry.get('link', ''), final_url, https_only=True) if entry.get('link') else None
+            if url and urlsplit(url).hostname == host:
+                lookups += 1
+                try:
+                    html, actual_url = download(client, url, allowed_host=host,
+                                               request_timeout=min(PUBLICATION_REQUEST_TIMEOUT, max(.1, deadline - time.monotonic())),
+                                               accept='text/html, application/xhtml+xml;q=0.9')
+                    if metadata_article_identity(actual_url) != metadata_article_identity(url):
+                        raise ValueError('Publication metadata redirected to a different article')
+                    timestamp = original_publication_from_html(html, url)
+                    reason = 'unbound_original_publication'
+                    if timestamp is not None:
+                        article = normalize({**entry, 'published_parsed': timestamp.utctimetuple()}, source, final_url, now)
+                        reason = 'original_publication_not_usable'
+                    if article is None:
+                        errors += 1
+                        failure_reasons[reason] = failure_reasons.get(reason, 0) + 1
+                    else:
+                        accepted += 1
+                except (httpx.HTTPError, ValueError) as error:
+                    errors += 1
+                    reason = f'upstream_http_{error.response.status_code}' if isinstance(error, httpx.HTTPStatusError) else type(error).__name__
+                    if isinstance(error, ValueError):
+                        reason = {'Publication metadata redirected to a different article': 'different_article_redirect',
+                                  'Publication metadata must remain on the configured HTTPS publisher host': 'publisher_origin_redirect',
+                                  'Feed exceeds size limit': 'response_size_limit',
+                                  'Too many feed redirects': 'redirect_limit',
+                                  'Unsafe feed or redirect URL': 'unsafe_url'}.get(str(error), 'invalid_metadata')
+                    failure_reasons[reason] = failure_reasons.get(reason, 0) + 1
+        if article is not None:
+            articles.append(article)
+    if profile:
+        row['publication_metadata'] = {'profile': profile, 'lookups': lookups, 'accepted': accepted,
+                                       'failed_or_unusable': errors, 'failure_reasons': failure_reasons,
+                                       'maximum_lookups': MAX_PUBLICATION_LOOKUPS}
+    return articles
 
 
 def fetch_source(raw: dict, number: int, now: datetime) -> tuple[dict, list[dict], dict]:
@@ -142,11 +269,10 @@ def fetch_source(raw: dict, number: int, now: datetime) -> tuple[dict, list[dict
                           headers={'User-Agent': 'GlobalNews/0.2 (+https://github.com/AureliusWu/News)',
                                    'Accept': 'application/rss+xml, application/atom+xml, application/xml, text/xml;q=0.9, */*;q=0.5'}) as client:
             data, final_url = download(client, feed_url)
-        parsed = feedparser.parse(data)
-        if not parsed.entries:
-            raise ValueError('Feed has no parseable entries')
-        articles = [article for entry in parsed.entries[:300]
-                    if (article := normalize(entry, source, final_url, now))]
+            parsed = feedparser.parse(data)
+            if not parsed.entries:
+                raise ValueError('Feed has no parseable entries')
+            articles = normalize_feed_entries(client, parsed, raw, source, final_url, now, row)
         if not articles:
             raise ValueError('No valid articles with original publication dates within seven days')
         source['health_status'] = 'ok'; row['health'] = 'PASS'

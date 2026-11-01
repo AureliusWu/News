@@ -1,3 +1,11 @@
+## 2026-11-01：RSS 缺失首发时间的有界原文元数据修复
+
+Pages 采集器对配置中显式设置 `publication_metadata: json_ld_date_published` 的官方源，在 RSS 没有首发时间时，可从同一篇 HTTPS 原文的 JSON-LD `datePublished` 取得明确时间。当前仅为 DW 英语、DW 德语与 Nature 开启；Miniflux 源同步行为不变。使用现有 httpx / BeautifulSoup / 标准库，没有新增运行依赖或基础设施。
+
+原文必须保持配置主页的 HTTPS 主机和标准端口，重定向不能跳到其他主机、端口或文章。核对 canonical 与 Article / NewsArticle / ScholarlyArticle 的页面身份；Nature 的 WebPage.mainEntity 可在精确 canonical 绑定下继承身份。冲突、无时区、仅日期、缺身份、过旧及未来时间继续拒绝。`dc:date`、`updated`、`dateModified` 和采集时钟都不能代替首发时间；出版社自己明确提供的午夜时间按原值保留。原收集 URL、文章 ID、同代数据协议及事件匹配不变。
+
+每源最多 8 次原文查询，25 秒新查询启动预算、每次 I/O 最长 8 秒、沿用 4 MiB 响应上限。达到预算后停止新增查询；在途 I/O 仍可能占用剩余超时。来源报告增加有界的查询数、接受数与失败原因统计，不暴露原文内容。来源 / 七天观察阈值均保持不变。证据与局限见 [本轮来源修复](SOURCE-REPAIR-20261101.md)。
+
 > 当前入口（2026-10-26）：公开站点为 V1.1.0 正式版，按本版明确批准的风险接受方案发布，RELEASED_WITH_WARNINGS，七天与设备项仍未完成并继续监测。见 [交接](V1.1.0_HANDOFF.md)、[风险记录](V1.1.0_RELEASE_WAIVERS.md) 和 [执行记录](V1.1_EXECUTION.md)。V1.0.0 旧批准没有转用于本版；以下旧阶段段落仅为历史。
 
 ## V1.1 候选架构增量

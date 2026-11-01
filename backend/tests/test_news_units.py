@@ -88,6 +88,24 @@ def test_registry_valid_disabled():
     assert not source.enabled
 
 
+def test_registry_accepts_explicit_original_publication_metadata_profile():
+    source = SourceDefinition(**definition(publication_metadata='json_ld_date_published'))
+    assert source.publication_metadata == 'json_ld_date_published'
+
+
+@pytest.mark.parametrize('changes', [
+    {'publication_metadata': 'use_updated'},
+    {'publication_metadata': 'json_ld_date_published', 'homepage': 'http://www.bbc.com'},
+    {'publication_metadata': 'json_ld_date_published', 'homepage': 'https://www.bbc.com:8443'},
+    {'publication_metadata': 'json_ld_date_published', 'source_type': 'rsshub', 'rsshub_path': '/news'},
+])
+def test_registry_publication_profile_cannot_expand_to_unreviewed_modes(changes):
+    payload = definition()
+    payload.update(changes)
+    with pytest.raises(ValidationError):
+        SourceDefinition(**payload)
+
+
 @pytest.mark.parametrize("field,value", [("feed_url", "bad"), ("homepage", "bad"), ("region", "moon"), ("id", "bad id")])
 def test_registry_rejects_invalid_fields(field, value):
     payload = definition()

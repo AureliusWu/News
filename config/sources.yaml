@@ -144,6 +144,7 @@ sources:
     priority: 20
 
   - id: "dw-world"
+    publication_metadata: "json_ld_date_published"
     name: "DW World"
     publisher: "Deutsche Welle"
     homepage: "https://www.dw.com"
@@ -365,6 +366,7 @@ sources:
     priority: 37
 
   - id: "nature"
+    publication_metadata: "json_ld_date_published"
     name: "Nature News"
     publisher: "Nature"
     homepage: "https://www.nature.com"
@@ -469,6 +471,7 @@ sources:
     priority: 45
 
   - id: "dw-german"
+    publication_metadata: "json_ld_date_published"
     name: "DW German"
     publisher: "Deutsche Welle"
     homepage: "https://www.dw.com"

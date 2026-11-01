@@ -29,6 +29,7 @@ class SourceDefinition(BaseModel):
     notes: str | None = None
     user_agent: str | None = None
     crawler: bool = False
+    publication_metadata: Literal['json_ld_date_published'] | None = None
     model_config = ConfigDict(str_strip_whitespace=True, extra="forbid")
 
     @field_validator("homepage")
@@ -40,6 +41,9 @@ class SourceDefinition(BaseModel):
 
     @model_validator(mode="after")
     def feed_is_valid(self):
+        if self.publication_metadata and (self.source_type != 'official_rss' or urlsplit(self.homepage).scheme != 'https'
+                                          or urlsplit(self.homepage).port not in (None, 443)):
+            raise ValueError('publication_metadata requires official RSS and an HTTPS publisher homepage')
         if self.source_type == "official_rss" and not safe_url(self.feed_url):
             raise ValueError("official_rss requires HTTP(S) feed_url")
         if self.source_type == "rsshub" and (not self.rsshub_path or not self.rsshub_path.startswith("/") or self.rsshub_path.startswith("//") or ".." in self.rsshub_path):
