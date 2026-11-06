@@ -1,9 +1,7 @@
 name: Deploy Frontend to GitHub Pages
-run-name: News Pages ${{ inputs.source_ref || github.ref_name }} - ${{ inputs.data_only && 'data-only' || github.event_name }}
+run-name: News Pages ${{ inputs.restore_release || inputs.source_ref || github.ref_name }} - ${{ inputs.data_only && 'data-only' || github.event_name }}
 
 on:
-  push:
-    branches: [main]
   workflow_dispatch:
     inputs:
       publish:
@@ -22,6 +20,10 @@ on:
         description: Build the fixed application with its separately approved version/source-bound receipt
         type: boolean
         default: false
+      restore_release:
+        description: Restore a pinned formal application archive and collect fresh data with main
+        type: string
+        default: ''
   schedule:
     - cron: '17,47 * * * *'
 
@@ -44,7 +46,7 @@ jobs:
         uses: actions/checkout@v4
         with:
           ref: ${{ inputs.source_ref || github.ref }}
-      - name: Record actual checked-out application source
+      - name: Record checked-out source
         run: echo "NEWS_SOURCE_REVISION=$(git rev-parse HEAD)" >> "$GITHUB_ENV"
       - name: Checkout the reviewed release control record
         if: inputs.formal_release
@@ -95,11 +97,32 @@ jobs:
         run: |
           python scripts/snapshot/restore_state.py
           python scripts/snapshot/collect.py
-      - name: Restore deployed code for scheduled data refresh
+      - name: Restore verified code for data refresh
         id: cached_app
-        if: (github.event_name == 'schedule' || inputs.data_only) && env.PAGES_DATA_MODE == 'snapshot'
+        if: inputs.restore_release || ((github.event_name == 'schedule' || inputs.data_only) && env.PAGES_DATA_MODE == 'snapshot')
+        env:
+          GH_TOKEN: ${{ github.token }}
+          RESTORE_RELEASE: ${{ inputs.restore_release }}
+          SOURCE_REF: ${{ inputs.source_ref }}
+          DATA_ONLY: ${{ inputs.data_only }}
+          FORMAL_BUILD: ${{ inputs.formal_release }}
         run: |
-          if [[ "${{ inputs.data_only }}" == 'true' ]]; then
+          if [[ -n "$RESTORE_RELEASE" ]]; then
+            test "$PAGES_DATA_MODE" = snapshot
+            test "$GITHUB_REF" = refs/heads/main
+            test -z "$SOURCE_REF"
+            test "$DATA_ONLY" != true
+            test "$FORMAL_BUILD" != true
+            python scripts/restore-pages-artifact.py --release "$RESTORE_RELEASE" --output artifacts/formal-archive --report artifacts/formal-archive.json
+            version="$(node -p "require('./artifacts/formal-archive/release.json').version")"
+            revision="$(node -p "require('./artifacts/formal-archive/release.json').source_revision")"
+            status="$(node -p "require('./artifacts/formal-archive/release.json').release_status")"
+            [[ "$status" == RELEASED || "$status" == RELEASED_WITH_WARNINGS ]]
+            node scripts/release-receipt.mjs --receipt "docs/releases/V${version}_ACCEPTANCE.json" --version "$version" --revision "$revision" --public artifacts/formal-archive/release.json --release-status "$status"
+            mkdir -p frontend/dist
+            rsync -a --exclude=/data/ artifacts/formal-archive/ frontend/dist/
+            echo 'restored=true' >> "$GITHUB_OUTPUT"
+          elif [[ "$DATA_ONLY" == 'true' ]]; then
             python scripts/snapshot/app_bundle.py restore --expected-revision "$NEWS_SOURCE_REVISION"
             test -s frontend/dist/release.json
           else
@@ -182,6 +205,14 @@ jobs:
           path: artifacts/pages-source-health.json
           retention-days: 8
           if-no-files-found: ignore
+      - name: Upload formal recovery provenance
+        if: inputs.restore_release && steps.cached_app.outputs.restored == 'true'
+        uses: actions/upload-artifact@v4
+        with:
+          name: formal-recovery-provenance
+          path: artifacts/formal-archive.json
+          retention-days: 14
+          if-no-files-found: error
       - name: Upload Pages artifact
         uses: actions/upload-pages-artifact@v3
         with:
