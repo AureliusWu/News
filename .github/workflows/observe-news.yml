@@ -9,6 +9,10 @@ on:
       expected_revision:
         description: Exact application source SHA; empty uses the pinned repository variable
         type: string
+      continuous:
+        description: Opt into 11 half-hour samples in this manually dispatched run (scheduled runs always take one sample)
+        type: boolean
+        default: false
   schedule:
     - cron: '8,38 * * * *'
 
@@ -31,7 +35,7 @@ jobs:
       GH_TOKEN: ${{ github.token }}
       OBSERVER_VERSION: ${{ inputs.expected_version || vars.NEWS_OBSERVER_VERSION || '1.0.0' }}
       OBSERVER_REVISION: ${{ inputs.expected_revision || vars.NEWS_OBSERVER_REVISION || '31cf95d6ae471bb961eb5b85a334ec78f4cce260' }}
-      NEWS_OBSERVER_CONTINUOUS: ${{ vars.NEWS_OBSERVER_CONTINUOUS || 'false' }}
+      NEWS_OBSERVER_CONTINUOUS: ${{ github.event_name == 'workflow_dispatch' && inputs.continuous && 'true' || 'false' }}
       NEWS_AUTO_RECOVERY_ENABLED: ${{ vars.NEWS_AUTO_RECOVERY_ENABLED || 'false' }}
       NEWS_RECOVERY_REF: ${{ vars.NEWS_RECOVERY_REF }}
     steps:
