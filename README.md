@@ -16,7 +16,7 @@
 - 事件聚合、事件详情与报道时间线。
 - 事件关注、收藏、筛选方案与本地备份。
 - GitHub Actions 定时生成和发布静态新闻快照。
-- 独立 freshness observer 监测线上数据新鲜度；工作流成功不等于数据新鲜。
+- 独立 freshness observer 监测线上数据新鲜度；计划任务单次取样，手动 continuous=true 才启用连续取样，详见 [观察器运行说明](docs/OBSERVER_OPERATIONS.md)。工作流成功不等于数据新鲜。
 - PWA 安装与 GitHub Pages 部署。
 
 ## 本地开发
@@ -28,8 +28,8 @@ npm install
 npm test
 npm run dev
 
-# 后端（可选开发路径）
-cd backend
+# 后端（可选开发路径；从上面的 frontend 返回到同级 backend）
+cd ../backend
 python -m pip install -r requirements.txt
 pytest
 ```

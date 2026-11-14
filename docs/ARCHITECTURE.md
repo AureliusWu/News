@@ -1,3 +1,7 @@
+## 2026-11-14：独立观察器运行控制
+
+`observe-news.yml` 的 schedule 每次只执行一次直接 HTTP 取样。连续观察仅由 workflow_dispatch 输入 `continuous=true` 显式开启，在本次运行内按半小时节奏完成 11 次取样；默认 false。旧 repository variable `NEWS_OBSERVER_CONTINUOUS` 已不再控制工作流，工作流会以事件和输入派生同名进程环境变量。恢复开关仍独立使用 `NEWS_AUTO_RECOVERY_ENABLED` 和固定 `NEWS_RECOVERY_REF`，不会因为 continuous 开启而自动开启恢复。历史绑定、真实观测与七天门禁仍独立，详细操作见 [OBSERVER_OPERATIONS.md](OBSERVER_OPERATIONS.md)。本次仅补文档和修正 README 的目录切换，没有更改已批准应用源码、采集逻辑或部署控制。
+
 ## 2026-11-01：RSS 缺失首发时间的有界原文元数据修复
 
 Pages 采集器对配置中显式设置 `publication_metadata: json_ld_date_published` 的官方源，在 RSS 没有首发时间时，可从同一篇 HTTPS 原文的 JSON-LD `datePublished` 取得明确时间。当前仅为 DW 英语、DW 德语与 Nature 开启；Miniflux 源同步行为不变。使用现有 httpx / BeautifulSoup / 标准库，没有新增运行依赖或基础设施。
