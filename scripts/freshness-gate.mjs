@@ -7,6 +7,13 @@ const WINDOW_MS = 7 * 86400000;
 const EXPECTED_SLOTS = WINDOW_MS / SLOT_MS;
 const MAX_RECORDS = 800;
 
+export function snapshotFreshness(observedAtMs, generatedAt) {
+  const ageMs = observedAtMs - Date.parse(generatedAt);
+  if (!Number.isFinite(ageMs)) return {status: 'INVALID', ageHours: null};
+  const status = ageMs < -5 * 60000 ? 'INVALID' : ageMs > 2 * 3600000 ? 'STALE' : 'FRESH';
+  return {status, ageHours: ageMs / 3600000};
+}
+
 export function compactObservation(row) {
   return {schema_version: 1, observed_at: row.observed_at, base_url: row.base_url,
     html: {status: row.html?.status, language_zh_cn: row.html?.language_zh_cn},
@@ -54,13 +61,11 @@ export function evaluateFreshness(rows, {now = Date.now(), expectedVersion = nul
     const time = Date.parse(row.observed_at);
     if (time < start || time >= end) continue;
     const slot = Math.floor((time - start) / SLOT_MS);
-    const generated = Date.parse(row.snapshot?.generated_at);
-    const age = time - generated;
+    const freshness = snapshotFreshness(time, row.snapshot?.generated_at);
     const good = !row.transport_error && row.html?.status === 200 && row.html?.language_zh_cn === true &&
       row.snapshot?.status === 200 && row.snapshot?.collector_gate_pass === true &&
       (row.snapshot.schema_version === undefined || row.snapshot.schema_version === 1) &&
-      row.source_health?.same_generation === true && Number.isFinite(generated) &&
-      age >= -5 * 60000 && age <= 2 * 3600000;
+      row.source_health?.same_generation === true && freshness.status === 'FRESH';
     // Multiple samples do not increase coverage; a failed sample cannot be hidden by a retry.
     buckets.set(slot, (buckets.get(slot) ?? true) && good);
   }

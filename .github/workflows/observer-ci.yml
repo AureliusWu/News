@@ -6,7 +6,7 @@ on:
     paths:
       - '.github/workflows/observe-news.yml'
       - '.github/workflows/observer-ci.yml'
-      - 'scripts/observe-public.mjs'
+      - 'scripts/observe-public*.mjs'
       - 'scripts/watch-public.mjs'
       - 'scripts/restore-observation-history.mjs'
       - 'scripts/summarize-observer-run*.mjs'
@@ -17,6 +17,7 @@ on:
       - 'scripts/release-receipt*.mjs'
       - 'scripts/snapshot-pair.mjs'
       - 'scripts/ai-feature-policy.mjs'
+      - 'backend/config/ai_features.json'
 
 permissions:
   contents: read
@@ -40,3 +41,4 @@ jobs:
           scripts/release-approval.test.mjs
           scripts/release-receipt.test.mjs
           scripts/summarize-observer-run.test.mjs
+          scripts/observe-public.test.mjs

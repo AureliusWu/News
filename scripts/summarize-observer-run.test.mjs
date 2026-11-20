@@ -8,14 +8,17 @@ import {fileURLToPath} from 'node:url';
 import {classifyPublicSample, formatObserverSummary} from './summarize-observer-run.mjs';
 
 const pinned = {version: '1.1.0', revision: 'a'.repeat(40)};
+const observedAt = Date.parse('2026-11-20T03:42:52.809Z');
 
 function sample(ageHours, fresh) {
   return {
     schema_version: 1,
+    observed_at: new Date(observedAt).toISOString(),
     base_url: 'https://aureliuswu.github.io/News/',
     html: {status: 200, language_zh_cn: true},
     release: {version: pinned.version, source_revision: pinned.revision},
     snapshot: {status: 200, schema_version: 1, collector_gate_pass: true,
+      generated_at: new Date(observedAt - ageHours * 3600000).toISOString(),
       age_hours: ageHours, freshness_2h_pass: fresh},
     source_health: {same_generation: true},
     scheduling: {hours_since_last_run: 2.80, max_interval_hours: 10.13}
@@ -23,8 +26,12 @@ function sample(ageHours, fresh) {
 }
 
 test('single bound sample reports stale separately from a fresh sample at the existing boundary', () => {
-  assert.equal(classifyPublicSample(sample(2, true), pinned).status, 'FRESH');
-  assert.equal(classifyPublicSample(sample(2.001, false), pinned).status, 'STALE');
+  assert.equal(classifyPublicSample(sample(2, false), pinned).status, 'FRESH');
+  const stale = sample(2.001, true);
+  stale.snapshot.age_hours = 0;
+  const assessment = classifyPublicSample(stale, pinned);
+  assert.equal(assessment.status, 'STALE');
+  assert.equal(assessment.ageHours, 2.001);
 });
 
 test('failed fetch and wrong pinned revision cannot be reported as stale or fresh', () => {
@@ -39,6 +46,9 @@ test('invalid future timestamp and unpaired source health remain visible as inva
   const row = sample(2.8, false);
   row.source_health.same_generation = false;
   assert.equal(classifyPublicSample(row, pinned).status, 'INVALID');
+  const invalidClock = sample(0, true);
+  invalidClock.snapshot.generated_at = 'bad clock';
+  assert.equal(classifyPublicSample(invalidClock, pinned).status, 'INVALID');
 });
 
 test('cadence summary marks capped input and remains separate from release acceptance', () => {
@@ -69,6 +79,13 @@ test('workflow entry point uses the latest raw sample and emits a nonfatal stale
       OBSERVER_VERSION: pinned.version, OBSERVER_REVISION: pinned.revision, GITHUB_STEP_SUMMARY: summaryPath}});
     assert.match(output, /::warning title=News public snapshot STALE::/);
     assert.match(readFileSync(summaryPath, 'utf8'), /\*\*STALE\*\*/);
+    writeFileSync(rawPaths[1], '{');
+    const invalid = execFileSync(process.execPath, [
+      fileURLToPath(new URL('./summarize-observer-run.mjs', import.meta.url)), dir
+    ], {encoding: 'utf8', env: {...process.env,
+      OBSERVER_VERSION: pinned.version, OBSERVER_REVISION: pinned.revision, GITHUB_STEP_SUMMARY: summaryPath}});
+    assert.match(invalid, /::warning title=News public snapshot INVALID::/);
+    assert.doesNotMatch(invalid, /\*\*FRESH\*\*/);
   } finally {
     for (const path of [...rawPaths, summaryPath]) {
       try { unlinkSync(path); } catch (error) { if (error.code !== 'ENOENT') throw error; }

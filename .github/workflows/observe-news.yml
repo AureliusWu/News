@@ -44,7 +44,7 @@ jobs:
         with:
           node-version: '22'
       - name: Test report binding and freshness rules before observation
-        run: node --test scripts/release-gates.test.mjs scripts/observation-recovery.test.mjs scripts/summarize-observer-run.test.mjs
+        run: node --test scripts/release-gates.test.mjs scripts/observation-recovery.test.mjs scripts/summarize-observer-run.test.mjs scripts/observe-public.test.mjs
       - name: Restore the last completed observer history, including failed samples
         id: history
         run: |
