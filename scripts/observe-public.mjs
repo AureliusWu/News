@@ -40,13 +40,17 @@ try {
     summary:sourceHealth.summary??sourceHealth.health};
   let history=[],historyError=null;
   try {
-    history=JSON.parse(execFileSync("gh",["run","list","--repo","AureliusWu/News","--workflow","deploy-gh-pages.yml","--limit","100",
+    history=JSON.parse(execFileSync("gh",["run","list","--repo","AureliusWu/News","--workflow","deploy-gh-pages.yml","--branch","main","--event","schedule","--limit","100",
       "--json","databaseId,conclusion,event,createdAt,updatedAt,headSha"],{encoding:"utf8",timeout:30000}));
   } catch(error) {historyError=String(error.message).slice(0,500);}
-  const runs=history.filter(r=>r.event==="schedule"&&Date.parse(r.createdAt)>=observedAt.getTime()-7*86400000)
+  const runs=history.filter(r=>r.event==="schedule"&&Date.parse(r.createdAt)>=observedAt.getTime()-7*86400000&&Date.parse(r.createdAt)<=observedAt.getTime())
     .sort((a,b)=>Date.parse(a.createdAt)-Date.parse(b.createdAt));
   const gaps=runs.slice(1).map((r,i)=>(Date.parse(r.createdAt)-Date.parse(runs[i].createdAt))/3600000);
+  const latestRun = runs.at(-1);
   observation.scheduling={run_count_7d:runs.length,intervals_hours:gaps,max_interval_hours:gaps.length?Math.max(...gaps):null,
+    latest_run_id:latestRun?.databaseId??null, latest_run_at:latestRun?.createdAt??null,
+    hours_since_last_run:latestRun?(observedAt.getTime()-Date.parse(latestRun.createdAt))/3600000:null,
+    history_capped:history.length===100,
     caveat:"Run intervals are not independent snapshot-age observations and do not establish seven-day freshness.",error:historyError};
   observation.workflow_history=history;
 } catch(error) {

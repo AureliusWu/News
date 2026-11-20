@@ -44,7 +44,7 @@ jobs:
         with:
           node-version: '22'
       - name: Test report binding and freshness rules before observation
-        run: node --test scripts/release-gates.test.mjs scripts/observation-recovery.test.mjs
+        run: node --test scripts/release-gates.test.mjs scripts/observation-recovery.test.mjs scripts/summarize-observer-run.test.mjs
       - name: Restore the last completed observer history, including failed samples
         id: history
         run: |
@@ -82,3 +82,6 @@ jobs:
           path: artifacts/v1-cloud-observer/incoming/
           retention-days: 14
           if-no-files-found: error
+      - name: Report current snapshot health and Pages cadence
+        if: always()
+        run: node scripts/summarize-observer-run.mjs artifacts/v1-cloud-observer/incoming

@@ -10,4 +10,6 @@
 
 观察器不会因连续取样自动开启恢复。`NEWS_AUTO_RECOVERY_ENABLED`、`NEWS_RECOVERY_REF` 仍为独立控制，原固定标签核验、单次上限与发布冲突检查保持。历史 Artifact 恢复失败不能以空历史替代；真实取样、数据绑定、七天覆盖率和任务是否成功分别判断。绿色任务不代表七天门禁通过，也不代表所有新闻源健康。
 
-本次仅更新运行说明、架构说明和 README 目录切换；没有发布新应用或更改已批准源码。验证：对照现行 workflow/watch-public.mjs，并执行 release-gates 与 observation-recovery 的无网络合同测试。
+每个运行的 Actions 摘要显示当次最新直接样本。FRESH 表示已绑定应用的本次快照满足两小时目标，STALE 表示有效快照超过时限。取样或响应不完整显示 UNAVAILABLE，版本或源码绑定不符显示 UNBOUND，时间或采集门禁及同代报告异常显示 INVALID。除 FRESH 以外各状态会生成一条 Actions 工作流警告，原始样本及七天报告继续留在工件中。工作流警告是 Actions 注解，不能独立发送邮件或 GitHub Inbox 通知。
+
+调度摘要独立显示距最近记录的定时 Pages 运行的时长，以及取样窗口内已见的最大相邻间隔。查询只取 main 的 schedule 事件，最多 100 条。达到上限时可能缺少更早记录。两项指标只能说明已记录触发的间隔，不能验证平台调度原因。

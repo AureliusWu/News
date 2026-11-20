@@ -1,0 +1,42 @@
+name: News observer contracts
+
+on:
+  pull_request:
+    branches: [main]
+    paths:
+      - '.github/workflows/observe-news.yml'
+      - '.github/workflows/observer-ci.yml'
+      - 'scripts/observe-public.mjs'
+      - 'scripts/watch-public.mjs'
+      - 'scripts/restore-observation-history.mjs'
+      - 'scripts/summarize-observer-run*.mjs'
+      - 'scripts/observation-recovery*.mjs'
+      - 'scripts/freshness-gate.mjs'
+      - 'scripts/release-gates.test.mjs'
+      - 'scripts/release-approval*.mjs'
+      - 'scripts/release-receipt*.mjs'
+      - 'scripts/snapshot-pair.mjs'
+      - 'scripts/ai-feature-policy.mjs'
+
+permissions:
+  contents: read
+
+jobs:
+  observer-contracts:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 5
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - name: Test observer and release contracts with local fixtures
+        run: >-
+          node --test
+          scripts/release-gates.test.mjs
+          scripts/observation-recovery.test.mjs
+          scripts/release-approval.test.mjs
+          scripts/release-receipt.test.mjs
+          scripts/summarize-observer-run.test.mjs
